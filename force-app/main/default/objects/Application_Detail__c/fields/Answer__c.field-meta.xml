@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Answer__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( RecordType.DeveloperName == &apos;Input_Checkbox&apos;, IF(Input_Checkbox__c, &quot;TRUE&quot;, &quot;FALSE&quot;), 
+IF( RecordType.DeveloperName == &apos;Input_Currency&apos;, TEXT( Input_Currency__c ), 
+IF( RecordType.DeveloperName == &apos;Input_Date&apos;, TEXT( Input_Date__c ),
+IF( RecordType.DeveloperName == &apos;Input_Datetime&apos;, TEXT( Input_Datetime__c ), 
+IF( RecordType.DeveloperName == &apos;Input_Number&apos;, TEXT( Input_Number__c ),
+IF( RecordType.DeveloperName == &apos;Input_Text&apos;, Input_Text__c,
+IF( RecordType.DeveloperName == &apos;Input_Picklist&apos;, Input_Text__c, &apos;&apos;)
+ )
+ )
+ )
+ )
+ ) 
+ )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Answer</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
