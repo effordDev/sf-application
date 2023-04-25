@@ -1,0 +1,111 @@
+<template>
+	<template lwc:if={isDisplayText}>
+		<c-application-display-text
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			class={inputDisplayClass}
+		></c-application-display-text>
+	</template>
+
+	<template lwc:if={isDisplayRichText}>
+		<c-application-display-rich-text
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			class={inputDisplayClass}
+		></c-application-display-rich-text>
+	</template>
+
+	<template lwc:if={isInputTextAreaLong}>
+		<c-application-input-text-area-long
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		></c-application-input-text-area-long>
+	</template>
+
+	<template lwc:if={isInputText}>
+		<c-application-input-text
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		></c-application-input-text>
+	</template>
+
+	<template lwc:if={isInputNumber}>
+		<c-application-input-number
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		></c-application-input-number>
+	</template>
+
+	<template lwc:if={isInputCurrency}>
+		<c-application-input-currency
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		></c-application-input-currency>
+	</template>
+
+	<template lwc:if={isInputCheckbox}>
+		<c-application-input-checkbox
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		></c-application-input-checkbox>
+	</template>
+
+	<template lwc:if={isInputPicklist}>
+		<c-application-input-picklist
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		></c-application-input-picklist>
+	</template>
+
+	<template lwc:if={isInputDate}>
+		<c-application-input-date
+			record-id={recordId}
+			lwc:ref="input"
+			section-id={sectionId}
+			detail={detail}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		></c-application-input-date>
+	</template>
+
+	<template lwc:if={isInputDateTime}>
+		<c-application-input-datetime
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		></c-application-input-datetime>
+	</template>
+
+	<template lwc:if={isCustomComponent}>
+		<!-- is custom component -->
+	</template>
+</template>

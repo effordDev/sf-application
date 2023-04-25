@@ -1,0 +1,13 @@
+<template>
+	<lightning-input
+		type="number"
+		name={label}
+		label={label}
+		value={val}
+		formatter="currency"
+		step="0.01"
+		onchange={handleChange}
+		required={required}
+		disabled={readOnly}
+	></lightning-input>
+</template>

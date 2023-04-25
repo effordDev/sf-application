@@ -1,0 +1,70 @@
+<template>
+	<div class="wrapper">
+		<div class="slds-text-heading_large">{applicationDisplayName}</div>
+
+		<lightning-layout multiple-rows horizontal-align="spread">
+			<lightning-layout-item
+				size={size}
+				small-device-size={smallDeviceSize}
+				medium-device-size={mediumDeviceSize}
+				large-device-size={largeDeviceSize}
+				padding="around-small"
+			>
+				<label class="slds-form-element__label"> Application Number </label>
+				<div class="slds-text-body_regular">{name}</div>
+			</lightning-layout-item>
+
+			<lightning-layout-item
+				size={size}
+				small-device-size={smallDeviceSize}
+				medium-device-size={mediumDeviceSize}
+				large-device-size={largeDeviceSize}
+				padding="around-small"
+			>
+				<label class="slds-form-element__label"> Status </label>
+				<div class="slds-text-body_regular">{status}</div>
+			</lightning-layout-item>
+
+			<lightning-layout-item
+				size={size}
+				small-device-size={smallDeviceSize}
+				medium-device-size={mediumDeviceSize}
+				large-device-size={largeDeviceSize}
+				padding="around-small"
+			>
+				<label class="slds-form-element__label"> Created Date </label>
+				<div class="slds-text-body_regular">
+					<lightning-formatted-date-time
+						value={createdDate}
+					></lightning-formatted-date-time>
+				</div>
+			</lightning-layout-item>
+		</lightning-layout>
+
+		<br />
+
+		<div class="slds-text-body_regular">{displayDescription}</div>
+
+		<!-- <div class="btn-container slds-align_absolute-center"> -->
+		<template for:each={sections} for:item="section">
+			<div class="btn-container" key={section.Id}>
+				<c-application-section
+					record-id={recordId}
+					section={section}
+					read-only={readOnly}
+					onrefresh={fetchApplication}
+				></c-application-section>
+			</div>
+		</template>
+		<!-- </div> -->
+
+		<button
+			class="slds-button slds-button_brand btn-responsive-width"
+			onclick={handleSubmit}
+			style="text-align: center"
+			disabled={submitBtnDisabled}
+		>
+			Submit
+		</button>
+	</div>
+</template>

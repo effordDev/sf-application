@@ -1,0 +1,43 @@
+<template>
+	<lightning-modal-header label={label}></lightning-modal-header>
+
+	<lightning-modal-body>
+		<lightning-layout multiple-rows>
+			<template for:each={details} for:item="detail">
+				<lightning-layout-item
+					key={detail.Id}
+					size="12"
+					small-device-size={detail.Small_Device_Size__c}
+					medium-device-size={detail.Medium_Device_Size__c}
+					large-device-size={detail.Large_Device_Size__c}
+					padding="around-small"
+				>
+					<c-application-detail-type
+						record-id={recordId}
+						section-id={sectionId}
+						detail={detail}
+						read-only={readOnly}
+						class={detail.InputOrDisplayClass__c}
+					></c-application-detail-type>
+				</lightning-layout-item>
+			</template>
+		</lightning-layout>
+	</lightning-modal-body>
+
+	<lightning-modal-footer>
+		<lightning-button
+			label={closeBtnLabel}
+			onclick={handleClose}
+			class="footer-button"
+		></lightning-button>
+
+		<template lwc:if={editable}>
+			<lightning-button
+				label="Save & Close"
+				onclick={handleSave}
+				variant="brand"
+				class="footer-button"
+			></lightning-button>
+		</template>
+	</lightning-modal-footer>
+</template>
