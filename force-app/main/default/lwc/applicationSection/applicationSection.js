@@ -86,6 +86,9 @@ export default class ApplicationSection extends LightningElement {
 
 	async handleSave() {
 		try {
+
+			this.dispatchEvent(new CustomEvent("loading"));
+
 			console.log("handle save running");
 
 			await saveApplicationDetails({
@@ -94,6 +97,7 @@ export default class ApplicationSection extends LightningElement {
 				details: this.detailsToUpdate
 			});
 
+			//reset details
 			await this.fetchApplicationDetails();
 
 			this.dispatchEvent(new CustomEvent("refresh"));
@@ -101,6 +105,8 @@ export default class ApplicationSection extends LightningElement {
 			console.log("handle save completed");
 		} catch (error) {
 			console.error(error);
+		} finally {
+			this.dispatchEvent(new CustomEvent("loading"));
 		}
 	}
 }
