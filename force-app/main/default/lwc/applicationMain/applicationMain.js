@@ -1,4 +1,5 @@
 import { api, track, LightningElement } from "lwc";
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getApplication from "@salesforce/apex/ApplicationHelper.getApplication";
 import saveApplication from "@salesforce/apex/ApplicationHelper.saveApplication";
 
@@ -12,7 +13,7 @@ export default class ApplicationMain extends LightningElement {
 	mediumDeviceSize = 4;
 	largeDeviceSize = 4;
 
-	hasRendered = false;
+	isLoading = false;
 
 	connectedCallback() {
 		this.fetchApplication();
@@ -52,11 +53,26 @@ export default class ApplicationMain extends LightningElement {
 
 	async fetchApplication() {
 		try {
+			this.isLoading = true
+
 			this.application = await getApplication({ recordId: this.recordId });
 			console.log(JSON.parse(JSON.stringify(this.application)));
 		} catch (error) {
-			//silent
+			//silent fail - check debugs
+		} finally {
+			this.isLoading = false
 		}
+	}
+
+	handleRefresh() {
+
+		this.toast()
+
+		this.fetchApplication()
+	}
+
+	handleLoading() {
+		this.isLoading = this.isLoading ? false : true
 	}
 
 	async handleSubmit() {
@@ -68,5 +84,21 @@ export default class ApplicationMain extends LightningElement {
 		};
 
 		this.application = await saveApplication({ app });
+	}
+
+	toast(
+		title = 'Success',
+		message = 'Application updated',
+		variant = 'success',
+		mode = 'dismissible'
+	) {
+		this.dispatchEvent(
+			new ShowToastEvent({
+				title,
+				message,
+				variant,
+				mode
+			})
+		)
 	}
 }
