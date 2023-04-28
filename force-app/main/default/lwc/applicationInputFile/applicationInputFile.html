@@ -1,0 +1,61 @@
+<template>
+
+     <div class={boxClass}>
+
+          Accepted Formats: {formattedAcceptedFormats}
+
+          <lightning-file-upload
+               label={label}
+               name={label}
+               accept={acceptedFormats}
+               record-id={recordId}
+               onuploadfinished={handleUploadFinished}
+               disabled={readOnly}
+               multiple
+          ></lightning-file-upload>
+
+
+          <table>
+               <template for:each={files} for:item="file">
+                    <tr key={file.Id}>
+                         <!-- <td class="selector">
+                              <lightning-icon size="x-small" data-id={file.ContentDocumentId} icon-name="action:delete" onclick={handleDelete}></lightning-icon>
+                         </td> -->
+                         <td style="width: 30px">
+                              <lightning-icon size="small" icon-name={file.icon}></lightning-icon>
+                         </td>
+                         <td>
+                              <div class="files slds-text-body_small">
+                                   {file.Title}.{file.FileExtension}
+                              </div>
+                              <div  class="info">
+                                   <div class="slds-text-body_small">
+                                        Original File Name: {file.PathOnClient}
+                                   </div>
+                                   <lightning-formatted-date-time key={file.Id} value={file.ContentModifiedDate}></lightning-formatted-date-time>
+                              </div>
+                         </td>
+                    </tr>
+               </template>
+          </table>
+
+          <!-- <template for:each={files} for:item="file">
+               <div key={file.Id}>
+                    <span>
+                         <lightning-icon size="x-small" icon-name={file.icon}></lightning-icon>
+                    </span>
+                    <span key={file.Id} class="files slds-text-body_small" data-id={file.ContentDocumentId}> 
+                         {file.Title}.{file.FileExtension}
+                    </span>
+                    <div key={file.Id} class="info">
+                         <div class="slds-text-body_small">
+                              Original File Name: {file.PathOnClient}
+                         </div>
+                         <lightning-formatted-date-time key={file.Id} value={file.ContentModifiedDate}></lightning-formatted-date-time>
+                    </div>
+               </div>
+          </template> -->
+     </div>
+
+</template>
+

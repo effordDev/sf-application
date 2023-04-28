@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Input_Number</fullName>
+    <fullName>Input_File</fullName>
     <active>true</active>
-    <label>Input Number</label>
+    <label>Input File</label>
     <picklistValues>
         <picklist>Accepted_File_Types__c</picklist>
         <values>

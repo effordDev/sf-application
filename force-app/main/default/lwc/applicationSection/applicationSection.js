@@ -60,7 +60,7 @@ export default class ApplicationSection extends LightningElement {
 				readOnly: this.readOnly,
 
 				ondetailchange: (event) => this.handleDetailChange(event),
-				onsave: (event) => this.handleSave(event)
+				onsave: (event) => this.handleSave(event),
 			});
 
 			console.log(result);

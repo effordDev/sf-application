@@ -78,7 +78,9 @@ public with sharing class ApplicationTriggerHelper {
 				Small_Device_Size__c,
 				Required__c,
 				Sort_Order__c,
-				Component_Name__c
+				Component_Name__c,
+				File_Rename__c,
+				Accepted_File_Types__c
 			FROM Reference_Application_Detail__c
 			WHERE Reference_Application_Section__c = :referenceApplicationSectionIds
 		]) {
@@ -151,6 +153,8 @@ public with sharing class ApplicationTriggerHelper {
 				applicationDetail.Required__c = referenceApplicationDetail.Required__c;
 				applicationDetail.Sort_Order__c = referenceApplicationDetail.Sort_Order__c;
 				applicationDetail.Component_Name__c = referenceApplicationDetail.Component_Name__c;
+				applicationDetail.File_Rename__c = referenceApplicationDetail.File_Rename__c;
+				applicationDetail.Accepted_File_Types__c = referenceApplicationDetail.Accepted_File_Types__c;
 
 				// system.debug('record type name');
 				// system.debug(referenceApplicationDetail.RecordType.DeveloperName);

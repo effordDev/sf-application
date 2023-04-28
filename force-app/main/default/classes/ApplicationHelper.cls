@@ -59,7 +59,9 @@ public with sharing class ApplicationHelper {
 				Input_Datetime__c,
 				Input_Number__c,
 				Input_Text__c,
-				Input_Text_Long__c
+				Input_Text_Long__c,
+				File_Rename__c,
+				Accepted_File_Types__c
 			FROM Application_Detail__c
 			WHERE Application_Section__c = :applicationSectionId
 			ORDER BY Sort_Order__c ASC
@@ -78,36 +80,39 @@ public with sharing class ApplicationHelper {
 			AggregateResult arRequiredQuestions = [
 				SELECT Application_Section__c, COUNT(Id) RequiredQuestions
 				FROM Application_Detail__c
-				WHERE Application_Section__c = :sectionId AND Required__c = TRUE
+				WHERE Application_Section__c = :sectionId 
+				AND Required__c = TRUE
 				GROUP BY Application_Section__c
 			];
 
 			AggregateResult arRequiredQuestionsAnswered = [
 				SELECT Application_Section__c, COUNT(Id) RequiredQuestionsAnswered
 				FROM Application_Detail__c
-				WHERE
-					Application_Section__c = :sectionId
+				WHERE Application_Section__c = :sectionId
 					AND Required__c = TRUE
 					AND Required_Question_Answered__c = TRUE
 				GROUP BY Application_Section__c
 			];
 
-			// system.debug('arRequiredQuestions.get(RequiredQuestions)');
-			// system.debug(arRequiredQuestions.get('RequiredQuestions'));
-			// system.debug('arRequiredQuestionsAnswered.get(RequiredQuestionsAnswered');
-			// system.debug(arRequiredQuestionsAnswered.get('RequiredQuestionsAnswered'));
+			system.debug('arRequiredQuestions');
+			system.debug(arRequiredQuestions);
+			system.debug('arRequiredQuestionsAnswered');
+			system.debug(arRequiredQuestionsAnswered);
+			system.debug('--------------------------------------------------');
+			system.debug('arRequiredQuestions.get(RequiredQuestions)');
+			system.debug(arRequiredQuestions.get('RequiredQuestions'));
+			system.debug('arRequiredQuestionsAnswered.get(RequiredQuestionsAnswered');
+			system.debug(arRequiredQuestionsAnswered.get('RequiredQuestionsAnswered'));
 
 			if (
 				arRequiredQuestions.get('RequiredQuestions') ==
 				arRequiredQuestionsAnswered.get('RequiredQuestionsAnswered')
 			) {
 				Application_Section__c section = new Application_Section__c();
-				section.Id = sectionId;
-				section.Completed__c = true;
-
-				System.debug('section complete');
+					section.Id = sectionId;
+					section.Completed__c = true;
 				update section;
-			}
+			} 
 
 			Application__c app = new Application__c(
 				Id = recordId,
@@ -125,4 +130,60 @@ public with sharing class ApplicationHelper {
 		update app;
 		return getApplication(app.Id);
 	}
+
+	@AuraEnabled
+	public static List<ContentVersion> getFiles(String recordId, String title){
+		// get links
+		List<ContentDocumentLink> links = [
+			SELECT ContentDocumentId 
+			FROM ContentDocumentLink 
+			WHERE LinkedEntityId =: recordId
+		];
+
+		// get doc ids
+		Set<Id> docIds = new Set<Id>();
+		for(ContentDocumentLink link : links){
+			docIds.add( link.ContentDocumentId );
+		}
+
+		title = title + '%';
+
+		// get versions
+		List<ContentVersion> versions = [
+			SELECT Id, Title, PathOnClient, ContentDocumentId, ContentUrl,
+				FileExtension, FileType, ContentSize, OwnerId, ContentModifiedDate
+			FROM ContentVersion 
+			WHERE ContentDocumentId IN : docIds
+			AND Title LIKE : title
+		];
+
+		return versions;
+	}
+
+	@AuraEnabled
+	public static void renameFiles(List<Id> contentVersionIds, String name){
+		List<ContentVersion> versions = [
+		    SELECT Id, Title, FileExtension
+		    FROM ContentVersion 
+		    WHERE Id IN : contentVersionIds
+		];
+  
+		for (ContentVersion v : versions ) {
+		    v.Title = name;
+		}
+  
+		update versions;
+	}	
+
+	@AuraEnabled
+	public static void deleteFile(Id contentDocumentId){
+		// List<ContentDocument> contentDocuementsTodelete = new List<ContentDocument>(); 
+  
+		// for (String contentDocumentId : contentDocumentIds ) {
+		// 	contentDocuementsTodelete.add(new ContentDocument(Id = contentDocumentId));
+		// }
+		ContentDocument cd = new ContentDocument();
+			cd.Id = contentDocumentId;
+		delete cd;
+	}	
 }

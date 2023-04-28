@@ -51,6 +51,9 @@ export default class ApplicationDetailType extends LightningElement {
 	get isInputDateTime() {
 		return this.recordTypeName === "Input_Date_Time";
 	}
+	get isInputFile() {
+		return this.recordTypeName === "Input_File";
+	}
 	get isCustomComponent() {
 		return this.recordTypeName === "Custom_Component";
 	}

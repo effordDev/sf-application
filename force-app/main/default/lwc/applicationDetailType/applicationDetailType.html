@@ -105,6 +105,17 @@
 		></c-application-input-datetime>
 	</template>
 
+	<template lwc:if={isInputFile}>
+		<c-application-input-file
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		></c-application-input-file>
+	</template>
+
 	<template lwc:if={isCustomComponent}>
 		<!-- is custom component -->
 	</template>
