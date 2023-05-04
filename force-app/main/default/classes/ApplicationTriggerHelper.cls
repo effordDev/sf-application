@@ -1,4 +1,4 @@
-public with sharing class ApplicationTriggerHelper {
+public without sharing class ApplicationTriggerHelper {
 	public static void beforeInsert(List<Application__c> applications) {
 		setApplicationDefaults(applications);
 	}
@@ -136,6 +136,10 @@ public with sharing class ApplicationTriggerHelper {
 			List<Reference_Application_Detail__c> referenceApplicationDetails = referenceApplicationDetailMap.get(
 				applicationSection.Reference_Application_Section__c
 			);
+
+			if (referenceApplicationDetails == null) {
+				continue;
+			}
 
 			for (
 				Reference_Application_Detail__c referenceApplicationDetail : referenceApplicationDetails
