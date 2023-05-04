@@ -1,6 +1,4 @@
 import { api, LightningElement } from "lwc";
-import customComponent from "c/testComponent";
-
 export default class ApplicationDetailType extends LightningElement {
 	@api recordId;
 	@api sectionId;
