@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Application_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Application__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Application_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Application__c</pageOrSobjectType>
+    </actionOverrides>
+    <brand>
+        <headerColor>#DE02B6</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>App to help facilitate the creation of application.</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>Reference Application Helper</label>
+    <navType>Standard</navType>
+    <tabs>Reference_Application__c</tabs>
+    <tabs>Reference_Application_Section__c</tabs>
+    <tabs>Reference_Application_Detail__c</tabs>
+    <tabs>Application__c</tabs>
+    <tabs>Application_Section__c</tabs>
+    <tabs>Application_Detail__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Reference_Application_Helper_UtilityBar</utilityBar>
+</CustomApplication>
