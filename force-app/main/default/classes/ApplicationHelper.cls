@@ -74,45 +74,31 @@ public with sharing class ApplicationHelper {
 		Id sectionId,
 		List<Application_Detail__c> details
 	) {
-		try {
-			update details;
+		update details;
 
-			AggregateResult arRequiredQuestions = [
-				SELECT Application_Section__c, COUNT(Id) RequiredQuestions
-				FROM Application_Detail__c
-				WHERE Application_Section__c = :sectionId 
+		List<AggregateResult> arRequiredQuestionsList = [
+			SELECT Application_Section__c, COUNT(Id) RequiredQuestions
+			FROM Application_Detail__c
+			WHERE Application_Section__c = :sectionId 
+			AND Required__c = TRUE
+			GROUP BY Application_Section__c
+		];
+
+		List<AggregateResult> arRequiredQuestionsAnsweredList = [
+			SELECT Application_Section__c, COUNT(Id) RequiredQuestionsAnswered
+			FROM Application_Detail__c
+			WHERE Application_Section__c = :sectionId
 				AND Required__c = TRUE
-				GROUP BY Application_Section__c
-			];
+				AND Required_Question_Answered__c = TRUE
+			GROUP BY Application_Section__c
+		];
 
-			AggregateResult arRequiredQuestionsAnswered = [
-				SELECT Application_Section__c, COUNT(Id) RequiredQuestionsAnswered
-				FROM Application_Detail__c
-				WHERE Application_Section__c = :sectionId
-					AND Required__c = TRUE
-					AND Required_Question_Answered__c = TRUE
-				GROUP BY Application_Section__c
-			];
-
-			system.debug('arRequiredQuestions');
-			system.debug(arRequiredQuestions);
-			system.debug('arRequiredQuestionsAnswered');
-			system.debug(arRequiredQuestionsAnswered);
-			system.debug('--------------------------------------------------');
-			system.debug('arRequiredQuestions.get(RequiredQuestions)');
-			system.debug(arRequiredQuestions.get('RequiredQuestions'));
-			system.debug('arRequiredQuestionsAnswered.get(RequiredQuestionsAnswered');
-			system.debug(arRequiredQuestionsAnswered.get('RequiredQuestionsAnswered'));
-
-			if (
-				arRequiredQuestions.get('RequiredQuestions') ==
-				arRequiredQuestionsAnswered.get('RequiredQuestionsAnswered')
-			) {
-				Application_Section__c section = new Application_Section__c();
-					section.Id = sectionId;
-					section.Completed__c = true;
-				update section;
-			} 
+		if (arRequiredQuestionsList.isEmpty()) {
+			
+			Application_Section__c section = new Application_Section__c();
+				section.Id = sectionId;
+				section.Completed__c = true;
+			update section;
 
 			Application__c app = new Application__c(
 				Id = recordId,
@@ -120,9 +106,29 @@ public with sharing class ApplicationHelper {
 			);
 
 			update app;
-		} catch (Exception e) {
-			throw new AuraHandledException(e.getMessage());
+
+			return;
 		}
+
+		AggregateResult arRequiredQuestions = arRequiredQuestionsList[0];
+		AggregateResult arRequiredQuestionsAnswered = arRequiredQuestionsAnsweredList[0];
+
+		if (
+			arRequiredQuestions.get('RequiredQuestions') ==
+			arRequiredQuestionsAnswered.get('RequiredQuestionsAnswered')
+		) {
+			Application_Section__c section = new Application_Section__c();
+				section.Id = sectionId;
+				section.Completed__c = true;
+			update section;
+		} 
+
+		Application__c app = new Application__c(
+			Id = recordId,
+			Status__c = 'In Progress'
+		);
+
+		update app;
 	}
 
 	@AuraEnabled
