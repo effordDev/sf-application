@@ -43,7 +43,7 @@
         <editable>true</editable>
         <field>Reference_Application_Section__c.Sort_Order__c</field>
         <visible>true</visible>
-    </fieldPermissions
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Reference_Application_Detail__c.Accepted_File_Types__c</field>
