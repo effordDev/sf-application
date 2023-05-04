@@ -429,6 +429,120 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
+    <layoutAssignments>
+        <layout>Application_Detail__c-Custom Component</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Application_Detail__c-Custom Component</layout>
+        <recordType>Application_Detail__c.Custom_Component</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Application_Detail__c-Display Rich Text</layout>
+        <recordType>Application_Detail__c.Display_Rich_Text</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Application_Detail__c-Display Text</layout>
+        <recordType>Application_Detail__c.Display_Text</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Application_Detail__c-Input Checkbox</layout>
+        <recordType>Application_Detail__c.Input_Checkbox</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Application_Detail__c-Input Currency</layout>
+        <recordType>Application_Detail__c.Input_Currency</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Application_Detail__c-Input Date</layout>
+        <recordType>Application_Detail__c.Input_Date</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Application_Detail__c-Input Date Time</layout>
+        <recordType>Application_Detail__c.Input_Date_Time</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Application_Detail__c-Input File</layout>
+        <recordType>Application_Detail__c.Input_File</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Application_Detail__c-Input Number</layout>
+        <recordType>Application_Detail__c.Input_Number</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Application_Detail__c-Input Picklist</layout>
+        <recordType>Application_Detail__c.Input_Picklist</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Application_Detail__c-Input Text</layout>
+        <recordType>Application_Detail__c.Input_Text</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Application_Detail__c-Input Text Long Area</layout>
+        <recordType>Application_Detail__c.Input_Text_Area_Long</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Application_Section__c-Application Section Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Application__c-Application Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Detail__c-Custom Component</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Detail__c-Custom Component</layout>
+        <recordType>Reference_Application_Detail__c.Custom_Component</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Detail__c-Display Rich Text</layout>
+        <recordType>Reference_Application_Detail__c.Display_Rich_Text</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Detail__c-Display Text</layout>
+        <recordType>Reference_Application_Detail__c.Display_Text</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Detail__c-Input Checkbox</layout>
+        <recordType>Reference_Application_Detail__c.Input_Checkbox</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Detail__c-Input Currency</layout>
+        <recordType>Reference_Application_Detail__c.Input_Currency</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Detail__c-Input Date</layout>
+        <recordType>Reference_Application_Detail__c.Input_Date</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Detail__c-Input Date Time</layout>
+        <recordType>Reference_Application_Detail__c.Input_Date_Time</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Detail__c-Input File</layout>
+        <recordType>Reference_Application_Detail__c.Input_File</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Detail__c-Input Number</layout>
+        <recordType>Reference_Application_Detail__c.Input_Number</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Detail__c-Input Picklist</layout>
+        <recordType>Reference_Application_Detail__c.Input_Picklist</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Detail__c-Input Text</layout>
+        <recordType>Reference_Application_Detail__c.Input_Text</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Detail__c-Input Text Area Long</layout>
+        <recordType>Reference_Application_Detail__c.Input_Text_Area_Long</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Section__c-Reference Application Section Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application__c-Reference Application Layout</layout>
+    </layoutAssignments>
     <userPermissions>
         <enabled>true</enabled>
         <name>AIViewInsightObjects</name>
