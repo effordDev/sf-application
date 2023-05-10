@@ -62,7 +62,8 @@ public with sharing class ApplicationHelper {
 				Input_Text_Long__c,
 				File_Rename__c,
 				Accepted_File_Types__c,
-				Custom_Component_JSON__c
+				Custom_Component_JSON__c,
+				Component_Name__c
 			FROM Application_Detail__c
 			WHERE Application_Section__c = :applicationSectionId
 			ORDER BY Sort_Order__c ASC
