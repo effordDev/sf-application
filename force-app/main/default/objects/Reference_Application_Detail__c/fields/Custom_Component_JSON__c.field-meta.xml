@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Custom_Component_JSON__c</fullName>
+    <description>Pass JSON to custom components</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Pass JSON to custom components</inlineHelpText>
+    <label>Custom Component JSON</label>
+    <length>32768</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

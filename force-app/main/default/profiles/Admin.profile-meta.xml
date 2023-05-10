@@ -135,6 +135,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Application_Detail__c.Custom_Component_JSON__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Application_Section__c.Completed__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -216,6 +221,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Reference_Application_Detail__c.Small_Device_Size__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Custom_Component_JSON__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

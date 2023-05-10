@@ -1,4 +1,4 @@
-public without sharing class ApplicationTriggerHelper {
+public with sharing class ApplicationTriggerHelper {
 	public static void beforeInsert(List<Application__c> applications) {
 		setApplicationDefaults(applications);
 	}
@@ -80,7 +80,8 @@ public without sharing class ApplicationTriggerHelper {
 				Sort_Order__c,
 				Component_Name__c,
 				File_Rename__c,
-				Accepted_File_Types__c
+				Accepted_File_Types__c,
+				Custom_Component_JSON__c
 			FROM Reference_Application_Detail__c
 			WHERE Reference_Application_Section__c = :referenceApplicationSectionIds
 		]) {
@@ -159,6 +160,7 @@ public without sharing class ApplicationTriggerHelper {
 				applicationDetail.Component_Name__c = referenceApplicationDetail.Component_Name__c;
 				applicationDetail.File_Rename__c = referenceApplicationDetail.File_Rename__c;
 				applicationDetail.Accepted_File_Types__c = referenceApplicationDetail.Accepted_File_Types__c;
+				applicationDetail.Custom_Component_JSON__c = referenceApplicationDetail.Custom_Component_JSON__c;
 
 				// system.debug('record type name');
 				// system.debug(referenceApplicationDetail.RecordType.DeveloperName);
