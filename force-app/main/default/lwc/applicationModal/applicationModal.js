@@ -27,16 +27,10 @@ export default class ApplicationModal extends LightningModal {
 		let allValidArray = [];
 
 		appDetailsTypes.forEach((curr) => {
-			// console.log(curr)
-			// console.log(curr.isValid())
 			allValidArray.push(curr.isValid());
 		});
 
-		// console.log(JSON.parse(JSON.stringify(allValidArray)))
-
 		const isAllValid = allValidArray.every((item) => !!item);
-
-		console.log(JSON.parse(JSON.stringify(isAllValid)));
 
 		if (!isAllValid) {
 			return;

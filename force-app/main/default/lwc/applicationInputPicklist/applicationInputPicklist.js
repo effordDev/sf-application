@@ -13,6 +13,8 @@ export default class ApplicationInputPicklist extends LightningElement {
 		this._detail = Object.assign({}, value);
 	}
 
+	// connectedCallback()
+
 	/*
 	 * if required => make sure there is a value and required is == true
 	 * if not required => return true
@@ -50,6 +52,9 @@ export default class ApplicationInputPicklist extends LightningElement {
 		}
 
 		return this.picklistValues.split(";").map((value) => {
+			
+			value = value.trim()
+			
 			return {
 				label: value,
 				value
@@ -57,6 +62,8 @@ export default class ApplicationInputPicklist extends LightningElement {
 		});
 	}
 	handleChange(event) {
+
+		console.log(JSON.parse(JSON.stringify(this.options)))
 		const value = event.detail.value;
 
 		this.detail.Input_Text__c = value;

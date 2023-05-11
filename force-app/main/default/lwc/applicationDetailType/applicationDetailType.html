@@ -120,7 +120,6 @@
 
 		<template lwc:if={isServiceProvider}>
 			<c-service-providers
-				lwc:ref="input"
 				record-id={recordId}
 				detail={detail}
 				read-only={readOnly}
@@ -129,7 +128,6 @@
 
 		<template lwc:if={isHouseholdMembers}>
 			<c-household-members
-				lwc:ref="input"
 				record-id={recordId}
 				detail={detail}
 				read-only={readOnly}

@@ -19,8 +19,6 @@ export default class ApplicationSection extends LightningElement {
 		this.details = await getApplicationDetails({
 			applicationSectionId: this.id
 		});
-		console.log("details");
-		console.log(JSON.parse(JSON.stringify(this.details)));
 	}
 	get id() {
 		return this.section.Id;
@@ -63,8 +61,6 @@ export default class ApplicationSection extends LightningElement {
 				onsave: (event) => this.handleSave(event),
 			});
 
-			console.log(result);
-
 			if (result == "save") {
 				await this.handleSave();
 			}
@@ -80,16 +76,12 @@ export default class ApplicationSection extends LightningElement {
 			...this.detailsToUpdate.filter((item) => item.Id != detail.Id),
 			detail
 		];
-
-		console.log(JSON.parse(JSON.stringify(this.detailsToUpdate)));
 	}
 
 	async handleSave() {
 		try {
 
 			this.dispatchEvent(new CustomEvent("loading"));
-
-			console.log("handle save running");
 
 			await saveApplicationDetails({
 				recordId: this.recordId,
@@ -102,7 +94,6 @@ export default class ApplicationSection extends LightningElement {
 
 			this.dispatchEvent(new CustomEvent("refresh"));
 
-			console.log("handle save completed");
 		} catch (error) {
 			console.error(error);
 		} finally {

@@ -1,4 +1,4 @@
-import { api, track, LightningElement } from "lwc";
+import { api, LightningElement } from "lwc";
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getApplication from "@salesforce/apex/ApplicationHelper.getApplication";
 import saveApplication from "@salesforce/apex/ApplicationHelper.saveApplication";
@@ -76,8 +76,7 @@ export default class ApplicationMain extends LightningElement {
 	}
 
 	async handleSubmit() {
-		console.log("handle submit");
-
+		
 		const app = {
 			Id: this.recordId,
 			Status__c: "Submitted"
