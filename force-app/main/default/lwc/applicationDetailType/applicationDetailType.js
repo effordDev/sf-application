@@ -58,4 +58,10 @@ export default class ApplicationDetailType extends LightningElement {
 	get customCmpName() {
 		return this.detail?.Component_Name__c
 	}
+	get isServiceProvider() {
+		return this.customCmpName === 'serviceProviders' 
+	}
+	get isHouseholdMembers() {
+		return this.customCmpName === 'householdMembers' 
+	}
 }

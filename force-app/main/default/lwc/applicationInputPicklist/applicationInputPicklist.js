@@ -20,7 +20,7 @@ export default class ApplicationInputPicklist extends LightningElement {
 	 * if not required => return true
 	 */
 	@api get completed() {
-		return [...this.template.querySelectorAll("lightning-input")].reduce(
+		return [...this.template.querySelectorAll("lightning-combobox")].reduce(
 			(validSoFar, inputCmp) => {
 				inputCmp.reportValidity();
 				return validSoFar && inputCmp.checkValidity();

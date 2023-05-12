@@ -118,5 +118,23 @@
 
 	<template lwc:if={isCustomComponent}>
 
+		<template lwc:if={isServiceProvider}>
+			<c-service-providers
+				lwc:ref="input"
+				record-id={recordId}
+				detail={detail}
+				read-only={readOnly}
+			></c-service-providers>
+		</template>
+
+		<template lwc:if={isHouseholdMembers}>
+			<c-household-members
+				lwc:ref="input"
+				record-id={recordId}
+				detail={detail}
+				read-only={readOnly}
+			></c-household-members>
+		</template>	
+
 	</template>
 </template>

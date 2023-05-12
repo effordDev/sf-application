@@ -4,8 +4,15 @@
 
           Accepted Formats: {formattedAcceptedFormats}
 
+          <label class="slds-form-element__label" for="unique-id-of-input">
+               <template lwc:if={required}>
+                    <span style="color:red">
+                         *&nbsp;
+                    </span>
+               </template>{label}
+          </label>
+
           <lightning-file-upload
-               label={label}
                name={label}
                accept={acceptedFormats}
                record-id={recordId}
