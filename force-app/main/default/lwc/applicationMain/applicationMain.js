@@ -36,7 +36,8 @@ export default class ApplicationMain extends LightningElement {
 	}
 	get readOnly() {
 		//editable status's
-		return !["New", "In Progress"].includes(this.status);
+		// return !["New", "In Progress"].includes(this.status);
+		return this.application?.Read_Only__c
 	}
 	get sections() {
 		return this.application?.Application_Sections__r || [];

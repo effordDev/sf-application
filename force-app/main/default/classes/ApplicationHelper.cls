@@ -11,6 +11,7 @@ public with sharing class ApplicationHelper {
 					Reference_Application__c,
 					Status__c,
 					CreatedDate,
+					Read_Only__c,
 					(
 						SELECT
 							Id,
