@@ -87,12 +87,27 @@ public with sharing class ApplicationHelper {
 			GROUP BY Application_Section__c
 		];
 
+		List<Application_Detail__c> detailsToCheck = [
+			SELECT Id, Required__c, Required_Question_Answered__c, Input_Text_Long__c 
+			FROM Application_Detail__c
+			WHERE Application_Section__c =: sectionId
+			AND Required__c = true
+		];
+
+		Set<Id> detailIds = new Set<Id>();
+		for (Application_Detail__c d : detailsToCheck) {
+			if (d.Input_Text_Long__c != null || d.Required_Question_Answered__c) {
+				detailIds.add(d.Id);
+			}
+		}
+
 		List<AggregateResult> arRequiredQuestionsAnsweredList = [
 			SELECT Application_Section__c, COUNT(Id) RequiredQuestionsAnswered
 			FROM Application_Detail__c
 			WHERE Application_Section__c = :sectionId
-				AND Required__c = TRUE
-				AND Required_Question_Answered__c = TRUE
+				AND Required__c = true
+				// AND Required_Question_Answered__c = true
+				AND Id IN : detailIds
 			GROUP BY Application_Section__c
 		];
 

@@ -17,6 +17,22 @@ public with sharing class ApplicationHelperTest {
         refAppSection.Sort_Order__c = 1;
         insert refAppSection;
 
+        Reference_Application_Section__c refAppSection2 = new Reference_Application_Section__c();
+        refAppSection2.Name = 'testName2';
+        refAppSection2.Reference_Application__c = refApp.Id;
+        refAppSection2.Display_Section_Name__c = 'testDisplaySectionName2';
+        refAppSection2.Sort_Order__c = 2;
+        insert refAppSection2;
+
+        Reference_Application_Detail__c refAppDetail2 = new Reference_Application_Detail__c();  
+        refAppDetail2.Field_Label__c = 'test text input';
+        refAppDetail2.Reference_Application_Section__c = refAppSection2.Id;
+        refAppDetail2.RecordTypeId = Schema.SObjectType.Reference_Application_Detail__c.getRecordTypeInfosByDeveloperName()
+        .get('Input_Text')
+        .getRecordTypeId();
+        refAppDetail2.Sort_Order__c = 1;
+        insert refAppDetail2;
+
         Reference_Application_Detail__c refAppDetail = new Reference_Application_Detail__c();  
         refAppDetail.Field_Label__c = 'test text input';
         refAppDetail.Reference_Application_Section__c = refAppSection.Id;
@@ -79,7 +95,7 @@ public with sharing class ApplicationHelperTest {
     }
 
     @isTest
-    private static void saveApplicationDetailsTest() {
+    private static void saveApplicationRequiredDetailsTest() {
 
         Reference_Application__c refApp = [SELECT Id FROM Reference_Application__c LIMIT 1];
 
@@ -91,6 +107,7 @@ public with sharing class ApplicationHelperTest {
             SELECT Id
             FROM Application_Section__c 
             WHERE Application__c = : app.Id
+            AND Display_Section_Label__c = 'testDisplaySectionName'
             LIMIT 1
         ];
 
@@ -99,6 +116,42 @@ public with sharing class ApplicationHelperTest {
             FROM Application_Detail__c 
             WHERE Application_Section__c = : appSection.Id
             AND Required__c = true
+            LIMIT 1
+        ];
+
+        appDetail.Input_Text__c = 'inputedtext';
+
+        List<Application_Detail__c> appDetails = new List<Application_Detail__c>();
+        appDetails.add(appDetail);
+
+        ApplicationHelper.saveApplicationDetails(
+            app.Id,    
+            appSection.Id,    
+            appDetails
+        );
+    }
+
+    @isTest
+    private static void saveApplicationNonRequiredDetailsTest() {
+
+        Reference_Application__c refApp = [SELECT Id FROM Reference_Application__c LIMIT 1];
+
+        Application__c app = new Application__c();
+        app.Reference_Application__c = refApp.Id;
+        insert app;
+
+        Application_Section__c appSection = [
+            SELECT Id
+            FROM Application_Section__c 
+            WHERE Application__c = : app.Id
+            AND Display_Section_Label__c = 'testDisplaySectionName2'
+            LIMIT 1
+        ];
+
+        Application_Detail__c appDetail = [
+            SELECT Id
+            FROM Application_Detail__c 
+            WHERE Application_Section__c = : appSection.Id
             LIMIT 1
         ];
 
