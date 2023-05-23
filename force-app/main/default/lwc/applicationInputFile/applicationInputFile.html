@@ -2,8 +2,6 @@
 
      <div class={boxClass}>
 
-          Accepted Formats: {formattedAcceptedFormats}
-
           <label class="slds-form-element__label" for="unique-id-of-input">
                <template lwc:if={required}>
                     <span style="color:red">
@@ -11,6 +9,10 @@
                     </span>
                </template>{label}
           </label>
+          
+          <br />
+
+          Accepted Formats: {formattedAcceptedFormats}
 
           <lightning-file-upload
                name={label}
