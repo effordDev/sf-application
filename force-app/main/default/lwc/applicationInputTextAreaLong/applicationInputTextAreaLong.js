@@ -18,7 +18,7 @@ export default class ApplicationInputTextAreaLong extends LightningElement {
 	 * if not required => return true
 	 */
 	@api get completed() {
-		return [...this.template.querySelectorAll("lightning-input")].reduce(
+		return [...this.template.querySelectorAll("lightning-textarea")].reduce(
 			(validSoFar, inputCmp) => {
 				inputCmp.reportValidity();
 				return validSoFar && inputCmp.checkValidity();
