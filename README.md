@@ -65,6 +65,7 @@ Populate ```Component_Name__c``` and if you need to pass information to the comp
 In the LWC ```applicationDetailType.lwc``` set up a getter to display your component.
 
 Ex.
+![image](https://github.com/effordDev/sf-application/assets/36901822/83a6ece7-f425-45c5-bb74-d4a8f55722dc)
 
 
 
