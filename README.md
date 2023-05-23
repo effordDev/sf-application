@@ -9,3 +9,4 @@ This module provides a way for admins to build an application/form using LWC's. 
 
 Below is a basic ERD of the objects involved.
 
+![image](https://github.com/effordDev/sf-application/assets/36901822/282fcfa4-d1a9-4399-8156-732e263bebbf)
