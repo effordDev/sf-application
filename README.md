@@ -5,6 +5,15 @@
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
 </a>
 
+<details>
+  <summary>
+    Demo
+  </summary>
+
+  [screen-recorder-tue-may-23-2023-11-14-03.webm](https://github.com/effordDev/sf-application/assets/36901822/16ea4480-2926-4933-b18b-b6aa0b3801e9)
+
+</details>
+
 This module provides a way for admins to build an application/form using LWC's. This is accomplished by building a skeleton structure of your application using the custom objects: ```Reference_Application__c, Reference_Application_Section__c, Reference_Application_Detail__c```. The individual instances of an application are represented using the following custom objects: ```Application__c, Application_Section__c, Application_Detail__c```. 
 
 Below is a basic ERD of the objects involved.
