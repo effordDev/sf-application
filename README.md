@@ -68,4 +68,41 @@ Ex.
 ![image](https://github.com/effordDev/sf-application/assets/36901822/83a6ece7-f425-45c5-bb74-d4a8f55722dc)
 
 
+applicationDetailType.html
+```html
+<template lwc:if={isCustomComponent}>
+  <template lwc:if={isServiceProvider}>
+    <c-service-providers
+      lwc:ref="input"
+      record-id={recordId}
+      detail={detail}
+      read-only={readOnly}
+    ></c-service-providers>
+  </template>
+</template>   
+```
 
+applicationDetailType.js
+```js
+get isCustomComponent() {
+  return this.recordTypeName === "Custom_Component";
+}
+get customCmpName() {
+  return this.detail?.Component_Name__c
+}
+get isServiceProvider() {
+  return this.customCmpName === 'serviceProviders' 
+} 
+```
+
+serviceProviders.js
+```js
+get customJson() {
+  if (isJSON(this.detail.Custom_Component_JSON__c)) {
+    return JSON.parse(this.detail.Custom_Component_JSON__c)
+  }
+  return {}
+}
+```
+---
+Coded while petting [tokyo🐱‍👤](https://www.tokyotech.us)
