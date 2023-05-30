@@ -140,6 +140,31 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Application_Detail__c.Message_When_Pattern_Mismatch__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Detail__c.Pattern__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Detail__c.Minimum__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Detail__c.Maximum__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Detail__c.Step__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Application_Section__c.Completed__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -226,16 +251,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Reference_Application_Detail__c.Custom_Component_JSON__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Reference_Application_Detail__c.Message_When_Pattern_Mismatch__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Reference_Application_Detail__c.Pattern__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -432,6 +447,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Reference_Application_Detail__c.Pattern__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Minimum__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Maximum__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Step__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <tabVisibilities>

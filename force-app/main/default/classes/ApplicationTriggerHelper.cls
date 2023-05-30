@@ -83,7 +83,10 @@ public with sharing class ApplicationTriggerHelper {
 				Accepted_File_Types__c,
 				Custom_Component_JSON__c,
 				Message_When_Pattern_Mismatch__c,
-				Pattern__c
+				Pattern__c,
+				Minimum__c,
+				Maximum__c,
+				Step__c
 			FROM Reference_Application_Detail__c
 			WHERE Reference_Application_Section__c = :referenceApplicationSectionIds
 		]) {
@@ -165,7 +168,9 @@ public with sharing class ApplicationTriggerHelper {
 				applicationDetail.Custom_Component_JSON__c = referenceApplicationDetail.Custom_Component_JSON__c;
 				applicationDetail.Message_When_Pattern_Mismatch__c = referenceApplicationDetail.Message_When_Pattern_Mismatch__c;
 				applicationDetail.Pattern__c = referenceApplicationDetail.Pattern__c;
-
+				applicationDetail.Minimum__c = referenceApplicationDetail.Minimum__c;
+				applicationDetail.Maximum__c = referenceApplicationDetail.Maximum__c;
+				applicationDetail.Step__c = referenceApplicationDetail.Step__c;
 				// system.debug('record type name');
 				// system.debug(referenceApplicationDetail.RecordType.DeveloperName);
 

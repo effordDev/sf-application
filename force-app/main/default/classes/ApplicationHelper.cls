@@ -66,7 +66,10 @@ public with sharing class ApplicationHelper {
 				Custom_Component_JSON__c,
 				Component_Name__c,
 				Message_When_Pattern_Mismatch__c,
-				Pattern__c
+				Pattern__c,
+				Minimum__c,
+				Maximum__c,
+				Step__c
 			FROM Application_Detail__c
 			WHERE Application_Section__c = :applicationSectionId
 			ORDER BY Sort_Order__c ASC

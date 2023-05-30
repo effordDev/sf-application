@@ -13,6 +13,10 @@ export default class ApplicationInputNumber extends LightningElement {
 		this._detail = Object.assign({}, value);
 	}
 
+	connectedCallback() {
+		console.log(JSON.parse(JSON.stringify(this.detail)));
+	}
+
 	/*
 	 * if required => make sure there is a value and required is == true
 	 * if not required => return true
@@ -40,6 +44,15 @@ export default class ApplicationInputNumber extends LightningElement {
 	}
 	get val() {
 		return this.detail?.Input_Number__c;
+	}
+	get min() {
+		return this.detail?.Minimum__c;
+	}
+	get max() {
+		return this.detail?.Maximum__c;
+	}
+	get step() {
+		return this.detail?.Step__c;
 	}
 
 	handleChange(event) {
