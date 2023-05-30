@@ -41,6 +41,15 @@ export default class ApplicationInputCurrency extends LightningElement {
 	get val() {
 		return this.detail?.Input_Currency__c;
 	}
+	get min() {
+		return this.detail?.Minimum__c;
+	}
+	get max() {
+		return this.detail?.Maximum__c;
+	}
+	get step() {
+		return this.detail?.Step__c;
+	}
 
 	handleChange(event) {
 		const value = event.detail.value;

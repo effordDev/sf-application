@@ -5,9 +5,11 @@
 		label={label}
 		value={val}
 		formatter="currency"
-		step="0.01"
 		onchange={handleChange}
 		required={required}
 		disabled={readOnly}
+		step={step}
+		min={min}
+		max={max}
 	></lightning-input>
 </template>
