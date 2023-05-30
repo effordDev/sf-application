@@ -41,6 +41,12 @@ export default class ApplicationInputText extends LightningElement {
 	get val() {
 		return this.detail?.Input_Text__c;
 	}
+	get pattern() {
+		return this.detail?.Pattern__c;
+	}
+	get patternMessage() {
+		return this.detail?.Message_When_Pattern_Mismatch__c;
+	}
 
 	handleChange(event) {
 		const value = event.detail.value;

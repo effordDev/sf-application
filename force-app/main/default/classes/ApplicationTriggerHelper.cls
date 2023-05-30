@@ -81,7 +81,9 @@ public with sharing class ApplicationTriggerHelper {
 				Component_Name__c,
 				File_Rename__c,
 				Accepted_File_Types__c,
-				Custom_Component_JSON__c
+				Custom_Component_JSON__c,
+				Message_When_Pattern_Mismatch__c,
+				Pattern__c
 			FROM Reference_Application_Detail__c
 			WHERE Reference_Application_Section__c = :referenceApplicationSectionIds
 		]) {
@@ -161,6 +163,8 @@ public with sharing class ApplicationTriggerHelper {
 				applicationDetail.File_Rename__c = referenceApplicationDetail.File_Rename__c;
 				applicationDetail.Accepted_File_Types__c = referenceApplicationDetail.Accepted_File_Types__c;
 				applicationDetail.Custom_Component_JSON__c = referenceApplicationDetail.Custom_Component_JSON__c;
+				applicationDetail.Message_When_Pattern_Mismatch__c = referenceApplicationDetail.Message_When_Pattern_Mismatch__c;
+				applicationDetail.Pattern__c = referenceApplicationDetail.Pattern__c;
 
 				// system.debug('record type name');
 				// system.debug(referenceApplicationDetail.RecordType.DeveloperName);

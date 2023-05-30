@@ -35,6 +35,10 @@
                 <behavior>Edit</behavior>
                 <field>Large_Device_Size__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Custom_Component_JSON__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

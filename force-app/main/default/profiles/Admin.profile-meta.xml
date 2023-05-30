@@ -230,6 +230,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Reference_Application_Detail__c.Message_When_Pattern_Mismatch__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Pattern__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Reference_Application__c.Display_Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -414,6 +424,16 @@
         <recordType>Reference_Application_Detail__c.Input_Text_Area_Long</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Message_When_Pattern_Mismatch__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Pattern__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <tabVisibilities>
         <tab>Application_Detail__c</tab>
         <visibility>DefaultOn</visibility>
