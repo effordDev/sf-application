@@ -86,7 +86,8 @@ public with sharing class ApplicationTriggerHelper {
 				Pattern__c,
 				Minimum__c,
 				Maximum__c,
-				Step__c
+				Step__c,
+				Alignment__c
 			FROM Reference_Application_Detail__c
 			WHERE Reference_Application_Section__c = :referenceApplicationSectionIds
 		]) {
@@ -171,6 +172,7 @@ public with sharing class ApplicationTriggerHelper {
 				applicationDetail.Minimum__c = referenceApplicationDetail.Minimum__c;
 				applicationDetail.Maximum__c = referenceApplicationDetail.Maximum__c;
 				applicationDetail.Step__c = referenceApplicationDetail.Step__c;
+				applicationDetail.Alignment__c = referenceApplicationDetail.Alignment__c;
 				// system.debug('record type name');
 				// system.debug(referenceApplicationDetail.RecordType.DeveloperName);
 

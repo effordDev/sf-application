@@ -12,4 +12,13 @@ export default class ApplicationDisplayText extends LightningElement {
 	get displayText() {
 		return this.detail?.Display_Text__c;
 	}
+	get alignment() {
+		return this.detail?.Alignment__c
+	}
+	get displayClass() {
+		if (['Right', 'Left'].includes(this.alignment)) {
+			return `slds-float_${this.alignment.toLowerCase()}` 
+		} 
+		return 'slds-align_absolute-center'
+	}
 }

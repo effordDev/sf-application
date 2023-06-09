@@ -69,7 +69,8 @@ public with sharing class ApplicationHelper {
 				Pattern__c,
 				Minimum__c,
 				Maximum__c,
-				Step__c
+				Step__c,
+				Alignment__c
 			FROM Application_Detail__c
 			WHERE Application_Section__c = :applicationSectionId
 			ORDER BY Sort_Order__c ASC

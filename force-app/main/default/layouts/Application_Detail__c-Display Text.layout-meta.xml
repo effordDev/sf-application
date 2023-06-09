@@ -45,6 +45,10 @@
                 <behavior>Required</behavior>
                 <field>Sort_Order__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Alignment__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
