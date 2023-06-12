@@ -207,11 +207,6 @@ public with sharing class ApplicationHelper {
 
 	@AuraEnabled
 	public static void deleteFile(Id contentDocumentId){
-		// List<ContentDocument> contentDocuementsTodelete = new List<ContentDocument>(); 
-  
-		// for (String contentDocumentId : contentDocumentIds ) {
-		// 	contentDocuementsTodelete.add(new ContentDocument(Id = contentDocumentId));
-		// }
 		ContentDocument cd = new ContentDocument();
 			cd.Id = contentDocumentId;
 		delete cd;
