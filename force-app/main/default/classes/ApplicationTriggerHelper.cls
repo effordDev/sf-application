@@ -22,10 +22,6 @@ public with sharing class ApplicationTriggerHelper {
 			);
 		}
 
-		// system.debug('referenceApplicationMap');
-		// system.debug(referenceApplicationMap);
-
-		//Reference_Applicaiton__c.Id, Reference_Application_Section__c
 		Map<Id, List<Reference_Application_Section__c>> referenceApplicationSectionMap = new Map<Id, List<Reference_Application_Section__c>>();
 		Set<Id> referenceApplicationSectionIds = new Set<Id>();
 
@@ -55,10 +51,6 @@ public with sharing class ApplicationTriggerHelper {
 			referenceApplicationSectionIds.add(section.Id);
 		}
 
-		// system.debug('referenceApplicationSectionMap');
-		// system.debug(referenceApplicationSectionMap);
-
-		//Reference_Application_Section__c.Id, Reference_Application_Detail__c
 		Map<Id, List<Reference_Application_Detail__c>> referenceApplicationDetailMap = new Map<Id, List<Reference_Application_Detail__c>>();
 		Set<Id> referenceApplicationDetailIds = new Set<Id>();
 
@@ -109,10 +101,6 @@ public with sharing class ApplicationTriggerHelper {
 			referenceApplicationDetailIds.add(detail.Id);
 		}
 
-		// system.debug('referenceApplicationDetailMap');
-		// system.debug(referenceApplicationDetailMap);
-
-		//create Application_Section__c's
 		List<Application_Section__c> applicationSections = new List<Application_Section__c>();
 		List<Application_Detail__c> applicationDetails = new List<Application_Detail__c>();
 
@@ -185,6 +173,49 @@ public with sharing class ApplicationTriggerHelper {
 		}
 
 		insert applicationDetails;
+
+		List<Application_Detail_Language__c> adlList = createApplicationlanguages(applicationDetails, referenceApplicationDetailIds);
+
+		insert adlList;
+	}
+
+	private static List<Application_Detail_Language__c> createApplicationlanguages(List<Application_Detail__c> appDetails, Set<Id> refAppDetailIds) {
+
+		Map<Id, List<Reference_Application_Detail_Language__c>> referenceAppDetailLanguageMap = new Map<Id, List<Reference_Application_Detail_Language__c>>();
+
+		for (Reference_Application_Detail_Language__c radl : [
+			SELECT Id,
+				Reference_Application_Detail__c,
+				Translated_Text__c
+			FROM Reference_Application_Detail_Language__c
+			WHERE Reference_Application_Detail__c IN : refAppDetailIds
+		]) {
+
+			if (referenceAppDetailLanguageMap.containsKey(radl.Reference_Application_Detail__c)) {
+				referenceAppDetailLanguageMap.get(radl.Reference_Application_Detail__c).add(radl);
+			} else {
+				referenceAppDetailLanguageMap.put(radl.Reference_Application_Detail__c, new List<Reference_Application_Detail_Language__c>{radl});
+			}
+		}
+
+		List<Application_Detail_Language__c> applicationDetailLangauges = new List<Application_Detail_Language__c>();
+
+		for (Application_Detail__c ad : appDetails) {
+
+			List <Reference_Application_Detail_Language__c> radlList = referenceAppDetailLanguageMap.get(ad.Reference_Application_Detail__c);
+
+			for (Reference_Application_Detail_Language__c radl : radlList) {
+
+				Application_Detail_Language__c adl = new Application_Detail_Language__c();
+				
+				adl.Application_Detail__c = ad.Id;
+				adl.Reference_Application_Detail_Language__c = radl.Id;
+				adl.Translated_Text__c = radl.Translated_Text__c;
+				applicationDetailLangauges.add(adl);
+			}
+		}
+
+		return applicationDetailLangauges;
 	}
 
 	private static void setApplicationDefaults(
@@ -195,7 +226,6 @@ public with sharing class ApplicationTriggerHelper {
 			referenceApplicationIds.add(application.Reference_Application__c);
 		}
 
-		//Reference_Application__c.Id, Reference_Application__c
 		Map<Id, Reference_Application__c> referenceApplicationMap = new Map<Id, Reference_Application__c>();
 		for (Reference_Application__c referenceApplication : [
 			SELECT Id, Name, Display_Description__c, Display_Name__c
@@ -207,9 +237,6 @@ public with sharing class ApplicationTriggerHelper {
 				referenceApplication
 			);
 		}
-
-		system.debug('referenceApplicationMap');
-		system.debug(referenceApplicationMap);
 
 		for (Application__c application : applications) {
 			Reference_Application__c referenceApplication = referenceApplicationMap.get(
