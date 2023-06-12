@@ -4,6 +4,7 @@ import LightningModal from "lightning/modal";
 export default class ApplicationModal extends LightningModal {
 	@api recordId;
 	@api label;
+	@api language = ''
 	@api sectionId;
 	@api readOnly;
 	@api details = [];

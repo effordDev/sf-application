@@ -9,6 +9,12 @@
 		></lightning-spinner>
 	</template>
 
+	<lightning-combobox
+		onchange={handleLanguageChange}
+		options={languages}
+		value="English"
+	></lightning-combobox> 
+
 	<div class="wrapper">
 		<div class="slds-text-heading_large">{applicationDisplayName}</div>
 
@@ -62,6 +68,7 @@
 					record-id={recordId}
 					section={section}
 					read-only={readOnly}
+					language={language}
 					onrefresh={handleRefresh}
 					onloading={handleLoading}
 				></c-application-section>

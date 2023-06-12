@@ -70,11 +70,39 @@ public with sharing class ApplicationHelper {
 				Minimum__c,
 				Maximum__c,
 				Step__c,
-				Alignment__c
+				Alignment__c,
+				(
+					SELECT Id,
+						Language__c,
+						Translated_Text__c,
+						Application_Detail__c
+					FROM Application_Detail_Languages__r
+				)
 			FROM Application_Detail__c
 			WHERE Application_Section__c = :applicationSectionId
 			ORDER BY Sort_Order__c ASC
 		];
+	}
+
+	@AuraEnabled
+	public static List<String> getLanguages(Id referenceApplicationId){
+		try {
+			Set<String> languagesSet = new Set<String>();
+			List<String> languages = new List<String>();
+
+			for (Reference_Application_Detail_Language__c radl : [
+				SELECT Id, 
+					Language__c
+				FROM Reference_Application_Detail_Language__c
+				WHERE Reference_Application_Detail__r.Reference_Application_Section__r.Reference_Application__c = : referenceApplicationId
+			]) {
+				languagesSet.add(radl.Language__c);
+			}
+			languages.addAll(languagesSet);
+			return languages;
+		} catch (Exception e) {
+			throw new AuraHandledException(e.getMessage());
+		}
 	}
 
 	@AuraEnabled

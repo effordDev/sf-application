@@ -1,12 +1,16 @@
 import { api, LightningElement } from "lwc";
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getApplication from "@salesforce/apex/ApplicationHelper.getApplication";
+import getLanguages from "@salesforce/apex/ApplicationHelper.getLanguages";
 import saveApplication from "@salesforce/apex/ApplicationHelper.saveApplication";
 
 export default class ApplicationMain extends LightningElement {
 	@api recordId;
 
 	application = {};
+
+	language = 'English'
+	languages = [{label:'English', value:'English'}]
 
 	size = 12;
 	smallDeviceSize = 12;
@@ -15,8 +19,9 @@ export default class ApplicationMain extends LightningElement {
 
 	isLoading = false;
 
-	connectedCallback() {
-		this.fetchApplication();
+	async connectedCallback() {
+		await this.fetchApplication()
+		await this.fetchLanguages()
 	}
 
 	get applicationDisplayName() {
@@ -59,16 +64,35 @@ export default class ApplicationMain extends LightningElement {
 			this.application = await getApplication({ recordId: this.recordId });
 			console.log(JSON.parse(JSON.stringify(this.application)));
 		} catch (error) {
-			//silent fail - check debugs
+			console.error(error)
 		} finally {
 			this.isLoading = false
 		}
 	}
 
+	async fetchLanguages() {
+		try {
+			this.isLoading = true
+			const langs = (await getLanguages({ referenceApplicationId: this.application.Reference_Application__c }))
+				.map(lang => ({ label:lang, value:lang }))
+			console.log(JSON.parse(JSON.stringify(langs)))
+
+			this.languages = [...this.languages, ...langs]
+			// this.languages = [...this.languages, langs]
+		} catch (error) {
+			console.error(JSON.parse(JSON.stringify(error)))
+		} finally {
+			this.isLoading = false
+		}
+	}
+
+	handleLanguageChange(event) {
+		this.language = event.detail.value
+	}
+
 	handleRefresh() {
 
 		this.toast()
-
 		this.fetchApplication()
 	}
 

@@ -6,6 +6,7 @@ import saveApplicationDetails from "@salesforce/apex/ApplicationHelper.saveAppli
 export default class ApplicationSection extends LightningElement {
 	@api recordId;
 	@api section = {};
+	@api language = ''
 	@api readOnly = false;
 
 	details = [];
@@ -19,6 +20,7 @@ export default class ApplicationSection extends LightningElement {
 		this.details = await getApplicationDetails({
 			applicationSectionId: this.id
 		});
+		console.log(JSON.parse(JSON.stringify(this.details)));
 	}
 	get id() {
 		return this.section.Id;
@@ -56,6 +58,7 @@ export default class ApplicationSection extends LightningElement {
 				sectionId: this.id,
 				details: this.details,
 				readOnly: this.readOnly,
+				language: this.language,
 
 				ondetailchange: (event) => this.handleDetailChange(event),
 				onsave: (event) => this.handleSave(event),

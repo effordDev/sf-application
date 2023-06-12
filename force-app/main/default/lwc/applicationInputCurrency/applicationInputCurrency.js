@@ -4,6 +4,7 @@ export default class ApplicationInputCurrency extends LightningElement {
 	@api recordId;
 	@api sectionId;
 	@api readOnly;
+	@api language = ''
 	@track _detail = {};
 
 	@api get detail() {
@@ -33,7 +34,10 @@ export default class ApplicationInputCurrency extends LightningElement {
 		return this.detail?.Id;
 	}
 	get label() {
-		return this.detail?.Field_Label__c;
+		return this.language === 'English' ? 
+		this.detail?.Field_Label__c :
+		(this.detail?.Application_Detail_Languages__r
+			.find(item => item.Language__c === this.language))?.Translated_Text__c
 	}
 	get required() {
 		return this.detail?.Required__c;

@@ -8,10 +8,15 @@ export default class ApplicationDisplayText extends LightningElement {
 	@api get completed() {
 		return true;
 	}
-
 	get displayText() {
-		return this.detail?.Display_Text__c;
+		return this.language === 'English' ? 
+		this.detail?.Display_Text__c :
+		(this.detail?.Application_Detail_Languages__r
+			.find(item => item.Language__c === this.language))?.Translated_Text__c
 	}
+	// get displayText() {
+	// 	return this.detail?.Display_Text__c;
+	// }
 	get alignment() {
 		return this.detail?.Alignment__c
 	}
