@@ -1,6 +1,7 @@
 import { api, LightningElement } from "lwc";
 import ApplicationModal from "c/applicationModal";
 import getApplicationDetails from "@salesforce/apex/ApplicationHelper.getApplicationDetails";
+import getApplicationSectionLanguages from "@salesforce/apex/ApplicationHelper.getApplicationSectionLanguages";
 import saveApplicationDetails from "@salesforce/apex/ApplicationHelper.saveApplicationDetails";
 
 export default class ApplicationSection extends LightningElement {
@@ -14,6 +15,7 @@ export default class ApplicationSection extends LightningElement {
 
 	connectedCallback() {
 		this.fetchApplicationDetails();
+		this.fetchApplicationSectionLanguages()
 	}
 
 	async fetchApplicationDetails() {
@@ -22,11 +24,19 @@ export default class ApplicationSection extends LightningElement {
 		});
 		console.log(JSON.parse(JSON.stringify(this.details)));
 	}
+	async fetchApplicationSectionLanguages() {
+		this.languages = await getApplicationSectionLanguages({ sectionId: this.id })
+		console.log('languages')
+		console.log(JSON.parse(JSON.stringify(this.languages)))
+	}
 	get id() {
 		return this.section.Id;
 	}
 	get displaySectionLabel() {
-		return this.section?.Display_Section_Label__c;
+		if (this.language === 'English') {
+			return this.section?.Display_Section_Label__c
+		}
+		return this.languages.find(l => l.Language__c === this.language)?.Translated_Display_Section_Name__c || this.section?.Display_Section_Label__c;
 	}
 	get isCompleted() {
 		return this.section?.Completed__c;

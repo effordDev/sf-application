@@ -22,11 +22,34 @@ public with sharing class ApplicationHelper {
 							Sort_Order__c,
 							Required_Questions__c,
 							Completed__c
+							// (
+							// 	SELECT Id, 
+							// 		Language__c,
+							// 		Reference_Application_Section_Language__c,
+							// 		Translated_Display_Section_Name__c
+							// 	FROM Application_Section_Languages__r
+							// )
 						FROM Application_Sections__r
 						ORDER BY Sort_Order__c ASC
 					)
 				FROM Application__c
 				WHERE Id = :recordId
+			];
+		} catch (Exception e) {
+			throw new AuraHandledException(e.getMessage());
+		}
+	}
+
+	@AuraEnabled
+	public static List<Application_Section_Language__c> getApplicationSectionLanguages(Id sectionId){
+		try {
+			return [
+				SELECT Id, 
+					Language__c,
+					Reference_Application_Section_Language__c,
+					Translated_Display_Section_Name__c
+				FROM Application_Section_Language__c
+				WHERE Application_Section__c = : sectionId 
 			];
 		} catch (Exception e) {
 			throw new AuraHandledException(e.getMessage());

@@ -9,23 +9,9 @@ public without sharing class ApplicationTriggerHelper {
 			referenceApplicationIds.add(application.Reference_Application__c);
 		}
 
-		//Reference_Application__c.Id, Reference_Application__c
-		Map<Id, Reference_Application__c> referenceApplicationMap = new Map<Id, Reference_Application__c>();
-		for (Reference_Application__c referenceApplication : [
-			SELECT Id, Name, Display_Description__c, Display_Name__c
-			FROM Reference_Application__c
-			WHERE Id = :referenceApplicationIds
-		]) {
-			referenceApplicationMap.put(
-				referenceApplication.Id,
-				referenceApplication
-			);
-		}
+		Map<Id, Reference_Application__c> referenceApplicationMap = buildReferenceApplicationMap(referenceApplicationIds);
 
-		Map<Id, List<Reference_Application_Section__c>> referenceApplicationSectionMap = new Map<Id, List<Reference_Application_Section__c>>();
-		Set<Id> referenceApplicationSectionIds = new Set<Id>();
-
-		for (Reference_Application_Section__c section : [
+		List<Reference_Application_Section__c> referenceApplicationSections = [
 			SELECT
 				Id,
 				Name,
@@ -33,28 +19,12 @@ public without sharing class ApplicationTriggerHelper {
 				Display_Section_Name__c,
 				Sort_Order__c
 			FROM Reference_Application_Section__c
-			WHERE Reference_Application__c = :referenceApplicationMap.keySet()
-		]) {
-			if (
-				referenceApplicationSectionMap.containsKey(
-					section.Reference_Application__c
-				)
-			) {
-				referenceApplicationSectionMap.get(section.Reference_Application__c)
-					.add(section);
-			} else {
-				referenceApplicationSectionMap.put(
-					section.Reference_Application__c,
-					new List<Reference_Application_Section__c>{ section }
-				);
-			}
-			referenceApplicationSectionIds.add(section.Id);
-		}
+			WHERE Reference_Application__c = : referenceApplicationMap.keySet()
+		];
 
-		Map<Id, List<Reference_Application_Detail__c>> referenceApplicationDetailMap = new Map<Id, List<Reference_Application_Detail__c>>();
-		Set<Id> referenceApplicationDetailIds = new Set<Id>();
+		Map<Id, List<Reference_Application_Section__c>> referenceApplicationSectionMap = buildReferenceApplicationSectionMap(referenceApplicationSections);
 
-		for (Reference_Application_Detail__c detail : [
+		List<Reference_Application_Detail__c> referenceApplicationDetails = [
 			SELECT
 				Id,
 				Name,
@@ -81,8 +51,50 @@ public without sharing class ApplicationTriggerHelper {
 				Step__c,
 				Alignment__c
 			FROM Reference_Application_Detail__c
-			WHERE Reference_Application_Section__c = :referenceApplicationSectionIds
-		]) {
+			WHERE Reference_Application_Section__c IN : referenceApplicationSections
+		];
+
+		Map<Id, List<Reference_Application_Detail__c>> referenceApplicationDetailMap = buildReferenceApplicationDetailMap(
+			referenceApplicationDetails
+		);
+
+		List<Application_Section__c> applicationSections = createAppSections(
+			applications, 
+			referenceApplicationMap,
+			referenceApplicationSectionMap
+		);
+
+		insert applicationSections;
+
+		List<Application_Section_Language__c> appSectionLanguagelList = createApplicationSectionLanguages(
+			applicationSections,
+			referenceApplicationSections
+		);
+
+		insert appSectionLanguagelList;
+
+		List<Application_Detail__c> applicationDetails = createAppDetails(
+			applicationSections, 
+			referenceApplicationDetailMap
+		);
+
+		insert applicationDetails;
+
+		List<Application_Detail_Language__c> appDetailLanguagelList = createApplicationDetaillanguages(
+			applicationDetails, 
+			referenceApplicationDetails
+		);
+
+		insert appDetailLanguagelList;
+	}
+
+	private static Map<Id, List<Reference_Application_Detail__c>> buildReferenceApplicationDetailMap(
+		List<Reference_Application_Detail__c> referenceApplicationDetails
+	) {
+
+		Map<Id, List<Reference_Application_Detail__c>> referenceApplicationDetailMap = new Map<Id, List<Reference_Application_Detail__c>>();
+
+		for (Reference_Application_Detail__c detail : referenceApplicationDetails) {
 			if (
 				referenceApplicationDetailMap.containsKey(
 					detail.Reference_Application_Section__c
@@ -98,11 +110,62 @@ public without sharing class ApplicationTriggerHelper {
 					new List<Reference_Application_Detail__c>{ detail }
 				);
 			}
-			referenceApplicationDetailIds.add(detail.Id);
 		}
 
+		return referenceApplicationDetailMap;
+	}
+
+	private static Map<Id, List<Reference_Application_Section__c>> buildReferenceApplicationSectionMap(
+		List<Reference_Application_Section__c> referenceApplicationSections
+	) {
+
+		Map<Id, List<Reference_Application_Section__c>> referenceApplicationSectionMap = new Map<Id, List<Reference_Application_Section__c>>();
+
+		for (Reference_Application_Section__c section : referenceApplicationSections) {
+			if (
+				referenceApplicationSectionMap.containsKey(
+					section.Reference_Application__c
+				)
+			) {
+				referenceApplicationSectionMap.get(section.Reference_Application__c)
+					.add(section);
+			} else {
+				referenceApplicationSectionMap.put(
+					section.Reference_Application__c,
+					new List<Reference_Application_Section__c>{ section }
+				);
+			}
+		}
+
+		return referenceApplicationSectionMap;
+	}
+
+	private static Map<Id, Reference_Application__c> buildReferenceApplicationMap(
+		Set<Id> referenceApplicationIds
+	) {
+		Map<Id, Reference_Application__c> referenceApplicationMap = new Map<Id, Reference_Application__c>();
+
+		for (Reference_Application__c referenceApplication : [
+			SELECT Id, Name, Display_Description__c, Display_Name__c
+			FROM Reference_Application__c
+			WHERE Id = :referenceApplicationIds
+		]) {
+			referenceApplicationMap.put(
+				referenceApplication.Id,
+				referenceApplication
+			);
+		}
+
+		return referenceApplicationMap;
+	}
+
+	private static List<Application_Section__c> createAppSections(
+		List<Application__c> applications,
+		Map<Id, Reference_Application__c> referenceApplicationMap,
+		Map<Id, List<Reference_Application_Section__c>> referenceApplicationSectionMap
+	) {
+
 		List<Application_Section__c> applicationSections = new List<Application_Section__c>();
-		List<Application_Detail__c> applicationDetails = new List<Application_Detail__c>();
 
 		for (Application__c application : applications) {
 			Reference_Application__c referenceApplication = referenceApplicationMap.get(
@@ -125,7 +188,15 @@ public without sharing class ApplicationTriggerHelper {
 			}
 		}
 
-		insert applicationSections;
+		return applicationSections;
+	}
+
+	private static List<Application_Detail__c> createAppDetails(
+		List<Application_Section__c> applicationSections,
+		Map<Id, List<Reference_Application_Detail__c>> referenceApplicationDetailMap
+	) {
+
+		List<Application_Detail__c> applicationDetails = new List<Application_Detail__c>();
 
 		for (Application_Section__c applicationSection : applicationSections) {
 			List<Reference_Application_Detail__c> referenceApplicationDetails = referenceApplicationDetailMap.get(
@@ -161,8 +232,6 @@ public without sharing class ApplicationTriggerHelper {
 				applicationDetail.Maximum__c = referenceApplicationDetail.Maximum__c;
 				applicationDetail.Step__c = referenceApplicationDetail.Step__c;
 				applicationDetail.Alignment__c = referenceApplicationDetail.Alignment__c;
-				// system.debug('record type name');
-				// system.debug(referenceApplicationDetail.RecordType.DeveloperName);
 
 				applicationDetail.RecordTypeId = Schema.SObjectType.Application_Detail__c.getRecordTypeInfosByDeveloperName()
 					.get(referenceApplicationDetail.RecordType.DeveloperName)
@@ -172,14 +241,57 @@ public without sharing class ApplicationTriggerHelper {
 			}
 		}
 
-		insert applicationDetails;
-
-		List<Application_Detail_Language__c> adlList = createApplicationlanguages(applicationDetails, referenceApplicationDetailIds);
-
-		insert adlList;
+		return applicationDetails;
 	}
 
-	private static List<Application_Detail_Language__c> createApplicationlanguages(List<Application_Detail__c> appDetails, Set<Id> refAppDetailIds) {
+	private static List<Application_Section_Language__c> createApplicationSectionLanguages(
+		List<Application_Section__c> appSections, 
+		List<Reference_Application_Section__c> referenceApplicationSections
+	) {
+
+		Map<Id, List<Reference_Application_Section_Language__c>> referenceAppSectionLanguageMap = new Map<Id, List<Reference_Application_Section_Language__c>>();
+
+		for (Reference_Application_Section_Language__c rasl : [
+			SELECT Id,
+				Reference_Application_Section__c,
+				Translated_Display_Section_Name__c
+			FROM Reference_Application_Section_Language__c
+			WHERE Reference_Application_Section__c IN : referenceApplicationSections
+		]) {
+
+			if (referenceAppSectionLanguageMap.containsKey(rasl.Reference_Application_Section__c)) {
+				referenceAppSectionLanguageMap.get(rasl.Reference_Application_Section__c).add(rasl);
+			} else {
+				referenceAppSectionLanguageMap.put(rasl.Reference_Application_Section__c, new List<Reference_Application_Section_Language__c>{rasl});
+			}
+		}
+
+		List<Application_Section_Language__c> applicationSectionLangauges = new List<Application_Section_Language__c>();
+
+		for (Application_Section__c appSection : appSections) {
+
+			List <Reference_Application_Section_Language__c> raslList = referenceAppSectionLanguageMap.get(
+				appSection.Reference_Application_Section__c
+			);
+
+			for (Reference_Application_Section_Language__c rasl : raslList) {
+
+				Application_Section_Language__c asl = new Application_Section_Language__c();
+				
+				asl.Application_Section__c = appSection.Id;
+				asl.Reference_Application_Section_Language__c = rasl.Id;
+				asl.Translated_Display_Section_Name__c = rasl.Translated_Display_Section_Name__c;
+				applicationSectionLangauges.add(asl);
+			}
+		}
+
+		return applicationSectionLangauges;
+	}
+
+	private static List<Application_Detail_Language__c> createApplicationDetaillanguages(
+		List<Application_Detail__c> appDetails, 
+		List<Reference_Application_Detail__c> referenceApplicationDetails
+	) {
 
 		Map<Id, List<Reference_Application_Detail_Language__c>> referenceAppDetailLanguageMap = new Map<Id, List<Reference_Application_Detail_Language__c>>();
 
@@ -188,7 +300,7 @@ public without sharing class ApplicationTriggerHelper {
 				Reference_Application_Detail__c,
 				Translated_Text__c
 			FROM Reference_Application_Detail_Language__c
-			WHERE Reference_Application_Detail__c IN : refAppDetailIds
+			WHERE Reference_Application_Detail__c IN : referenceApplicationDetails
 		]) {
 
 			if (referenceAppDetailLanguageMap.containsKey(radl.Reference_Application_Detail__c)) {
