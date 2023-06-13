@@ -1,4 +1,4 @@
-public with sharing class ApplicationTriggerHelper {
+public without sharing class ApplicationTriggerHelper {
 	public static void beforeInsert(List<Application__c> applications) {
 		setApplicationDefaults(applications);
 	}
