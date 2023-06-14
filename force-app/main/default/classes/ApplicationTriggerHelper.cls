@@ -57,6 +57,13 @@ public without sharing class ApplicationTriggerHelper {
 		Map<Id, List<Reference_Application_Detail__c>> referenceApplicationDetailMap = buildReferenceApplicationDetailMap(
 			referenceApplicationDetails
 		);
+		
+		List<Application_Language__c> applicationLanguageList = createApplicationLanguages(
+			applications,
+			referenceApplicationMap
+		);
+
+		insert applicationLanguageList;
 
 		List<Application_Section__c> applicationSections = createAppSections(
 			applications, 
@@ -242,6 +249,61 @@ public without sharing class ApplicationTriggerHelper {
 		}
 
 		return applicationDetails;
+	}
+
+	private static List<Application_Language__c> createApplicationLanguages(
+		List<Application__c> applications,
+		Map<Id, Reference_Application__c> referenceApplicationMap
+	) {
+
+		Map<Id, List<Reference_Application_Language__c>> referenceAppLanguageMap = new Map<Id, List<Reference_Application_Language__c>>();
+
+		for (Reference_Application_Language__c ral : [
+			SELECT Id,
+				Reference_Application__c,
+				Translated_Application_Number__c,
+				Translated_Display_Description__c,
+				Translated_Display_Name__c,
+				Translated_Status__c,
+				Translated_Created_Date__c
+			FROM Reference_Application_Language__c
+			WHERE Reference_Application__c IN : referenceApplicationMap.keySet()
+		]) {
+
+			if (referenceAppLanguageMap.containsKey(ral.Reference_Application__c)) {
+				referenceAppLanguageMap.get(ral.Reference_Application__c).add(ral);
+			} else {
+				referenceAppLanguageMap.put(ral.Reference_Application__c, new List<Reference_Application_Language__c>{ral});
+			}
+		}
+
+		
+		system.debug('referenceAppLanguageMap');
+		system.debug(referenceAppLanguageMap);
+
+		List<Application_Language__c> applicationLanguages = new List<Application_Language__c>();
+
+		for (Application__c app : applications) {
+
+			List<Reference_Application_Language__c> ralList = referenceAppLanguageMap.get(
+				app.Reference_Application__c
+			);
+
+			for (Reference_Application_Language__c ral : ralList) {
+
+				Application_Language__c al = new Application_Language__c();
+
+				al.Application__c = app.Id;
+				al.Reference_Application_Language__c = ral.Id;
+				al.Translated_Application_Number__c = ral.Translated_Application_Number__c;
+				al.Translated_Display_Description__c = ral.Translated_Display_Description__c;
+				al.Translated_Display_Name__c = ral.Translated_Display_Name__c;
+				al.Translated_Status__c = ral.Translated_Status__c;
+				al.Translated_Created_Date__c = ral.Translated_Created_Date__c;
+				applicationLanguages.add(al);
+			}
+		}
+		return applicationLanguages;
 	}
 
 	private static List<Application_Section_Language__c> createApplicationSectionLanguages(

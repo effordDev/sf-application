@@ -41,6 +41,26 @@ public with sharing class ApplicationHelper {
 	}
 
 	@AuraEnabled
+	public static List<Application_Language__c> getApplicationLanguages(Id applicationId){
+		try {
+			return [
+				SELECT Id,
+					Language__c,
+					Reference_Application_Language__c,
+					Translated_Application_Number__c,
+					Translated_Display_Description__c,
+					Translated_Display_Name__c,
+					Translated_Status__c,
+					Translated_Created_Date__c
+				FROM Application_Language__c
+				WHERE Application__c = : applicationId
+			];
+		} catch (Exception e) {
+			throw new AuraHandledException(e.getMessage());
+		}
+	}
+
+	@AuraEnabled
 	public static List<Application_Section_Language__c> getApplicationSectionLanguages(Id sectionId){
 		try {
 			return [
@@ -105,27 +125,6 @@ public with sharing class ApplicationHelper {
 			WHERE Application_Section__c = :applicationSectionId
 			ORDER BY Sort_Order__c ASC
 		];
-	}
-
-	@AuraEnabled
-	public static List<String> getLanguages(Id referenceApplicationId){
-		try {
-			Set<String> languagesSet = new Set<String>();
-			List<String> languages = new List<String>();
-
-			for (Reference_Application_Detail_Language__c radl : [
-				SELECT Id, 
-					Language__c
-				FROM Reference_Application_Detail_Language__c
-				WHERE Reference_Application_Detail__r.Reference_Application_Section__r.Reference_Application__c = : referenceApplicationId
-			]) {
-				languagesSet.add(radl.Language__c);
-			}
-			languages.addAll(languagesSet);
-			return languages;
-		} catch (Exception e) {
-			throw new AuraHandledException(e.getMessage());
-		}
 	}
 
 	@AuraEnabled
