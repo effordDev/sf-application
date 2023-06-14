@@ -185,6 +185,41 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Application_Language__c.Language__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Language__c.Reference_Application_Language__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Language__c.Translated_Application_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Language__c.Translated_Created_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Language__c.Translated_Display_Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Language__c.Translated_Display_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Language__c.Translated_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Application_Section_Language__c.Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -330,6 +365,36 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Reference_Application_Language__c.Language__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Language__c.Translated_Application_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Language__c.Translated_Created_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Language__c.Translated_Display_Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Language__c.Translated_Display_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Language__c.Translated_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Reference_Application_Section_Language__c.Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -403,6 +468,9 @@
         <recordType>Application_Detail__c.Input_Text_Area_Long</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Application_Language__c-Application Language Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Application_Section_Language__c-Application Section Language Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -466,6 +534,9 @@
         <recordType>Reference_Application_Detail__c.Input_Text_Area_Long</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Reference_Application_Language__c-Reference Application Language Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Reference_Application_Section_Language__c-Reference Application Section Language Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -490,6 +561,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Application_Detail__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Application_Language__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -535,6 +615,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Reference_Application_Detail__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Reference_Application_Language__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -708,4 +797,5 @@
         <tab>Reference_Application__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+    <userLicense>Salesforce</userLicense>
 </Profile>
