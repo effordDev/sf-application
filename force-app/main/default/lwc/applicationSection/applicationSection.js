@@ -22,12 +22,9 @@ export default class ApplicationSection extends LightningElement {
 		this.details = await getApplicationDetails({
 			applicationSectionId: this.id
 		});
-		console.log(JSON.parse(JSON.stringify(this.details)));
 	}
 	async fetchApplicationSectionLanguages() {
 		this.languages = await getApplicationSectionLanguages({ sectionId: this.id })
-		console.log('languages')
-		console.log(JSON.parse(JSON.stringify(this.languages)))
 	}
 	get id() {
 		return this.section.Id;

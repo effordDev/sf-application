@@ -1,16 +1,17 @@
 import { api, LightningElement } from "lwc";
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getApplication from "@salesforce/apex/ApplicationHelper.getApplication";
-import getLanguages from "@salesforce/apex/ApplicationHelper.getLanguages";
+import getApplicationLanguages from "@salesforce/apex/ApplicationHelper.getApplicationLanguages";
 import saveApplication from "@salesforce/apex/ApplicationHelper.saveApplication";
 
 export default class ApplicationMain extends LightningElement {
 	@api recordId;
 
 	application = {};
+	applicationLanguages = []
 
 	language = 'English'
-	languages = [{label:'English', value:'English'}]
+	defaultLanguages = [{label:'English', value:'English'}]
 
 	size = 12;
 	smallDeviceSize = 12;
@@ -21,14 +22,40 @@ export default class ApplicationMain extends LightningElement {
 
 	async connectedCallback() {
 		await this.fetchApplication()
-		await this.fetchLanguages()
+		await this.fetchApplicationLanguages()
+	}
+
+	get languages() {
+		return [
+			...this.defaultLanguages, 
+			...(this.applicationLanguages.map(al => ({label: al.Language__c, value: al.Language__c})))
+		]
 	}
 
 	get applicationDisplayName() {
-		return this.application?.Application_Display_Name__c;
+		return this.applicationLanguages
+			.find(al => al.Language__c === this.language)
+			?.Translated_Display_Name__c || this.application?.Application_Display_Name__c
 	}
 	get displayDescription() {
-		return this.application?.Display_Description__c;
+		return this.applicationLanguages
+			.find(al => al.Language__c === this.language)
+			?.Translated_Display_Description__c || this.application?.Display_Description__c
+	}
+	get displayApplicationNumberText() {
+		return this.applicationLanguages
+			.find(al => al.Language__c === this.language)
+			?.Translated_Application_Number__c || 'Application Number'
+	}
+	get displayApplicationStatusText() {
+		return this.applicationLanguages
+			.find(al => al.Language__c === this.language)
+			?.Translated_Status__c || 'Status'
+	}
+	get displayApplicationCreatedDateText() {
+		return this.applicationLanguages
+			.find(al => al.Language__c === this.language)
+			?.Translated_Created_Date__c || 'Created Date'
 	}
 	get createdDate() {
 		return this.application?.CreatedDate;
@@ -70,17 +97,12 @@ export default class ApplicationMain extends LightningElement {
 		}
 	}
 
-	async fetchLanguages() {
+	async fetchApplicationLanguages() {
 		try {
 			this.isLoading = true
-			const langs = (await getLanguages({ referenceApplicationId: this.application.Reference_Application__c }))
-				.map(lang => ({ label:lang, value:lang }))
-			console.log(JSON.parse(JSON.stringify(langs)))
-
-			this.languages = [...this.languages, ...langs]
-			// this.languages = [...this.languages, langs]
+			this.applicationLanguages = await getApplicationLanguages({ applicationId: this.recordId })
 		} catch (error) {
-			console.error(JSON.parse(JSON.stringify(error)))
+			console.error(error)
 		} finally {
 			this.isLoading = false
 		}

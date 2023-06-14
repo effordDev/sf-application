@@ -26,7 +26,7 @@
 				large-device-size={largeDeviceSize}
 				padding="around-small"
 			>
-				<label class="slds-form-element__label"> Application Number </label>
+				<label class="slds-form-element__label"> {displayApplicationNumberText} </label>
 				<div class="slds-text-body_regular">{name}</div>
 			</lightning-layout-item>
 
@@ -37,7 +37,7 @@
 				large-device-size={largeDeviceSize}
 				padding="around-small"
 			>
-				<label class="slds-form-element__label"> Status </label>
+				<label class="slds-form-element__label"> {displayApplicationStatusText} </label>
 				<div class="slds-text-body_regular">{status}</div>
 			</lightning-layout-item>
 
@@ -48,7 +48,7 @@
 				large-device-size={largeDeviceSize}
 				padding="around-small"
 			>
-				<label class="slds-form-element__label"> Created Date </label>
+				<label class="slds-form-element__label"> {displayApplicationCreatedDateText} </label>
 				<div class="slds-text-body_regular">
 					<lightning-formatted-date-time
 						value={createdDate}
