@@ -98,6 +98,10 @@
         <sortField>Sort_Order__c</sortField>
         <sortOrder>Asc</sortOrder>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Application_Section_Language__c.Application_Section__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
