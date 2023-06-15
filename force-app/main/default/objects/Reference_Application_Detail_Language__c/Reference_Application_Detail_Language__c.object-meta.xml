@@ -156,7 +156,7 @@
     <label>Reference Application Detail Language</label>
     <nameField>
         <displayFormat>RADL-{000000}</displayFormat>
-        <label>Reference Application Detail Language Name</label>
+        <label>Reference Application Detail Language Na</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
