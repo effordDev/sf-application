@@ -27,14 +27,14 @@
 
 	<lightning-modal-footer>
 		<lightning-button
-			label={closeBtnLabel}
+			label={cancelBtnLabel}
 			onclick={handleClose}
 			class="footer-button"
 		></lightning-button>
 
 		<template lwc:if={editable}>
 			<lightning-button
-				label="Save & Close"
+				label={saveBtnLabel}
 				onclick={handleSave}
 				variant="brand"
 				class="footer-button"

@@ -10,6 +10,9 @@ export default class ApplicationSection extends LightningElement {
 	@api language = ''
 	@api readOnly = false;
 
+	@api cancelBtnLabel= ''
+	@api saveBtnLabel= ''
+
 	details = [];
 	detailsToUpdate = [];
 
@@ -66,6 +69,8 @@ export default class ApplicationSection extends LightningElement {
 				details: this.details,
 				readOnly: this.readOnly,
 				language: this.language,
+				cancelBtnLabel: this.cancelBtnLabel,
+				saveBtnLabel: this.saveBtnLabel,
 
 				ondetailchange: (event) => this.handleDetailChange(event),
 				onsave: (event) => this.handleSave(event),

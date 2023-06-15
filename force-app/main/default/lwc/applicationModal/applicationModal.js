@@ -9,9 +9,9 @@ export default class ApplicationModal extends LightningModal {
 	@api readOnly;
 	@api details = [];
 
-	get closeBtnLabel() {
-		return this.readOnly ? "Close" : "Cancel";
-	}
+	@api cancelBtnLabel = '';
+	@api saveBtnLabel = '';
+	
 	get editable() {
 		return !this.readOnly;
 	}

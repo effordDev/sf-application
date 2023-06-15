@@ -69,6 +69,8 @@
 					section={section}
 					read-only={readOnly}
 					language={language}
+					cancel-btn-label={displayCancelBtnLabel}
+					save-btn-label={displaySaveBtnLabel}
 					onrefresh={handleRefresh}
 					onloading={handleLoading}
 				></c-application-section>
@@ -82,7 +84,7 @@
 			style="text-align: center"
 			disabled={submitBtnDisabled}
 		>
-			Submit
+			{displaySubmitBtnLabel}
 		</button>
 	</div>
 </template>

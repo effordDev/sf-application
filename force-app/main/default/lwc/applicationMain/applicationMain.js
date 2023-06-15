@@ -57,6 +57,21 @@ export default class ApplicationMain extends LightningElement {
 			.find(al => al.Language__c === this.language)
 			?.Translated_Created_Date__c || 'Created Date'
 	}
+	get displayCancelBtnLabel() {
+		return this.applicationLanguages
+			.find(al => al.Language__c === this.language)
+			?.Translated_Cancel_Text__c || 'Cancel'
+	}
+	get displaySubmitBtnLabel() {
+		return this.applicationLanguages
+			.find(al => al.Language__c === this.language)
+			?.Translated_Submit_Text__c || 'Submit'
+	}
+	get displaySaveBtnLabel() {
+		return this.applicationLanguages
+			.find(al => al.Language__c === this.language)
+			?.Translated_Save_Text__c || 'Save & Close'
+	}
 	get createdDate() {
 		return this.application?.CreatedDate;
 	}
