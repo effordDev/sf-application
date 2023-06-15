@@ -88,6 +88,10 @@
         <fields>NAME</fields>
         <relatedList>Application_Section__c.Reference_Application_Section__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Reference_Application_Section_Language__c.Reference_Application_Section__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>

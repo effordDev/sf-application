@@ -22,11 +22,57 @@ public with sharing class ApplicationHelper {
 							Sort_Order__c,
 							Required_Questions__c,
 							Completed__c
+							// (
+							// 	SELECT Id, 
+							// 		Language__c,
+							// 		Reference_Application_Section_Language__c,
+							// 		Translated_Display_Section_Name__c
+							// 	FROM Application_Section_Languages__r
+							// )
 						FROM Application_Sections__r
 						ORDER BY Sort_Order__c ASC
 					)
 				FROM Application__c
 				WHERE Id = :recordId
+			];
+		} catch (Exception e) {
+			throw new AuraHandledException(e.getMessage());
+		}
+	}
+
+	@AuraEnabled
+	public static List<Application_Language__c> getApplicationLanguages(Id applicationId){
+		try {
+			return [
+				SELECT Id,
+					Language__c,
+					Reference_Application_Language__c,
+					Translated_Application_Number__c,
+					Translated_Display_Description__c,
+					Translated_Display_Name__c,
+					Translated_Status__c,
+					Translated_Created_Date__c,
+					Translated_Cancel_Text__c,
+					Translated_Save_Text__c,
+					Translated_Submit_Text__c
+				FROM Application_Language__c
+				WHERE Application__c = : applicationId
+			];
+		} catch (Exception e) {
+			throw new AuraHandledException(e.getMessage());
+		}
+	}
+
+	@AuraEnabled
+	public static List<Application_Section_Language__c> getApplicationSectionLanguages(Id sectionId){
+		try {
+			return [
+				SELECT Id, 
+					Language__c,
+					Reference_Application_Section_Language__c,
+					Translated_Display_Section_Name__c
+				FROM Application_Section_Language__c
+				WHERE Application_Section__c = : sectionId 
 			];
 		} catch (Exception e) {
 			throw new AuraHandledException(e.getMessage());
@@ -70,7 +116,14 @@ public with sharing class ApplicationHelper {
 				Minimum__c,
 				Maximum__c,
 				Step__c,
-				Alignment__c
+				Alignment__c,
+				(
+					SELECT Id,
+						Language__c,
+						Translated_Text__c,
+						Application_Detail__c
+					FROM Application_Detail_Languages__r
+				)
 			FROM Application_Detail__c
 			WHERE Application_Section__c = :applicationSectionId
 			ORDER BY Sort_Order__c ASC
@@ -207,11 +260,6 @@ public with sharing class ApplicationHelper {
 
 	@AuraEnabled
 	public static void deleteFile(Id contentDocumentId){
-		// List<ContentDocument> contentDocuementsTodelete = new List<ContentDocument>(); 
-  
-		// for (String contentDocumentId : contentDocumentIds ) {
-		// 	contentDocuementsTodelete.add(new ContentDocument(Id = contentDocumentId));
-		// }
 		ContentDocument cd = new ContentDocument();
 			cd.Id = contentDocumentId;
 		delete cd;

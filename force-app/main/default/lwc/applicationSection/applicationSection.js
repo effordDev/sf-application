@@ -1,18 +1,24 @@
 import { api, LightningElement } from "lwc";
 import ApplicationModal from "c/applicationModal";
 import getApplicationDetails from "@salesforce/apex/ApplicationHelper.getApplicationDetails";
+import getApplicationSectionLanguages from "@salesforce/apex/ApplicationHelper.getApplicationSectionLanguages";
 import saveApplicationDetails from "@salesforce/apex/ApplicationHelper.saveApplicationDetails";
 
 export default class ApplicationSection extends LightningElement {
 	@api recordId;
 	@api section = {};
+	@api language = ''
 	@api readOnly = false;
+
+	@api cancelBtnLabel= ''
+	@api saveBtnLabel= ''
 
 	details = [];
 	detailsToUpdate = [];
 
 	connectedCallback() {
 		this.fetchApplicationDetails();
+		this.fetchApplicationSectionLanguages()
 	}
 
 	async fetchApplicationDetails() {
@@ -20,11 +26,17 @@ export default class ApplicationSection extends LightningElement {
 			applicationSectionId: this.id
 		});
 	}
+	async fetchApplicationSectionLanguages() {
+		this.languages = await getApplicationSectionLanguages({ sectionId: this.id })
+	}
 	get id() {
 		return this.section.Id;
 	}
 	get displaySectionLabel() {
-		return this.section?.Display_Section_Label__c;
+		if (this.language === 'English') {
+			return this.section?.Display_Section_Label__c
+		}
+		return this.languages.find(l => l.Language__c === this.language)?.Translated_Display_Section_Name__c || this.section?.Display_Section_Label__c;
 	}
 	get isCompleted() {
 		return this.section?.Completed__c;
@@ -56,6 +68,9 @@ export default class ApplicationSection extends LightningElement {
 				sectionId: this.id,
 				details: this.details,
 				readOnly: this.readOnly,
+				language: this.language,
+				cancelBtnLabel: this.cancelBtnLabel,
+				saveBtnLabel: this.saveBtnLabel,
 
 				ondetailchange: (event) => this.handleDetailChange(event),
 				onsave: (event) => this.handleSave(event),
