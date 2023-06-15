@@ -265,7 +265,10 @@ public without sharing class ApplicationTriggerHelper {
 				Translated_Display_Description__c,
 				Translated_Display_Name__c,
 				Translated_Status__c,
-				Translated_Created_Date__c
+				Translated_Created_Date__c,
+				Translated_Cancel_Text__c,
+				Translated_Save_Text__c,
+				Translated_Submit_Text__c
 			FROM Reference_Application_Language__c
 			WHERE Reference_Application__c IN : referenceApplicationMap.keySet()
 		]) {
@@ -276,10 +279,6 @@ public without sharing class ApplicationTriggerHelper {
 				referenceAppLanguageMap.put(ral.Reference_Application__c, new List<Reference_Application_Language__c>{ral});
 			}
 		}
-
-		
-		system.debug('referenceAppLanguageMap');
-		system.debug(referenceAppLanguageMap);
 
 		List<Application_Language__c> applicationLanguages = new List<Application_Language__c>();
 
@@ -300,6 +299,9 @@ public without sharing class ApplicationTriggerHelper {
 				al.Translated_Display_Name__c = ral.Translated_Display_Name__c;
 				al.Translated_Status__c = ral.Translated_Status__c;
 				al.Translated_Created_Date__c = ral.Translated_Created_Date__c;
+				al.Translated_Cancel_Text__c = ral.Translated_Cancel_Text__c;
+				al.Translated_Save_Text__c = ral.Translated_Save_Text__c;
+				al.Translated_Submit_Text__c = ral.Translated_Submit_Text__c;
 				applicationLanguages.add(al);
 			}
 		}

@@ -51,7 +51,10 @@ public with sharing class ApplicationHelper {
 					Translated_Display_Description__c,
 					Translated_Display_Name__c,
 					Translated_Status__c,
-					Translated_Created_Date__c
+					Translated_Created_Date__c,
+					Translated_Cancel_Text__c,
+					Translated_Save_Text__c,
+					Translated_Submit_Text__c
 				FROM Application_Language__c
 				WHERE Application__c = : applicationId
 			];
