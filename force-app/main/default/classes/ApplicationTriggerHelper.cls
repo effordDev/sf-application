@@ -63,7 +63,9 @@ public without sharing class ApplicationTriggerHelper {
 			referenceApplicationMap
 		);
 
-		insert applicationLanguageList;
+		if (!applicationLanguageList.isEmpty()) {
+			insert applicationLanguageList;
+		}
 
 		List<Application_Section__c> applicationSections = createAppSections(
 			applications, 
@@ -78,7 +80,9 @@ public without sharing class ApplicationTriggerHelper {
 			referenceApplicationSections
 		);
 
-		insert appSectionLanguagelList;
+		if (!appSectionLanguagelList.isEmpty()) {
+			insert appSectionLanguagelList;
+		}
 
 		List<Application_Detail__c> applicationDetails = createAppDetails(
 			applicationSections, 
@@ -92,7 +96,9 @@ public without sharing class ApplicationTriggerHelper {
 			referenceApplicationDetails
 		);
 
-		insert appDetailLanguagelList;
+		if (!appDetailLanguagelList.isEmpty()) {
+			insert appDetailLanguagelList;
+		}
 	}
 
 	private static Map<Id, List<Reference_Application_Detail__c>> buildReferenceApplicationDetailMap(
@@ -280,6 +286,10 @@ public without sharing class ApplicationTriggerHelper {
 			}
 		}
 
+		if (referenceAppLanguageMap.isEmpty()) {
+			return new List<Application_Language__c>();
+		}
+
 		List<Application_Language__c> applicationLanguages = new List<Application_Language__c>();
 
 		for (Application__c app : applications) {
@@ -330,6 +340,10 @@ public without sharing class ApplicationTriggerHelper {
 			}
 		}
 
+		if (referenceAppSectionLanguageMap.isEmpty()) {
+			return new List<Application_Section_Language__c>();
+		}
+
 		List<Application_Section_Language__c> applicationSectionLangauges = new List<Application_Section_Language__c>();
 
 		for (Application_Section__c appSection : appSections) {
@@ -372,6 +386,10 @@ public without sharing class ApplicationTriggerHelper {
 			} else {
 				referenceAppDetailLanguageMap.put(radl.Reference_Application_Detail__c, new List<Reference_Application_Detail_Language__c>{radl});
 			}
+		}
+
+		if (referenceAppDetailLanguageMap.isEmpty()) {
+			return new List<Application_Detail_Language__c>();
 		}
 
 		List<Application_Detail_Language__c> applicationDetailLangauges = new List<Application_Detail_Language__c>();
