@@ -67,7 +67,9 @@ public without sharing class ApplicationTriggerHelper {
 			referenceApplicationMap
 		);
 
-		insert applicationLanguageList;
+		if (!applicationLanguageList.isEmpty()) {
+			insert applicationLanguageList;
+		}
 
 		List<Application_Section__c> applicationSections = createAppSections(
 			applications, 
@@ -75,27 +77,36 @@ public without sharing class ApplicationTriggerHelper {
 			referenceApplicationSectionMap
 		);
 
-		insert applicationSections;
+		if (!applicationSections.isEmpty()) {
+			insert applicationSections;
+		}
 
 		List<Application_Section_Language__c> appSectionLanguagelList = createApplicationSectionLanguages(
 			applicationSections,
 			referenceApplicationSections
 		);
 
-		insert appSectionLanguagelList;
+		if (!appSectionLanguagelList.isEmpty()) {
+			insert appSectionLanguagelList;
+		}
 
 		List<Application_Detail__c> applicationDetails = createAppDetails(
 			applicationSections, 
 			referenceApplicationDetailMap
 		);
 
-		insert applicationDetails;
+		if (!applicationDetails.isEmpty()) {
+			insert applicationDetails;
+		}
 
 		List<Application_Detail_Language__c> appDetailLanguagelList = createApplicationDetaillanguages(
 			applicationDetails, 
 			referenceApplicationDetails
 		);
 
+		if (!appDetailLanguagelList.isEmpty()) {
+			insert appDetailLanguagelList;
+		}
 		insert appDetailLanguagelList;
 	}
 
@@ -288,6 +299,10 @@ public without sharing class ApplicationTriggerHelper {
 			}
 		}
 
+		if (referenceAppLanguageMap.isEmpty()) {
+        	return new List<Application_Language__c>();
+        }
+
 		List<Application_Language__c> applicationLanguages = new List<Application_Language__c>();
 
 		for (Application__c app : applications) {
@@ -338,6 +353,10 @@ public without sharing class ApplicationTriggerHelper {
 			}
 		}
 
+		if (referenceAppSectionLanguageMap.isEmpty()) {
+			return new List<Application_Section_Language__c>();
+        }
+
 		List<Application_Section_Language__c> applicationSectionLangauges = new List<Application_Section_Language__c>();
 
 		for (Application_Section__c appSection : appSections) {
@@ -381,6 +400,10 @@ public without sharing class ApplicationTriggerHelper {
 				referenceAppDetailLanguageMap.put(radl.Reference_Application_Detail__c, new List<Reference_Application_Detail_Language__c>{radl});
 			}
 		}
+
+		if (referenceAppDetailLanguageMap.isEmpty()) {
+			return new List<Application_Detail_Language__c>();
+        }
 
 		List<Application_Detail_Language__c> applicationDetailLangauges = new List<Application_Detail_Language__c>();
 

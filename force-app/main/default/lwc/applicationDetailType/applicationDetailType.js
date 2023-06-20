@@ -3,6 +3,7 @@ export default class ApplicationDetailType extends LightningElement {
 	@api recordId;
 	@api sectionId;
 	@api readOnly;
+	@api language = ''
 	@api detail = {};
 
 	@api isValid() {
