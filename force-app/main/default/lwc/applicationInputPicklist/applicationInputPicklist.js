@@ -48,11 +48,18 @@ export default class ApplicationInputPicklist extends LightningElement {
 		return this.detail?.Input_Text__c;
 	}
 	get picklistValues() {
-		return this.detail?.Picklist_Values__c;
+		return this.detail?.Picklist_Values__c || ''
 	}
 	get options() {
+		if (!this.picklistValues.length) {
+			return [
+				{label:'N/A', value:'N/A'}
+			]
+		}
 		if (!this.picklistValues.split(";").length) {
-			return [];
+			return [
+				{label:'N/A', value:'N/A'}
+			]
 		}
 
 		return this.picklistValues.split(";").map((value) => {

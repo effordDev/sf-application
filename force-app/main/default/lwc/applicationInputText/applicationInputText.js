@@ -7,10 +7,6 @@ export default class ApplicationInputText extends LightningElement {
 	@api readOnly;
 	@track _detail = {};
 
-	connectedCallback() {
-		console.log(JSON.parse(JSON.stringify(this.detail)))
-	}
-
 	@api get detail() {
 		return this._detail;
 	}

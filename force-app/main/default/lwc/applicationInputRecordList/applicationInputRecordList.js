@@ -115,7 +115,7 @@ export default class ApplicationInputRecordList extends LightningElement {
         event.preventDefault()
 
         const fields = event.detail.fields
-        fields.Demo_CC_Application__c = this.recordId
+        fields[this.parentRelationshipApi] = this.recordId
         this.template.querySelector('lightning-record-edit-form').submit(fields)
     } 
 

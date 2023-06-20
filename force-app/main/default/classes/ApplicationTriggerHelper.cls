@@ -194,9 +194,17 @@ public without sharing class ApplicationTriggerHelper {
 				application.Reference_Application__c
 			);
 
+			if (referenceApplicationMap.isEmpty()) {
+				return new List<Application_Section__c>();
+			}
+
 			List<Reference_Application_Section__c> referenceApplicationSections = referenceApplicationSectionMap.get(
 				referenceApplication.Id
 			);
+
+			if (referenceApplicationSections.isEmpty()) {
+				continue;
+			}
 
 			for (
 				Reference_Application_Section__c referenceApplicationSection : referenceApplicationSections
