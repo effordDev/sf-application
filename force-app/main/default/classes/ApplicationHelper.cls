@@ -22,57 +22,11 @@ public with sharing class ApplicationHelper {
 							Sort_Order__c,
 							Required_Questions__c,
 							Completed__c
-							// (
-							// 	SELECT Id, 
-							// 		Language__c,
-							// 		Reference_Application_Section_Language__c,
-							// 		Translated_Display_Section_Name__c
-							// 	FROM Application_Section_Languages__r
-							// )
 						FROM Application_Sections__r
 						ORDER BY Sort_Order__c ASC
 					)
 				FROM Application__c
 				WHERE Id = :recordId
-			];
-		} catch (Exception e) {
-			throw new AuraHandledException(e.getMessage());
-		}
-	}
-
-	@AuraEnabled
-	public static List<Application_Language__c> getApplicationLanguages(Id applicationId){
-		try {
-			return [
-				SELECT Id,
-					Language__c,
-					Reference_Application_Language__c,
-					Translated_Application_Number__c,
-					Translated_Display_Description__c,
-					Translated_Display_Name__c,
-					Translated_Status__c,
-					Translated_Created_Date__c,
-					Translated_Cancel_Text__c,
-					Translated_Save_Text__c,
-					Translated_Submit_Text__c
-				FROM Application_Language__c
-				WHERE Application__c = : applicationId
-			];
-		} catch (Exception e) {
-			throw new AuraHandledException(e.getMessage());
-		}
-	}
-
-	@AuraEnabled
-	public static List<Application_Section_Language__c> getApplicationSectionLanguages(Id sectionId){
-		try {
-			return [
-				SELECT Id, 
-					Language__c,
-					Reference_Application_Section_Language__c,
-					Translated_Display_Section_Name__c
-				FROM Application_Section_Language__c
-				WHERE Application_Section__c = : sectionId 
 			];
 		} catch (Exception e) {
 			throw new AuraHandledException(e.getMessage());
@@ -117,13 +71,10 @@ public with sharing class ApplicationHelper {
 				Maximum__c,
 				Step__c,
 				Alignment__c,
-				(
-					SELECT Id,
-						Language__c,
-						Translated_Text__c,
-						Application_Detail__c
-					FROM Application_Detail_Languages__r
-				)
+				Child_sObject_API_Name__c,
+				Child_sObject_Field_Set_API_Name__c,
+				Child_To_Parent_Relationship_Api_Name__c,
+				Child_sObject_Table_Field_Set_API_Name__c
 			FROM Application_Detail__c
 			WHERE Application_Section__c = :applicationSectionId
 			ORDER BY Sort_Order__c ASC
@@ -260,8 +211,75 @@ public with sharing class ApplicationHelper {
 
 	@AuraEnabled
 	public static void deleteFile(Id contentDocumentId){
+		// List<ContentDocument> contentDocuementsTodelete = new List<ContentDocument>(); 
+  
+		// for (String contentDocumentId : contentDocumentIds ) {
+		// 	contentDocuementsTodelete.add(new ContentDocument(Id = contentDocumentId));
+		// }
 		ContentDocument cd = new ContentDocument();
 			cd.Id = contentDocumentId;
 		delete cd;
 	}	
+
+	@AuraEnabled
+    public static String getFieldSet(String sObjectName, String fieldSetName) {
+        String result = '';
+        try {
+            SObjectType objToken = Schema.getGlobalDescribe().get(sObjectName);
+
+            Schema.DescribeSObjectResult d = objToken.getDescribe();
+			
+            Map<String, Schema.FieldSet> fieldSetMap = d.fieldSets.getMap();
+
+            if (fieldSetMap.containsKey(fieldSetName)) {
+                for (Schema.FieldSetMember f : fieldSetMap.get(fieldSetName).getFields()) {
+
+					result = String.isNotBlank(result) ? result += ',' : result;
+
+                    String jsonPart = '{';
+                    jsonPart += '"required":"' + (f.getDBRequired() || f.getRequired()) + '",';
+                    jsonPart += '"type":"' + (f.getType()) + '",';
+                    jsonPart += '"label":"' + (f.getLabel()) + '",';
+                    jsonPart += '"name":"' + f.getFieldPath() + '"';
+                    jsonPart += '}';
+                    result += jsonPart;
+                }
+            }
+        } catch (Exception ex) { 
+            result += ex.getLineNumber() + ' : ' + ex.getMessage();
+        }
+        return '['+result+']';
+    }
+
+	@AuraEnabled
+	public static List<sObject> getFieldSetData(Id parentId, String sObjectName, String fieldSetName, String parentRelationship){
+		system.debug('logLevel');
+		system.debug(parentId);
+		system.debug(sObjectName);
+		system.debug(fieldSetName);
+		system.debug(parentRelationship);
+
+		String queryString = 'SELECT Id';
+
+        List<sObject> data = new List<sObject>();
+
+		SObjectType objToken = Schema.getGlobalDescribe().get(sObjectName);
+
+		Schema.DescribeSObjectResult d = objToken.getDescribe();
+		
+		Map<String, Schema.FieldSet> fieldSetMap = d.fieldSets.getMap();
+
+        for(Schema.FieldSetMember fld : fieldSetMap.get(fieldSetName).getFields()) {
+            queryString += ', ' + fld.getFieldPath();
+        }
+        queryString += ' FROM ' + sObjectName;
+		queryString += ' WHERE ' + parentRelationship + ' = ' + '\''+ parentId +'\'';
+		queryString +=' LIMIT 10';
+         
+		system.debug('queryString');
+		system.debug(queryString);
+
+        data = Database.query(queryString);
+        return data;
+    }
 }

@@ -184,6 +184,26 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Detail__c.Child_sObject_API_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Detail__c.Child_sObject_Field_Set_API_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Detail__c.Child_sObject_Table_Field_Set_API_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Detail__c.Child_To_Parent_Relationship_Api_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Application_Language__c.Language__c</field>
         <readable>true</readable>
@@ -380,6 +400,26 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Reference_Application_Detail__c.Child_sObject_API_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Child_sObject_Field_Set_API_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Child_sObject_Table_Field_Set_API_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Child_To_Parent_Relationship_Api_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Reference_Application_Language__c.Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -498,6 +538,10 @@
         <recordType>Application_Detail__c.Input_Text_Area_Long</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Application_Detail__c-Input Record List</layout>
+        <recordType>Application_Detail__c.Input_Record_List</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Application_Language__c-Application Language Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -562,6 +606,10 @@
     <layoutAssignments>
         <layout>Reference_Application_Detail__c-Input Text Area Long</layout>
         <recordType>Reference_Application_Detail__c.Input_Text_Area_Long</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Detail__c-Input Record List</layout>
+        <recordType>Reference_Application_Detail__c.Input_Record_List</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Reference_Application_Language__c-Reference Application Language Layout</layout>
@@ -745,6 +793,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Application_Detail__c.Input_Record_List</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Reference_Application_Detail__c.Custom_Component</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -801,6 +854,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Reference_Application_Detail__c.Input_Text_Area_Long</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Reference_Application_Detail__c.Input_Record_List</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>

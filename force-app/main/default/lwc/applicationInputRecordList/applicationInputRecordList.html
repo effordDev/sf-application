@@ -1,0 +1,81 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="slds-box" style="padding-bottom: 40px;">
+        <template lwc:if={isLoading}>
+            Loading...
+        </template> 
+        <template lwc:else>
+
+            <template lwc:if={editable}>
+
+                <template lwc:if={active}>
+
+                    <lightning-record-edit-form
+                        object-api-name={childsObjectApi}
+                        onsubmit={handleSubmit}
+                        onsuccess={handleSuccess}
+                    >
+                
+                        <template for:each={fieldSet} for:item="field">
+
+                            <lightning-input-field 
+                                key={field.name}
+                                field-name={field.name}
+                                required={field.req}
+                            ></lightning-input-field>
+                            
+                        </template>
+                
+                        <div class="slds-var-m-top_medium">
+
+                            <lightning-button 
+                                variant="brand" 
+                                type="submit" 
+                                label="Save">
+                            </lightning-button>
+                        
+                            &nbsp;
+
+                            <lightning-button   
+                                label="Cancel"
+                                onclick={hideInputs}
+                            ></lightning-button>
+
+                        </div>
+
+                    </lightning-record-edit-form>
+
+                </template>
+
+                <template lwc:if={hideAddBtn}>
+
+                    <lightning-button
+                        label="Add"
+                        variant="brand"
+                        onclick={showInputs}
+                    ></lightning-button>
+
+                </template>
+
+            </template>
+
+            <div style="height: 250px;">
+
+                <br /> 
+
+                <lightning-datatable
+                    key-field="id"
+                    data={data}
+                    columns={columns}
+                    hide-checkbox-column
+                    class="slds-max-medium-table_stacked-horizontal"
+                ></lightning-datatable>
+
+            </div>
+            
+            <!-- <br />
+            <br /> -->
+        </template>
+    </div>
+
+</template>

@@ -3,7 +3,6 @@ export default class ApplicationDetailType extends LightningElement {
 	@api recordId;
 	@api sectionId;
 	@api readOnly;
-	@api language = ''
 	@api detail = {};
 
 	@api isValid() {
@@ -52,6 +51,9 @@ export default class ApplicationDetailType extends LightningElement {
 	}
 	get isInputFile() {
 		return this.recordTypeName === "Input_File";
+	}
+	get isInputRecordList() {
+		return this.recordTypeName === "Input_Record_List";
 	}
 	get isCustomComponent() {
 		return this.recordTypeName === "Custom_Component";

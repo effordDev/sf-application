@@ -10,28 +10,12 @@ public with sharing class ApplicationHelperTest {
         refApp.Display_Name__c = 'testDisplayName';
         insert refApp;
 
-        Reference_Application_Language__c ral = new Reference_Application_Language__c();
-        ral.Reference_Application__c = refApp.Id;
-        ral.Language__c = 'French';
-        ral.Translated_Display_Name__c = 'Le nom de mon chat est tokyo';
-        ral.Translated_Display_Description__c = 'La description';
-        ral.Translated_Application_Number__c = 'Numéro d\'application';
-        ral.Translated_Status__c = 'statut';
-        ral.Translated_Created_Date__c = 'Date de création';
-        insert ral;
-
         Reference_Application_Section__c refAppSection = new Reference_Application_Section__c();
         refAppSection.Name = 'testName';
         refAppSection.Reference_Application__c = refApp.Id;
         refAppSection.Display_Section_Name__c = 'testDisplaySectionName';
         refAppSection.Sort_Order__c = 1;
         insert refAppSection;
-
-        Reference_Application_Section_Language__c refAppSectionLanguage1 = new Reference_Application_Section_Language__c();
-        refAppSectionLanguage1.Reference_Application_Section__c = refAppSection.Id;
-        refAppSectionLanguage1.Language__c = 'French';
-        refAppSectionLanguage1.Translated_Display_Section_Name__c = 'French Section 1';
-        insert refAppSectionLanguage1;
 
         Reference_Application_Section__c refAppSection2 = new Reference_Application_Section__c();
         refAppSection2.Name = 'testName2';
@@ -40,11 +24,14 @@ public with sharing class ApplicationHelperTest {
         refAppSection2.Sort_Order__c = 2;
         insert refAppSection2;
 
-        Reference_Application_Section_Language__c refAppSectionLanguage2 = new Reference_Application_Section_Language__c();
-        refAppSectionLanguage2.Reference_Application_Section__c = refAppSection2.Id;
-        refAppSectionLanguage2.Language__c = 'French';
-        refAppSectionLanguage2.Translated_Display_Section_Name__c = 'French Section 2';
-        insert refAppSectionLanguage2;
+        Reference_Application_Detail__c refAppDetail2 = new Reference_Application_Detail__c();  
+        refAppDetail2.Field_Label__c = 'test text input';
+        refAppDetail2.Reference_Application_Section__c = refAppSection2.Id;
+        refAppDetail2.RecordTypeId = Schema.SObjectType.Reference_Application_Detail__c.getRecordTypeInfosByDeveloperName()
+        .get('Input_Text')
+        .getRecordTypeId();
+        refAppDetail2.Sort_Order__c = 1;
+        insert refAppDetail2;
 
         Reference_Application_Detail__c refAppDetail = new Reference_Application_Detail__c();  
         refAppDetail.Field_Label__c = 'test text input';
@@ -55,42 +42,15 @@ public with sharing class ApplicationHelperTest {
         refAppDetail.Sort_Order__c = 1;
         insert refAppDetail;
 
-        Reference_Application_Detail_Language__c radl = new Reference_Application_Detail_Language__c();
-            radl.Reference_Application_Detail__c = refAppDetail.Id;
-            radl.Language__c = 'French';
-            radl.Translated_Text__c = 'french text input';
-        insert radl;
-
-        Reference_Application_Detail__c refAppDetail2 = new Reference_Application_Detail__c();  
-        refAppDetail2.Field_Label__c = 'test text input';
-        refAppDetail2.Reference_Application_Section__c = refAppSection2.Id;
-        refAppDetail2.RecordTypeId = Schema.SObjectType.Reference_Application_Detail__c.getRecordTypeInfosByDeveloperName()
-        .get('Input_Text')
-        .getRecordTypeId();
-        refAppDetail2.Sort_Order__c = 2;
-        insert refAppDetail2;
-
-        Reference_Application_Detail_Language__c radl2 = new Reference_Application_Detail_Language__c();
-            radl2.Reference_Application_Detail__c = refAppDetail2.Id;
-            radl2.Language__c = 'French';
-            radl2.Translated_Text__c = 'french text input2';
-        insert radl2;
-
         Reference_Application_Detail__c refAppDetailRequired = new Reference_Application_Detail__c();  
         refAppDetailRequired.Field_Label__c = 'test text input';
         refAppDetailRequired.Reference_Application_Section__c = refAppSection.Id;
         refAppDetailRequired.RecordTypeId = Schema.SObjectType.Reference_Application_Detail__c.getRecordTypeInfosByDeveloperName()
         .get('Input_Text')
         .getRecordTypeId();
-        refAppDetailRequired.Sort_Order__c = 3;
+        refAppDetailRequired.Sort_Order__c = 2;
         refAppDetailRequired.Required__c = true;
         insert refAppDetailRequired;
-
-        Reference_Application_Detail_Language__c radl3 = new Reference_Application_Detail_Language__c();
-            radl3.Reference_Application_Detail__c = refAppDetailRequired.Id;
-            radl3.Language__c = 'French';
-            radl3.Translated_Text__c = 'french text input3';
-        insert radl3;
     }
 
     @isTest
@@ -113,30 +73,6 @@ public with sharing class ApplicationHelperTest {
         insert app;
 
         ApplicationHelper.getApplication(app.Id);
-    }
-
-    @isTest 
-    private static void getApplicationLanguagesTest() {
-
-        Reference_Application__c refApp = [SELECT Id FROM Reference_Application__c LIMIT 1];
-
-        Application__c app = new Application__c();
-        app.Reference_Application__c = refApp.Id;
-        insert app;
-
-        ApplicationHelper.getApplicationLanguages(app.Id);
-    }
-    @isTest 
-    private static void getApplicationSectionLanguagesTest() {
-        Reference_Application__c refApp = [SELECT Id FROM Reference_Application__c LIMIT 1];
-
-        Application__c app = new Application__c();
-        app.Reference_Application__c = refApp.Id;
-        insert app;
-        
-        Application_Section__c applicationSection = [SELECT Id FROM Application_Section__c LIMIT 1];
-
-        ApplicationHelper.getApplicationSectionLanguages(applicationSection.Id);
     }
 
     @isTest
