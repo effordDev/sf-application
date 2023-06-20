@@ -5,7 +5,6 @@
 			section-id={sectionId}
 			detail={detail}
 			class={inputDisplayClass}
-			language={language}
 		></c-application-display-text>
 	</template>
 
@@ -15,7 +14,6 @@
 			section-id={sectionId}
 			detail={detail}
 			class={inputDisplayClass}
-			language={language}
 		></c-application-display-rich-text>
 	</template>
 
@@ -27,7 +25,6 @@
 			detail={detail}
 			read-only={readOnly}
 			class={inputDisplayClass}
-			language={language}
 		></c-application-input-text-area-long>
 	</template>
 
@@ -39,7 +36,6 @@
 			detail={detail}
 			read-only={readOnly}
 			class={inputDisplayClass}
-			language={language}
 		></c-application-input-text>
 	</template>
 
@@ -51,7 +47,6 @@
 			detail={detail}
 			read-only={readOnly}
 			class={inputDisplayClass}
-			language={language}
 		></c-application-input-number>
 	</template>
 
@@ -63,7 +58,6 @@
 			detail={detail}
 			read-only={readOnly}
 			class={inputDisplayClass}
-			language={language}
 		></c-application-input-currency>
 	</template>
 
@@ -75,7 +69,6 @@
 			detail={detail}
 			read-only={readOnly}
 			class={inputDisplayClass}
-			language={language}
 		></c-application-input-checkbox>
 	</template>
 
@@ -87,7 +80,6 @@
 			detail={detail}
 			read-only={readOnly}
 			class={inputDisplayClass}
-			language={language}
 		></c-application-input-picklist>
 	</template>
 
@@ -99,7 +91,6 @@
 			detail={detail}
 			read-only={readOnly}
 			class={inputDisplayClass}
-			language={language}
 		></c-application-input-date>
 	</template>
 
@@ -111,7 +102,6 @@
 			detail={detail}
 			read-only={readOnly}
 			class={inputDisplayClass}
-			language={language}
 		></c-application-input-datetime>
 	</template>
 
@@ -123,8 +113,18 @@
 			detail={detail}
 			read-only={readOnly}
 			class={inputDisplayClass}
-			language={language}
 		></c-application-input-file>
+	</template>
+
+	<template lwc:if={isInputRecordList}>
+		<c-application-input-record-list
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		></c-application-input-record-list>
 	</template>
 
 	<template lwc:if={isCustomComponent}>	
