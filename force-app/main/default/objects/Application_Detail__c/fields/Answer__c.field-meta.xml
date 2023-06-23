@@ -9,7 +9,8 @@ IF( RecordType.DeveloperName == &apos;Input_Datetime&apos;, TEXT( Input_Datetime
 IF( RecordType.DeveloperName == &apos;Input_Number&apos;, TEXT( Input_Number__c ),
 IF( RecordType.DeveloperName == &apos;Input_Text&apos;, Input_Text__c,
 IF( RecordType.DeveloperName == &apos;Input_Picklist&apos;, Input_Text__c,
-IF( RecordType.DeveloperName == &apos;Input_File&apos;, if(Input_Files_Uploaded__c &gt; 0, TEXT(Input_Files_Uploaded__c), &apos;&apos;), &apos;&apos;
+IF( RecordType.DeveloperName == &apos;Input_File&apos;, if(Input_Files_Uploaded__c &gt; 0, TEXT(Input_Files_Uploaded__c), &apos;&apos;),
+IF( RecordType.DeveloperName == &apos;Input_Record_List&apos;, if(Input_Record_List__c &gt; 0, TEXT(Input_Record_List__c), &apos;&apos;), &apos;&apos;
  )
  )
  )
@@ -17,6 +18,7 @@ IF( RecordType.DeveloperName == &apos;Input_File&apos;, if(Input_Files_Uploaded_
  )
  )
  ) 
+ )
  )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Answer</label>

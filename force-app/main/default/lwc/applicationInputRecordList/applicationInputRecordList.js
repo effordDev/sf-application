@@ -119,7 +119,7 @@ export default class ApplicationInputRecordList extends LightningElement {
         this.template.querySelector('lightning-record-edit-form').submit(fields)
     } 
 
-    handleSuccess(event){
+    async handleSuccess(event){
 
         const inputFields = this.template.querySelectorAll(
             'lightning-input-field'
@@ -133,7 +133,18 @@ export default class ApplicationInputRecordList extends LightningElement {
         const payload = event.detail;
         console.log(JSON.stringify(payload));
 
-        this.fetchFieldSetData()
+        await this.fetchFieldSetData()
+
+        this.dispatchEvent(
+			new CustomEvent("detailchange", {
+				composed: true,
+				bubbles: true,
+				detail: {
+					Id: this.id,
+					Input_Record_List__c : this.data.length
+				}
+			})
+		);
     }
 
     showInputs(event) {
