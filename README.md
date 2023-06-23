@@ -5,6 +5,10 @@
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
 </a>
 
+<a href="https://github.com/jsmithdev/sfdx-deploy-instructions">
+  Deploy via sfdx instead
+</a>
+
 <details>
   <summary>
     Demo
