@@ -61,6 +61,12 @@
 
             <div style="height: 250px;">
 
+                <br>
+
+                <template lwc:if={required}>
+                    <font style="color: red;">*</font> Add at least one record
+                </template>
+
                 <br /> 
 
                 <lightning-datatable
