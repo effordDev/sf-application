@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reference_Parent_Application_Detail__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Reference Parent Application Detail</label>
+    <referenceTo>Reference_Application_Detail__c</referenceTo>
+    <relationshipLabel>Reference Application Details</relationshipLabel>
+    <relationshipName>Reference_Application_Details</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>
