@@ -39,6 +39,14 @@
                 <behavior>Edit</behavior>
                 <field>Large_Device_Size__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Reference_Parent_Application_Detail__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Parent_Dependent_Answer__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -88,6 +96,10 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Reference_Application_Detail_Language__c.Reference_Application_Detail__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Reference_Application_Detail__c.Reference_Parent_Application_Detail__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

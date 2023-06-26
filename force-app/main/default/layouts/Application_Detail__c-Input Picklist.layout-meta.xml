@@ -32,6 +32,10 @@
                 <field>Input_Text__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Parent_Dependent_Answer__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Answer__c</field>
             </layoutItems>
@@ -54,6 +58,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Picklist_Values__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Parent_Application_Detail__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -120,13 +128,17 @@
         <fields>NAME</fields>
         <relatedList>Application_Detail_Language__c.Application_Detail__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Application_Detail__c.Parent_Application_Detail__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hBZ000000OsQE</masterLabel>
+        <masterLabel>00h8D000002uNXe</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
