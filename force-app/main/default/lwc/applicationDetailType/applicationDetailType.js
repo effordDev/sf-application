@@ -7,8 +7,15 @@ export default class ApplicationDetailType extends LightningElement {
 	@api detail = {};
 
 	@api isValid() {
+		console.log(this.refs)
 		return this.refs.input?.completed;
 	}
+
+	errorCallback(error, stack) {
+		console.log('error');
+		console.log(error?.message);
+		console.log(stack);
+    }
 
 	get recordTypeName() {
 		return this.detail?.RecordType?.DeveloperName;

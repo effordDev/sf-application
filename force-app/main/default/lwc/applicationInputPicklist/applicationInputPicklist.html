@@ -8,4 +8,29 @@
 		onchange={handleChange}
 		disabled={readOnly}
 	></lightning-combobox>
+
+	<br />
+	<!-- validateInput: {validateInput} <br />
+	validateChildInputs: {validateChildInputs} <br /> -->
+	hasChildRecords: {hasChildRecords}
+	<template lwc:if={showChildRecords}>
+
+		<template for:each={childRecords} for:item="child">
+
+			<!-- <div key={child.Id}> -->
+
+				<c-application-input-picklist
+					key={child.Id}
+					record-id={recordId}
+					section-id={sectionId}
+					detail={child}
+					language={language}
+					read-only={readOnly}
+					class={child.InputOrDisplayClass__c}
+				></c-application-input-picklist>
+
+			<!-- </div> -->
+
+		</template>
+	</template>
 </template>
