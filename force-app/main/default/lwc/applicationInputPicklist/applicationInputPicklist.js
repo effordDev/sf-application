@@ -14,9 +14,9 @@ export default class ApplicationInputPicklist extends LightningElement {
 		this._detail = Object.assign({}, value);
 	}
 
-	@api get pubLab() {
-		return this.label
-	}
+	// connectedCallback() {
+	// 	console.log(JSON.parse(JSON.stringify(this.detail)))
+	// }
 
 	/*
 	 * if required => make sure there is a value and required is == true
@@ -73,13 +73,13 @@ export default class ApplicationInputPicklist extends LightningElement {
 		return this.detail?.Input_Text__c;
 	}
 	get dependentParentAnswer() {
-		return this.detail?.Parent_Dependant_Answer__c
+		return this.detail?.Parent_Dependent_Answer__c
 	}
 	get picklistValues() {
 		return this.detail?.Picklist_Values__c || ''
 	}
 	get showChildRecords() {
-		return (this.hasChildRecords && this.val === this.dependentParentAnswer)
+		return (this.hasChildRecords && (this.dependentParentAnswer.includes(this.val)))
 	}
 	get hasChildRecords() {
 		return !!this.childRecords.length
