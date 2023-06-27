@@ -1,75 +1,63 @@
 public with sharing class ApplicationHelper {
 	@AuraEnabled
 	public static Application__c getApplication(Id recordId) {
-		try {
-			return [
-				SELECT
-					Id,
-					Name,
-					Application_Display_Name__c,
-					Display_Description__c,
-					Reference_Application__c,
-					Status__c,
-					CreatedDate,
-					Read_Only__c,
-					(
-						SELECT
-							Id,
-							Name,
-							Application__c,
-							Reference_Application_Section__c,
-							Display_Section_Label__c,
-							Sort_Order__c,
-							Required_Questions__c,
-							Completed__c
-						FROM Application_Sections__r
-						ORDER BY Sort_Order__c ASC
-					)
-				FROM Application__c
-				WHERE Id = :recordId
-			];
-		} catch (Exception e) {
-			throw new AuraHandledException(e.getMessage());
-		}
+		return [
+			SELECT
+				Id,
+				Name,
+				Application_Display_Name__c,
+				Display_Description__c,
+				Reference_Application__c,
+				Status__c,
+				CreatedDate,
+				Read_Only__c,
+				(
+					SELECT
+						Id,
+						Name,
+						Application__c,
+						Reference_Application_Section__c,
+						Display_Section_Label__c,
+						Sort_Order__c,
+						Required_Questions__c,
+						Completed__c
+					FROM Application_Sections__r
+					ORDER BY Sort_Order__c ASC
+				)
+			FROM Application__c
+			WHERE Id = :recordId
+		];
 	}
 
 	@AuraEnabled
 	public static List<Application_Language__c> getApplicationLanguages(Id applicationId){
-		try {
-			return [
-				SELECT Id,
-					Language__c,
-					Reference_Application_Language__c,
-					Translated_Application_Number__c,
-					Translated_Display_Description__c,
-					Translated_Display_Name__c,
-					Translated_Status__c,
-					Translated_Created_Date__c,
-					Translated_Cancel_Text__c,
-					Translated_Save_Text__c,
-					Translated_Submit_Text__c
-				FROM Application_Language__c
-				WHERE Application__c = : applicationId
-			];
-		} catch (Exception e) {
-			throw new AuraHandledException(e.getMessage());
-		}
+		return [
+			SELECT Id,
+				Language__c,
+				Reference_Application_Language__c,
+				Translated_Application_Number__c,
+				Translated_Display_Description__c,
+				Translated_Display_Name__c,
+				Translated_Status__c,
+				Translated_Created_Date__c,
+				Translated_Cancel_Text__c,
+				Translated_Save_Text__c,
+				Translated_Submit_Text__c
+			FROM Application_Language__c
+			WHERE Application__c = : applicationId
+		];
 	}
 
 	@AuraEnabled
 	public static List<Application_Section_Language__c> getApplicationSectionLanguages(Id sectionId){
-		try {
-			return [
-				SELECT Id, 
-					Language__c,
-					Reference_Application_Section_Language__c,
-					Translated_Display_Section_Name__c
-				FROM Application_Section_Language__c
-				WHERE Application_Section__c = : sectionId 
-			];
-		} catch (Exception e) {
-			throw new AuraHandledException(e.getMessage());
-		}
+		return [
+			SELECT Id, 
+				Language__c,
+				Reference_Application_Section_Language__c,
+				Translated_Display_Section_Name__c
+			FROM Application_Section_Language__c
+			WHERE Application_Section__c = : sectionId 
+		];
 	}
 
 	@AuraEnabled
@@ -114,6 +102,7 @@ public with sharing class ApplicationHelper {
 				Child_sObject_Field_Set_API_Name__c,
 				Child_To_Parent_Relationship_Api_Name__c,
 				Child_sObject_Table_Field_Set_API_Name__c,
+				Parent_Dependent_Answer__c,
 				(
 					SELECT Id,
 						Language__c,
@@ -121,8 +110,51 @@ public with sharing class ApplicationHelper {
 						Application_Detail__c
 					FROM Application_Detail_Languages__r
 				)
+				,
+				(
+					SELECT
+					Id,
+					Name,
+					RecordTypeId,
+					RecordType.DeveloperName,
+					Reference_Application_Detail__c,
+					Application_Section__c,
+					Display_Text__c,
+					Display_Rich_Text__c,
+					InputOrDisplayClass__c,
+					Field_Label__c,
+					Required__c,
+					Picklist_Values__c,
+					Large_Device_Size__c,
+					Medium_Device_Size__c,
+					Small_Device_Size__c,
+					Input_Checkbox__c,
+					Input_Currency__c,
+					Input_Date__c,
+					Input_Datetime__c,
+					Input_Number__c,
+					Input_Text__c,
+					Input_Text_Long__c,
+					File_Rename__c,
+					Accepted_File_Types__c,
+					Custom_Component_JSON__c,
+					Component_Name__c,
+					Message_When_Pattern_Mismatch__c,
+					Pattern__c,
+					Minimum__c,
+					Maximum__c,
+					Step__c,
+					Alignment__c,
+					Child_sObject_API_Name__c,
+					Child_sObject_Field_Set_API_Name__c,
+					Child_To_Parent_Relationship_Api_Name__c,
+					Child_sObject_Table_Field_Set_API_Name__c,
+					Parent_Dependent_Answer__c
+				FROM Application_Details__r
+				)
 			FROM Application_Detail__c
 			WHERE Application_Section__c = :applicationSectionId
+			AND Parent_Application_Detail__c = null
 			ORDER BY Sort_Order__c ASC
 		];
 	}
@@ -140,6 +172,7 @@ public with sharing class ApplicationHelper {
 			FROM Application_Detail__c
 			WHERE Application_Section__c = :sectionId 
 			AND Required__c = TRUE
+			AND Parent_Application_Detail__c = null
 			GROUP BY Application_Section__c
 		];
 

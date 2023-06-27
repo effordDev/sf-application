@@ -1,5 +1,6 @@
 import { api } from "lwc";
 import LightningModal from "lightning/modal";
+import { getDataConnectorSourceObjectDataPreviewWithFields } from "lightning/analyticsWaveApi";
 
 export default class ApplicationModal extends LightningModal {
 	@api recordId;
@@ -28,8 +29,12 @@ export default class ApplicationModal extends LightningModal {
 		let allValidArray = [];
 
 		appDetailsTypes.forEach((curr) => {
+			// console.log(curr)
+			// console.log(curr.isValid())
 			allValidArray.push(curr.isValid());
 		});
+
+		console.log(allValidArray)
 
 		const isAllValid = allValidArray.every((item) => !!item);
 

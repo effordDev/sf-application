@@ -14,22 +14,47 @@ export default class ApplicationInputPicklist extends LightningElement {
 		this._detail = Object.assign({}, value);
 	}
 
-	// connectedCallback()
+	// connectedCallback() {
+	// 	console.log(JSON.parse(JSON.stringify(this.detail)))
+	// }
 
 	/*
 	 * if required => make sure there is a value and required is == true
 	 * if not required => return true
 	 */
 	@api get completed() {
-		return [...this.template.querySelectorAll("lightning-combobox")].reduce(
+		
+		const completed = ([...this.template.querySelectorAll("lightning-combobox")].reduce(
 			(validSoFar, inputCmp) => {
 				inputCmp.reportValidity();
 				return validSoFar && inputCmp.checkValidity();
 			},
 			true
-		);
+		) && (this.hasChildRecords && !!this.childrenNodes?.length 
+			? this.childrenValidated 
+			: true 
+		));
 
-		// return this.required ? !!(this.val && this.required) : true
+		return completed
+	}
+
+	get childrenValidated() {
+		console.log('validating... children...');
+		
+		const children = this.template.querySelectorAll("c-application-input-picklist")
+
+		const childrenComplete = []
+
+		for (let i = 0; i < children.length; i++) {
+			// Do stuff
+			console.log(children[i].completed)
+			childrenComplete.push(children[i].completed)
+		}
+
+		return childrenComplete.every(item => item === true)
+	}
+	get childrenNodes() {
+		return [...this.template.querySelectorAll("c-application-input-picklist")]
 	}
 
 	get id() {
@@ -47,8 +72,20 @@ export default class ApplicationInputPicklist extends LightningElement {
 	get val() {
 		return this.detail?.Input_Text__c;
 	}
+	get dependentParentAnswer() {
+		return this.detail?.Parent_Dependent_Answer__c
+	}
 	get picklistValues() {
 		return this.detail?.Picklist_Values__c || ''
+	}
+	get showChildRecords() {
+		return (this.hasChildRecords && (this.dependentParentAnswer.includes(this.val)))
+	}
+	get hasChildRecords() {
+		return !!this.childRecords.length
+	}
+	get childRecords() {
+		return this.detail?.Application_Details__r || []
 	}
 	get options() {
 		if (!this.picklistValues.length) {
@@ -72,9 +109,10 @@ export default class ApplicationInputPicklist extends LightningElement {
 			};
 		});
 	}
+
 	handleChange(event) {
 
-		console.log(JSON.parse(JSON.stringify(this.options)))
+		// console.log(JSON.parse(JSON.stringify(this.options)))
 		const value = event.detail.value;
 
 		this.detail.Input_Text__c = value;
