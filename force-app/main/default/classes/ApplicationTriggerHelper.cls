@@ -53,14 +53,21 @@ public without sharing class ApplicationTriggerHelper {
 				Child_sObject_API_Name__c,
 				Child_sObject_Field_Set_API_Name__c,
 				Child_To_Parent_Relationship_Api_Name__c,
-				Child_sObject_Table_Field_Set_API_Name__c
+				Child_sObject_Table_Field_Set_API_Name__c,
+				Reference_Parent_Application_Detail__c,
+				Parent_Dependent_Answer__c
 			FROM Reference_Application_Detail__c
 			WHERE Reference_Application_Section__c IN : referenceApplicationSections
+			AND Reference_Parent_Application_Detail__c = null
 		];
 
+		//sectionId => List[parentDetails]
 		Map<Id, List<Reference_Application_Detail__c>> referenceApplicationDetailMap = buildReferenceApplicationDetailMap(
 			referenceApplicationDetails
 		);
+
+		//parent detail Id => List[childDetails]
+		Map<Id, List<Reference_Application_Detail__c>> referenceAppParentDetailMap = buildReferenceAppParentDetailMap(referenceApplicationDetails);
 		
 		List<Application_Language__c> applicationLanguageList = createApplicationLanguages(
 			applications,
@@ -90,17 +97,27 @@ public without sharing class ApplicationTriggerHelper {
 			insert appSectionLanguagelList;
 		}
 
-		List<Application_Detail__c> applicationDetails = createAppDetails(
+		List<Application_Detail__c> applicationParentDetails = createAppParentDetails(
 			applicationSections, 
 			referenceApplicationDetailMap
 		);
 
-		if (!applicationDetails.isEmpty()) {
-			insert applicationDetails;
+		if (!applicationParentDetails.isEmpty()) {
+			insert applicationParentDetails;
+		}
+		
+		List<Application_Detail__c> applicationChildDetails = createAppChildDetails(
+			applicationParentDetails,
+			referenceApplicationDetailMap,
+			referenceAppParentDetailMap
+		);
+
+		if (!applicationChildDetails.isEmpty()) {
+			insert applicationChildDetails;
 		}
 
 		List<Application_Detail_Language__c> appDetailLanguagelList = createApplicationDetaillanguages(
-			applicationDetails, 
+			applicationParentDetails, 
 			referenceApplicationDetails
 		);
 
@@ -135,6 +152,56 @@ public without sharing class ApplicationTriggerHelper {
 		}
 
 		return referenceApplicationDetailMap;
+	}
+
+	private static Map<Id, List<Reference_Application_Detail__c>> buildReferenceAppParentDetailMap(
+		List<Reference_Application_Detail__c> referenceApplicationDetails
+	) {
+
+		Map<Id, List<Reference_Application_Detail__c>> refAppParentDetailMap = new Map<Id, List<Reference_Application_Detail__c>>();
+
+		for (Reference_Application_Detail__c rad : [
+			SELECT Id,
+				Name,
+				RecordTypeId,
+				RecordType.DeveloperName,
+				Reference_Application_Section__c,
+				Field_Label__c,
+				Picklist_Values__c,
+				Display_Text__c,
+				Display_Rich_Text__c,
+				Large_Device_Size__c,
+				Medium_Device_Size__c,
+				Small_Device_Size__c,
+				Required__c,
+				Sort_Order__c,
+				Component_Name__c,
+				File_Rename__c,
+				Accepted_File_Types__c,
+				Custom_Component_JSON__c,
+				Message_When_Pattern_Mismatch__c,
+				Pattern__c,
+				Minimum__c,
+				Maximum__c,
+				Step__c,
+				Alignment__c,
+				Child_sObject_API_Name__c,
+				Child_sObject_Field_Set_API_Name__c,
+				Child_To_Parent_Relationship_Api_Name__c,
+				Child_sObject_Table_Field_Set_API_Name__c,
+				Reference_Parent_Application_Detail__c,
+				Parent_Dependent_Answer__c
+			FROM Reference_Application_Detail__c
+			WHERE Reference_Parent_Application_Detail__c IN : referenceApplicationDetails
+		]) {
+
+			if (refAppParentDetailMap.containsKey(rad.Reference_Parent_Application_Detail__c)) {
+				refAppParentDetailMap.get(rad.Reference_Parent_Application_Detail__c).add(rad);
+			} else {
+				refAppParentDetailMap.put(rad.Reference_Parent_Application_Detail__c, new List<Reference_Application_Detail__c>{ rad });
+			}
+		}
+		return refAppParentDetailMap;
 	}
 
 	private static Map<Id, List<Reference_Application_Section__c>> buildReferenceApplicationSectionMap(
@@ -221,7 +288,7 @@ public without sharing class ApplicationTriggerHelper {
 		return applicationSections;
 	}
 
-	private static List<Application_Detail__c> createAppDetails(
+	private static List<Application_Detail__c> createAppParentDetails(
 		List<Application_Section__c> applicationSections,
 		Map<Id, List<Reference_Application_Detail__c>> referenceApplicationDetailMap
 	) {
@@ -266,6 +333,7 @@ public without sharing class ApplicationTriggerHelper {
 				applicationDetail.Child_sObject_Field_Set_API_Name__c = referenceApplicationDetail.Child_sObject_Field_Set_API_Name__c;
 				applicationDetail.Child_To_Parent_Relationship_Api_Name__c = referenceApplicationDetail.Child_To_Parent_Relationship_Api_Name__c;
 				applicationDetail.Child_sObject_Table_Field_Set_API_Name__c = referenceApplicationDetail.Child_sObject_Table_Field_Set_API_Name__c;
+				applicationDetail.Parent_Dependent_Answer__c = referenceApplicationDetail.Parent_Dependent_Answer__c;
 
 				applicationDetail.RecordTypeId = Schema.SObjectType.Application_Detail__c.getRecordTypeInfosByDeveloperName()
 					.get(referenceApplicationDetail.RecordType.DeveloperName)
@@ -276,6 +344,64 @@ public without sharing class ApplicationTriggerHelper {
 		}
 
 		return applicationDetails;
+	}
+
+	private static List<Application_Detail__c> createAppChildDetails(
+		List<Application_Detail__c> appParentDetails,
+		Map<Id, List<Reference_Application_Detail__c>> referenceApplicationDetailMap,
+		Map<Id, List<Reference_Application_Detail__c>> referenceAppParentDetailMap
+	) {
+
+		List<Application_Detail__c> childDetailsToInsert = new List<Application_Detail__c>(); 
+
+		for (Application_Detail__c pd : appParentDetails) {
+			List<Reference_Application_Detail__c> refChildDetails = referenceAppParentDetailMap.get(pd.Reference_Application_Detail__c);
+
+			if (refChildDetails.isEmpty()) {
+				continue;
+			}
+
+			for (Reference_Application_Detail__c refChildDetail : refChildDetails) {
+
+				Application_Detail__c childDetail = new Application_Detail__c();
+
+					childDetail.Application_Section__c = pd.Application_Section__c;
+					childDetail.Parent_Application_Detail__c = pd.Id;
+					childDetail.Reference_Application_Detail__c = refChildDetail.Id;
+
+					childDetail.Display_Text__c = refChildDetail.Display_Text__c;
+					childDetail.Display_Rich_Text__c = refChildDetail.Display_Rich_Text__c;
+					childDetail.Large_Device_Size__c = refChildDetail.Large_Device_Size__c;
+					childDetail.Medium_Device_Size__c = refChildDetail.Medium_Device_Size__c;
+					childDetail.Small_Device_Size__c = refChildDetail.Small_Device_Size__c;
+					childDetail.Field_Label__c = refChildDetail.Field_Label__c;
+					childDetail.Picklist_Values__c = refChildDetail.Picklist_Values__c;
+					childDetail.Required__c = refChildDetail.Required__c;
+					childDetail.Sort_Order__c = refChildDetail.Sort_Order__c;
+					childDetail.Component_Name__c = refChildDetail.Component_Name__c;
+					childDetail.File_Rename__c = refChildDetail.File_Rename__c;
+					childDetail.Accepted_File_Types__c = refChildDetail.Accepted_File_Types__c;
+					childDetail.Custom_Component_JSON__c = refChildDetail.Custom_Component_JSON__c;
+					childDetail.Message_When_Pattern_Mismatch__c = refChildDetail.Message_When_Pattern_Mismatch__c;
+					childDetail.Pattern__c = refChildDetail.Pattern__c;
+					childDetail.Minimum__c = refChildDetail.Minimum__c;
+					childDetail.Maximum__c = refChildDetail.Maximum__c;
+					childDetail.Step__c = refChildDetail.Step__c;
+					childDetail.Alignment__c = refChildDetail.Alignment__c;
+					childDetail.Child_sObject_API_Name__c = refChildDetail.Child_sObject_API_Name__c;
+					childDetail.Child_sObject_Field_Set_API_Name__c = refChildDetail.Child_sObject_Field_Set_API_Name__c;
+					childDetail.Child_To_Parent_Relationship_Api_Name__c = refChildDetail.Child_To_Parent_Relationship_Api_Name__c;
+					childDetail.Child_sObject_Table_Field_Set_API_Name__c = refChildDetail.Child_sObject_Table_Field_Set_API_Name__c;
+
+					childDetail.RecordTypeId = Schema.SObjectType.Application_Detail__c.getRecordTypeInfosByDeveloperName()
+						.get(refChildDetail.RecordType.DeveloperName)
+						.getRecordTypeId();
+	
+				childDetailsToInsert.add(childDetail);
+			}
+		}
+
+		return childDetailsToInsert;
 	}
 
 	private static List<Application_Language__c> createApplicationLanguages(
