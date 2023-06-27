@@ -355,6 +355,10 @@ public without sharing class ApplicationTriggerHelper {
 		List<Application_Detail__c> childDetailsToInsert = new List<Application_Detail__c>(); 
 
 		for (Application_Detail__c pd : appParentDetails) {
+
+			if (!referenceAppParentDetailMap.containsKey(pd.Reference_Application_Detail__c)) {
+				continue;
+			}
 			List<Reference_Application_Detail__c> refChildDetails = referenceAppParentDetailMap.get(pd.Reference_Application_Detail__c);
 
 			if (refChildDetails.isEmpty()) {

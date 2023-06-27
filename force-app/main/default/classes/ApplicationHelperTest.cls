@@ -24,15 +24,6 @@ public with sharing class ApplicationHelperTest {
         refAppSection2.Sort_Order__c = 2;
         insert refAppSection2;
 
-        Reference_Application_Detail__c refAppDetail2 = new Reference_Application_Detail__c();  
-        refAppDetail2.Field_Label__c = 'test text input';
-        refAppDetail2.Reference_Application_Section__c = refAppSection2.Id;
-        refAppDetail2.RecordTypeId = Schema.SObjectType.Reference_Application_Detail__c.getRecordTypeInfosByDeveloperName()
-        .get('Input_Text')
-        .getRecordTypeId();
-        refAppDetail2.Sort_Order__c = 1;
-        insert refAppDetail2;
-
         Reference_Application_Detail__c refAppDetail = new Reference_Application_Detail__c();  
         refAppDetail.Field_Label__c = 'test text input';
         refAppDetail.Reference_Application_Section__c = refAppSection.Id;
@@ -42,17 +33,53 @@ public with sharing class ApplicationHelperTest {
         refAppDetail.Sort_Order__c = 1;
         insert refAppDetail;
 
+        Reference_Application_Detail__c refAppDetailPicklist = new Reference_Application_Detail__c();  
+        refAppDetailPicklist.Field_Label__c = 'test picklist input';
+        refAppDetailPicklist.Reference_Application_Section__c = refAppSection.Id;
+        refAppDetailPicklist.Picklist_Values__c = 'Yes;No';
+        refAppDetailPicklist.Parent_Dependent_Answer__c = 'Yes';
+        refAppDetailPicklist.RecordTypeId = Schema.SObjectType.Reference_Application_Detail__c.getRecordTypeInfosByDeveloperName()
+        .get('Input_Picklist')
+        .getRecordTypeId();
+        refAppDetailPicklist.Sort_Order__c = 2;
+        insert refAppDetailPicklist;
+
+        Reference_Application_Detail__c refAppDetailPicklistChild = new Reference_Application_Detail__c();  
+        refAppDetailPicklistChild.Field_Label__c = 'test picklist input Child';
+        refAppDetailPicklistChild.Reference_Application_Section__c = refAppSection.Id;
+        refAppDetailPicklistChild.Reference_Parent_Application_Detail__c = refAppDetailPicklist.Id;
+        refAppDetailPicklistChild.Picklist_Values__c = 'Yes;No';
+        refAppDetailPicklistChild.RecordTypeId = Schema.SObjectType.Reference_Application_Detail__c.getRecordTypeInfosByDeveloperName()
+        .get('Input_Picklist')
+        .getRecordTypeId();
+        refAppDetailPicklistChild.Sort_Order__c = 3;
+        insert refAppDetailPicklistChild;
+
+        Reference_Application_Detail__c refAppDetail2 = new Reference_Application_Detail__c();  
+        refAppDetail2.Field_Label__c = 'test text input';
+        refAppDetail2.Reference_Application_Section__c = refAppSection2.Id;
+        refAppDetail2.RecordTypeId = Schema.SObjectType.Reference_Application_Detail__c.getRecordTypeInfosByDeveloperName()
+        .get('Input_Text')
+        .getRecordTypeId();
+        refAppDetail2.Sort_Order__c = 4;
+        insert refAppDetail2;
+
         Reference_Application_Detail__c refAppDetailRequired = new Reference_Application_Detail__c();  
         refAppDetailRequired.Field_Label__c = 'test text input';
         refAppDetailRequired.Reference_Application_Section__c = refAppSection.Id;
         refAppDetailRequired.RecordTypeId = Schema.SObjectType.Reference_Application_Detail__c.getRecordTypeInfosByDeveloperName()
         .get('Input_Text')
         .getRecordTypeId();
-        refAppDetailRequired.Sort_Order__c = 2;
+        refAppDetailRequired.Sort_Order__c = 5;
         refAppDetailRequired.Required__c = true;
         insert refAppDetailRequired;
     }
 
+    @isTest
+    private static void getFieldSetTest(){
+        ApplicationHelper.getFieldSet('Reference_Application_Detail__c', 'App_Details');
+    }
+    
     @isTest
     private static void setApplicationDefaultsTest() {
 
@@ -73,6 +100,33 @@ public with sharing class ApplicationHelperTest {
         insert app;
 
         ApplicationHelper.getApplication(app.Id);
+    }
+
+    @isTest 
+    private static void getApplicationLanguagesTest() {
+        Reference_Application__c refApp = [SELECT Id FROM Reference_Application__c LIMIT 1];
+
+        Application__c app = new Application__c();
+        app.Reference_Application__c = refApp.Id;
+        insert app;
+
+        ApplicationHelper.getApplicationLanguages(app.Id);
+    }
+
+    @isTest 
+    private static void getApplicationSectionLanguagesTest() {
+        Reference_Application__c refApp = [SELECT Id FROM Reference_Application__c LIMIT 1];
+
+        Application__c app = new Application__c();
+        app.Reference_Application__c = refApp.Id;
+        insert app;
+
+        ApplicationHelper.getApplicationSectionLanguages([
+            SELECT Id 
+            FROM Application_Section__c 
+            WHERE Application__c =: app.Id 
+            LIMIT 1].Id
+        );
     }
 
     @isTest
