@@ -134,7 +134,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Application_Detail__c.Input_Record_List__c</field>
         <readable>false</readable>
     </fieldPermissions>
