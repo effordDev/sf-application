@@ -4,8 +4,10 @@
     <defaultValue>IF($RecordType.DeveloperName == &apos;Display_Text&apos;, &apos;12&apos;,
  IF($RecordType.DeveloperName == &apos;Display_Rich_Text&apos;, &apos;12&apos;,
  IF($RecordType.DeveloperName == &apos;Input_Text_Area_Long&apos;, &apos;12&apos;,
+ IF($RecordType.DeveloperName == &apos;Custom_Component&apos;, &apos;12&apos;,
+ IF($RecordType.DeveloperName == &apos;Input_Record_List&apos;, &apos;12&apos;,
  &apos;6&apos;
-)))</defaultValue>
+)))))</defaultValue>
     <externalId>false</externalId>
     <label>Small Device Size</label>
     <required>false</required>
