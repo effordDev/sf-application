@@ -31,6 +31,7 @@ public without sharing class ApplicationTriggerHelper {
 				RecordTypeId,
 				RecordType.DeveloperName,
 				Reference_Application_Section__c,
+				Default_Value__c,	
 				Field_Label__c,
 				Picklist_Values__c,
 				Display_Text__c,
@@ -167,6 +168,7 @@ public without sharing class ApplicationTriggerHelper {
 				RecordType.DeveloperName,
 				Reference_Application_Section__c,
 				Field_Label__c,
+				Default_Value__c,
 				Picklist_Values__c,
 				Display_Text__c,
 				Display_Rich_Text__c,
@@ -310,6 +312,8 @@ public without sharing class ApplicationTriggerHelper {
 				Application_Detail__c applicationDetail = new Application_Detail__c();
 				applicationDetail.Application_Section__c = applicationSection.Id;
 				applicationDetail.Reference_Application_Detail__c = referenceApplicationDetail.Id;
+
+				applicationDetail.Default_Value__c = referenceApplicationDetail.Default_Value__c;
 				applicationDetail.Display_Text__c = referenceApplicationDetail.Display_Text__c;
 				applicationDetail.Display_Rich_Text__c = referenceApplicationDetail.Display_Rich_Text__c;
 				applicationDetail.Large_Device_Size__c = referenceApplicationDetail.Large_Device_Size__c;
@@ -374,6 +378,7 @@ public without sharing class ApplicationTriggerHelper {
 					childDetail.Reference_Application_Detail__c = refChildDetail.Id;
 
 					childDetail.Display_Text__c = refChildDetail.Display_Text__c;
+					childDetail.Default_Value__c = refChildDetail.Default_Value__c;
 					childDetail.Display_Rich_Text__c = refChildDetail.Display_Rich_Text__c;
 					childDetail.Large_Device_Size__c = refChildDetail.Large_Device_Size__c;
 					childDetail.Medium_Device_Size__c = refChildDetail.Medium_Device_Size__c;
