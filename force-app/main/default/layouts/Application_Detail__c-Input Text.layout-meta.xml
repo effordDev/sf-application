@@ -47,6 +47,10 @@
                 <behavior>Edit</behavior>
                 <field>Large_Device_Size__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Default_Value__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

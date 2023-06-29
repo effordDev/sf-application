@@ -70,7 +70,10 @@ export default class ApplicationInputPicklist extends LightningElement {
 		return this.detail?.Required__c;
 	}
 	get val() {
-		return this.detail?.Input_Text__c;
+		return this.detail?.Input_Text__c || this.defaultVal
+	}
+	get defaultVal() {
+		return this.detail?.Default_Value__c
 	}
 	get dependentParentAnswer() {
 		return this.detail?.Parent_Dependent_Answer__c

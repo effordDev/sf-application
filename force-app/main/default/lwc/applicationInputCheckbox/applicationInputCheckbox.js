@@ -43,7 +43,7 @@ export default class ApplicationInputCheckbox extends LightningElement {
 		return this.detail?.Required__c;
 	}
 	get val() {
-		return this.detail?.Input_Checkbox__c;
+		return this.detail?.Input_Checkbox__c
 	}
 
 	handleChange(event) {

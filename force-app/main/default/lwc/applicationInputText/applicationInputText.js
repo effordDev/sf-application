@@ -43,13 +43,16 @@ export default class ApplicationInputText extends LightningElement {
 		return this.detail?.Required__c;
 	}
 	get val() {
-		return this.detail?.Input_Text__c;
+		return this.detail?.Input_Text__c || this.defaultVal
 	}
 	get pattern() {
 		return this.detail?.Pattern__c;
 	}
 	get patternMessage() {
 		return this.detail?.Message_When_Pattern_Mismatch__c;
+	}
+	get defaultVal() {
+		return this.detail?.Default_Value__c
 	}
 
 	handleChange(event) {

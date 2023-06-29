@@ -6,8 +6,6 @@
  IF($RecordType.DeveloperName == &apos;Input_Text_Area_Long&apos;, &apos;12&apos;,
  IF($RecordType.DeveloperName == &apos;Custom_Component&apos;, &apos;12&apos;,
  IF($RecordType.DeveloperName == &apos;Input_Record_List&apos;, &apos;12&apos;,
-  IF($RecordType.DeveloperName == &apos;Custom_Component&apos;, &apos;12&apos;,
- IF($RecordType.DeveloperName == &apos;Input_Record_List&apos;, &apos;12&apos;,
  &apos;6&apos;
 )))))</defaultValue>
     <externalId>false</externalId>

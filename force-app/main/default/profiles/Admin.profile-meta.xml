@@ -80,6 +80,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Application_Detail__c.Default_Value__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Application_Detail__c.Display_Rich_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -136,7 +141,7 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Application_Detail__c.Input_Record_List__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -216,26 +221,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Application_Detail__c.Step__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Application_Detail__c.Child_sObject_API_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Application_Detail__c.Child_sObject_Field_Set_API_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Application_Detail__c.Child_sObject_Table_Field_Set_API_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Application_Detail__c.Child_To_Parent_Relationship_Api_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -381,6 +366,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Reference_Application_Detail__c.Custom_Component_JSON__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Default_Value__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

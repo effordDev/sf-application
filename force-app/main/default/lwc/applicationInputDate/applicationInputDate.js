@@ -43,7 +43,10 @@ export default class ApplicationInputDate extends LightningElement {
 		return this.detail?.Required__c;
 	}
 	get val() {
-		return this.detail?.Input_Date__c;
+		return this.detail?.Input_Date__c || this.defaultVal
+	}
+	get defaultVal() {
+		return this.detail?.Default_Value__c === 'TODAY' ? new Date().toISOString() : ''
 	}
 
 	handleChange(event) {
