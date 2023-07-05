@@ -41,21 +41,45 @@ export default class ApplicationInputPicklist extends LightningElement {
 	get childrenValidated() {
 		console.log('validating... children...');
 		
-		const children = this.template.querySelectorAll("c-application-input-picklist")
+		const appDetailsTypes = this.template.querySelectorAll(
+			"c-application-detail-type.customInput"
+		);
 
-		const childrenComplete = []
+		let allValidArray = [];
 
-		for (let i = 0; i < children.length; i++) {
-			// Do stuff
-			console.log(children[i].completed)
-			childrenComplete.push(children[i].completed)
-		}
+		appDetailsTypes.forEach((curr) => {
+			// console.log(curr)
+			// console.log(curr.isValid())
+			allValidArray.push(curr.isValid());
+		});
 
-		return childrenComplete.every(item => item === true)
+		console.log(allValidArray)
+
+		const isAllValid = allValidArray.every((item) => !!item);
+
+		return isAllValid
 	}
 	get childrenNodes() {
-		return [...this.template.querySelectorAll("c-application-input-picklist")]
+		return [...this.template.querySelectorAll("c-application-detail-type.customInput")]
 	}
+	// get childrenValidated() {
+	// 	console.log('validating... children...');
+		
+	// 	const children = this.template.querySelectorAll("c-application-input-picklist")
+
+	// 	const childrenComplete = []
+
+	// 	for (let i = 0; i < children.length; i++) {
+	// 		// Do stuff
+	// 		console.log(children[i].completed)
+	// 		childrenComplete.push(children[i].completed)
+	// 	}
+
+	// 	return childrenComplete.every(item => item === true)
+	// }
+	// get childrenNodes() {
+	// 	return [...this.template.querySelectorAll("c-application-input-picklist")]
+	// }
 
 	get id() {
 		return this.detail?.Id;
