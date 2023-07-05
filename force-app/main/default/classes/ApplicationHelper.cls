@@ -202,6 +202,11 @@ public with sharing class ApplicationHelper {
 			GROUP BY Application_Section__c
 		];
 
+		system.debug('arRequiredQuestionsList');
+		system.debug(arRequiredQuestionsList);
+		system.debug('arRequiredQuestionsAnsweredList');
+		system.debug(arRequiredQuestionsAnsweredList);
+
 		if (arRequiredQuestionsList.isEmpty()) {
 			
 			Application_Section__c section = new Application_Section__c();
@@ -219,18 +224,22 @@ public with sharing class ApplicationHelper {
 			return;
 		}
 
-		AggregateResult arRequiredQuestions = arRequiredQuestionsList[0];
-		AggregateResult arRequiredQuestionsAnswered = arRequiredQuestionsAnsweredList[0];
+		if (!arRequiredQuestionsList.isEmpty() && !arRequiredQuestionsAnsweredList.isEmpty()) {
 
-		if (
-			arRequiredQuestions.get('RequiredQuestions') ==
-			arRequiredQuestionsAnswered.get('RequiredQuestionsAnswered')
-		) {
-			Application_Section__c section = new Application_Section__c();
-				section.Id = sectionId;
-				section.Completed__c = true;
-			update section;
-		} 
+			AggregateResult arRequiredQuestions = arRequiredQuestionsList[0];
+			AggregateResult arRequiredQuestionsAnswered = arRequiredQuestionsAnsweredList[0];
+	
+			if (
+				Integer.valueOf(arRequiredQuestions.get('RequiredQuestions')) <=
+				Integer.valueOf(arRequiredQuestionsAnswered.get('RequiredQuestionsAnswered'))
+			) {
+				Application_Section__c section = new Application_Section__c();
+					section.Id = sectionId;
+					section.Completed__c = true;
+				update section;
+			} 
+		}
+
 
 		Application__c app = new Application__c(
 			Id = recordId,

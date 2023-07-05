@@ -19,19 +19,25 @@
 
 		<template for:each={childRecords} for:item="child">
 
-			<!-- <div key={child.Id}> -->
+			<!-- <c-application-input-picklist
+				key={child.Id}
+				record-id={recordId}
+				section-id={sectionId}
+				detail={child}
+				language={language}
+				read-only={readOnly}
+				class={child.InputOrDisplayClass__c}
+			></c-application-input-picklist> -->
 
-				<c-application-input-picklist
-					key={child.Id}
-					record-id={recordId}
-					section-id={sectionId}
-					detail={child}
-					language={language}
-					read-only={readOnly}
-					class={child.InputOrDisplayClass__c}
-				></c-application-input-picklist>
-
-			<!-- </div> -->
+			<c-application-detail-type
+				key={child.Id}
+				record-id={recordId}
+				section-id={sectionId}
+				read-only={readOnly}
+				detail={child}
+				language={language}
+				class={child.InputOrDisplayClass__c}
+			></c-application-detail-type>
 
 		</template>
 	</template>
