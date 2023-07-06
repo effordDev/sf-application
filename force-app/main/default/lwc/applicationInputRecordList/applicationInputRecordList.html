@@ -14,8 +14,11 @@
                         object-api-name={childsObjectApi}
                         onsubmit={handleSubmit}
                         onsuccess={handleSuccess}
+                        onerror={handleError}
                     >
-                
+
+                    <lightning-messages> </lightning-messages>
+
                         <template for:each={fieldSet} for:item="field">
 
                             <lightning-input-field 

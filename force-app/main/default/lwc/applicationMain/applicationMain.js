@@ -1,4 +1,4 @@
-import { api, LightningElement } from "lwc";
+import { api, track, LightningElement } from "lwc";
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getApplication from "@salesforce/apex/ApplicationHelper.getApplication";
 import getApplicationLanguages from "@salesforce/apex/ApplicationHelper.getApplicationLanguages";
@@ -7,7 +7,7 @@ import saveApplication from "@salesforce/apex/ApplicationHelper.saveApplication"
 export default class ApplicationMain extends LightningElement {
 	@api recordId;
 
-	application = {};
+	@track application = {};
 	applicationLanguages = []
 
 	language = 'English'
@@ -82,12 +82,13 @@ export default class ApplicationMain extends LightningElement {
 		return this.application?.Status__c;
 	}
 	get readOnly() {
-		//editable status's
-		// return !["New", "In Progress"].includes(this.status);
 		return this.application?.Read_Only__c
 	}
 	get sections() {
 		return this.application?.Application_Sections__r || [];
+	}
+	get contact() {
+		return this.application?.Applicant_Contact__r || {}
 	}
 	get sectionsComplete() {
 		return this.application?.Application_Sections__r?.every(

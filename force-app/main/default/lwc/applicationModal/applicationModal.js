@@ -4,6 +4,7 @@ import { getDataConnectorSourceObjectDataPreviewWithFields } from "lightning/ana
 
 export default class ApplicationModal extends LightningModal {
 	@api recordId;
+	@api contact = {}
 	@api label;
 	@api language = ''
 	@api sectionId;
