@@ -125,7 +125,6 @@ public without sharing class ApplicationTriggerHelper {
 		if (!appDetailLanguagelList.isEmpty()) {
 			insert appDetailLanguagelList;
 		}
-		insert appDetailLanguagelList;
 	}
 
 	private static Map<Id, List<Reference_Application_Detail__c>> buildReferenceApplicationDetailMap(
