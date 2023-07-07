@@ -22,7 +22,7 @@ export default class ApplicationDisplayText extends LightningElement {
 		return this.language === 'English' ? 
 		this.detail?.Display_Text__c : 'test'
 		(this.detail?.Application_Detail_Languages__r
-			.find(item => item.Language__c === this.language))?.Translated_Text__c || this.detail?.Display_Text__c
+			?.find(item => item.Language__c === this.language))?.Translated_Text__c || this.detail?.Display_Text__c
 	}
 	// get displayText() {
 	// 	return this.detail?.Display_Text__c;

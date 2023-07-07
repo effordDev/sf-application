@@ -37,7 +37,7 @@ export default class ApplicationInputDate extends LightningElement {
 		return this.language === 'English' ? 
 		this.detail?.Field_Label__c :
 		(this.detail?.Application_Detail_Languages__r
-			.find(item => item.Language__c === this.language))?.Translated_Text__c
+			?.find(item => item.Language__c === this.language))?.Translated_Text__c
 	}
 	get required() {
 		return this.detail?.Required__c;
