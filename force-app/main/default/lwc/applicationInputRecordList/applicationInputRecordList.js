@@ -119,6 +119,10 @@ export default class ApplicationInputRecordList extends LightningElement {
         this.template.querySelector('lightning-record-edit-form').submit(fields)
     } 
 
+    handleError(event) {
+        console.error(JSON.parse(JSON.stringify(event.detail)))
+    }
+
     async handleSuccess(event){
 
         const inputFields = this.template.querySelectorAll(
