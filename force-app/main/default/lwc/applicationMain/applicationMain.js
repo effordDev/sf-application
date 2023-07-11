@@ -87,9 +87,6 @@ export default class ApplicationMain extends LightningElement {
 	get sections() {
 		return this.application?.Application_Sections__r || [];
 	}
-	get contact() {
-		return this.application?.Applicant_Contact__r || {}
-	}
 	get sectionsComplete() {
 		return this.application?.Application_Sections__r?.every(
 			(section) => section?.Completed__c
