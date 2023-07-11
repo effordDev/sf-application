@@ -223,6 +223,16 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>applicationAnswers</componentName>
+                <identifier>c_applicationAnswers</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-51f6138d-0160-4f03-9bd9-2de6490bb3ab</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
                 <componentName>applicationMain</componentName>
                 <identifier>c_applicationMain</identifier>
             </componentInstance>
@@ -261,6 +271,20 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
                 <identifier>detailTab</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-51f6138d-0160-4f03-9bd9-2de6490bb3ab</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Summary</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+                <identifier>flexipage_tab2</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>

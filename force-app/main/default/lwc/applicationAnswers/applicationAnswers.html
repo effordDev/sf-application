@@ -1,0 +1,95 @@
+<template>
+
+    <div class="slds-scrollable" style="height:100vh;">
+
+        <lightning-layout
+            multiple-rows
+        >
+    
+            <lightning-layout-item
+                size="12" 
+                small-device-size="3" 
+                medium-device-size="3" 
+                large-device-size="3" 
+                padding="around-small"
+            >
+                <table>
+                    <tbody>
+                        <template for:each={sections} for:item="section">
+                            <tr key={section.Id}>
+                                <td>
+                                    <p class="sectionHeader slds-text-body_regular" key={section.Id} data-id={section.Id} onclick={handleSectionHeaderClick}>
+                                        {section.Display_Section_Label__c}
+                                    </p>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </lightning-layout-item>
+    
+            <lightning-layout-item
+                size="12" 
+                small-device-size="9" 
+                medium-device-size="9" 
+                large-device-size="9" 
+                padding="around-small"
+            >
+            <lightning-layout multiple-rows>
+    
+                <lightning-layout-item
+                    size="12" 
+                    small-device-size="6" 
+                    medium-device-size="6" 
+                    large-device-size="6" 
+                    padding="around-small"
+                >
+                    <div class="slds-text-body_regular">
+                        Number: <b>{name}</b>
+                    </div>
+                
+                    <br />
+    
+                    <div class="slds-text-body_regular"> 
+                        Application: <b>{displayName}</b> 
+                    </div>
+                
+                    <br />
+    
+                    <div class="slds-text-body_regular"> 
+                        Status: <b>{status}</b> 
+                    </div>
+    
+                    <br />
+    
+                    <div class="slds-text-body_regular"> 
+                        Created Date: <b><lightning-formatted-date-time
+                            value={createdDate}
+                            year="numeric" 
+                            month="numeric" 
+                            day="numeric" 
+                            hour="2-digit"
+                            minute="2-digit" 
+                            time-zone-name="short"
+                        ></lightning-formatted-date-time></b></b> 
+                    </div>
+                </lightning-layout-item>
+    
+            </lightning-layout>
+            
+            </lightning-layout-item>
+    
+        </lightning-layout>
+    
+        <hr />
+    
+        <template for:each={sections} for:item="section">
+            <div class={section.Id} key={section.Id} style="padding-top: 5px; padding-bottom: 5px;">
+                <c-application-answers-section
+                    record-id={recordId}
+                    section={section}
+                ></c-application-answers-section>
+            </div>
+        </template>
+    </div>
+</template>

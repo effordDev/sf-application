@@ -1,0 +1,23 @@
+<template>
+    <div class="slds-box">
+
+        <div class="slds-text-heading_medium">
+            {displayName} 
+        </div>
+
+        <hr />
+
+        <template for:each={details} for:item="detail">
+            <c-application-detail-type
+                key={detail.Id}
+                record-id={recordId}
+                section-id={id}
+                detail={detail}
+                read-only
+                language="English"
+                class={detail.InputOrDisplayClass__c}
+            ></c-application-detail-type>
+        </template>
+
+    </div>
+</template>
