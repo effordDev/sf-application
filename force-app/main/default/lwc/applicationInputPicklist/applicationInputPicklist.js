@@ -98,7 +98,7 @@ export default class ApplicationInputPicklist extends LightningElement {
 		return this.detail?.Input_Text__c;
 	}
 	get dependentParentAnswer() {
-		return this.detail?.Parent_Dependent_Answer__c
+		return this.detail?.Parent_Dependent_Answer__c || ''
 	}
 	get picklistValues() {
 		return this.detail?.Picklist_Values__c || ''
