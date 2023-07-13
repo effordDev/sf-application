@@ -85,8 +85,8 @@ export default class ApplicationInputFile extends LightningElement {
                return f
           })
 
-          console.log('files')
-          console.log(JSON.parse(JSON.stringify(this.files)))
+          // console.log('files')
+          // console.log(JSON.parse(JSON.stringify(this.files)))
      }
 
      async handleUploadFinished(event) {
