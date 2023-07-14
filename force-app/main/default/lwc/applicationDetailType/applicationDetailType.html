@@ -90,6 +90,18 @@
 		></c-application-input-picklist>
 	</template>
 
+	<template lwc:if={isInputRadioGroup}>
+		<c-application-input-radio-group
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			language={language}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		></c-application-input-radio-group>
+	</template>
+
 	<template lwc:if={isInputDate}>
 		<c-application-input-date
 			record-id={recordId}
