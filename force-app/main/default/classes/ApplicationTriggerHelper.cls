@@ -34,6 +34,7 @@ public without sharing class ApplicationTriggerHelper {
 				Default_Value__c,	
 				Field_Label__c,
 				Picklist_Values__c,
+				Radio_Group_Values__c,
 				Display_Text__c,
 				Display_Rich_Text__c,
 				Large_Device_Size__c,
@@ -169,6 +170,7 @@ public without sharing class ApplicationTriggerHelper {
 				Field_Label__c,
 				Default_Value__c,
 				Picklist_Values__c,
+				Radio_Group_Values__c,
 				Display_Text__c,
 				Display_Rich_Text__c,
 				Large_Device_Size__c,
@@ -320,6 +322,7 @@ public without sharing class ApplicationTriggerHelper {
 				applicationDetail.Small_Device_Size__c = referenceApplicationDetail.Small_Device_Size__c;
 				applicationDetail.Field_Label__c = referenceApplicationDetail.Field_Label__c;
 				applicationDetail.Picklist_Values__c = referenceApplicationDetail.Picklist_Values__c;
+				applicationDetail.Radio_Group_Values__c = referenceApplicationDetail.Radio_Group_Values__c;
 				applicationDetail.Required__c = referenceApplicationDetail.Required__c;
 				applicationDetail.Sort_Order__c = referenceApplicationDetail.Sort_Order__c;
 				applicationDetail.Component_Name__c = referenceApplicationDetail.Component_Name__c;
