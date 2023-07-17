@@ -102,6 +102,19 @@
 		></c-application-input-radio-group>
 	</template>
 
+	<template lwc:if={isInputCheckboxGroup}>
+
+		<c-application-input-checkbox-group
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			language={language}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		></c-application-input-checkbox-group>
+	</template>
+
 	<template lwc:if={isInputDate}>
 		<c-application-input-date
 			record-id={recordId}

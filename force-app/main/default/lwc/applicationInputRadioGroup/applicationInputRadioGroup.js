@@ -24,7 +24,7 @@ export default class ApplicationInputRadioGroup extends LightningElement {
 	 */
 	@api get completed() {
 		
-		return [...this.template.querySelectorAll("lightning-combobox")].reduce(
+		return [...this.template.querySelectorAll("lightning-radio-group")].reduce(
 			(validSoFar, inputCmp) => {
 				inputCmp.reportValidity();
 				return validSoFar && inputCmp.checkValidity();
