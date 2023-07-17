@@ -54,6 +54,9 @@ export default class ApplicationDetailType extends LightningElement {
 	get isInputRadioGroup() {
 		return this.recordTypeName === "Input_Radio_Group";
 	}
+	get isInputCheckboxGroup() {
+		return this.recordTypeName === "Input_Checkbox_Group";
+	}
 	get isInputDate() {
 		return this.recordTypeName === "Input_Date";
 	}
