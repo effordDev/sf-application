@@ -200,6 +200,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Application_Detail__c.Radio_Group_Values__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Application_Detail__c.Reference_Application_Detail__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -435,6 +440,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Reference_Application_Detail__c.Radio_Group_Values__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Reference_Application_Detail__c.Reference_Parent_Application_Detail__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -565,6 +575,10 @@
         <recordType>Application_Detail__c.Input_Picklist</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Application_Detail__c-Input Radio Group</layout>
+        <recordType>Application_Detail__c.Input_Radio_Group</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Application_Detail__c-Input Record List</layout>
         <recordType>Application_Detail__c.Input_Record_List</recordType>
     </layoutAssignments>
@@ -633,6 +647,10 @@
     <layoutAssignments>
         <layout>Reference_Application_Detail__c-Input Picklist</layout>
         <recordType>Reference_Application_Detail__c.Input_Picklist</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Detail__c-Input Radio Group</layout>
+        <recordType>Reference_Application_Detail__c.Input_Radio_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Reference_Application_Detail__c-Input Record List</layout>
@@ -778,6 +796,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Application_Detail__c.Display_Text</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -814,6 +833,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Application_Detail__c.Input_Picklist</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Application_Detail__c.Input_Radio_Group</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -879,6 +903,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Reference_Application_Detail__c.Input_Picklist</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Reference_Application_Detail__c.Input_Radio_Group</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
