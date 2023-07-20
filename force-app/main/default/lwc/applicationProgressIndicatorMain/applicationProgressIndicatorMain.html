@@ -1,0 +1,132 @@
+<template>
+
+	<template lwc:if={isLoading}>
+		<lightning-spinner 
+			alternative-text="Loading" 
+			size="large" 
+			variant="inverse" 
+			class="backgroundInverse"
+		></lightning-spinner>
+	</template>
+
+	<div class="wrapper">
+
+		<!-- <div class="slds-text-heading_large slds-text-align_center">{applicationDisplayName}</div>
+
+		<br />
+
+		<div class="slds-text-body_regular slds-text-align_center">{displayDescription}</div> -->
+
+		<lightning-layout multiple-rows horizontal-align="spread">
+            
+			<lightning-layout-item
+				size="12"
+				small-device-size="3"
+				medium-device-size="3"
+				large-device-size="3"
+				padding="around-small"
+			>
+				<div class="progressClass slds-box">
+					<c-application-progress-indicator
+						items={sections}
+						onsectionselect={handleSectionSelect}
+						active-section-id={activeSectionId}
+					></c-application-progress-indicator>
+				</div>
+
+			</lightning-layout-item>
+			
+			<lightning-layout-item
+                size="12"
+				small-device-size="9"
+				medium-device-size="9"
+				large-device-size="9"
+				padding="around-small"
+            >
+
+				<div class="slds-box headerWrapper">
+					<lightning-layout multiple-rows horizontal-align="space">
+
+						<lightning-layout-item
+							size="12"
+							small-device-size="12"
+							medium-device-size="12"
+							large-device-size="12"
+							padding="around-small"
+							class="slds-text-align_center"
+						>
+							<lightning-combobox
+								onchange={handleLanguageChange}
+								options={languages}
+								value="English"
+								disabled={disableLanguagePicklist}
+							></lightning-combobox> 
+						</lightning-layout-item>
+				
+						<lightning-layout-item
+							size={size}
+							small-device-size={smallDeviceSize}
+							medium-device-size={mediumDeviceSize}
+							large-device-size={largeDeviceSize}
+							padding="around-small"
+							class="slds-text-align_center"
+						>
+							<label class="slds-form-element__label"> {displayApplicationNumberText} </label>
+							<div class="slds-text-body_regular">{name}</div>
+						</lightning-layout-item>
+			
+						<lightning-layout-item
+							size={size}
+							small-device-size={smallDeviceSize}
+							medium-device-size={mediumDeviceSize}
+							large-device-size={largeDeviceSize}
+							padding="around-small"
+							class="slds-text-align_center"
+						>
+							<label class="slds-form-element__label"> {displayApplicationStatusText} </label>
+							<div class="slds-text-body_regular">{status}</div>
+						</lightning-layout-item>
+			
+						<lightning-layout-item
+							size={size}
+							small-device-size={smallDeviceSize}
+							medium-device-size={mediumDeviceSize}
+							large-device-size={largeDeviceSize}
+							padding="around-small"
+							class="slds-text-align_center"
+						>
+							<label class="slds-form-element__label"> {displayApplicationCreatedDateText} </label>
+							<div class="slds-text-body_regular">
+								<lightning-formatted-date-time
+									value={createdDate}
+								></lightning-formatted-date-time>
+							</div>
+						</lightning-layout-item>
+					</lightning-layout>
+				</div>
+
+				<br />
+				
+				<div class="questionsWrapper slds-box">
+					<template lwc:if={activeSectionId}>
+						<c-application-progress-sections
+							record-id={recordId}
+							contact={contact}
+							read-only={readOnly}
+							sections={sections}
+							language={language}
+							active-section-id={activeSectionId}
+							onsectionselect={handleSectionSelect}
+							onsubmit={handleSubmit}
+							onrefresh={handleRefresh}
+							onloading={handleLoading}
+						></c-application-progress-sections>
+					</template>
+				</div>
+				
+			</lightning-layout-item>
+			
+		</lightning-layout>
+
+	</div>
+</template>
