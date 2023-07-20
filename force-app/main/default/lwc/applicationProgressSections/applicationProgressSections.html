@@ -1,0 +1,70 @@
+<template>
+
+    <template lwc:if={isLoading}>
+        <lightning-spinner 
+            alternative-text="Loading" 
+            size="large" 
+            variant="inverse" 
+            class="backgroundInverse"
+        ></lightning-spinner>
+    </template>
+
+    <br />
+
+    <lightning-layout multiple-rows>
+        <template for:each={details} for:item="detail">
+            <lightning-layout-item
+                key={detail.Id}
+                size="12"
+                small-device-size={detail.Small_Device_Size__c}
+                medium-device-size={detail.Medium_Device_Size__c}
+                large-device-size={detail.Large_Device_Size__c}
+                padding="around-small"
+            >
+                <c-application-detail-type
+                    key={detail.Id}
+                    record-id={recordId}
+                    section-id={sectionId}
+                    contact={contact}
+                    detail={detail}
+                    read-only={readOnly}
+                    language={language}
+                    class={detail.InputOrDisplayClass__c}
+                    onsobchange={handleSobChange}
+                    ondetailchange={handleDetailChange}
+                    onsave={handleSave}
+                ></c-application-detail-type>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+
+    <!-- <lightning-button
+        label={cancelBtnLabel}
+        onclick={handleClose}
+        class="footer-button"
+    ></lightning-button> -->
+
+    <br />
+
+    <template lwc:if={editable}>
+        <div class="slds-docked-form-footer">
+            <lightning-button
+                label={saveBtnLabel}
+                onclick={handleSave}
+                variant="brand"
+                class="footer-button"
+            ></lightning-button>
+
+            <template lwc:if={showSubmitBtn}>
+
+                &nbsp;
+    
+                <lightning-button
+                    label="Submit Application"
+                    onclick={handleSubmit}
+                    class="footer-button"
+                ></lightning-button>
+            </template>
+        </div>
+    </template>
+</template>

@@ -166,6 +166,15 @@ public with sharing class ApplicationHelper {
 	}
 
 	@AuraEnabled
+	public static void updateSobs(List<sObject> sobs){
+		try {
+			update sobs;
+		} catch (Exception e) {
+			throw new AuraHandledException(e.getMessage());
+		}
+	}
+
+	@AuraEnabled
 	public static void saveApplicationDetails(
 		Id recordId,
 		Id sectionId,
