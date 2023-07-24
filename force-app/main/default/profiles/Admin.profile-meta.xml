@@ -20,661 +20,661 @@
     <custom>false</custom>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Application_Detail_Language__c.Language__c</field>
+        <field>sf_Application_Detail_Language__c.Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail_Language__c.Reference_Application_Detail_Language__c</field>
+        <field>sf_Application_Detail_Language__c.sf_Reference_Application_Detail_Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail_Language__c.Translated_Text__c</field>
+        <field>sf_Application_Detail_Language__c.Translated_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Accepted_File_Types__c</field>
+        <field>sf_Application_Detail__c.Accepted_File_Types__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Alignment__c</field>
+        <field>sf_Application_Detail__c.Alignment__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Application_Detail__c.Answer__c</field>
+        <field>sf_Application_Detail__c.Answer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Child_To_Parent_Relationship_Api_Name__c</field>
+        <field>sf_Application_Detail__c.Child_To_Parent_Relationship_Api_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Child_sObject_API_Name__c</field>
+        <field>sf_Application_Detail__c.Child_sObject_API_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Child_sObject_Field_Set_API_Name__c</field>
+        <field>sf_Application_Detail__c.Child_sObject_Field_Set_API_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Child_sObject_Table_Field_Set_API_Name__c</field>
+        <field>sf_Application_Detail__c.Child_sObject_Table_Field_Set_API_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Component_Name__c</field>
+        <field>sf_Application_Detail__c.Component_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Custom_Component_JSON__c</field>
+        <field>sf_Application_Detail__c.Custom_Component_JSON__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Default_Value__c</field>
+        <field>sf_Application_Detail__c.Default_Value__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Display_Rich_Text__c</field>
+        <field>sf_Application_Detail__c.Display_Rich_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Display_Text__c</field>
+        <field>sf_Application_Detail__c.Display_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Field_Label__c</field>
+        <field>sf_Application_Detail__c.Field_Label__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.File_Rename__c</field>
+        <field>sf_Application_Detail__c.File_Rename__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Application_Detail__c.InputOrDisplayClass__c</field>
+        <field>sf_Application_Detail__c.InputOrDisplayClass__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Input_Checkbox__c</field>
+        <field>sf_Application_Detail__c.Input_Checkbox__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Input_Currency__c</field>
+        <field>sf_Application_Detail__c.Input_Currency__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Input_Date__c</field>
+        <field>sf_Application_Detail__c.Input_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Input_Datetime__c</field>
+        <field>sf_Application_Detail__c.Input_Datetime__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Input_Files_Uploaded__c</field>
+        <field>sf_Application_Detail__c.Input_Files_Uploaded__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Input_Number__c</field>
+        <field>sf_Application_Detail__c.Input_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Input_Record_List__c</field>
+        <field>sf_Application_Detail__c.Input_Record_List__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Input_Text_Long__c</field>
+        <field>sf_Application_Detail__c.Input_Text_Long__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Input_Text__c</field>
+        <field>sf_Application_Detail__c.Input_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Large_Device_Size__c</field>
+        <field>sf_Application_Detail__c.Large_Device_Size__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Maximum__c</field>
+        <field>sf_Application_Detail__c.Maximum__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Medium_Device_Size__c</field>
+        <field>sf_Application_Detail__c.Medium_Device_Size__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Message_When_Pattern_Mismatch__c</field>
+        <field>sf_Application_Detail__c.Message_When_Pattern_Mismatch__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Minimum__c</field>
+        <field>sf_Application_Detail__c.Minimum__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Parent_Application_Detail__c</field>
+        <field>sf_Application_Detail__c.Parent_Application_Detail__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Parent_Dependent_Answer__c</field>
+        <field>sf_Application_Detail__c.Parent_Dependent_Answer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Pattern__c</field>
+        <field>sf_Application_Detail__c.Pattern__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Picklist_Values__c</field>
+        <field>sf_Application_Detail__c.Picklist_Values__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Radio_Group_Values__c</field>
+        <field>sf_Application_Detail__c.Radio_Group_Values__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Reference_Application_Detail__c</field>
+        <field>sf_Application_Detail__c.sf_Reference_Application_Detail__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Application_Detail__c.Required_Question_Answered__c</field>
+        <field>sf_Application_Detail__c.Required_Question_Answered__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Required__c</field>
+        <field>sf_Application_Detail__c.Required__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Small_Device_Size__c</field>
+        <field>sf_Application_Detail__c.Small_Device_Size__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Detail__c.Step__c</field>
+        <field>sf_Application_Detail__c.Step__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Application_Language__c.Language__c</field>
+        <field>sf_Application_Language__c.Language__c</field>
+    <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sf_Application_Language__c.sf_Reference_Application_Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Language__c.Reference_Application_Language__c</field>
+        <field>sf_Application_Language__c.Translated_Application_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Language__c.Translated_Application_Number__c</field>
+        <field>sf_Application_Language__c.Translated_Cancel_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Language__c.Translated_Cancel_Text__c</field>
+        <field>sf_Application_Language__c.Translated_Created_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Language__c.Translated_Created_Date__c</field>
+        <field>sf_Application_Language__c.Translated_Display_Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Language__c.Translated_Display_Description__c</field>
+        <field>sf_Application_Language__c.Translated_Display_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Language__c.Translated_Display_Name__c</field>
+        <field>sf_Application_Language__c.Translated_Save_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Language__c.Translated_Save_Text__c</field>
+        <field>sf_Application_Language__c.Translated_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Language__c.Translated_Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Application_Language__c.Translated_Submit_Text__c</field>
+        <field>sf_Application_Language__c.Translated_Submit_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Application_Section_Language__c.Language__c</field>
+        <field>sf_Application_Section_Language__c.Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Section_Language__c.Reference_Application_Section_Language__c</field>
+        <field>sf_Application_Section_Language__c.sf_Reference_Application_Section_Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Section_Language__c.Translated_Display_Section_Name__c</field>
+        <field>sf_Application_Section_Language__c.Translated_Display_Section_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Section__c.Completed__c</field>
+        <field>sf_Application_Section__c.Completed__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application_Section__c.Reference_Application_Section__c</field>
+        <field>sf_Application_Section__c.sf_Reference_Application_Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Application_Section__c.Required_Questions__c</field>
+        <field>sf_Application_Section__c.Required_Questions__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application__c.Application_Display_Name__c</field>
+        <field>sf_Application__c.Application_Display_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application__c.Display_Description__c</field>
+        <field>sf_Application__c.Display_Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Application__c.Read_Only__c</field>
+        <field>sf_Application__c.Read_Only__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Application__c.Status__c</field>
+        <field>sf_Application__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail_Language__c.Translated_Text__c</field>
+        <field>sf_Reference_Application_Detail_Language__c.Translated_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Accepted_File_Types__c</field>
+        <field>sf_Reference_Application_Detail__c.Accepted_File_Types__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Alignment__c</field>
+        <field>sf_Reference_Application_Detail__c.Alignment__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Child_To_Parent_Relationship_Api_Name__c</field>
+        <field>sf_Reference_Application_Detail__c.Child_To_Parent_Relationship_Api_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Child_sObject_API_Name__c</field>
+        <field>sf_Reference_Application_Detail__c.Child_sObject_API_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Child_sObject_Field_Set_API_Name__c</field>
+        <field>sf_Reference_Application_Detail__c.Child_sObject_Field_Set_API_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Child_sObject_Table_Field_Set_API_Name__c</field>
+        <field>sf_Reference_Application_Detail__c.Child_sObject_Table_Field_Set_API_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Component_Name__c</field>
+        <field>sf_Reference_Application_Detail__c.Component_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Custom_Component_JSON__c</field>
+        <field>sf_Reference_Application_Detail__c.Custom_Component_JSON__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Default_Value__c</field>
+        <field>sf_Reference_Application_Detail__c.Default_Value__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Display_Rich_Text__c</field>
+        <field>sf_Reference_Application_Detail__c.Display_Rich_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Display_Text__c</field>
+        <field>sf_Reference_Application_Detail__c.Display_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Field_Label__c</field>
+        <field>sf_Reference_Application_Detail__c.Field_Label__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.File_Rename__c</field>
+        <field>sf_Reference_Application_Detail__c.File_Rename__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Large_Device_Size__c</field>
+        <field>sf_Reference_Application_Detail__c.Large_Device_Size__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Maximum__c</field>
+        <field>sf_Reference_Application_Detail__c.Maximum__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Medium_Device_Size__c</field>
+        <field>sf_Reference_Application_Detail__c.Medium_Device_Size__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Message_When_Pattern_Mismatch__c</field>
+        <field>sf_Reference_Application_Detail__c.Message_When_Pattern_Mismatch__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Minimum__c</field>
+        <field>sf_Reference_Application_Detail__c.Minimum__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Parent_Dependent_Answer__c</field>
+        <field>sf_Reference_Application_Detail__c.Parent_Dependent_Answer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Pattern__c</field>
+        <field>sf_Reference_Application_Detail__c.Pattern__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Picklist_Values__c</field>
+        <field>sf_Reference_Application_Detail__c.Picklist_Values__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Radio_Group_Values__c</field>
+        <field>sf_Reference_Application_Detail__c.Radio_Group_Values__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Reference_Parent_Application_Detail__c</field>
+        <field>sf_Reference_Application_Detail__c.Reference_Parent_Application_Detail__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Required__c</field>
+        <field>sf_Reference_Application_Detail__c.Required__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Small_Device_Size__c</field>
+        <field>sf_Reference_Application_Detail__c.Small_Device_Size__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Detail__c.Step__c</field>
+        <field>sf_Reference_Application_Detail__c.Step__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Language__c.Language__c</field>
+        <field>sf_Reference_Application_Language__c.Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Language__c.Translated_Application_Number__c</field>
+        <field>sf_Reference_Application_Language__c.Translated_Application_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Language__c.Translated_Cancel_Text__c</field>
+        <field>sf_Reference_Application_Language__c.Translated_Cancel_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Language__c.Translated_Created_Date__c</field>
+        <field>sf_Reference_Application_Language__c.Translated_Created_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Language__c.Translated_Display_Description__c</field>
+        <field>sf_Reference_Application_Language__c.Translated_Display_Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Language__c.Translated_Display_Name__c</field>
+        <field>sf_Reference_Application_Language__c.Translated_Display_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Language__c.Translated_Save_Text__c</field>
+        <field>sf_Reference_Application_Language__c.Translated_Save_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Language__c.Translated_Status__c</field>
+        <field>sf_Reference_Application_Language__c.Translated_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Language__c.Translated_Submit_Text__c</field>
+        <field>sf_Reference_Application_Language__c.Translated_Submit_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Section_Language__c.Language__c</field>
+        <field>sf_Reference_Application_Section_Language__c.Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application_Section_Language__c.Translated_Display_Section_Name__c</field>
+        <field>sf_Reference_Application_Section_Language__c.Translated_Display_Section_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application__c.Display_Description__c</field>
+        <field>sf_Reference_Application__c.Display_Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Reference_Application__c.Display_Name__c</field>
+        <field>sf_Reference_Application__c.Display_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Application_Detail_Language__c-Application Detail Langauge Layout</layout>
+        <layout>sf_Application_Detail_Language__c-Application Detail Langauge Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Detail__c-Custom Component</layout>
+        <layout>sf_Application_Detail__c-Custom Component</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Detail__c-Custom Component</layout>
-        <recordType>Application_Detail__c.Custom_Component</recordType>
+        <layout>sf_Application_Detail__c-Custom Component</layout>
+        <recordType>sf_Application_Detail__c.Custom_Component</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Detail__c-Display Rich Text</layout>
-        <recordType>Application_Detail__c.Display_Rich_Text</recordType>
+        <layout>sf_Application_Detail__c-Display Rich Text</layout>
+        <recordType>sf_Application_Detail__c.Display_Rich_Text</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Detail__c-Display Text</layout>
-        <recordType>Application_Detail__c.Display_Text</recordType>
+        <layout>sf_Application_Detail__c-Display Text</layout>
+        <recordType>sf_Application_Detail__c.Display_Text</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Detail__c-Input Checkbox</layout>
-        <recordType>Application_Detail__c.Input_Checkbox</recordType>
+        <layout>sf_Application_Detail__c-Input Checkbox</layout>
+        <recordType>sf_Application_Detail__c.Input_Checkbox</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Detail__c-Input Currency</layout>
-        <recordType>Application_Detail__c.Input_Currency</recordType>
+        <layout>sf_Application_Detail__c-Input Currency</layout>
+        <recordType>sf_Application_Detail__c.Input_Currency</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Detail__c-Input Date</layout>
-        <recordType>Application_Detail__c.Input_Date</recordType>
+        <layout>sf_Application_Detail__c-Input Date</layout>
+        <recordType>sf_Application_Detail__c.Input_Date</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Detail__c-Input Date Time</layout>
-        <recordType>Application_Detail__c.Input_Date_Time</recordType>
+        <layout>sf_Application_Detail__c-Input Date Time</layout>
+        <recordType>sf_Application_Detail__c.Input_Date_Time</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Detail__c-Input File</layout>
-        <recordType>Application_Detail__c.Input_File</recordType>
+        <layout>sf_Application_Detail__c-Input File</layout>
+        <recordType>sf_Application_Detail__c.Input_File</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Detail__c-Input Number</layout>
-        <recordType>Application_Detail__c.Input_Number</recordType>
+        <layout>sf_Application_Detail__c-Input Number</layout>
+        <recordType>sf_Application_Detail__c.Input_Number</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Detail__c-Input Picklist</layout>
-        <recordType>Application_Detail__c.Input_Picklist</recordType>
+        <layout>sf_Application_Detail__c-Input Picklist</layout>
+        <recordType>sf_Application_Detail__c.Input_Picklist</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Detail__c-Input Radio Group</layout>
-        <recordType>Application_Detail__c.Input_Radio_Group</recordType>
+        <layout>sf_Application_Detail__c-Input Radio Group</layout>
+        <recordType>sf_Application_Detail__c.Input_Radio_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Detail__c-Input Record List</layout>
-        <recordType>Application_Detail__c.Input_Record_List</recordType>
+        <layout>sf_Application_Detail__c-Input Record List</layout>
+        <recordType>sf_Application_Detail__c.Input_Record_List</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Detail__c-Input Text</layout>
-        <recordType>Application_Detail__c.Input_Text</recordType>
+        <layout>sf_Application_Detail__c-Input Text</layout>
+        <recordType>sf_Application_Detail__c.Input_Text</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Detail__c-Input Text Long Area</layout>
-        <recordType>Application_Detail__c.Input_Text_Area_Long</recordType>
+        <layout>sf_Application_Detail__c-Input Text Long Area</layout>
+        <recordType>sf_Application_Detail__c.Input_Text_Area_Long</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Language__c-Application Language Layout</layout>
+        <layout>sf_Application_Language__c-Application Language Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Section_Language__c-Application Section Language Layout</layout>
+        <layout>sf_Application_Section_Language__c-Application Section Language Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Section__c-Application Section Layout</layout>
+        <layout>sf_Application_Section__c-Application Section Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application__c-Application Layout</layout>
+        <layout>sf_Application__c-Application Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail_Language__c-Reference Application Detail Language Layout</layout>
+        <layout>sf_Reference_Application_Detail_Language__c-Reference Application Detail Language Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail__c-Custom Component</layout>
+        <layout>sf_Reference_Application_Detail__c-Custom Component</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail__c-Custom Component</layout>
-        <recordType>Reference_Application_Detail__c.Custom_Component</recordType>
+        <layout>sf_Reference_Application_Detail__c-Custom Component</layout>
+        <recordType>sf_Reference_Application_Detail__c.Custom_Component</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail__c-Display Rich Text</layout>
-        <recordType>Reference_Application_Detail__c.Display_Rich_Text</recordType>
+        <layout>sf_Reference_Application_Detail__c-Display Rich Text</layout>
+        <recordType>sf_Reference_Application_Detail__c.Display_Rich_Text</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail__c-Display Text</layout>
-        <recordType>Reference_Application_Detail__c.Display_Text</recordType>
+        <layout>sf_Reference_Application_Detail__c-Display Text</layout>
+        <recordType>sf_Reference_Application_Detail__c.Display_Text</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail__c-Input Checkbox</layout>
-        <recordType>Reference_Application_Detail__c.Input_Checkbox</recordType>
+        <layout>sf_Reference_Application_Detail__c-Input Checkbox</layout>
+        <recordType>sf_Reference_Application_Detail__c.Input_Checkbox</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail__c-Input Currency</layout>
-        <recordType>Reference_Application_Detail__c.Input_Currency</recordType>
+        <layout>sf_Reference_Application_Detail__c-Input Currency</layout>
+        <recordType>sf_Reference_Application_Detail__c.Input_Currency</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail__c-Input Date</layout>
-        <recordType>Reference_Application_Detail__c.Input_Date</recordType>
+        <layout>sf_Reference_Application_Detail__c-Input Date</layout>
+        <recordType>sf_Reference_Application_Detail__c.Input_Date</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail__c-Input Date Time</layout>
-        <recordType>Reference_Application_Detail__c.Input_Date_Time</recordType>
+        <layout>sf_Reference_Application_Detail__c-Input Date Time</layout>
+        <recordType>sf_Reference_Application_Detail__c.Input_Date_Time</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail__c-Input File</layout>
-        <recordType>Reference_Application_Detail__c.Input_File</recordType>
+        <layout>sf_Reference_Application_Detail__c-Input File</layout>
+        <recordType>sf_Reference_Application_Detail__c.Input_File</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail__c-Input Number</layout>
-        <recordType>Reference_Application_Detail__c.Input_Number</recordType>
+        <layout>sf_Reference_Application_Detail__c-Input Number</layout>
+        <recordType>sf_Reference_Application_Detail__c.Input_Number</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail__c-Input Picklist</layout>
-        <recordType>Reference_Application_Detail__c.Input_Picklist</recordType>
+        <layout>sf_Reference_Application_Detail__c-Input Picklist</layout>
+        <recordType>sf_Reference_Application_Detail__c.Input_Picklist</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail__c-Input Radio Group</layout>
-        <recordType>Reference_Application_Detail__c.Input_Radio_Group</recordType>
+        <layout>sf_Reference_Application_Detail__c-Input Radio Group</layout>
+        <recordType>sf_Reference_Application_Detail__c.Input_Radio_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail__c-Input Record List</layout>
-        <recordType>Reference_Application_Detail__c.Input_Record_List</recordType>
+        <layout>sf_Reference_Application_Detail__c-Input Record List</layout>
+        <recordType>sf_Reference_Application_Detail__c.Input_Record_List</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail__c-Input Text</layout>
-        <recordType>Reference_Application_Detail__c.Input_Text</recordType>
+        <layout>sf_Reference_Application_Detail__c-Input Text</layout>
+        <recordType>sf_Reference_Application_Detail__c.Input_Text</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail__c-Input Text Area Long</layout>
-        <recordType>Reference_Application_Detail__c.Input_Text_Area_Long</recordType>
+        <layout>sf_Reference_Application_Detail__c-Input Text Area Long</layout>
+        <recordType>sf_Reference_Application_Detail__c.Input_Text_Area_Long</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Language__c-Reference Application Language Layout</layout>
+        <layout>sf_Reference_Application_Language__c-Reference Application Language Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Section_Language__c-Reference Application Section Language Layout</layout>
+        <layout>sf_Reference_Application_Section_Language__c-Reference Application Section Language Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Section__c-Reference Application Section Layout</layout>
+        <layout>sf_Reference_Application_Language__c-Reference Application Section Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application__c-Reference Application Layout</layout>
+        <layout>sf_Reference_Application__c-Reference Application Layout</layout>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -682,7 +682,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Application_Detail_Language__c</object>
+        <object>sf_Application_Detail_Language__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -691,7 +691,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Application_Detail__c</object>
+        <object>sf_Application_Detail__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -700,7 +700,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Application_Language__c</object>
+        <object>sf_Application_Language__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -709,7 +709,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Application_Section_Language__c</object>
+        <object>sf_Application_Section_Language__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -718,7 +718,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Application_Section__c</object>
+        <object>sf_Application_Section__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -727,7 +727,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Application__c</object>
+        <object>sf_Application__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -736,7 +736,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Reference_Application_Detail_Language__c</object>
+        <object>sf_Reference_Application_Detail_Language__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -745,7 +745,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Reference_Application_Detail__c</object>
+        <object>sf_Reference_Application_Detail__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -754,7 +754,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Reference_Application_Language__c</object>
+        <object>sf_Reference_Application_Language__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -763,7 +763,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Reference_Application_Section_Language__c</object>
+        <object>sf_Reference_Application_Section_Language__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -772,7 +772,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Reference_Application_Section__c</object>
+        <object>sf_Reference_Application_Language__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -781,172 +781,172 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Reference_Application__c</object>
+        <object>sf_Reference_Application__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Application_Detail__c.Custom_Component</recordType>
+        <recordType>sf_Application_Detail__c.Custom_Component</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Application_Detail__c.Display_Rich_Text</recordType>
+        <recordType>sf_Application_Detail__c.Display_Rich_Text</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
         <personAccountDefault>true</personAccountDefault>
-        <recordType>Application_Detail__c.Display_Text</recordType>
+        <recordType>sf_Application_Detail__c.Display_Text</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Application_Detail__c.Input_Checkbox</recordType>
+        <recordType>sf_Application_Detail__c.Input_Checkbox</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Application_Detail__c.Input_Currency</recordType>
+        <recordType>sf_Application_Detail__c.Input_Currency</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Application_Detail__c.Input_Date</recordType>
+        <recordType>sf_Application_Detail__c.Input_Date</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Application_Detail__c.Input_Date_Time</recordType>
+        <recordType>sf_Application_Detail__c.Input_Date_Time</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Application_Detail__c.Input_File</recordType>
+        <recordType>sf_Application_Detail__c.Input_File</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Application_Detail__c.Input_Number</recordType>
+        <recordType>sf_Application_Detail__c.Input_Number</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Application_Detail__c.Input_Picklist</recordType>
+        <recordType>sf_Application_Detail__c.Input_Picklist</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Application_Detail__c.Input_Radio_Group</recordType>
+        <recordType>sf_Application_Detail__c.Input_Radio_Group</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Application_Detail__c.Input_Record_List</recordType>
+        <recordType>sf_Application_Detail__c.Input_Record_List</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Application_Detail__c.Input_Text</recordType>
+        <recordType>sf_Application_Detail__c.Input_Text</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Application_Detail__c.Input_Text_Area_Long</recordType>
+        <recordType>sf_Application_Detail__c.Input_Text_Area_Long</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Reference_Application_Detail__c.Custom_Component</recordType>
+        <recordType>sf_Reference_Application_Detail__c.Custom_Component</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Reference_Application_Detail__c.Display_Rich_Text</recordType>
+        <recordType>sf_Reference_Application_Detail__c.Display_Rich_Text</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Reference_Application_Detail__c.Display_Text</recordType>
+        <recordType>sf_Reference_Application_Detail__c.Display_Text</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Reference_Application_Detail__c.Input_Checkbox</recordType>
+        <recordType>sf_Reference_Application_Detail__c.Input_Checkbox</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Reference_Application_Detail__c.Input_Currency</recordType>
+        <recordType>sf_Reference_Application_Detail__c.Input_Currency</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Reference_Application_Detail__c.Input_Date</recordType>
+        <recordType>sf_Reference_Application_Detail__c.Input_Date</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Reference_Application_Detail__c.Input_Date_Time</recordType>
+        <recordType>sf_Reference_Application_Detail__c.Input_Date_Time</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Reference_Application_Detail__c.Input_File</recordType>
+        <recordType>sf_Reference_Application_Detail__c.Input_File</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Reference_Application_Detail__c.Input_Number</recordType>
+        <recordType>sf_Reference_Application_Detail__c.Input_Number</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Reference_Application_Detail__c.Input_Picklist</recordType>
+        <recordType>sf_Reference_Application_Detail__c.Input_Picklist</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Reference_Application_Detail__c.Input_Radio_Group</recordType>
+        <recordType>sf_Reference_Application_Detail__c.Input_Radio_Group</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Reference_Application_Detail__c.Input_Record_List</recordType>
+        <recordType>sf_Reference_Application_Detail__c.Input_Record_List</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <recordType>Reference_Application_Detail__c.Input_Text</recordType>
+        <recordType>sf_Reference_Application_Detail__c.Input_Text</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Reference_Application_Detail__c.Input_Text_Area_Long</recordType>
+        <recordType>sf_Reference_Application_Detail__c.Input_Text_Area_Long</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
-        <tab>Application_Detail__c</tab>
+        <tab>sf_Application_Detail__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Application_Section__c</tab>
+        <tab>sf_Application_Section__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Application__c</tab>
+        <tab>sf_Application__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Reference_Application_Detail__c</tab>
+        <tab>sf_Reference_Application_Detail__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Reference_Application_Section__c</tab>
+        <tab>sf_Reference_Application_Language__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Reference_Application__c</tab>
+        <tab>sf_Reference_Application__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
