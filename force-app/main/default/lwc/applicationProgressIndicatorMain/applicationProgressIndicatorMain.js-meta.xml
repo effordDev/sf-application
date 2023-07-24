@@ -18,7 +18,7 @@
                 <supportedFormFactor type="Large" />
             </supportedFormFactors>
             <objects>
-                <object>Application__c</object>
+                <object>sf_Application__c</object>
             </objects> 
         </targetConfig>
 

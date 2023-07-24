@@ -7,7 +7,7 @@
         <formFactor>Small</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
-        <pageOrSobjectType>Application__c</pageOrSobjectType>
+        <pageOrSobjectType>sf_Application__c</pageOrSobjectType>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
@@ -16,7 +16,7 @@
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
-        <pageOrSobjectType>Application__c</pageOrSobjectType>
+        <pageOrSobjectType>sf_Application__c</pageOrSobjectType>
     </actionOverrides>
     <brand>
         <headerColor>#DE02B6</headerColor>
@@ -30,12 +30,12 @@
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>Reference Application Helper</label>
     <navType>Standard</navType>
-    <tabs>Reference_Application__c</tabs>
-    <tabs>Reference_Application_Section__c</tabs>
-    <tabs>Reference_Application_Detail__c</tabs>
-    <tabs>Application__c</tabs>
-    <tabs>Application_Section__c</tabs>
-    <tabs>Application_Detail__c</tabs>
+    <tabs>sf_Ref_Application__c</tabs>
+    <tabs>sf_Ref_Application_Section__c</tabs>
+    <tabs>sf_Ref_Application_Detail__c</tabs>
+    <tabs>sf_Application__c</tabs>
+    <tabs>sf_Application_Section__c</tabs>
+    <tabs>sf_Application_Detail__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Reference_Application_Helper_UtilityBar</utilityBar>
 </CustomApplication>

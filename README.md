@@ -18,7 +18,7 @@
 
 </details>
 
-This module provides a way for admins to build an application/form using LWC's. This is accomplished by building a skeleton structure of your application using the custom objects: ```Reference_Application__c, Reference_Application_Section__c, Reference_Application_Detail__c```. The individual instances of an application are represented using the following custom objects: ```Application__c, Application_Section__c, Application_Detail__c```. 
+This module provides a way for admins to build an application/form using LWC's. This is accomplished by building a skeleton structure of your application using the custom objects: ```sf_Ref_Application__c, sf_Ref_Application_Section__c, sf_Ref_Application_Detail__c```. The individual instances of an application are represented using the following custom objects: ```sf-Application__c, sf-Application_Section__c, sf-Application_Detail__c```. 
 
 Below is a basic ERD of the objects involved.
 <details>
@@ -30,15 +30,15 @@ Below is a basic ERD of the objects involved.
 </details>
 
 ## Getting Started
-Naviagte to the App **Reference Application Helper** To create an application, simply create a ```Application__c``` record and populate the lookup ```Reference_Application__c``` to the application you want your instance modeled after. This is will trigger a process to write the following mapping: 
+Naviagte to the App **Reference Application Helper** To create an application, simply create a ```sf-Application__c``` record and populate the lookup ```sf_Ref_Application__c``` to the application you want your instance modeled after. This is will trigger a process to write the following mapping: 
 ```
-  Reference_Application__c => Application__c
-  Reference_Application_Section__c => Application_Section__c
-  Reference_Application_Detail__c => Application_Detail__c
+  sf_Ref_Application__c => sf-Application__c
+  sf_Ref_Application_Section__c => sf-Application_Section__c
+  sf_Ref_Application_Detail__c => sf-Application_Detail__c
 ```
 ### Creating Inputs
 
-The record type of ```Reference_Application_Detail__c``` Determines the type of input.
+The record type of ```sf_Ref_Application_Detail__c``` Determines the type of input.
 
 The following are the currently supported input fields:
 
