@@ -13,7 +13,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Reference_Application_Section__c</field>
+                <field>sf_Reference_Application_Section__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -87,11 +87,11 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Application_Detail__c.Reference_Application_Detail__c</relatedList>
+        <relatedList>sf-Application_Detail__c.sf_Reference_Application_Detail__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Reference_Application_Detail_Language__c.Reference_Application_Detail__c</relatedList>
+        <relatedList>sf_Reference_Application_Detail_Language__c.sf_Reference_Application_Detail__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

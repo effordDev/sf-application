@@ -9,7 +9,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Reference_Application_Section__c</field>
+                <field>sf_Reference_Application_Section__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>

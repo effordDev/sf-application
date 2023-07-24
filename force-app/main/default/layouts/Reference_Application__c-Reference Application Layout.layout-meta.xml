@@ -61,7 +61,7 @@
         <fields>NAME</fields>
         <fields>Display_Section_Name__c</fields>
         <fields>Sort_Order__c</fields>
-        <relatedList>Reference_Application_Section__c.Reference_Application__c</relatedList>
+        <relatedList>sf_Reference_Application_Section__c.sf_Reference_Application__c</relatedList>
         <sortField>Sort_Order__c</sortField>
         <sortOrder>Asc</sortOrder>
     </relatedLists>
@@ -86,11 +86,11 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Application__c.Reference_Application__c</relatedList>
+        <relatedList>sf-Application__c.sf_Reference_Application__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Reference_Application_Language__c.Reference_Application__c</relatedList>
+        <relatedList>sf_Reference_Application_Language__c.sf_Reference_Application__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

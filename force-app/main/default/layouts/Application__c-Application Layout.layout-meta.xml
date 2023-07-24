@@ -21,7 +21,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Reference_Application__c</field>
+                <field>sf_Reference_Application__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -90,15 +90,15 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Display_Section_Label__c</fields>
-        <fields>Reference_Application_Section__c</fields>
+        <fields>sf_Reference_Application_Section__c</fields>
         <fields>Sort_Order__c</fields>
-        <relatedList>Application_Section__c.Application__c</relatedList>
+        <relatedList>sf_Application_Section__c.sf-Application__c</relatedList>
         <sortField>Sort_Order__c</sortField>
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Application_Language__c.Application__c</relatedList>
+        <relatedList>sf-Application_Language__c.sf-Application__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

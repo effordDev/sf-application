@@ -13,11 +13,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Application_Section__c</field>
+                <field>sf-Application_Section__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Reference_Application_Detail__c</field>
+                <field>sf_Reference_Application_Detail__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -118,7 +118,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Application_Detail_Language__c.Application_Detail__c</relatedList>
+        <relatedList>sf-Application_Detail_Language__c.sf-Application_Detail__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

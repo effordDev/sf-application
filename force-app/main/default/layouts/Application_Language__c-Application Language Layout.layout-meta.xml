@@ -12,11 +12,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Application__c</field>
+                <field>sf-Application__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Reference_Application_Language__c</field>
+                <field>sf_Reference_Application_Language__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

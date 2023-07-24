@@ -9,7 +9,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Application_Section__c</field>
+                <field>sf-Application_Section__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

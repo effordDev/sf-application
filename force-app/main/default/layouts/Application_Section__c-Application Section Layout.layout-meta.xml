@@ -21,11 +21,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Application__c</field>
+                <field>sf-Application__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Reference_Application_Section__c</field>
+                <field>sf_Reference_Application_Section__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -94,13 +94,13 @@
         <fields>Required__c</fields>
         <fields>RECORDTYPE</fields>
         <fields>Sort_Order__c</fields>
-        <relatedList>Application_Detail__c.Application_Section__c</relatedList>
+        <relatedList>sf-Application_Detail__c.sf-Application_Section__c</relatedList>
         <sortField>Sort_Order__c</sortField>
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Application_Section_Language__c.Application_Section__c</relatedList>
+        <relatedList>sf-Application_Section_Language__c.sf-Application_Section__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
