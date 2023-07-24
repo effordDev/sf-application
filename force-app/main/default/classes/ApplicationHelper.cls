@@ -1,13 +1,13 @@
 public with sharing class ApplicationHelper {
 	@AuraEnabled
-	public static Application__c getApplication(Id recordId) {
+	public static sf-Application__c getApplication(Id recordId) {
 		return [
 			SELECT
 				Id,
 				Name,
 				Application_Display_Name__c,
 				Display_Description__c,
-				Reference_Application__c,
+				sf_Reference_Application__c,
 				Status__c,
 				CreatedDate,
 				Read_Only__c,
@@ -15,8 +15,8 @@ public with sharing class ApplicationHelper {
 					SELECT
 						Id,
 						Name,
-						Application__c,
-						Reference_Application_Section__c,
+						sf-Application__c,
+						sf_Reference_Application_Section__c,
 						Display_Section_Label__c,
 						Sort_Order__c,
 						Required_Questions__c,
@@ -24,17 +24,17 @@ public with sharing class ApplicationHelper {
 					FROM Application_Sections__r
 					ORDER BY Sort_Order__c ASC
 				)
-			FROM Application__c
+			FROM sf-Application__c
 			WHERE Id = :recordId
 		];
 	}
 
 	@AuraEnabled
-	public static List<Application_Language__c> getApplicationLanguages(Id applicationId){
+	public static List<sf-Application_Language__c> getApplicationLanguages(Id applicationId){
 		return [
 			SELECT Id,
 				Language__c,
-				Reference_Application_Language__c,
+				sf_Reference_Application_Language__c,
 				Translated_Application_Number__c,
 				Translated_Display_Description__c,
 				Translated_Display_Name__c,
@@ -43,25 +43,25 @@ public with sharing class ApplicationHelper {
 				Translated_Cancel_Text__c,
 				Translated_Save_Text__c,
 				Translated_Submit_Text__c
-			FROM Application_Language__c
-			WHERE Application__c = : applicationId
+			FROM sf-Application_Language__c
+			WHERE sf-Application__c = : applicationId
 		];
 	}
 
 	@AuraEnabled
-	public static List<Application_Section_Language__c> getApplicationSectionLanguages(Id sectionId){
+	public static List<sf-Application_Section_Language__c> getApplicationSectionLanguages(Id sectionId){
 		return [
 			SELECT Id, 
 				Language__c,
-				Reference_Application_Section_Language__c,
+				sf_Reference_Application_Section_Language__c,
 				Translated_Display_Section_Name__c
-			FROM Application_Section_Language__c
-			WHERE Application_Section__c = : sectionId 
+			FROM sf-Application_Section_Language__c
+			WHERE sf-Application_Section__c = : sectionId 
 		];
 	}
 
 	@AuraEnabled
-	public static List<Application_Detail__c> getApplicationDetails(
+	public static List<sf-Application_Detail__c> getApplicationDetails(
 		Id applicationSectionId
 	) {
 		return [
@@ -70,8 +70,8 @@ public with sharing class ApplicationHelper {
 				Name,
 				RecordTypeId,
 				RecordType.DeveloperName,
-				Reference_Application_Detail__c,
-				Application_Section__c,
+				sf_Reference_Application_Detail__c,
+				sf-Application_Section__c,
 				Default_Value__c,
 				Display_Text__c,
 				Display_Rich_Text__c,
@@ -110,7 +110,7 @@ public with sharing class ApplicationHelper {
 					SELECT Id,
 						Language__c,
 						Translated_Text__c,
-						Application_Detail__c
+						sf-Application_Detail__c
 					FROM Application_Detail_Languages__r
 				)
 				,
@@ -120,8 +120,8 @@ public with sharing class ApplicationHelper {
 					Name,
 					RecordTypeId,
 					RecordType.DeveloperName,
-					Reference_Application_Detail__c,
-					Application_Section__c,
+					sf_Reference_Application_Detail__c,
+					sf-Application_Section__c,
 					Default_Value__c,
 					Display_Text__c,
 					Display_Rich_Text__c,
@@ -158,8 +158,8 @@ public with sharing class ApplicationHelper {
 					Parent_Dependent_Answer__c
 				FROM Application_Details__r
 				)
-			FROM Application_Detail__c
-			WHERE Application_Section__c = :applicationSectionId
+			FROM sf-Application_Detail__c
+			WHERE sf-Application_Section__c = :applicationSectionId
 			AND Parent_Application_Detail__c = null
 			ORDER BY Sort_Order__c ASC
 		];
@@ -178,41 +178,41 @@ public with sharing class ApplicationHelper {
 	public static void saveApplicationDetails(
 		Id recordId,
 		Id sectionId,
-		List<Application_Detail__c> details
+		List<sf-Application_Detail__c> details
 	) {
 		update details;
 
 		List<AggregateResult> arRequiredQuestionsList = [
-			SELECT Application_Section__c, COUNT(Id) RequiredQuestions
-			FROM Application_Detail__c
-			WHERE Application_Section__c = :sectionId 
+			SELECT sf-Application_Section__c, COUNT(Id) RequiredQuestions
+			FROM sf-Application_Detail__c
+			WHERE sf-Application_Section__c = :sectionId 
 			AND Required__c = TRUE
 			AND Parent_Application_Detail__c = null
-			GROUP BY Application_Section__c
+			GROUP BY sf-Application_Section__c
 		];
 
-		List<Application_Detail__c> detailsToCheck = [
+		List<sf-Application_Detail__c> detailsToCheck = [
 			SELECT Id, Required__c, Required_Question_Answered__c, Input_Text_Long__c 
-			FROM Application_Detail__c
-			WHERE Application_Section__c =: sectionId
+			FROM sf-Application_Detail__c
+			WHERE sf-Application_Section__c =: sectionId
 			AND Required__c = true
 		];
 
 		Set<Id> detailIds = new Set<Id>();
-		for (Application_Detail__c d : detailsToCheck) {
+		for (sf-Application_Detail__c d : detailsToCheck) {
 			if (d.Input_Text_Long__c != null || d.Required_Question_Answered__c) {
 				detailIds.add(d.Id);
 			}
 		}
 
 		List<AggregateResult> arRequiredQuestionsAnsweredList = [
-			SELECT Application_Section__c, COUNT(Id) RequiredQuestionsAnswered
-			FROM Application_Detail__c
-			WHERE Application_Section__c = :sectionId
+			SELECT sf-Application_Section__c, COUNT(Id) RequiredQuestionsAnswered
+			FROM sf-Application_Detail__c
+			WHERE sf-Application_Section__c = :sectionId
 				AND Required__c = true
 				// AND Required_Question_Answered__c = true
 				AND Id IN : detailIds
-			GROUP BY Application_Section__c
+			GROUP BY sf-Application_Section__c
 		];
 
 		system.debug('arRequiredQuestionsList');
@@ -222,12 +222,12 @@ public with sharing class ApplicationHelper {
 
 		if (arRequiredQuestionsList.isEmpty()) {
 			
-			Application_Section__c section = new Application_Section__c();
+			sf-Application_Section__c section = new sf-Application_Section__c();
 				section.Id = sectionId;
 				section.Completed__c = true;
 			update section;
 
-			Application__c app = new Application__c(
+			sf-Application__c app = new sf-Application__c(
 				Id = recordId,
 				Status__c = 'In Progress'
 			);
@@ -246,7 +246,7 @@ public with sharing class ApplicationHelper {
 				Integer.valueOf(arRequiredQuestions.get('RequiredQuestions')) <=
 				Integer.valueOf(arRequiredQuestionsAnswered.get('RequiredQuestionsAnswered'))
 			) {
-				Application_Section__c section = new Application_Section__c();
+				sf-Application_Section__c section = new sf-Application_Section__c();
 					section.Id = sectionId;
 					section.Completed__c = true;
 				update section;
@@ -254,7 +254,7 @@ public with sharing class ApplicationHelper {
 		}
 
 
-		Application__c app = new Application__c(
+		sf-Application__c app = new sf-Application__c(
 			Id = recordId,
 			Status__c = 'In Progress'
 		);
@@ -263,7 +263,7 @@ public with sharing class ApplicationHelper {
 	}
 
 	@AuraEnabled
-	public static Application__c saveApplication(Application__c app) {
+	public static sf-Application__c saveApplication(sf-Application__c app) {
 		update app;
 		return getApplication(app.Id);
 	}
