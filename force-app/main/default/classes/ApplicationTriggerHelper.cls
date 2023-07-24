@@ -1,11 +1,11 @@
 public without sharing class ApplicationTriggerHelper {
-	public static void beforeInsert(List<sf-Application__c> applications) {
+	public static void beforeInsert(List<sf_Application__c> applications) {
 		setApplicationDefaults(applications);
 	}
 
-	public static void afterInsert(List<sf-Application__c> applications) {
+	public static void afterInsert(List<sf_Application__c> applications) {
 		Set<Id> referenceApplicationIds = new Set<Id>();
-		for (sf-Application__c application : applications) {
+		for (sf_Application__c application : applications) {
 			referenceApplicationIds.add(application.sf_Reference_Application__c);
 		}
 
@@ -72,7 +72,7 @@ public without sharing class ApplicationTriggerHelper {
 		//parent detail Id => List[childDetails]
 		Map<Id, List<sf_Reference_Application_Detail__c>> referenceAppParentDetailMap = buildReferenceAppParentDetailMap(referenceApplicationDetails);
 		
-		List<sf-Application_Language__c> applicationLanguageList = createApplicationLanguages(
+		List<sf_Application_Language__c> applicationLanguageList = createApplicationLanguages(
 			applications,
 			referenceApplicationMap
 		);
@@ -81,7 +81,7 @@ public without sharing class ApplicationTriggerHelper {
 			insert applicationLanguageList;
 		}
 
-		List<sf-Application_Section__c> applicationSections = createAppSections(
+		List<sf_Application_Section__c> applicationSections = createAppSections(
 			applications, 
 			referenceApplicationMap,
 			referenceApplicationSectionMap
@@ -91,7 +91,7 @@ public without sharing class ApplicationTriggerHelper {
 			insert applicationSections;
 		}
 
-		List<sf-Application_Section_Language__c> appSectionLanguagelList = createApplicationSectionLanguages(
+		List<sf_Application_Section_Language__c> appSectionLanguagelList = createApplicationSectionLanguages(
 			applicationSections,
 			referenceApplicationSections
 		);
@@ -100,7 +100,7 @@ public without sharing class ApplicationTriggerHelper {
 			insert appSectionLanguagelList;
 		}
 
-		List<sf-Application_Detail__c> applicationParentDetails = createAppParentDetails(
+		List<sf_Application_Detail__c> applicationParentDetails = createAppParentDetails(
 			applicationSections, 
 			referenceApplicationDetailMap
 		);
@@ -109,7 +109,7 @@ public without sharing class ApplicationTriggerHelper {
 			insert applicationParentDetails;
 		}
 		
-		List<sf-Application_Detail__c> applicationChildDetails = createAppChildDetails(
+		List<sf_Application_Detail__c> applicationChildDetails = createAppChildDetails(
 			applicationParentDetails,
 			referenceApplicationDetailMap,
 			referenceAppParentDetailMap
@@ -119,7 +119,7 @@ public without sharing class ApplicationTriggerHelper {
 			insert applicationChildDetails;
 		}
 
-		List<sf-Application_Detail_Language__c> appDetailLanguagelList = createApplicationDetaillanguages(
+		List<sf_Application_Detail_Language__c> appDetailLanguagelList = createApplicationDetaillanguages(
 			applicationParentDetails, 
 			referenceApplicationDetails
 		);
@@ -253,21 +253,21 @@ public without sharing class ApplicationTriggerHelper {
 		return referenceApplicationMap;
 	}
 
-	private static List<sf-Application_Section__c> createAppSections(
-		List<sf-Application__c> applications,
+	private static List<sf_Application_Section__c> createAppSections(
+		List<sf_Application__c> applications,
 		Map<Id, sf_Reference_Application__c> referenceApplicationMap,
 		Map<Id, List<sf_Reference_Application_Section__c>> referenceApplicationSectionMap
 	) {
 
-		List<sf-Application_Section__c> applicationSections = new List<sf-Application_Section__c>();
+		List<sf_Application_Section__c> applicationSections = new List<sf_Application_Section__c>();
 
-		for (sf-Application__c application : applications) {
+		for (sf_Application__c application : applications) {
 			sf_Reference_Application__c referenceApplication = referenceApplicationMap.get(
 				application.sf_Reference_Application__c
 			);
 
 			if (referenceApplicationMap.isEmpty()) {
-				return new List<sf-Application_Section__c>();
+				return new List<sf_Application_Section__c>();
 			}
 
 			List<sf_Reference_Application_Section__c> referenceApplicationSections = referenceApplicationSectionMap.get(
@@ -281,8 +281,8 @@ public without sharing class ApplicationTriggerHelper {
 			for (
 				sf_Reference_Application_Section__c referenceApplicationSection : referenceApplicationSections
 			) {
-				sf-Application_Section__c applicationSection = new sf-Application_Section__c();
-				applicationSection.sf-Application__c = application.Id;
+				sf_Application_Section__c applicationSection = new sf_Application_Section__c();
+				applicationSection.sf_Application__c = application.Id;
 				applicationSection.sf_Reference_Application_Section__c = referenceApplicationSection.Id;
 				applicationSection.Display_Section_Label__c = referenceApplicationSection.Display_Section_Name__c;
 				applicationSection.Sort_Order__c = referenceApplicationSection.Sort_Order__c;
@@ -293,14 +293,14 @@ public without sharing class ApplicationTriggerHelper {
 		return applicationSections;
 	}
 
-	private static List<sf-Application_Detail__c> createAppParentDetails(
-		List<sf-Application_Section__c> applicationSections,
+	private static List<sf_Application_Detail__c> createAppParentDetails(
+		List<sf_Application_Section__c> applicationSections,
 		Map<Id, List<sf_Reference_Application_Detail__c>> referenceApplicationDetailMap
 	) {
 
-		List<sf-Application_Detail__c> applicationDetails = new List<sf-Application_Detail__c>();
+		List<sf_Application_Detail__c> applicationDetails = new List<sf_Application_Detail__c>();
 
-		for (sf-Application_Section__c applicationSection : applicationSections) {
+		for (sf_Application_Section__c applicationSection : applicationSections) {
 			List<sf_Reference_Application_Detail__c> referenceApplicationDetails = referenceApplicationDetailMap.get(
 				applicationSection.sf_Reference_Application_Section__c
 			);
@@ -312,8 +312,8 @@ public without sharing class ApplicationTriggerHelper {
 			for (
 				sf_Reference_Application_Detail__c referenceApplicationDetail : referenceApplicationDetails
 			) {
-				sf-Application_Detail__c applicationDetail = new sf-Application_Detail__c();
-				applicationDetail.sf-Application_Section__c = applicationSection.Id;
+				sf_Application_Detail__c applicationDetail = new sf_Application_Detail__c();
+				applicationDetail.sf_Application_Section__c = applicationSection.Id;
 				applicationDetail.sf_Reference_Application_Detail__c = referenceApplicationDetail.Id;
 
 				applicationDetail.Default_Value__c = referenceApplicationDetail.Default_Value__c;
@@ -344,7 +344,7 @@ public without sharing class ApplicationTriggerHelper {
 				applicationDetail.Child_sObject_Table_Field_Set_API_Name__c = referenceApplicationDetail.Child_sObject_Table_Field_Set_API_Name__c;
 				applicationDetail.Parent_Dependent_Answer__c = referenceApplicationDetail.Parent_Dependent_Answer__c;
 
-				applicationDetail.RecordTypeId = Schema.SObjectType.sf-Application_Detail__c.getRecordTypeInfosByDeveloperName()
+				applicationDetail.RecordTypeId = Schema.SObjectType.sf_Application_Detail__c.getRecordTypeInfosByDeveloperName()
 					.get(referenceApplicationDetail.RecordType.DeveloperName)
 					.getRecordTypeId();
 
@@ -355,15 +355,15 @@ public without sharing class ApplicationTriggerHelper {
 		return applicationDetails;
 	}
 
-	private static List<sf-Application_Detail__c> createAppChildDetails(
-		List<sf-Application_Detail__c> appParentDetails,
+	private static List<sf_Application_Detail__c> createAppChildDetails(
+		List<sf_Application_Detail__c> appParentDetails,
 		Map<Id, List<sf_Reference_Application_Detail__c>> referenceApplicationDetailMap,
 		Map<Id, List<sf_Reference_Application_Detail__c>> referenceAppParentDetailMap
 	) {
 
-		List<sf-Application_Detail__c> childDetailsToInsert = new List<sf-Application_Detail__c>(); 
+		List<sf_Application_Detail__c> childDetailsToInsert = new List<sf_Application_Detail__c>(); 
 
-		for (sf-Application_Detail__c pd : appParentDetails) {
+		for (sf_Application_Detail__c pd : appParentDetails) {
 
 			if (!referenceAppParentDetailMap.containsKey(pd.sf_Reference_Application_Detail__c)) {
 				continue;
@@ -376,9 +376,9 @@ public without sharing class ApplicationTriggerHelper {
 
 			for (sf_Reference_Application_Detail__c refChildDetail : refChildDetails) {
 
-				sf-Application_Detail__c childDetail = new sf-Application_Detail__c();
+				sf_Application_Detail__c childDetail = new sf_Application_Detail__c();
 
-					childDetail.sf-Application_Section__c = pd.sf-Application_Section__c;
+					childDetail.sf_Application_Section__c = pd.sf_Application_Section__c;
 					childDetail.Parent_Application_Detail__c = pd.Id;
 					childDetail.sf_Reference_Application_Detail__c = refChildDetail.Id;
 
@@ -407,7 +407,7 @@ public without sharing class ApplicationTriggerHelper {
 					childDetail.Child_To_Parent_Relationship_Api_Name__c = refChildDetail.Child_To_Parent_Relationship_Api_Name__c;
 					childDetail.Child_sObject_Table_Field_Set_API_Name__c = refChildDetail.Child_sObject_Table_Field_Set_API_Name__c;
 
-					childDetail.RecordTypeId = Schema.SObjectType.sf-Application_Detail__c.getRecordTypeInfosByDeveloperName()
+					childDetail.RecordTypeId = Schema.SObjectType.sf_Application_Detail__c.getRecordTypeInfosByDeveloperName()
 						.get(refChildDetail.RecordType.DeveloperName)
 						.getRecordTypeId();
 	
@@ -418,8 +418,8 @@ public without sharing class ApplicationTriggerHelper {
 		return childDetailsToInsert;
 	}
 
-	private static List<sf-Application_Language__c> createApplicationLanguages(
-		List<sf-Application__c> applications,
+	private static List<sf_Application_Language__c> createApplicationLanguages(
+		List<sf_Application__c> applications,
 		Map<Id, sf_Reference_Application__c> referenceApplicationMap
 	) {
 
@@ -448,12 +448,12 @@ public without sharing class ApplicationTriggerHelper {
 		}
 
 		if (referenceAppLanguageMap.isEmpty()) {
-        	return new List<sf-Application_Language__c>();
+        	return new List<sf_Application_Language__c>();
         }
 
-		List<sf-Application_Language__c> applicationLanguages = new List<sf-Application_Language__c>();
+		List<sf_Application_Language__c> applicationLanguages = new List<sf_Application_Language__c>();
 
-		for (sf-Application__c app : applications) {
+		for (sf_Application__c app : applications) {
 
 			List<sf_Reference_Application_Language__c> ralList = referenceAppLanguageMap.get(
 				app.sf_Reference_Application__c
@@ -461,9 +461,9 @@ public without sharing class ApplicationTriggerHelper {
 
 			for (sf_Reference_Application_Language__c ral : ralList) {
 
-				sf-Application_Language__c al = new sf-Application_Language__c();
+				sf_Application_Language__c al = new sf_Application_Language__c();
 
-				al.sf-Application__c = app.Id;
+				al.sf_Application__c = app.Id;
 				al.sf_Reference_Application_Language__c = ral.Id;
 				al.Translated_Application_Number__c = ral.Translated_Application_Number__c;
 				al.Translated_Display_Description__c = ral.Translated_Display_Description__c;
@@ -479,8 +479,8 @@ public without sharing class ApplicationTriggerHelper {
 		return applicationLanguages;
 	}
 
-	private static List<sf-Application_Section_Language__c> createApplicationSectionLanguages(
-		List<sf-Application_Section__c> appSections, 
+	private static List<sf_Application_Section_Language__c> createApplicationSectionLanguages(
+		List<sf_Application_Section__c> appSections, 
 		List<sf_Reference_Application_Section__c> referenceApplicationSections
 	) {
 
@@ -502,12 +502,12 @@ public without sharing class ApplicationTriggerHelper {
 		}
 
 		if (referenceAppSectionLanguageMap.isEmpty()) {
-			return new List<sf-Application_Section_Language__c>();
+			return new List<sf_Application_Section_Language__c>();
         }
 
-		List<sf-Application_Section_Language__c> applicationSectionLangauges = new List<sf-Application_Section_Language__c>();
+		List<sf_Application_Section_Language__c> applicationSectionLangauges = new List<sf_Application_Section_Language__c>();
 
-		for (sf-Application_Section__c appSection : appSections) {
+		for (sf_Application_Section__c appSection : appSections) {
 
 			List <sf_Reference_Application_Section_Language__c> raslList = referenceAppSectionLanguageMap.get(
 				appSection.sf_Reference_Application_Section__c
@@ -515,9 +515,9 @@ public without sharing class ApplicationTriggerHelper {
 
 			for (sf_Reference_Application_Section_Language__c rasl : raslList) {
 
-				sf-Application_Section_Language__c asl = new sf-Application_Section_Language__c();
+				sf_Application_Section_Language__c asl = new sf_Application_Section_Language__c();
 				
-				asl.sf-Application_Section__c = appSection.Id;
+				asl.sf_Application_Section__c = appSection.Id;
 				asl.sf_Reference_Application_Section_Language__c = rasl.Id;
 				asl.Translated_Display_Section_Name__c = rasl.Translated_Display_Section_Name__c;
 				applicationSectionLangauges.add(asl);
@@ -527,8 +527,8 @@ public without sharing class ApplicationTriggerHelper {
 		return applicationSectionLangauges;
 	}
 
-	private static List<sf-Application_Detail_Language__c> createApplicationDetaillanguages(
-		List<sf-Application_Detail__c> appDetails, 
+	private static List<sf_Application_Detail_Language__c> createApplicationDetaillanguages(
+		List<sf_Application_Detail__c> appDetails, 
 		List<sf_Reference_Application_Detail__c> referenceApplicationDetails
 	) {
 
@@ -550,20 +550,20 @@ public without sharing class ApplicationTriggerHelper {
 		}
 
 		if (referenceAppDetailLanguageMap.isEmpty()) {
-			return new List<sf-Application_Detail_Language__c>();
+			return new List<sf_Application_Detail_Language__c>();
         }
 
-		List<sf-Application_Detail_Language__c> applicationDetailLangauges = new List<sf-Application_Detail_Language__c>();
+		List<sf_Application_Detail_Language__c> applicationDetailLangauges = new List<sf_Application_Detail_Language__c>();
 
-		for (sf-Application_Detail__c ad : appDetails) {
+		for (sf_Application_Detail__c ad : appDetails) {
 
 			List <sf_Reference_Application_Detail_Language__c> radlList = referenceAppDetailLanguageMap.get(ad.sf_Reference_Application_Detail__c);
 
 			for (sf_Reference_Application_Detail_Language__c radl : radlList) {
 
-				sf-Application_Detail_Language__c adl = new sf-Application_Detail_Language__c();
+				sf_Application_Detail_Language__c adl = new sf_Application_Detail_Language__c();
 				
-				adl.sf-Application_Detail__c = ad.Id;
+				adl.sf_Application_Detail__c = ad.Id;
 				adl.sf_Reference_Application_Detail_Language__c = radl.Id;
 				adl.Translated_Text__c = radl.Translated_Text__c;
 				applicationDetailLangauges.add(adl);
@@ -574,10 +574,10 @@ public without sharing class ApplicationTriggerHelper {
 	}
 
 	private static void setApplicationDefaults(
-		List<sf-Application__c> applications
+		List<sf_Application__c> applications
 	) {
 		Set<Id> referenceApplicationIds = new Set<Id>();
-		for (sf-Application__c application : applications) {
+		for (sf_Application__c application : applications) {
 			referenceApplicationIds.add(application.sf_Reference_Application__c);
 		}
 
@@ -593,7 +593,7 @@ public without sharing class ApplicationTriggerHelper {
 			);
 		}
 
-		for (sf-Application__c application : applications) {
+		for (sf_Application__c application : applications) {
 			sf_Reference_Application__c referenceApplication = referenceApplicationMap.get(
 				application.sf_Reference_Application__c
 			);

@@ -85,7 +85,7 @@ public with sharing class ApplicationHelperTest {
 
         sf_Reference_Application__c refApp = [SELECT Id FROM sf_Reference_Application__c LIMIT 1];
 
-        sf-Application__c app = new sf-Application__c();
+        sf_Application__c app = new sf_Application__c();
         app.sf_Reference_Application__c = refApp.Id;
         insert app;
     }
@@ -95,7 +95,7 @@ public with sharing class ApplicationHelperTest {
 
         sf_Reference_Application__c refApp = [SELECT Id FROM sf_Reference_Application__c LIMIT 1];
 
-        sf-Application__c app = new sf-Application__c();
+        sf_Application__c app = new sf_Application__c();
         app.sf_Reference_Application__c = refApp.Id;
         insert app;
 
@@ -106,7 +106,7 @@ public with sharing class ApplicationHelperTest {
     private static void getApplicationLanguagesTest() {
         sf_Reference_Application__c refApp = [SELECT Id FROM sf_Reference_Application__c LIMIT 1];
 
-        sf-Application__c app = new sf-Application__c();
+        sf_Application__c app = new sf_Application__c();
         app.sf_Reference_Application__c = refApp.Id;
         insert app;
 
@@ -117,14 +117,14 @@ public with sharing class ApplicationHelperTest {
     private static void getApplicationSectionLanguagesTest() {
         sf_Reference_Application__c refApp = [SELECT Id FROM sf_Reference_Application__c LIMIT 1];
 
-        sf-Application__c app = new sf-Application__c();
+        sf_Application__c app = new sf_Application__c();
         app.sf_Reference_Application__c = refApp.Id;
         insert app;
 
         ApplicationHelper.getApplicationSectionLanguages([
             SELECT Id 
-            FROM sf-Application_Section__c 
-            WHERE sf-Application__c =: app.Id 
+            FROM sf_Application_Section__c 
+            WHERE sf_Application__c =: app.Id 
             LIMIT 1].Id
         );
     }
@@ -134,14 +134,14 @@ public with sharing class ApplicationHelperTest {
 
         sf_Reference_Application__c refApp = [SELECT Id FROM sf_Reference_Application__c LIMIT 1];
 
-        sf-Application__c app = new sf-Application__c();
+        sf_Application__c app = new sf_Application__c();
         app.sf_Reference_Application__c = refApp.Id;
         insert app;
 
-        sf-Application_Section__c appSection = [
+        sf_Application_Section__c appSection = [
             SELECT Id
-            FROM sf-Application_Section__c 
-            WHERE sf-Application__c = : app.Id
+            FROM sf_Application_Section__c 
+            WHERE sf_Application__c = : app.Id
             LIMIT 1
         ];
 
@@ -153,29 +153,29 @@ public with sharing class ApplicationHelperTest {
 
         sf_Reference_Application__c refApp = [SELECT Id FROM sf_Reference_Application__c LIMIT 1];
 
-        sf-Application__c app = new sf-Application__c();
+        sf_Application__c app = new sf_Application__c();
         app.sf_Reference_Application__c = refApp.Id;
         insert app;
 
-        sf-Application_Section__c appSection = [
+        sf_Application_Section__c appSection = [
             SELECT Id
-            FROM sf-Application_Section__c 
-            WHERE sf-Application__c = : app.Id
+            FROM sf_Application_Section__c 
+            WHERE sf_Application__c = : app.Id
             AND Display_Section_Label__c = 'testDisplaySectionName'
             LIMIT 1
         ];
 
-        sf-Application_Detail__c appDetail = [
+        sf_Application_Detail__c appDetail = [
             SELECT Id
-            FROM sf-Application_Detail__c 
-            WHERE sf-Application_Section__c = : appSection.Id
+            FROM sf_Application_Detail__c 
+            WHERE sf_Application_Section__c = : appSection.Id
             AND Required__c = true
             LIMIT 1
         ];
 
         appDetail.Input_Text__c = 'inputedtext';
 
-        List<sf-Application_Detail__c> appDetails = new List<sf-Application_Detail__c>();
+        List<sf_Application_Detail__c> appDetails = new List<sf_Application_Detail__c>();
         appDetails.add(appDetail);
 
         ApplicationHelper.saveApplicationDetails(
@@ -190,28 +190,28 @@ public with sharing class ApplicationHelperTest {
 
         sf_Reference_Application__c refApp = [SELECT Id FROM sf_Reference_Application__c LIMIT 1];
 
-        sf-Application__c app = new sf-Application__c();
+        sf_Application__c app = new sf_Application__c();
         app.sf_Reference_Application__c = refApp.Id;
         insert app;
 
-        sf-Application_Section__c appSection = [
+        sf_Application_Section__c appSection = [
             SELECT Id
-            FROM sf-Application_Section__c 
-            WHERE sf-Application__c = : app.Id
+            FROM sf_Application_Section__c 
+            WHERE sf_Application__c = : app.Id
             AND Display_Section_Label__c = 'testDisplaySectionName2'
             LIMIT 1
         ];
 
-        sf-Application_Detail__c appDetail = [
+        sf_Application_Detail__c appDetail = [
             SELECT Id
-            FROM sf-Application_Detail__c 
-            WHERE sf-Application_Section__c = : appSection.Id
+            FROM sf_Application_Detail__c 
+            WHERE sf_Application_Section__c = : appSection.Id
             LIMIT 1
         ];
 
         appDetail.Input_Text__c = 'inputedtext';
 
-        List<sf-Application_Detail__c> appDetails = new List<sf-Application_Detail__c>();
+        List<sf_Application_Detail__c> appDetails = new List<sf_Application_Detail__c>();
         appDetails.add(appDetail);
 
         ApplicationHelper.saveApplicationDetails(
@@ -225,7 +225,7 @@ public with sharing class ApplicationHelperTest {
     private static void saveApplicationTest() {
         sf_Reference_Application__c refApp = [SELECT Id FROM sf_Reference_Application__c LIMIT 1];
 
-        sf-Application__c app = new sf-Application__c();
+        sf_Application__c app = new sf_Application__c();
         app.sf_Reference_Application__c = refApp.Id;
         insert app;
 
@@ -237,7 +237,7 @@ public with sharing class ApplicationHelperTest {
     private static void filesTest() {
         sf_Reference_Application__c refApp = [SELECT Id FROM sf_Reference_Application__c LIMIT 1];
 
-        sf-Application__c app = new sf-Application__c();
+        sf_Application__c app = new sf_Application__c();
         app.sf_Reference_Application__c = refApp.Id;
         insert app;
 
