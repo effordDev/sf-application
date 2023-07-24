@@ -4,11 +4,11 @@
     <externalId>false</externalId>
     <label>Required Questions</label>
     <summaryFilterItems>
-        <field>sf-Application_Detail__c.Required__c</field>
+        <field>sf_Application_Detail__c.Required__c</field>
         <operation>equals</operation>
         <value>True</value>
     </summaryFilterItems>
-    <summaryForeignKey>sf-Application_Detail__c.sf-Application_Section__c</summaryForeignKey>
+    <summaryForeignKey>sf_Application_Detail__c.sf_Application_Section__c</summaryForeignKey>
     <summaryOperation>count</summaryOperation>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>

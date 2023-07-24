@@ -7,7 +7,7 @@
     <columns>RECORDTYPE</columns>
     <columns>Required__c</columns>
     <columns>Sort_Order__c</columns>
-    <columns>sf_Reference_Application_Detail__c</columns>
+    <columns>sf_Ref_Application_Detail__c</columns>
     <columns>CREATED_DATE</columns>
     <columns>LAST_UPDATE</columns>
     <filterScope>Everything</filterScope>

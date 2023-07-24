@@ -4,7 +4,7 @@
     <columns>NAME</columns>
     <columns>Application_Display_Name__c</columns>
     <columns>Status__c</columns>
-    <columns>sf_Reference_Application__c</columns>
+    <columns>sf_Ref_Application__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Language__c</fullName>
     <externalId>false</externalId>
-    <formula>Reference_Application_Detail_Language__r.Language__c</formula>
+    <formula>sf_Ref_Application_Detail_Language__r.Language__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Language</label>
     <required>false</required>

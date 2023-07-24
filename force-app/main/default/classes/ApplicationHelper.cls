@@ -7,7 +7,7 @@ public with sharing class ApplicationHelper {
 				Name,
 				Application_Display_Name__c,
 				Display_Description__c,
-				sf_Reference_Application__c,
+				sf_Ref_Application__c,
 				Status__c,
 				CreatedDate,
 				Read_Only__c,
@@ -16,7 +16,7 @@ public with sharing class ApplicationHelper {
 						Id,
 						Name,
 						sf_Application__c,
-						sf_Reference_Application_Section__c,
+						sf_Ref_Application_Section__c,
 						Display_Section_Label__c,
 						Sort_Order__c,
 						Required_Questions__c,
@@ -34,7 +34,7 @@ public with sharing class ApplicationHelper {
 		return [
 			SELECT Id,
 				Language__c,
-				sf_Reference_Application_Language__c,
+				sf_Ref_Application_Language__c,
 				Translated_Application_Number__c,
 				Translated_Display_Description__c,
 				Translated_Display_Name__c,
@@ -53,7 +53,7 @@ public with sharing class ApplicationHelper {
 		return [
 			SELECT Id, 
 				Language__c,
-				sf_Reference_Application_Section_Language__c,
+				sf_Ref_Application_Section_Language__c,
 				Translated_Display_Section_Name__c
 			FROM sf_Application_Section_Language__c
 			WHERE sf_Application_Section__c = : sectionId 
@@ -70,7 +70,7 @@ public with sharing class ApplicationHelper {
 				Name,
 				RecordTypeId,
 				RecordType.DeveloperName,
-				sf_Reference_Application_Detail__c,
+				sf_Ref_Application_Detail__c,
 				sf_Application_Section__c,
 				Default_Value__c,
 				Display_Text__c,
@@ -120,7 +120,7 @@ public with sharing class ApplicationHelper {
 					Name,
 					RecordTypeId,
 					RecordType.DeveloperName,
-					sf_Reference_Application_Detail__c,
+					sf_Ref_Application_Detail__c,
 					sf_Application_Section__c,
 					Default_Value__c,
 					Display_Text__c,

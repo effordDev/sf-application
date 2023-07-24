@@ -65,11 +65,11 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>parentFieldApiName</name>
-                    <value>sf_Reference_Application__c.Id</value>
+                    <value>sf_Ref_Application__c.Id</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListApiName</name>
-                    <value>Reference_Application_Sections__r</value>
+                    <value>sf_Ref_Application_Sections__r</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListDisplayType</name>
@@ -133,11 +133,11 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>parentFieldApiName</name>
-                    <value>sf_Reference_Application__c.Id</value>
+                    <value>sf_Ref_Application__c.Id</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListApiName</name>
-                    <value>Reference_Application_Languages__r</value>
+                    <value>sf_Ref_Application_Languages__r</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListDisplayType</name>
@@ -283,7 +283,7 @@
     </flexiPageRegions>
     <masterLabel>Reference Application Record Page</masterLabel>
     <parentFlexiPage>flexipage__default_rec_L</parentFlexiPage>
-    <sobjectType>sf_Reference_Application__c</sobjectType>
+    <sobjectType>sf_Ref_Application__c</sobjectType>
     <template>
         <name>flexipage:recordHomeTemplateDesktop</name>
     </template>

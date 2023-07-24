@@ -50,7 +50,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>parentFieldApiName</name>
-                    <value>sf-Application_Detail__c.Id</value>
+                    <value>sf_Application_Detail__c.Id</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListApiName</name>
@@ -67,7 +67,7 @@
                             <value>NAME</value>
                         </valueListItems>
                         <valueListItems>
-                            <value>sf_Reference_Application_Detail_Language__c</value>
+                            <value>sf_Ref_Application_Detail_Language__c</value>
                         </valueListItems>
                         <valueListItems>
                             <value>Language__c</value>
@@ -161,7 +161,7 @@
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>Application Detail Record Page</masterLabel>
-    <sobjectType>sf-Application_Detail__c</sobjectType>
+    <sobjectType>sf_Application_Detail__c</sobjectType>
     <template>
         <name>flexipage:recordHomeSingleColTemplateDesktop</name>
     </template>

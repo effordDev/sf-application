@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Ref_Application_Section_Compact</fullName>
-    <fields>sf_Reference_Application__c</fields>
-    <fields>Display_Section_Name__c</fields>
-    <fields>Name</fields>
-    <fields>Sort_Order__c</fields>
-    <label>Ref Application Section Compact</label>
-</CompactLayout>
