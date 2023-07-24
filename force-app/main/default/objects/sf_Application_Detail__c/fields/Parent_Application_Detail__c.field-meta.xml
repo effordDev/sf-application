@@ -4,7 +4,7 @@
     <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
     <label>Parent Application Detail</label>
-    <referenceTo>Application_Detail__c</referenceTo>
+    <referenceTo>sf-Application_Detail__c</referenceTo>
     <relationshipLabel>Application Details</relationshipLabel>
     <relationshipName>Application_Details</relationshipName>
     <required>false</required>

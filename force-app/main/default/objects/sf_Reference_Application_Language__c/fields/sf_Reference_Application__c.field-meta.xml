@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Reference_Application__c</fullName>
+    <fullName>sf_Reference_Application__c</fullName>
     <externalId>false</externalId>
     <label>Reference Application</label>
     <referenceTo>sf_Reference_Application__c</referenceTo>
