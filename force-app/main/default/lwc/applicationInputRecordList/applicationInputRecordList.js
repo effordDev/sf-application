@@ -112,7 +112,10 @@ export default class ApplicationInputRecordList extends LightningElement {
     }
 
 	handleSubmit(event) {
+        //prevent submit and handle custom
+        //prevent onsubmit from bubbling in DOM
         event.preventDefault()
+        event.stopPropagation()
 
         const fields = event.detail.fields
         fields[this.parentRelationshipApi] = this.recordId
