@@ -7,12 +7,12 @@
         <name>ApexClass</name>
     </types>
     <types>
-        <members>Application</members>
+        <members>sf_Application</members>
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>Application__c.Application_Compact_LO</members>
-        <members>Reference_Application_Section__c.Ref_Application_Section_Compact</members>
+        <members>sf_Application__c.Application_Compact_LO</members>
+        <members>sf_Ref_Application_Section__c.Ref_Application_Section_Compact</members>
         <name>CompactLayout</name>
     </types>
     <types>
@@ -20,206 +20,206 @@
         <name>CustomApplication</name>
     </types>
     <types>
-        <members>Application_Detail_Language__c.Application_Detail__c</members>
-        <members>Application_Detail_Language__c.Language__c</members>
-        <members>Application_Detail_Language__c.Reference_Application_Detail_Language__c</members>
-        <members>Application_Detail_Language__c.Translated_Text__c</members>
-        <members>Application_Detail__c.Accepted_File_Types__c</members>
-        <members>Application_Detail__c.Alignment__c</members>
-        <members>Application_Detail__c.Answer__c</members>
-        <members>Application_Detail__c.Application_Section__c</members>
-        <members>Application_Detail__c.Checkbox_Group_Values__c</members>
-        <members>Application_Detail__c.Child_To_Parent_Relationship_Api_Name__c</members>
-        <members>Application_Detail__c.Child_sObject_API_Name__c</members>
-        <members>Application_Detail__c.Child_sObject_Field_Set_API_Name__c</members>
-        <members>Application_Detail__c.Child_sObject_Table_Field_Set_API_Name__c</members>
-        <members>Application_Detail__c.Component_Name__c</members>
-        <members>Application_Detail__c.Custom_Component_JSON__c</members>
-        <members>Application_Detail__c.Default_Value__c</members>
-        <members>Application_Detail__c.Display_Rich_Text__c</members>
-        <members>Application_Detail__c.Display_Text__c</members>
-        <members>Application_Detail__c.Field_Label__c</members>
-        <members>Application_Detail__c.File_Rename__c</members>
-        <members>Application_Detail__c.InputOrDisplayClass__c</members>
-        <members>Application_Detail__c.Input_Checkbox__c</members>
-        <members>Application_Detail__c.Input_Currency__c</members>
-        <members>Application_Detail__c.Input_Date__c</members>
-        <members>Application_Detail__c.Input_Datetime__c</members>
-        <members>Application_Detail__c.Input_Files_Uploaded__c</members>
-        <members>Application_Detail__c.Input_Number__c</members>
-        <members>Application_Detail__c.Input_Record_List__c</members>
-        <members>Application_Detail__c.Input_Text_Long__c</members>
-        <members>Application_Detail__c.Input_Text__c</members>
-        <members>Application_Detail__c.Large_Device_Size__c</members>
-        <members>Application_Detail__c.Maximum__c</members>
-        <members>Application_Detail__c.Medium_Device_Size__c</members>
-        <members>Application_Detail__c.Message_When_Pattern_Mismatch__c</members>
-        <members>Application_Detail__c.Minimum__c</members>
-        <members>Application_Detail__c.Parent_Application_Detail__c</members>
-        <members>Application_Detail__c.Parent_Dependent_Answer__c</members>
-        <members>Application_Detail__c.Pattern__c</members>
-        <members>Application_Detail__c.Picklist_Values__c</members>
-        <members>Application_Detail__c.Radio_Group_Values__c</members>
-        <members>Application_Detail__c.Reference_Application_Detail__c</members>
-        <members>Application_Detail__c.Required_Question_Answered__c</members>
-        <members>Application_Detail__c.Required__c</members>
-        <members>Application_Detail__c.Small_Device_Size__c</members>
-        <members>Application_Detail__c.Sort_Order__c</members>
-        <members>Application_Detail__c.Step__c</members>
-        <members>Application_Language__c.Application__c</members>
-        <members>Application_Language__c.Language__c</members>
-        <members>Application_Language__c.Reference_Application_Language__c</members>
-        <members>Application_Language__c.Translated_Application_Number__c</members>
-        <members>Application_Language__c.Translated_Cancel_Text__c</members>
-        <members>Application_Language__c.Translated_Created_Date__c</members>
-        <members>Application_Language__c.Translated_Display_Description__c</members>
-        <members>Application_Language__c.Translated_Display_Name__c</members>
-        <members>Application_Language__c.Translated_Save_Text__c</members>
-        <members>Application_Language__c.Translated_Status__c</members>
-        <members>Application_Language__c.Translated_Submit_Text__c</members>
-        <members>Application_Section_Language__c.Application_Section__c</members>
-        <members>Application_Section_Language__c.Language__c</members>
-        <members>Application_Section_Language__c.Reference_Application_Section_Language__c</members>
-        <members>Application_Section_Language__c.Translated_Display_Section_Name__c</members>
-        <members>Application_Section__c.Application__c</members>
-        <members>Application_Section__c.Completed__c</members>
-        <members>Application_Section__c.Display_Section_Label__c</members>
-        <members>Application_Section__c.Reference_Application_Section__c</members>
-        <members>Application_Section__c.Required_Questions__c</members>
-        <members>Application_Section__c.Sort_Order__c</members>
-        <members>Application__c.Application_Display_Name__c</members>
-        <members>Application__c.Display_Description__c</members>
-        <members>Application__c.Read_Only__c</members>
-        <members>Application__c.Reference_Application__c</members>
-        <members>Application__c.Status__c</members>
-        <members>Reference_Application_Detail_Language__c.Language__c</members>
-        <members>Reference_Application_Detail_Language__c.Reference_Application_Detail__c</members>
-        <members>Reference_Application_Detail_Language__c.Translated_Text__c</members>
-        <members>Reference_Application_Detail__c.Accepted_File_Types__c</members>
-        <members>Reference_Application_Detail__c.Alignment__c</members>
-        <members>Reference_Application_Detail__c.Checkbox_Group_Values__c</members>
-        <members>Reference_Application_Detail__c.Child_To_Parent_Relationship_Api_Name__c</members>
-        <members>Reference_Application_Detail__c.Child_sObject_API_Name__c</members>
-        <members>Reference_Application_Detail__c.Child_sObject_Field_Set_API_Name__c</members>
-        <members>Reference_Application_Detail__c.Child_sObject_Table_Field_Set_API_Name__c</members>
-        <members>Reference_Application_Detail__c.Component_Name__c</members>
-        <members>Reference_Application_Detail__c.Custom_Component_JSON__c</members>
-        <members>Reference_Application_Detail__c.Default_Value__c</members>
-        <members>Reference_Application_Detail__c.Display_Rich_Text__c</members>
-        <members>Reference_Application_Detail__c.Display_Text__c</members>
-        <members>Reference_Application_Detail__c.Field_Label__c</members>
-        <members>Reference_Application_Detail__c.File_Rename__c</members>
-        <members>Reference_Application_Detail__c.Large_Device_Size__c</members>
-        <members>Reference_Application_Detail__c.Maximum__c</members>
-        <members>Reference_Application_Detail__c.Medium_Device_Size__c</members>
-        <members>Reference_Application_Detail__c.Message_When_Pattern_Mismatch__c</members>
-        <members>Reference_Application_Detail__c.Minimum__c</members>
-        <members>Reference_Application_Detail__c.Parent_Dependent_Answer__c</members>
-        <members>Reference_Application_Detail__c.Pattern__c</members>
-        <members>Reference_Application_Detail__c.Picklist_Values__c</members>
-        <members>Reference_Application_Detail__c.Radio_Group_Values__c</members>
-        <members>Reference_Application_Detail__c.Reference_Application_Section__c</members>
-        <members>Reference_Application_Detail__c.Reference_Parent_Application_Detail__c</members>
-        <members>Reference_Application_Detail__c.Required__c</members>
-        <members>Reference_Application_Detail__c.Small_Device_Size__c</members>
-        <members>Reference_Application_Detail__c.Sort_Order__c</members>
-        <members>Reference_Application_Detail__c.Step__c</members>
-        <members>Reference_Application_Language__c.Language__c</members>
-        <members>Reference_Application_Language__c.Reference_Application__c</members>
-        <members>Reference_Application_Language__c.Translated_Application_Number__c</members>
-        <members>Reference_Application_Language__c.Translated_Cancel_Text__c</members>
-        <members>Reference_Application_Language__c.Translated_Created_Date__c</members>
-        <members>Reference_Application_Language__c.Translated_Display_Description__c</members>
-        <members>Reference_Application_Language__c.Translated_Display_Name__c</members>
-        <members>Reference_Application_Language__c.Translated_Save_Text__c</members>
-        <members>Reference_Application_Language__c.Translated_Status__c</members>
-        <members>Reference_Application_Language__c.Translated_Submit_Text__c</members>
-        <members>Reference_Application_Section_Language__c.Language__c</members>
-        <members>Reference_Application_Section_Language__c.Reference_Application_Section__c</members>
-        <members>Reference_Application_Section_Language__c.Translated_Display_Section_Name__c</members>
-        <members>Reference_Application_Section__c.Display_Section_Name__c</members>
-        <members>Reference_Application_Section__c.Reference_Application__c</members>
-        <members>Reference_Application_Section__c.Sort_Order__c</members>
-        <members>Reference_Application__c.Display_Description__c</members>
-        <members>Reference_Application__c.Display_Name__c</members>
+        <members>sf_Application_Detail_Language__c.Language__c</members>
+        <members>sf_Application_Detail_Language__c.Translated_Text__c</members>
+        <members>sf_Application_Detail_Language__c.sf_Application_Detail__c</members>
+        <members>sf_Application_Detail_Language__c.sf_Ref_Application_Detail_Language__c</members>
+        <members>sf_Application_Detail__c.Accepted_File_Types__c</members>
+        <members>sf_Application_Detail__c.Alignment__c</members>
+        <members>sf_Application_Detail__c.Answer__c</members>
+        <members>sf_Application_Detail__c.Checkbox_Group_Values__c</members>
+        <members>sf_Application_Detail__c.Child_To_Parent_Relationship_Api_Name__c</members>
+        <members>sf_Application_Detail__c.Child_sObject_API_Name__c</members>
+        <members>sf_Application_Detail__c.Child_sObject_Field_Set_API_Name__c</members>
+        <members>sf_Application_Detail__c.Child_sObject_Table_Field_Set_API_Name__c</members>
+        <members>sf_Application_Detail__c.Component_Name__c</members>
+        <members>sf_Application_Detail__c.Custom_Component_JSON__c</members>
+        <members>sf_Application_Detail__c.Default_Value__c</members>
+        <members>sf_Application_Detail__c.Display_Rich_Text__c</members>
+        <members>sf_Application_Detail__c.Display_Text__c</members>
+        <members>sf_Application_Detail__c.Field_Label__c</members>
+        <members>sf_Application_Detail__c.File_Rename__c</members>
+        <members>sf_Application_Detail__c.InputOrDisplayClass__c</members>
+        <members>sf_Application_Detail__c.Input_Checkbox__c</members>
+        <members>sf_Application_Detail__c.Input_Currency__c</members>
+        <members>sf_Application_Detail__c.Input_Date__c</members>
+        <members>sf_Application_Detail__c.Input_Datetime__c</members>
+        <members>sf_Application_Detail__c.Input_Files_Uploaded__c</members>
+        <members>sf_Application_Detail__c.Input_Number__c</members>
+        <members>sf_Application_Detail__c.Input_Record_List__c</members>
+        <members>sf_Application_Detail__c.Input_Text_Long__c</members>
+        <members>sf_Application_Detail__c.Input_Text__c</members>
+        <members>sf_Application_Detail__c.Large_Device_Size__c</members>
+        <members>sf_Application_Detail__c.Maximum__c</members>
+        <members>sf_Application_Detail__c.Medium_Device_Size__c</members>
+        <members>sf_Application_Detail__c.Message_When_Pattern_Mismatch__c</members>
+        <members>sf_Application_Detail__c.Minimum__c</members>
+        <members>sf_Application_Detail__c.Parent_Application_Detail__c</members>
+        <members>sf_Application_Detail__c.Parent_Dependent_Answer__c</members>
+        <members>sf_Application_Detail__c.Pattern__c</members>
+        <members>sf_Application_Detail__c.Picklist_Values__c</members>
+        <members>sf_Application_Detail__c.Radio_Group_Values__c</members>
+        <members>sf_Application_Detail__c.Required_Question_Answered__c</members>
+        <members>sf_Application_Detail__c.Required__c</members>
+        <members>sf_Application_Detail__c.Small_Device_Size__c</members>
+        <members>sf_Application_Detail__c.Sort_Order__c</members>
+        <members>sf_Application_Detail__c.Step__c</members>
+        <members>sf_Application_Detail__c.sf_Application_Section__c</members>
+        <members>sf_Application_Detail__c.sf_Ref_Application_Detail__c</members>
+        <members>sf_Application_Language__c.Language__c</members>
+        <members>sf_Application_Language__c.Translated_Application_Number__c</members>
+        <members>sf_Application_Language__c.Translated_Cancel_Text__c</members>
+        <members>sf_Application_Language__c.Translated_Created_Date__c</members>
+        <members>sf_Application_Language__c.Translated_Display_Description__c</members>
+        <members>sf_Application_Language__c.Translated_Display_Name__c</members>
+        <members>sf_Application_Language__c.Translated_Save_Text__c</members>
+        <members>sf_Application_Language__c.Translated_Status__c</members>
+        <members>sf_Application_Language__c.Translated_Submit_Text__c</members>
+        <members>sf_Application_Language__c.sf_Application__c</members>
+        <members>sf_Application_Language__c.sf_Ref_Application_Language__c</members>
+        <members>sf_Application_Section_Language__c.Language__c</members>
+        <members>sf_Application_Section_Language__c.Translated_Display_Section_Name__c</members>
+        <members>sf_Application_Section_Language__c.sf_Application_Section__c</members>
+        <members>sf_Application_Section_Language__c.sf_Ref_Application_Section_Language__c</members>
+        <members>sf_Application_Section__c.Completed__c</members>
+        <members>sf_Application_Section__c.Display_Section_Label__c</members>
+        <members>sf_Application_Section__c.Required_Questions__c</members>
+        <members>sf_Application_Section__c.Sort_Order__c</members>
+        <members>sf_Application_Section__c.sf_Application__c</members>
+        <members>sf_Application_Section__c.sf_Ref_Application_Section__c</members>
+        <members>sf_Application__c.Application_Display_Name__c</members>
+        <members>sf_Application__c.Display_Description__c</members>
+        <members>sf_Application__c.Read_Only__c</members>
+        <members>sf_Application__c.Status__c</members>
+        <members>sf_Application__c.sf_Ref_Application__c</members>
+        <members>sf_Ref_Application_Detail_Language__c.Language__c</members>
+        <members>sf_Ref_Application_Detail_Language__c.Translated_Text__c</members>
+        <members>sf_Ref_Application_Detail_Language__c.sf_Ref_Application_Detail__c</members>
+        <members>sf_Ref_Application_Detail__c.Accepted_File_Types__c</members>
+        <members>sf_Ref_Application_Detail__c.Alignment__c</members>
+        <members>sf_Ref_Application_Detail__c.Checkbox_Group_Values__c</members>
+        <members>sf_Ref_Application_Detail__c.Child_To_Parent_Relationship_Api_Name__c</members>
+        <members>sf_Ref_Application_Detail__c.Child_sObject_API_Name__c</members>
+        <members>sf_Ref_Application_Detail__c.Child_sObject_Field_Set_API_Name__c</members>
+        <members>sf_Ref_Application_Detail__c.Child_sObject_Table_Field_Set_API_Name__c</members>
+        <members>sf_Ref_Application_Detail__c.Component_Name__c</members>
+        <members>sf_Ref_Application_Detail__c.Custom_Component_JSON__c</members>
+        <members>sf_Ref_Application_Detail__c.Default_Value__c</members>
+        <members>sf_Ref_Application_Detail__c.Display_Rich_Text__c</members>
+        <members>sf_Ref_Application_Detail__c.Display_Text__c</members>
+        <members>sf_Ref_Application_Detail__c.Field_Label__c</members>
+        <members>sf_Ref_Application_Detail__c.File_Rename__c</members>
+        <members>sf_Ref_Application_Detail__c.Large_Device_Size__c</members>
+        <members>sf_Ref_Application_Detail__c.Maximum__c</members>
+        <members>sf_Ref_Application_Detail__c.Medium_Device_Size__c</members>
+        <members>sf_Ref_Application_Detail__c.Message_When_Pattern_Mismatch__c</members>
+        <members>sf_Ref_Application_Detail__c.Minimum__c</members>
+        <members>sf_Ref_Application_Detail__c.Parent_Dependent_Answer__c</members>
+        <members>sf_Ref_Application_Detail__c.Pattern__c</members>
+        <members>sf_Ref_Application_Detail__c.Picklist_Values__c</members>
+        <members>sf_Ref_Application_Detail__c.Radio_Group_Values__c</members>
+        <members>sf_Ref_Application_Detail__c.Reference_Parent_Application_Detail__c</members>
+        <members>sf_Ref_Application_Detail__c.Required__c</members>
+        <members>sf_Ref_Application_Detail__c.Small_Device_Size__c</members>
+        <members>sf_Ref_Application_Detail__c.Sort_Order__c</members>
+        <members>sf_Ref_Application_Detail__c.Step__c</members>
+        <members>sf_Ref_Application_Detail__c.sf_Ref_Application_Section__c</members>
+        <members>sf_Ref_Application_Language__c.Language__c</members>
+        <members>sf_Ref_Application_Language__c.Translated_Application_Number__c</members>
+        <members>sf_Ref_Application_Language__c.Translated_Cancel_Text__c</members>
+        <members>sf_Ref_Application_Language__c.Translated_Created_Date__c</members>
+        <members>sf_Ref_Application_Language__c.Translated_Display_Description__c</members>
+        <members>sf_Ref_Application_Language__c.Translated_Display_Name__c</members>
+        <members>sf_Ref_Application_Language__c.Translated_Save_Text__c</members>
+        <members>sf_Ref_Application_Language__c.Translated_Status__c</members>
+        <members>sf_Ref_Application_Language__c.Translated_Submit_Text__c</members>
+        <members>sf_Ref_Application_Language__c.sf_Ref_Application__c</members>
+        <members>sf_Ref_Application_Section_Language__c.Language__c</members>
+        <members>sf_Ref_Application_Section_Language__c.Translated_Display_Section_Name__c</members>
+        <members>sf_Ref_Application_Section_Language__c.sf_Ref_Application_Section__c</members>
+        <members>sf_Ref_Application_Section__c.Display_Section_Name__c</members>
+        <members>sf_Ref_Application_Section__c.Sort_Order__c</members>
+        <members>sf_Ref_Application_Section__c.sf_Ref_Application__c</members>
+        <members>sf_Ref_Application__c.Display_Description__c</members>
+        <members>sf_Ref_Application__c.Display_Name__c</members>
         <name>CustomField</name>
     </types>
     <types>
-        <members>Application_Detail_Language__c</members>
-        <members>Application_Detail__c</members>
-        <members>Application_Language__c</members>
-        <members>Application_Section_Language__c</members>
-        <members>Application_Section__c</members>
-        <members>Application__c</members>
-        <members>Reference_Application_Detail_Language__c</members>
-        <members>Reference_Application_Detail__c</members>
-        <members>Reference_Application_Language__c</members>
-        <members>Reference_Application_Section_Language__c</members>
-        <members>Reference_Application_Section__c</members>
-        <members>Reference_Application__c</members>
+        <members>sf_Application_Detail_Language__c</members>
+        <members>sf_Application_Detail__c</members>
+        <members>sf_Application_Language__c</members>
+        <members>sf_Application_Section_Language__c</members>
+        <members>sf_Application_Section__c</members>
+        <members>sf_Application__c</members>
+        <members>sf_Ref_Application_Detail_Language__c</members>
+        <members>sf_Ref_Application_Detail__c</members>
+        <members>sf_Ref_Application_Language__c</members>
+        <members>sf_Ref_Application_Section_Language__c</members>
+        <members>sf_Ref_Application_Section__c</members>
+        <members>sf_Ref_Application__c</members>
         <name>CustomObject</name>
     </types>
     <types>
-        <members>Application_Detail__c</members>
-        <members>Application_Section__c</members>
-        <members>Application__c</members>
-        <members>Reference_Application_Detail__c</members>
-        <members>Reference_Application_Section__c</members>
-        <members>Reference_Application__c</members>
+        <members>sf_Application_Detail__c</members>
+        <members>sf_Application_Section__c</members>
+        <members>sf_Application__c</members>
+        <members>sf_Ref_Application_Detail__c</members>
+        <members>sf_Ref_Application_Section__c</members>
+        <members>sf_Ref_Application__c</members>
         <name>CustomTab</name>
     </types>
     <types>
-        <members>Application_Detail_Record_Page</members>
-        <members>Application_Record_Page</members>
         <members>Application_Section_Record_Page</members>
         <members>Reference_Application_Detail_Record_Page</members>
         <members>Reference_Application_Helper_UtilityBar</members>
         <members>Reference_Application_Record_Page</members>
         <members>Reference_Application_Section_Record_Page</members>
+        <members>sf_Application_Detail_Record_Page</members>
+        <members>sf_Application_Record_Page</members>
         <name>FlexiPage</name>
     </types>
     <types>
-        <members>Application_Detail_Language__c-Application Detail Langauge Layout</members>
-        <members>Application_Detail__c-Custom Component</members>
-        <members>Application_Detail__c-Display Rich Text</members>
-        <members>Application_Detail__c-Display Text</members>
-        <members>Application_Detail__c-Input Checkbox</members>
-        <members>Application_Detail__c-Input Checkbox Group</members>
-        <members>Application_Detail__c-Input Currency</members>
-        <members>Application_Detail__c-Input Date</members>
-        <members>Application_Detail__c-Input Date Time</members>
-        <members>Application_Detail__c-Input File</members>
-        <members>Application_Detail__c-Input Number</members>
-        <members>Application_Detail__c-Input Picklist</members>
-        <members>Application_Detail__c-Input Radio Group</members>
-        <members>Application_Detail__c-Input Record List</members>
-        <members>Application_Detail__c-Input Text</members>
-        <members>Application_Detail__c-Input Text Long Area</members>
-        <members>Application_Language__c-Application Language Layout</members>
-        <members>Application_Section_Language__c-Application Section Language Layout</members>
-        <members>Application_Section__c-Application Section Layout</members>
-        <members>Application__c-Application Layout</members>
-        <members>Reference_Application_Detail_Language__c-Reference Application Detail Language Layout</members>
-        <members>Reference_Application_Detail__c-Custom Component</members>
-        <members>Reference_Application_Detail__c-Display Rich Text</members>
-        <members>Reference_Application_Detail__c-Display Text</members>
-        <members>Reference_Application_Detail__c-Input Checkbox</members>
-        <members>Reference_Application_Detail__c-Input Checkbox Group</members>
-        <members>Reference_Application_Detail__c-Input Currency</members>
-        <members>Reference_Application_Detail__c-Input Date</members>
-        <members>Reference_Application_Detail__c-Input Date Time</members>
-        <members>Reference_Application_Detail__c-Input File</members>
-        <members>Reference_Application_Detail__c-Input Number</members>
-        <members>Reference_Application_Detail__c-Input Picklist</members>
-        <members>Reference_Application_Detail__c-Input Radio Group</members>
-        <members>Reference_Application_Detail__c-Input Record List</members>
-        <members>Reference_Application_Detail__c-Input Rich Text</members>
-        <members>Reference_Application_Detail__c-Input Text</members>
-        <members>Reference_Application_Detail__c-Input Text Area Long</members>
-        <members>Reference_Application_Language__c-Reference Application Language Layout</members>
-        <members>Reference_Application_Section_Language__c-Reference Application Section Language Layout</members>
-        <members>Reference_Application_Section__c-Reference Application Section Layout</members>
-        <members>Reference_Application__c-Reference Application Layout</members>
+        <members>sf_Application_Detail_Language__c-Application Detail Langauge Layout</members>
+        <members>sf_Application_Detail__c-Custom Component</members>
+        <members>sf_Application_Detail__c-Display Rich Text</members>
+        <members>sf_Application_Detail__c-Display Text</members>
+        <members>sf_Application_Detail__c-Input Checkbox</members>
+        <members>sf_Application_Detail__c-Input Checkbox Group</members>
+        <members>sf_Application_Detail__c-Input Currency</members>
+        <members>sf_Application_Detail__c-Input Date</members>
+        <members>sf_Application_Detail__c-Input Date Time</members>
+        <members>sf_Application_Detail__c-Input File</members>
+        <members>sf_Application_Detail__c-Input Number</members>
+        <members>sf_Application_Detail__c-Input Picklist</members>
+        <members>sf_Application_Detail__c-Input Radio Group</members>
+        <members>sf_Application_Detail__c-Input Record List</members>
+        <members>sf_Application_Detail__c-Input Text</members>
+        <members>sf_Application_Detail__c-Input Text Long Area</members>
+        <members>sf_Application_Language__c-Application Language Layout</members>
+        <members>sf_Application_Section_Language__c-Application Section Language Layout</members>
+        <members>sf_Application_Section__c-Application Section Layout</members>
+        <members>sf_Application__c-Application Layout</members>
+        <members>sf_Ref_Application_Detail_Language__c-Reference Application Detail Language Layout</members>
+        <members>sf_Ref_Application_Detail__c-Custom Component</members>
+        <members>sf_Ref_Application_Detail__c-Display Rich Text</members>
+        <members>sf_Ref_Application_Detail__c-Display Text</members>
+        <members>sf_Ref_Application_Detail__c-Input Checkbox</members>
+        <members>sf_Ref_Application_Detail__c-Input Checkbox Group</members>
+        <members>sf_Ref_Application_Detail__c-Input Currency</members>
+        <members>sf_Ref_Application_Detail__c-Input Date</members>
+        <members>sf_Ref_Application_Detail__c-Input Date Time</members>
+        <members>sf_Ref_Application_Detail__c-Input File</members>
+        <members>sf_Ref_Application_Detail__c-Input Number</members>
+        <members>sf_Ref_Application_Detail__c-Input Picklist</members>
+        <members>sf_Ref_Application_Detail__c-Input Radio Group</members>
+        <members>sf_Ref_Application_Detail__c-Input Record List</members>
+        <members>sf_Ref_Application_Detail__c-Input Rich Text</members>
+        <members>sf_Ref_Application_Detail__c-Input Text</members>
+        <members>sf_Ref_Application_Detail__c-Input Text Area Long</members>
+        <members>sf_Ref_Application_Language__c-Reference Application Language Layout</members>
+        <members>sf_Ref_Application_Section_Language__c-Reference Application Section Language Layout</members>
+        <members>sf_Ref_Application_Section__c-Reference Application Section Layout</members>
+        <members>sf_Ref_Application__c-Reference Application Layout</members>
         <name>Layout</name>
     </types>
     <types>
@@ -250,13 +250,12 @@
         <name>LightningComponentBundle</name>
     </types>
     <types>
-        <members>Application_Detail__c.All</members>
-        <members>Application_Section__c.All</members>
-        <members>Application__c.All</members>
-        <members>Reference_Application_Detail__c.All</members>
-        <members>Reference_Application_Detail__c.For_ref_section_list_view</members>
-        <members>Reference_Application_Section__c.All</members>
-        <members>Reference_Application__c.All</members>
+        <members>sf_Application_Detail__c.All</members>
+        <members>sf_Application_Section__c.All</members>
+        <members>sf_Application__c.All</members>
+        <members>sf_Ref_Application_Detail__c.All</members>
+        <members>sf_Ref_Application_Section__c.All</members>
+        <members>sf_Ref_Application__c.All</members>
         <name>ListView</name>
     </types>
     <types>
@@ -264,36 +263,36 @@
         <name>Profile</name>
     </types>
     <types>
-        <members>Application_Detail__c.Custom_Component</members>
-        <members>Application_Detail__c.Display_Rich_Text</members>
-        <members>Application_Detail__c.Display_Text</members>
-        <members>Application_Detail__c.Input_Checkbox</members>
-        <members>Application_Detail__c.Input_Checkbox_Group</members>
-        <members>Application_Detail__c.Input_Currency</members>
-        <members>Application_Detail__c.Input_Date</members>
-        <members>Application_Detail__c.Input_Date_Time</members>
-        <members>Application_Detail__c.Input_File</members>
-        <members>Application_Detail__c.Input_Number</members>
-        <members>Application_Detail__c.Input_Picklist</members>
-        <members>Application_Detail__c.Input_Radio_Group</members>
-        <members>Application_Detail__c.Input_Record_List</members>
-        <members>Application_Detail__c.Input_Text</members>
-        <members>Application_Detail__c.Input_Text_Area_Long</members>
-        <members>Reference_Application_Detail__c.Custom_Component</members>
-        <members>Reference_Application_Detail__c.Display_Rich_Text</members>
-        <members>Reference_Application_Detail__c.Display_Text</members>
-        <members>Reference_Application_Detail__c.Input_Checkbox</members>
-        <members>Reference_Application_Detail__c.Input_Checkbox_Group</members>
-        <members>Reference_Application_Detail__c.Input_Currency</members>
-        <members>Reference_Application_Detail__c.Input_Date</members>
-        <members>Reference_Application_Detail__c.Input_Date_Time</members>
-        <members>Reference_Application_Detail__c.Input_File</members>
-        <members>Reference_Application_Detail__c.Input_Number</members>
-        <members>Reference_Application_Detail__c.Input_Picklist</members>
-        <members>Reference_Application_Detail__c.Input_Radio_Group</members>
-        <members>Reference_Application_Detail__c.Input_Record_List</members>
-        <members>Reference_Application_Detail__c.Input_Text</members>
-        <members>Reference_Application_Detail__c.Input_Text_Area_Long</members>
+        <members>sf_Application_Detail__c.Custom_Component</members>
+        <members>sf_Application_Detail__c.Display_Rich_Text</members>
+        <members>sf_Application_Detail__c.Display_Text</members>
+        <members>sf_Application_Detail__c.Input_Checkbox</members>
+        <members>sf_Application_Detail__c.Input_Checkbox_Group</members>
+        <members>sf_Application_Detail__c.Input_Currency</members>
+        <members>sf_Application_Detail__c.Input_Date</members>
+        <members>sf_Application_Detail__c.Input_Date_Time</members>
+        <members>sf_Application_Detail__c.Input_File</members>
+        <members>sf_Application_Detail__c.Input_Number</members>
+        <members>sf_Application_Detail__c.Input_Picklist</members>
+        <members>sf_Application_Detail__c.Input_Radio_Group</members>
+        <members>sf_Application_Detail__c.Input_Record_List</members>
+        <members>sf_Application_Detail__c.Input_Text</members>
+        <members>sf_Application_Detail__c.Input_Text_Area_Long</members>
+        <members>sf_Ref_Application_Detail__c.Custom_Component</members>
+        <members>sf_Ref_Application_Detail__c.Display_Rich_Text</members>
+        <members>sf_Ref_Application_Detail__c.Display_Text</members>
+        <members>sf_Ref_Application_Detail__c.Input_Checkbox</members>
+        <members>sf_Ref_Application_Detail__c.Input_Checkbox_Group</members>
+        <members>sf_Ref_Application_Detail__c.Input_Currency</members>
+        <members>sf_Ref_Application_Detail__c.Input_Date</members>
+        <members>sf_Ref_Application_Detail__c.Input_Date_Time</members>
+        <members>sf_Ref_Application_Detail__c.Input_File</members>
+        <members>sf_Ref_Application_Detail__c.Input_Number</members>
+        <members>sf_Ref_Application_Detail__c.Input_Picklist</members>
+        <members>sf_Ref_Application_Detail__c.Input_Radio_Group</members>
+        <members>sf_Ref_Application_Detail__c.Input_Record_List</members>
+        <members>sf_Ref_Application_Detail__c.Input_Text</members>
+        <members>sf_Ref_Application_Detail__c.Input_Text_Area_Long</members>
         <name>RecordType</name>
     </types>
     <version>58.0</version>
