@@ -100,6 +100,7 @@ public with sharing class ApplicationHelper {
 				Minimum__c,
 				Maximum__c,
 				Step__c,
+				Flow_API_Name__c,
 				Alignment__c,
 				Child_sObject_API_Name__c,
 				Child_sObject_Field_Set_API_Name__c,
@@ -150,6 +151,7 @@ public with sharing class ApplicationHelper {
 					Minimum__c,
 					Maximum__c,
 					Step__c,
+					Flow_API_Name__c,
 					Alignment__c,
 					Child_sObject_API_Name__c,
 					Child_sObject_Field_Set_API_Name__c,
@@ -182,76 +184,81 @@ public with sharing class ApplicationHelper {
 	) {
 		update details;
 
-		List<AggregateResult> arRequiredQuestionsList = [
-			SELECT Application_Section__c, COUNT(Id) RequiredQuestions
-			FROM Application_Detail__c
-			WHERE Application_Section__c = :sectionId 
-			AND Required__c = TRUE
-			AND Parent_Application_Detail__c = null
-			GROUP BY Application_Section__c
-		];
+		/* 
+			removing checking if all required questions are answered as 
+			front handles 
+		*/
 
-		List<Application_Detail__c> detailsToCheck = [
-			SELECT Id, Required__c, Required_Question_Answered__c, Input_Text_Long__c 
-			FROM Application_Detail__c
-			WHERE Application_Section__c =: sectionId
-			AND Required__c = true
-		];
+		// List<AggregateResult> arRequiredQuestionsList = [
+		// 	SELECT Application_Section__c, COUNT(Id) RequiredQuestions
+		// 	FROM Application_Detail__c
+		// 	WHERE Application_Section__c = :sectionId 
+		// 	AND Required__c = TRUE
+		// 	AND Parent_Application_Detail__c = null
+		// 	GROUP BY Application_Section__c
+		// ];
 
-		Set<Id> detailIds = new Set<Id>();
-		for (Application_Detail__c d : detailsToCheck) {
-			if (d.Input_Text_Long__c != null || d.Required_Question_Answered__c) {
-				detailIds.add(d.Id);
-			}
-		}
+		// List<Application_Detail__c> detailsToCheck = [
+		// 	SELECT Id, Required__c, Required_Question_Answered__c, Input_Text_Long__c 
+		// 	FROM Application_Detail__c
+		// 	WHERE Application_Section__c =: sectionId
+		// 	AND Required__c = true
+		// ];
 
-		List<AggregateResult> arRequiredQuestionsAnsweredList = [
-			SELECT Application_Section__c, COUNT(Id) RequiredQuestionsAnswered
-			FROM Application_Detail__c
-			WHERE Application_Section__c = :sectionId
-				AND Required__c = true
-				// AND Required_Question_Answered__c = true
-				AND Id IN : detailIds
-			GROUP BY Application_Section__c
-		];
+		// Set<Id> detailIds = new Set<Id>();
+		// for (Application_Detail__c d : detailsToCheck) {
+		// 	if (d.Input_Text_Long__c != null || d.Required_Question_Answered__c) {
+		// 		detailIds.add(d.Id);
+		// 	}
+		// }
 
-		system.debug('arRequiredQuestionsList');
-		system.debug(arRequiredQuestionsList);
-		system.debug('arRequiredQuestionsAnsweredList');
-		system.debug(arRequiredQuestionsAnsweredList);
+		// List<AggregateResult> arRequiredQuestionsAnsweredList = [
+		// 	SELECT Application_Section__c, COUNT(Id) RequiredQuestionsAnswered
+		// 	FROM Application_Detail__c
+		// 	WHERE Application_Section__c = :sectionId
+		// 		AND Required__c = true
+		// 		// AND Required_Question_Answered__c = true
+		// 		AND Id IN : detailIds
+		// 	GROUP BY Application_Section__c
+		// ];
 
-		if (arRequiredQuestionsList.isEmpty()) {
+		// system.debug('arRequiredQuestionsList');
+		// system.debug(arRequiredQuestionsList);
+		// system.debug('arRequiredQuestionsAnsweredList');
+		// system.debug(arRequiredQuestionsAnsweredList);
+
+		// if (arRequiredQuestionsList.isEmpty()) {
 			
 			Application_Section__c section = new Application_Section__c();
 				section.Id = sectionId;
 				section.Completed__c = true;
 			update section;
 
-			Application__c app = new Application__c(
-				Id = recordId,
-				Status__c = 'In Progress'
-			);
+		// 	Application__c app = new Application__c(
+		// 		Id = recordId,
+		// 		Status__c = 'In Progress'
+		// 	);
 
-			update app;
+		// 	update app;
 
-			return;
-		}
+		// 	return;
+		// }
 
-		if (!arRequiredQuestionsList.isEmpty() && !arRequiredQuestionsAnsweredList.isEmpty()) {
+		// if (!arRequiredQuestionsList.isEmpty() && !arRequiredQuestionsAnsweredList.isEmpty()) {
 
-			AggregateResult arRequiredQuestions = arRequiredQuestionsList[0];
-			AggregateResult arRequiredQuestionsAnswered = arRequiredQuestionsAnsweredList[0];
+		// 	AggregateResult arRequiredQuestions = arRequiredQuestionsList[0];
+		// 	AggregateResult arRequiredQuestionsAnswered = arRequiredQuestionsAnsweredList[0];
 	
-			if (
-				Integer.valueOf(arRequiredQuestions.get('RequiredQuestions')) <=
-				Integer.valueOf(arRequiredQuestionsAnswered.get('RequiredQuestionsAnswered'))
-			) {
-				Application_Section__c section = new Application_Section__c();
-					section.Id = sectionId;
-					section.Completed__c = true;
-				update section;
-			} 
-		}
+		// 	if (
+		// 		Integer.valueOf(arRequiredQuestions.get('RequiredQuestions')) <=
+		// 		Integer.valueOf(arRequiredQuestionsAnswered.get('RequiredQuestionsAnswered'))
+		// 	) {
+		// 		Application_Section__c section = new Application_Section__c();
+		// 			section.Id = sectionId;
+		// 			section.Completed__c = true;
+		// 		update section;
+		// 	} 
+		// }
 
 
 		Application__c app = new Application__c(
