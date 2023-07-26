@@ -1,0 +1,17 @@
+<template>
+    
+    flowIsCompleted: {flowIsCompleted} <br />
+    inComplete: {inComplete} <br />
+    required: {required} <br />
+    completed: {completed} <br />
+
+    <template lwc:if={flowApiName}>
+        <lightning-flow
+            flow-api-name={flowApiName}
+            flow-input-variables={flowInputVars}
+            flow-finish-behavior="NONE"
+            onstatuschange={handleStatusChange}
+        ></lightning-flow>
+    </template>
+
+</template>

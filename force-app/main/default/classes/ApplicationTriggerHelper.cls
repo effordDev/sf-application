@@ -53,6 +53,7 @@ public without sharing class ApplicationTriggerHelper {
 				Maximum__c,
 				Step__c,
 				Alignment__c,
+				Flow_API_Name__c,
 				Child_sObject_API_Name__c,
 				Child_sObject_Field_Set_API_Name__c,
 				Child_To_Parent_Relationship_Api_Name__c,
@@ -190,6 +191,7 @@ public without sharing class ApplicationTriggerHelper {
 				Maximum__c,
 				Step__c,
 				Alignment__c,
+				Flow_API_Name__c,
 				Child_sObject_API_Name__c,
 				Child_sObject_Field_Set_API_Name__c,
 				Child_To_Parent_Relationship_Api_Name__c,
@@ -338,6 +340,7 @@ public without sharing class ApplicationTriggerHelper {
 				applicationDetail.Maximum__c = referenceApplicationDetail.Maximum__c;
 				applicationDetail.Step__c = referenceApplicationDetail.Step__c;
 				applicationDetail.Alignment__c = referenceApplicationDetail.Alignment__c;
+				applicationDetail.Flow_API_Name__c = referenceApplicationDetail.Flow_API_Name__c;
 				applicationDetail.Child_sObject_API_Name__c = referenceApplicationDetail.Child_sObject_API_Name__c;
 				applicationDetail.Child_sObject_Field_Set_API_Name__c = referenceApplicationDetail.Child_sObject_Field_Set_API_Name__c;
 				applicationDetail.Child_To_Parent_Relationship_Api_Name__c = referenceApplicationDetail.Child_To_Parent_Relationship_Api_Name__c;
@@ -401,6 +404,7 @@ public without sharing class ApplicationTriggerHelper {
 					childDetail.Minimum__c = refChildDetail.Minimum__c;
 					childDetail.Maximum__c = refChildDetail.Maximum__c;
 					childDetail.Step__c = refChildDetail.Step__c;
+					childDetail.Flow_API_Name__c = refChildDetail.Flow_API_Name__c;
 					childDetail.Alignment__c = refChildDetail.Alignment__c;
 					childDetail.Child_sObject_API_Name__c = refChildDetail.Child_sObject_API_Name__c;
 					childDetail.Child_sObject_Field_Set_API_Name__c = refChildDetail.Child_sObject_Field_Set_API_Name__c;

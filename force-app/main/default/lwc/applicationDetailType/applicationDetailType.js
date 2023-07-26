@@ -69,6 +69,9 @@ export default class ApplicationDetailType extends LightningElement {
 	get isInputRecordList() {
 		return this.recordTypeName === "Input_Record_List";
 	}
+	get isInputFlow() {
+		return this.recordTypeName === 'Input_Flow'
+	}
 	get isCustomComponent() {
 		return this.recordTypeName === "Custom_Component";
 	}
