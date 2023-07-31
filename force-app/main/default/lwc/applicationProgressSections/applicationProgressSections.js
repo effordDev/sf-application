@@ -121,10 +121,25 @@ export default class ApplicationProgressSections extends LightningElement {
             "c-application-detail-type.customInput"
         );
 
-        let allValidArray = [];
+        let allValidArray = []
+
+        let firstErrorElement = null
 
         appDetailsTypes.forEach((curr) => {
-            allValidArray.push(curr.isValid());
+            
+            const valid = curr.isValid()
+
+            allValidArray.push(valid);
+
+            if (!firstErrorElement && !valid) {
+                firstErrorElement = curr
+
+                firstErrorElement.scrollIntoView({ 
+                    behavior: "smooth", 
+                    block: "center", 
+                });
+            }
+
         });
 
         console.log(allValidArray)
