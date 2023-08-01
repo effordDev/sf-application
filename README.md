@@ -65,7 +65,8 @@ The following are the currently supported input fields / display types (Record T
 - Input Record List
 - Input Text
 - Input Text Area Long
-To Customize inputs:
+
+#### To Customize inputs:
 
 `Required__c` - Determines if the input must be completed before saving the section.
 
