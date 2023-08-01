@@ -115,7 +115,7 @@ export default class ApplicationProgressIndicatorMain extends LightningElement {
 	setInitialActiveSection(sections) {
 
 		if (sections.every(s => s.Completed__c)) {
-			this.activeSectionId = (sections.pop())?.Id
+			this.activeSectionId = (sections[sections.length - 1])?.Id
 			return
 		}
 
