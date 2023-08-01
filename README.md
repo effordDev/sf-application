@@ -28,11 +28,11 @@ Application_Detail_Language__c
 ```
 Below is a link to the ERD of the objects involved.
 
-[﻿View on canvas](https://app.eraser.io/workspace/Bv2FEHxAoXE57wdPDlh7?elements=W4XHUAysl0YEJB7lStMyAQ) 
+[﻿View on canvas](https://app.eraser.io/workspace/j87XwvKXc9ZZ6Hkt9Vne?origin=share) 
 
 Component Hierarchy:
 
-[﻿View on canvas](https://app.eraser.io/workspace/Bv2FEHxAoXE57wdPDlh7?elements=2LCiCkx0oxPx5BeTZb2qUg) 
+[﻿View on canvas](https://app.eraser.io/workspace/4mzdiBc2NqPL5mLv0VEY?origin=share) 
 
 ## Getting Started
 Navigate to the App **Reference Application Helper** To create an application, simply create a `Application__c` record and populate the lookup `Reference_Application__c` to the application you want your instance modeled after. This is will trigger a process to write the following mapping: 
