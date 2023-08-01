@@ -1,9 +1,7 @@
 <p><a target="_blank" href="https://app.eraser.io/workspace/Bv2FEHxAoXE57wdPDlh7" id="edit-in-eraser-github-link"><img alt="Edit in Eraser" src="https://firebasestorage.googleapis.com/v0/b/second-petal-295822.appspot.com/o/images%2Fgithub%2FOpen%20in%20Eraser.svg?alt=media&amp;token=968381c8-a7e7-472a-8ed6-4a6626da5501"></a></p>
 
 # sf-application
-
 ## Overview
-
 ![Deploy to Salesforce](https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png "")
 
  Demo 
@@ -36,6 +34,8 @@ Below is a link to the ERD of the objects involved.
 
 Component Hierarchy:
 
+[﻿View on canvas](https://app.eraser.io/workspace/Bv2FEHxAoXE57wdPDlh7?elements=2LCiCkx0oxPx5BeTZb2qUg) 
+
 ## Getting Started
 Navigate to the App **Reference Application Helper** To create an application, simply create a `Application__c` record and populate the lookup `Reference_Application__c` to the application you want your instance modeled after. This is will trigger a process to write the following mapping: 
 
@@ -67,7 +67,6 @@ The following are the currently supported input fields / display types (Record T
 - Input Record List
 - Input Text
 - Input Text Area Long
-
 To Customize inputs:
 
 `Required__c` - Determines if the input must be completed before saving the section.
@@ -122,18 +121,17 @@ get isServiceProvider() {
   return this.customCmpName === 'serviceProviders' 
 }
 ```
-
 ##### Example of getting JSON.
-
 serviceProviders.js
-```js 
+
+```js
 get customJson() { 
   if (isJSON(this.detail.Custom_Component_JSON__c)) { 
     return JSON.parse(this.detail.Custom_Component_JSON__c) 
     } 
   return {} 
-} 
-``` 
+}
+```
 Coded while petting [﻿tokyo🐱‍👤](https://www.tokyotech.us) 
 
 
