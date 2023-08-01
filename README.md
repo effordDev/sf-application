@@ -1,6 +1,9 @@
 <p><a target="_blank" href="https://app.eraser.io/workspace/Bv2FEHxAoXE57wdPDlh7" id="edit-in-eraser-github-link"><img alt="Edit in Eraser" src="https://firebasestorage.googleapis.com/v0/b/second-petal-295822.appspot.com/o/images%2Fgithub%2FOpen%20in%20Eraser.svg?alt=media&amp;token=968381c8-a7e7-472a-8ed6-4a6626da5501"></a></p>
 
 # sf-application
+
+## Overview
+
 ![Deploy to Salesforce](https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png "")
 
  Demo 
@@ -31,32 +34,42 @@ Below is a link to the ERD of the objects involved.
 
 [﻿View on canvas](https://app.eraser.io/workspace/Bv2FEHxAoXE57wdPDlh7?elements=W4XHUAysl0YEJB7lStMyAQ) 
 
+Component Hierarchy:
+
 ## Getting Started
-Naviagte to the App **Reference Application Helper** To create an application, simply create a `Application__c` record and populate the lookup `Reference_Application__c` to the application you want your instance modeled after. This is will trigger a process to write the following mapping: 
+Navigate to the App **Reference Application Helper** To create an application, simply create a `Application__c` record and populate the lookup `Reference_Application__c` to the application you want your instance modeled after. This is will trigger a process to write the following mapping: 
 
 ```
 Reference_Application__c => Application__c
+Reference_Application_Language__c => Application_Language__c
 Reference_Application_Section__c => Application_Section__c
+Reference_Application_Section_Language__c => Application_Section_Language__c
 Reference_Application_Detail__c => Application_Detail__c
+Application_Detail_Language__c => Reference_Application_Detail_Language__c
 ```
-### Creating Inputs
+### Creating Inputs / Display Text
 The record type of `Reference_Application_Detail__c` Determines the type of input.
 
-The following are the currently supported input fields:
+The following are the currently supported input fields / display types (Record Types):
 
+- Custom Component
+- Display Rich Text
+- Display Text
+- Input Checkbox Group
+- Input Currency
+- Input Date
+- Input Date Time
+- Input File
+- Input Flow
+- Input Number
+- Input Picklist
+- Input Radio Group
+- Input Record List
 - Input Text
 - Input Text Area Long
-- Input Picklist
-- Input Number
-- Input File
-- Input Date Time
-- Input Date
-- Input Currency
-- Input Checkbox
-- Display Text
-- Display Rich Text
-- Custom Component
+
 To Customize inputs:
+
 `Required__c` - Determines if the input must be completed before saving the section.
 
 `Field_Label__c` - Label of the input to show on application.
@@ -68,6 +81,7 @@ To Customize inputs:
 `Medium_Device_Size__c` - Determines how the width of the input on a medium device.
 
 `Large_Device_Size__c` - Determines how the width of the input on a large device
+
 [﻿See SLDS Grid Doc](https://www.lightningdesignsystem.com/utilities/grid/)
 [﻿Example](https://developer.salesforce.com/docs/component-library/bundle/lightning-layout-item/example/) 
 
@@ -108,8 +122,18 @@ get isServiceProvider() {
   return this.customCmpName === 'serviceProviders' 
 }
 ```
-## serviceProviders.js
-`js get customJson() { if (isJSON(this.detail.Custom_Component_JSON__c)) { return JSON.parse(this.detail.Custom_Component_JSON__c) } return {} } ` 
+
+##### Example of getting JSON.
+
+serviceProviders.js
+```js 
+get customJson() { 
+  if (isJSON(this.detail.Custom_Component_JSON__c)) { 
+    return JSON.parse(this.detail.Custom_Component_JSON__c) 
+    } 
+  return {} 
+} 
+``` 
 Coded while petting [﻿tokyo🐱‍👤](https://www.tokyotech.us) 
 
 
