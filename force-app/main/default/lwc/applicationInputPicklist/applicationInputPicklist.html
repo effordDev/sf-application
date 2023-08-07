@@ -10,24 +10,10 @@
 	></lightning-combobox>
 
 	<br />
-	<!-- validateInput: {validateInput} <br />
-	validateChildInputs: {validateChildInputs} <br /> -->
-	<!-- hasChildRecords: {hasChildRecords} <br />
-	showChildRecords: {showChildRecords} <br />
-	dependentParentAnswer: {dependentParentAnswer} <br /> -->
+
 	<template lwc:if={showChildRecords}>
 
-		<template for:each={childRecords} for:item="child">
-
-			<!-- <c-application-input-picklist
-				key={child.Id}
-				record-id={recordId}
-				section-id={sectionId}
-				detail={child}
-				language={language}
-				read-only={readOnly}
-				class={child.InputOrDisplayClass__c}
-			></c-application-input-picklist> -->
+		<template for:each={dependentChildRecords} for:item="child">
 
 			<c-application-detail-type
 				key={child.Id}
