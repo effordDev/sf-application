@@ -24,37 +24,43 @@ export default class ApplicationInputRadioGroup extends LightningElement {
 	 */
 	@api get completed() {
 		
-		return [...this.template.querySelectorAll("lightning-radio-group")].reduce(
+		const completed = ([...this.template.querySelectorAll("lightning-radio-group")].reduce(
 			(validSoFar, inputCmp) => {
 				inputCmp.reportValidity();
 				return validSoFar && inputCmp.checkValidity();
-			}, true) 
+			}, true
+			) 
+			&& (this.hasChildRecords && !!this.childrenNodes?.length 
+				? this.childrenValidated 
+				: true 
+			))
+			return completed
 	}
 
-	// get childrenValidated() {
-	// 	console.log('validating... children...');
+	get childrenValidated() {
+		console.log('validating... children...');
 		
-	// 	const appDetailsTypes = this.template.querySelectorAll(
-	// 		"c-application-detail-type.customInput"
-	// 	);
+		const appDetailsTypes = this.template.querySelectorAll(
+			"c-application-detail-type.customInput"
+		);
 
-	// 	let allValidArray = [];
+		let allValidArray = [];
 
-	// 	appDetailsTypes.forEach((curr) => {
-	// 		// console.log(curr)
-	// 		// console.log(curr.isValid())
-	// 		allValidArray.push(curr.isValid());
-	// 	});
+		appDetailsTypes.forEach((curr) => {
+			// console.log(curr)
+			// console.log(curr.isValid())
+			allValidArray.push(curr.isValid());
+		});
 
-	// 	console.log(allValidArray)
+		console.log(allValidArray)
 
-	// 	const isAllValid = allValidArray.every((item) => !!item);
+		const isAllValid = allValidArray.every((item) => !!item);
 
-	// 	return isAllValid
-	// }
-	// get childrenNodes() {
-	// 	return [...this.template.querySelectorAll("c-application-detail-type.customInput")]
-	// }
+		return isAllValid
+	}
+	get childrenNodes() {
+		return [...this.template.querySelectorAll("c-application-detail-type.customInput")]
+	}
 
 	get id() {
 		return this.detail?.Id;
@@ -71,21 +77,27 @@ export default class ApplicationInputRadioGroup extends LightningElement {
 	get val() {
 		return this.detail?.Input_Text__c;
 	}
-	// get dependentParentAnswer() {
-	// 	return this.detail?.Parent_Dependent_Answer__c
-	// }
+	get dependentParentAnswer() {
+		return this.detail?.Parent_Dependent_Answer__c || ''
+	}
 	get picklistValues() {
 		return this.detail?.Radio_Group_Values__c || ''
 	}
 	// get showChildRecords() {
 	// 	return (this.hasChildRecords && (this.dependentParentAnswer.includes(this.val)))
 	// }
-	// get hasChildRecords() {
-	// 	return !!this.childRecords.length
-	// }
-	// get childRecords() {
-	// 	return this.detail?.Application_Details__r || []
-	// }
+	get showChildRecords() {
+		return (this.hasChildRecords && this.dependentChildRecords.length)
+	}
+	get hasChildRecords() {
+		return !!this.childRecords.length
+	}
+	get childRecords() {
+		return this.detail?.Application_Details__r || []
+	}
+	get dependentChildRecords() {
+		return this.childRecords.filter(child => child?.Parent_Dependent_Answer__c === this.detail.Input_Text__c) || []
+	}
 	get options() {
 		if (!this.picklistValues.length) {
 			return [
