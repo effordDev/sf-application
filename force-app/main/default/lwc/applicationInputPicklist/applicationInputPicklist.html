@@ -13,18 +13,26 @@
 
 	<template lwc:if={showChildRecords}>
 
-		<template for:each={dependentChildRecords} for:item="child">
+		<br />
 
-			<c-application-detail-type
-				key={child.Id}
-				record-id={recordId}
-				section-id={sectionId}
-				read-only={readOnly}
-				detail={child}
-				language={language}
-				class={child.InputOrDisplayClass__c}
-			></c-application-detail-type>
+		<lightning-layout multiple-rows>
 
-		</template>
+			<template for:each={dependentChildRecords} for:item="child">
+	
+				<c-application-detail-type
+					key={child.Id}
+					record-id={recordId}
+					section-id={sectionId}
+					read-only={readOnly}
+					detail={child}
+					language={language}
+					class={child.InputOrDisplayClass__c}
+				></c-application-detail-type>
+	
+			</template>
+
+		</lightning-layout>
+
 	</template>
+	
 </template>
