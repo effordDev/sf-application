@@ -151,7 +151,7 @@ public with sharing class ApplicationHelper {
 					Minimum__c,
 					Maximum__c,
 					Step__c,
-					Flow_API_Name__c
+					Flow_API_Name__c,
 					Alignment__c,
 					Child_sObject_API_Name__c,
 					Child_sObject_Field_Set_API_Name__c,
