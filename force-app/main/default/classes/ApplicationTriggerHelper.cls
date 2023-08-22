@@ -53,7 +53,7 @@ public without sharing class ApplicationTriggerHelper {
 				Maximum__c,
 				Step__c,
 				Alignment__c,
-				Flow_API_Name__c
+				Flow_API_Name__c,
 				Child_sObject_API_Name__c,
 				Child_sObject_Field_Set_API_Name__c,
 				Child_To_Parent_Relationship_Api_Name__c,
@@ -191,7 +191,7 @@ public without sharing class ApplicationTriggerHelper {
 				Maximum__c,
 				Step__c,
 				Alignment__c,
-				Flow_API_Name__c
+				Flow_API_Name__c,
 				Child_sObject_API_Name__c,
 				Child_sObject_Field_Set_API_Name__c,
 				Child_To_Parent_Relationship_Api_Name__c,

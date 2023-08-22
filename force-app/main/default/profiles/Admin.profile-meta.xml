@@ -355,7 +355,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Reference_Application_Detail__c.Checkbox_Group_Values__c</field>
+        <field>sf_Ref_Application_Detail__c.Checkbox_Group_Values__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -559,7 +559,7 @@
         <recordType>sf_Application_Detail__c.Custom_Component</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>sf_Application_Detail__c-Input_Checkbox_Group</layout>
+        <layout>sf_Application_Detail__c-Input Checkbox Group</layout>
         <recordType>sf_Application_Detail__c.Input_Checkbox_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -641,7 +641,7 @@
         <recordType>sf_Ref_Application_Detail__c.Custom_Component</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>sf_Ref_Application_Detail__c-Input_Checkbox_Group</layout>
+        <layout>sf_Ref_Application_Detail__c-Input Checkbox Group</layout>
         <recordType>sf_Ref_Application_Detail__c.Input_Checkbox_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>

@@ -40,10 +40,6 @@
                 <field>Parent_Dependent_Answer__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Parent_Dependent_Answer__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Answer__c</field>
             </layoutItems>
