@@ -162,6 +162,17 @@
 		></c-application-input-record-list>
 	</template>
 
+	<template lwc:if={isInputFlow}>
+		<c-application-input-flow
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		></c-application-input-flow>
+	</template>
+
 	<template lwc:if={isCustomComponent}>	
 
 	</template>

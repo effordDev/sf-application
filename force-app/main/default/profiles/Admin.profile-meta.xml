@@ -49,6 +49,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>sf_Application_Detail__c.Checkbox_Group_Values__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>sf_Application_Detail__c.Child_To_Parent_Relationship_Api_Name__c</field>
         <readable>true</readable>
@@ -101,6 +106,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>sf_Application_Detail__c.File_Rename__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sf_Application_Detail__c.Flow_API_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -344,6 +354,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Reference_Application_Detail__c.Checkbox_Group_Values__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>sf_Ref_Application_Detail__c.Child_To_Parent_Relationship_Api_Name__c</field>
         <readable>true</readable>
@@ -396,6 +411,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>sf_Ref_Application_Detail__c.File_Rename__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>sf_Ref_Application_Detail__c.Flow_API_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -539,6 +559,10 @@
         <recordType>sf_Application_Detail__c.Custom_Component</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>sf_Application_Detail__c-Input_Checkbox_Group</layout>
+        <recordType>sf_Application_Detail__c.Input_Checkbox_Group</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>sf_Application_Detail__c-Display Rich Text</layout>
         <recordType>sf_Application_Detail__c.Display_Rich_Text</recordType>
     </layoutAssignments>
@@ -565,6 +589,10 @@
     <layoutAssignments>
         <layout>sf_Application_Detail__c-Input File</layout>
         <recordType>sf_Application_Detail__c.Input_File</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>sf_Application_Detail__c-Input File</layout>
+        <recordType>sf_Application_Detail__c.Input_Flow</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>sf_Application_Detail__c-Input Number</layout>
@@ -613,6 +641,10 @@
         <recordType>sf_Ref_Application_Detail__c.Custom_Component</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>sf_Ref_Application_Detail__c-Input_Checkbox_Group</layout>
+        <recordType>sf_Ref_Application_Detail__c.Input_Checkbox_Group</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>sf_Ref_Application_Detail__c-Display Rich Text</layout>
         <recordType>sf_Ref_Application_Detail__c.Display_Rich_Text</recordType>
     </layoutAssignments>
@@ -639,6 +671,10 @@
     <layoutAssignments>
         <layout>sf_Ref_Application_Detail__c-Input File</layout>
         <recordType>sf_Ref_Application_Detail__c.Input_File</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>sf_Ref_Application_Detail__c-Input File</layout>
+        <recordType>sf_Ref_Application_Detail__c.Input_Flow</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>sf_Ref_Application_Detail__c-Input Number</layout>
@@ -796,13 +832,17 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>sf_Application_Detail__c.Display_Text</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>sf_Application_Detail__c.Input_Checkbox</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>sf_Application_Detail__c.Input_Checkbox_Group</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -823,6 +863,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>sf_Application_Detail__c.Input_File</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>sf_Application_Detail__c.Input_Flow</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -877,6 +922,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>sf_Ref_Application_Detail__c.Input_Checkbox_Group</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>sf_Ref_Application_Detail__c.Input_Currency</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -893,6 +943,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>sf_Ref_Application_Detail__c.Input_File</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>sf_Ref_Application_Detail__c.Input_Flow</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

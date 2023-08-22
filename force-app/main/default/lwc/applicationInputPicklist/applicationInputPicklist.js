@@ -103,14 +103,20 @@ export default class ApplicationInputPicklist extends LightningElement {
 	get picklistValues() {
 		return this.detail?.Picklist_Values__c || ''
 	}
+	// get showChildRecords() {
+	// 	return (this.hasChildRecords && (this.dependentParentAnswer.includes(this.val)))
+	// }
 	get showChildRecords() {
-		return (this.hasChildRecords && (this.dependentParentAnswer.includes(this.val)))
+		return (this.hasChildRecords && this.dependentChildRecords.length)
 	}
 	get hasChildRecords() {
 		return !!this.childRecords.length
 	}
 	get childRecords() {
 		return this.detail?.Application_Details__r || []
+	}
+	get dependentChildRecords() {
+		return this.childRecords.filter(child => child?.Parent_Dependent_Answer__c === this.detail.Input_Text__c) || []
 	}
 	get options() {
 		if (!this.picklistValues.length) {

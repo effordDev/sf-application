@@ -11,4 +11,29 @@
 		disabled={readOnly}
 	></lightning-radio-group>
 
+	
+	<template lwc:if={showChildRecords}>
+		
+		<br />
+
+		<lightning-layout multiple-rows>
+
+			<template for:each={dependentChildRecords} for:item="child">
+	
+				<c-application-detail-type
+					key={child.Id}
+					record-id={recordId}
+					section-id={sectionId}
+					read-only={readOnly}
+					detail={child}
+					language={language}
+					class={child.InputOrDisplayClass__c}
+				></c-application-detail-type>
+	
+			</template>
+			
+		</lightning-layout>
+
+	</template>
+
 </template>

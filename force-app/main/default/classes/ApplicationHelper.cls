@@ -100,6 +100,7 @@ public with sharing class ApplicationHelper {
 				Minimum__c,
 				Maximum__c,
 				Step__c,
+				Flow_API_Name__c
 				Alignment__c,
 				Child_sObject_API_Name__c,
 				Child_sObject_Field_Set_API_Name__c,
@@ -150,6 +151,7 @@ public with sharing class ApplicationHelper {
 					Minimum__c,
 					Maximum__c,
 					Step__c,
+					Flow_API_Name__c
 					Alignment__c,
 					Child_sObject_API_Name__c,
 					Child_sObject_Field_Set_API_Name__c,
@@ -182,76 +184,10 @@ public with sharing class ApplicationHelper {
 	) {
 		update details;
 
-		List<AggregateResult> arRequiredQuestionsList = [
-			SELECT sf_Application_Section__c, COUNT(Id) RequiredQuestions
-			FROM sf_Application_Detail__c
-			WHERE sf_Application_Section__c = :sectionId 
-			AND Required__c = TRUE
-			AND Parent_Application_Detail__c = null
-			GROUP BY sf_Application_Section__c
-		];
-
-		List<sf_Application_Detail__c> detailsToCheck = [
-			SELECT Id, Required__c, Required_Question_Answered__c, Input_Text_Long__c 
-			FROM sf_Application_Detail__c
-			WHERE sf_Application_Section__c =: sectionId
-			AND Required__c = true
-		];
-
-		Set<Id> detailIds = new Set<Id>();
-		for (sf_Application_Detail__c d : detailsToCheck) {
-			if (d.Input_Text_Long__c != null || d.Required_Question_Answered__c) {
-				detailIds.add(d.Id);
-			}
-		}
-
-		List<AggregateResult> arRequiredQuestionsAnsweredList = [
-			SELECT sf_Application_Section__c, COUNT(Id) RequiredQuestionsAnswered
-			FROM sf_Application_Detail__c
-			WHERE sf_Application_Section__c = :sectionId
-				AND Required__c = true
-				// AND Required_Question_Answered__c = true
-				AND Id IN : detailIds
-			GROUP BY sf_Application_Section__c
-		];
-
-		system.debug('arRequiredQuestionsList');
-		system.debug(arRequiredQuestionsList);
-		system.debug('arRequiredQuestionsAnsweredList');
-		system.debug(arRequiredQuestionsAnsweredList);
-
-		if (arRequiredQuestionsList.isEmpty()) {
-			
-			sf_Application_Section__c section = new sf_Application_Section__c();
-				section.Id = sectionId;
-				section.Completed__c = true;
-			update section;
-
-			sf_Application__c app = new sf_Application__c(
-				Id = recordId,
-				Status__c = 'In Progress'
-			);
-
-			update app;
-
-			return;
-		}
-
-		if (!arRequiredQuestionsList.isEmpty() && !arRequiredQuestionsAnsweredList.isEmpty()) {
-
-			AggregateResult arRequiredQuestions = arRequiredQuestionsList[0];
-			AggregateResult arRequiredQuestionsAnswered = arRequiredQuestionsAnsweredList[0];
-	
-			if (
-				Integer.valueOf(arRequiredQuestions.get('RequiredQuestions')) <=
-				Integer.valueOf(arRequiredQuestionsAnswered.get('RequiredQuestionsAnswered'))
-			) {
-				sf_Application_Section__c section = new sf_Application_Section__c();
-					section.Id = sectionId;
-					section.Completed__c = true;
-				update section;
-			} 
-		}
+		sf_Application_Section__c section = new sf_Application_Section__c();
+			section.Id = sectionId;
+			section.Completed__c = true;
+		update section;
 
 
 		sf_Application__c app = new sf_Application__c(
