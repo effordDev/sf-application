@@ -559,7 +559,7 @@
         <recordType>Application_Detail__c.Custom_Component</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Application_Detail__c-Input_Checkbox_Group</layout>
+        <layout>Application_Detail__c-Input Checkbox Group</layout>
         <recordType>Application_Detail__c.Input_Checkbox_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -641,7 +641,7 @@
         <recordType>Reference_Application_Detail__c.Custom_Component</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Reference_Application_Detail__c-Input_Checkbox_Group</layout>
+        <layout>Reference_Application_Detail__c-Input Checkbox Group</layout>
         <recordType>Reference_Application_Detail__c.Input_Checkbox_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
