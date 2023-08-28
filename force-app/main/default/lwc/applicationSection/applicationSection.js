@@ -3,6 +3,7 @@ import ApplicationModal from "c/applicationModal";
 import getApplicationDetails from "@salesforce/apex/ApplicationHelper.getApplicationDetails";
 import getApplicationSectionLanguages from "@salesforce/apex/ApplicationHelper.getApplicationSectionLanguages";
 import saveApplicationDetails from "@salesforce/apex/ApplicationHelper.saveApplicationDetails";
+import updateSobs from "@salesforce/apex/ApplicationHelper.updateSobs";
 
 export default class ApplicationSection extends LightningElement {
 	@api recordId;
@@ -15,6 +16,7 @@ export default class ApplicationSection extends LightningElement {
 
 	details = [];
 	detailsToUpdate = [];
+	sobsToUpdate = [];
 
 	connectedCallback() {
 		this.fetchApplicationDetails();
@@ -71,7 +73,7 @@ export default class ApplicationSection extends LightningElement {
 				language: this.language,
 				cancelBtnLabel: this.cancelBtnLabel,
 				saveBtnLabel: this.saveBtnLabel,
-
+				onsobchange: (event) => this.handleSobChange(event),
 				ondetailchange: (event) => this.handleDetailChange(event),
 				onsave: (event) => this.handleSave(event),
 			});
@@ -93,10 +95,42 @@ export default class ApplicationSection extends LightningElement {
 		];
 	}
 
+	handleSobChange(event) {
+		// const sob = JSON.parse(JSON.stringify(event.detail));
+		const { id, field, value } = event.detail
+
+		const match = x => x.Id === id
+
+		if (this.sobsToUpdate.some(match)) {
+
+			this.sobsToUpdate.forEach(sob => {
+				if (match(sob)) {
+					sob[field] = value
+				}
+			})
+		} else {
+			this.sobsToUpdate = [...this.sobsToUpdate, {
+				Id: id,
+				[field]: value
+			}]
+		}
+
+		console.log(JSON.parse(JSON.stringify(this.sobsToUpdate)))
+	}
+
 	async handleSave() {
 		try {
 
 			this.dispatchEvent(new CustomEvent("loading"));
+
+			if (this.sobsToUpdate.length) {
+        
+                await updateSobs({
+                    sobs: this.sobsToUpdate
+                })
+    
+                this.sobsToUpdate = []
+            }
 
 			await saveApplicationDetails({
 				recordId: this.recordId,
