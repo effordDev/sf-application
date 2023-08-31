@@ -1,4 +1,5 @@
 import { api, track, LightningElement } from 'lwc';
+import { deleteRecord } from 'lightning/uiRecordApi';
 import getFieldSet from '@salesforce/apex/ApplicationHelper.getFieldSet'
 import getFieldSetData from '@salesforce/apex/ApplicationHelper.getFieldSetData'
 
@@ -14,6 +15,7 @@ export default class ApplicationInputRecordList extends LightningElement {
 
     active = false
     isLoading = false
+    formLoaded = false
 
     async  connectedCallback() {
         console.log('record list');
@@ -77,13 +79,30 @@ export default class ApplicationInputRecordList extends LightningElement {
 	get childDisplayTableFieldSetApi() {
 		return this.detail?.Child_sObject_Table_Field_Set_API_Name__c;
 	}
+    get allowDelete() {
+        return this.detail?.Allow_Delete__c
+    }
     get columns() {
-        return this.displayTableFieldSet.map(field => {
+        let cols =  this.displayTableFieldSet.map(field => {
             return {
                 label: field?.label,
                 fieldName: field?.name
             }
         })
+
+        if (this.allowDelete && this.editable) {
+            cols = [...cols, {
+                type: 'button-icon',
+                initialWidth: 34,
+                typeAttributes: {
+                    iconName: 'utility:delete',
+                    name: 'delete',
+                    iconClass: 'slds-icon-text-error',
+                }
+            }]
+        } 
+
+        return cols
     }
     get hideAddBtn() {
         return !this.active
@@ -107,8 +126,46 @@ export default class ApplicationInputRecordList extends LightningElement {
             parentRelationship: this.parentRelationshipApi
         })
         console.log('DATA')
-        console.log(JSON.stringify(this.data))
+        console.log(JSON.parse(JSON.stringify(this.data)))
         // console.log(JSON.parse(JSON.stringify(this.data)))
+    }
+
+    handleRowAction(event) {
+        console.log(JSON.parse(JSON.stringify(event.detail.action)))
+        console.log(JSON.parse(JSON.stringify(event.detail.row)))
+
+        const { Id } = event.detail.row
+        const { name }  = event.detail.action
+
+        switch (name) {
+            case 'delete':
+                this.deleteRow(Id)
+                break;
+        }
+    }
+
+    async deleteRow(id) {
+        try {
+
+            this.dispatchEvent(
+                new CustomEvent('loading', {
+                    bubbles: true,
+                    composed: true
+                })
+            )
+
+            await deleteRecord(id)
+            this.fetchFieldSetData()
+        } catch (error) {
+            console.log(JSON.parse(JSON.stringify(error)))
+        } finally {
+            this.dispatchEvent(
+                new CustomEvent('loading', {
+                    bubbles: true,
+                    composed: true
+                })
+            )
+        }
     }
 
 	handleSubmit(event) {
@@ -124,6 +181,10 @@ export default class ApplicationInputRecordList extends LightningElement {
 
     handleError(event) {
         console.error(JSON.parse(JSON.stringify(event.detail)))
+    }
+
+    handleFormLoad() {
+        this.formLoaded = true 
     }
 
     async handleSuccess(event){

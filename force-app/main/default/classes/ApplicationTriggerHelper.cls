@@ -59,7 +59,8 @@ public without sharing class ApplicationTriggerHelper {
 				Child_To_Parent_Relationship_Api_Name__c,
 				Child_sObject_Table_Field_Set_API_Name__c,
 				Reference_Parent_Application_Detail__c,
-				Parent_Dependent_Answer__c
+				Parent_Dependent_Answer__c,
+				Allow_Delete__c
 			FROM Reference_Application_Detail__c
 			WHERE Reference_Application_Section__c IN : referenceApplicationSections
 			AND Reference_Parent_Application_Detail__c = null
@@ -197,7 +198,8 @@ public without sharing class ApplicationTriggerHelper {
 				Child_To_Parent_Relationship_Api_Name__c,
 				Child_sObject_Table_Field_Set_API_Name__c,
 				Reference_Parent_Application_Detail__c,
-				Parent_Dependent_Answer__c
+				Parent_Dependent_Answer__c,
+				Allow_Delete__c
 			FROM Reference_Application_Detail__c
 			WHERE Reference_Parent_Application_Detail__c IN : referenceApplicationDetails
 		]) {
@@ -346,6 +348,7 @@ public without sharing class ApplicationTriggerHelper {
 				applicationDetail.Child_To_Parent_Relationship_Api_Name__c = referenceApplicationDetail.Child_To_Parent_Relationship_Api_Name__c;
 				applicationDetail.Child_sObject_Table_Field_Set_API_Name__c = referenceApplicationDetail.Child_sObject_Table_Field_Set_API_Name__c;
 				applicationDetail.Parent_Dependent_Answer__c = referenceApplicationDetail.Parent_Dependent_Answer__c;
+				applicationDetail.Allow_Delete__c = referenceApplicationDetail.Allow_Delete__c;
 
 				applicationDetail.RecordTypeId = Schema.SObjectType.Application_Detail__c.getRecordTypeInfosByDeveloperName()
 					.get(referenceApplicationDetail.RecordType.DeveloperName)
@@ -411,6 +414,7 @@ public without sharing class ApplicationTriggerHelper {
 					childDetail.Child_To_Parent_Relationship_Api_Name__c = refChildDetail.Child_To_Parent_Relationship_Api_Name__c;
 					childDetail.Child_sObject_Table_Field_Set_API_Name__c = refChildDetail.Child_sObject_Table_Field_Set_API_Name__c;
 					childDetail.Parent_Dependent_Answer__c = refChildDetail.Parent_Dependent_Answer__c;
+					childDetail.Allow_Delete__c = refChildDetail.Allow_Delete__c;
 
 					childDetail.RecordTypeId = Schema.SObjectType.Application_Detail__c.getRecordTypeInfosByDeveloperName()
 						.get(refChildDetail.RecordType.DeveloperName)
