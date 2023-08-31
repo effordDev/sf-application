@@ -107,6 +107,7 @@ public with sharing class ApplicationHelper {
 				Child_To_Parent_Relationship_Api_Name__c,
 				Child_sObject_Table_Field_Set_API_Name__c,
 				Parent_Dependent_Answer__c,
+				Allow_Delete__c,
 				(
 					SELECT Id,
 						Language__c,
@@ -157,7 +158,8 @@ public with sharing class ApplicationHelper {
 					Child_sObject_Field_Set_API_Name__c,
 					Child_To_Parent_Relationship_Api_Name__c,
 					Child_sObject_Table_Field_Set_API_Name__c,
-					Parent_Dependent_Answer__c
+					Parent_Dependent_Answer__c,
+					Allow_Delete__c
 				FROM Application_Details__r
 				)
 			FROM Application_Detail__c
