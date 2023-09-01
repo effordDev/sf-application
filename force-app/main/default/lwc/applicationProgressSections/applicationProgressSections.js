@@ -169,6 +169,9 @@ export default class ApplicationProgressSections extends LightningElement {
         )
     }
 	async handleSave() {
+
+        this.isLoading = true
+
         const isAllValid = this.validateInputs()
 
         if (!isAllValid) {
@@ -216,10 +219,10 @@ export default class ApplicationProgressSections extends LightningElement {
 
 			this.dispatchEvent(new CustomEvent("refresh"));
 
+            this.isLoading = false
+
 		} catch (error) {
 			console.error(error);
-		} finally {
-			this.dispatchEvent(new CustomEvent("loading"));
-		}
+		} 
 	}
 }
