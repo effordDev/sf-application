@@ -222,7 +222,13 @@ export default class ApplicationProgressSections extends LightningElement {
             this.isLoading = false
 
 		} catch (error) {
-			console.error(error);
+			console.error(error)
+
+			this.toast(
+				'Error',
+				'An Error has occured',
+				'error'
+			)
 		} 
 	}
 }

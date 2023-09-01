@@ -199,17 +199,38 @@ export default class ApplicationProgressIndicatorMain extends LightningElement {
 	}
 
 	async handleSubmit() {
-		
-		const app = {
-			Id: this.recordId,
-			Status__c: "Submitted"
-		};
+		try {
 
-		this.application = await saveApplication({ app });
+			this.isLoading = true
 
-		this.dispatchEvent(
-			new CustomEvent('refresh')
-		)
+			const app = {
+				Id: this.recordId,
+				Status__c: "Submitted"
+			};
+	
+			this.application = await saveApplication({ app });
+	
+			this.toast(
+				'Success',
+				'Application Submitted',
+				'success'
+			)
+	
+			this.dispatchEvent(
+				new CustomEvent('refresh')
+			)
+		} catch (error) {
+			
+			console.error(error)
+
+			this.toast(
+				'Error',
+				'An Error has occured',
+				'error'
+			)
+		} finally {
+			this.isLoading = false
+		}
 	}
 
 	toast(
