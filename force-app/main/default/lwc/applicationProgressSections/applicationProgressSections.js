@@ -175,6 +175,7 @@ export default class ApplicationProgressSections extends LightningElement {
         const isAllValid = this.validateInputs()
 
         if (!isAllValid) {
+            this.isLoading = false
             return;
         }
 
@@ -229,6 +230,8 @@ export default class ApplicationProgressSections extends LightningElement {
 				'An Error has occured',
 				'error'
 			)
-		} 
+		} finally {
+            this.isLoading = false
+        }
 	}
 }
