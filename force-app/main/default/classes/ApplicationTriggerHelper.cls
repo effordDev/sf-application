@@ -278,7 +278,7 @@ public without sharing class ApplicationTriggerHelper {
 				referenceApplication.Id
 			);
 
-			if (referenceApplicationSections.isEmpty()) {
+			if (referenceApplicationSections == null || referenceApplicationSections.isEmpty()) {
 				continue;
 			}
 
