@@ -1,6 +1,6 @@
 # sf-application
 
-<a href="https://githubsfdeploy.herokuapp.com?owner=effordDev&repo=sf-application">
+<a href="https://githubsfdeploy.herokuapp.com?owner=effordDev&repo=sf-application&ref=custom-namespace">
   <img alt="Deploy to Salesforce"
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
 </a>
