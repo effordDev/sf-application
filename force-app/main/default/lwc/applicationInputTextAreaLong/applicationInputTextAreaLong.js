@@ -42,9 +42,11 @@ export default class ApplicationInputTextAreaLong extends LightningElement {
 		return this.detail?.Required__c;
 	}
 	get val() {
-		return this.detail?.Input_Text_Long__c;
+		return this.detail?.Input_Text_Long__c || this.defaultValue
 	}
-
+	get defaultValue() {
+		return this.detail?.Default_Value__c || ''
+	}
 	handleChange(event) {
 		const value = event.detail.value;
 

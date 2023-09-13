@@ -43,7 +43,10 @@ export default class ApplicationInputCurrency extends LightningElement {
 		return this.detail?.Required__c;
 	}
 	get val() {
-		return this.detail?.Input_Currency__c;
+		return this.detail?.Input_Currency__c || this.defaultValue;
+	}
+	get defaultValue() {
+		return this.detail?.Default_Value__c || ''
 	}
 	get min() {
 		return this.detail?.Minimum__c;
