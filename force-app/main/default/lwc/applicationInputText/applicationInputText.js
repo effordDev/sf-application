@@ -43,7 +43,10 @@ export default class ApplicationInputText extends LightningElement {
 		return this.detail?.Required__c;
 	}
 	get val() {
-		return this.detail?.Input_Text__c;
+		return this.detail?.Input_Text__c || this.defaultValue
+	}
+	get defaultValue() {
+		return this.detail?.Default_Value__c || ''
 	}
 	get pattern() {
 		return this.detail?.Pattern__c;
