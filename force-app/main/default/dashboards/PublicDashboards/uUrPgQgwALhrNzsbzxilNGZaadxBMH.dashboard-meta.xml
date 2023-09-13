@@ -419,10 +419,10 @@
         <numberOfColumns>12</numberOfColumns>
         <rowHeight>36</rowHeight>
     </dashboardGridLayout>
-    <dashboardType>SpecifiedUser</dashboardType>
+    <dashboardType>LoggedInUser</dashboardType>
     <description>The dashboard for the Reference Application App Home screen</description>
     <isGridLayout>true</isGridLayout>
-    <runningUser>test-x6xyrv0hyihr@example.com</runningUser>
+    <!-- <runningUser>test-x6xyrv0hyihr@example.com</runningUser> -->
     <textColor>#000000</textColor>
     <title>Reference Application App Home</title>
     <titleColor>#000000</titleColor>
