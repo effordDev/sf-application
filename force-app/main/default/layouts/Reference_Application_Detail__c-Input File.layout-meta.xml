@@ -24,7 +24,7 @@
                 <field>Field_Label__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>File_Rename__c</field>
             </layoutItems>
             <layoutItems>
