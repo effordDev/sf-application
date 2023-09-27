@@ -121,13 +121,28 @@ public without sharing class ApplicationTriggerHelper {
 			insert applicationChildDetails;
 		}
 
-		List<Application_Detail_Language__c> appDetailLanguagelList = createApplicationDetaillanguages(
+		List<Application_Detail_Language__c> appParentDetailLanguagelList = createApplicationDetaillanguages(
 			applicationParentDetails, 
 			referenceApplicationDetails
 		);
 
-		if (!appDetailLanguagelList.isEmpty()) {
-			insert appDetailLanguagelList;
+		if (!appParentDetailLanguagelList.isEmpty()) {
+			insert appParentDetailLanguagelList;
+		}
+
+		List<Reference_Application_Detail__c> childReferenceDetails = new List<Reference_Application_Detail__c>();
+		
+		for (String key : referenceAppParentDetailMap.keySet()) {
+			childReferenceDetails.addAll(referenceAppParentDetailMap.get(key));
+		}
+		
+		List<Application_Detail_Language__c> appChildDetailLanguagelList = createApplicationDetaillanguages(
+			applicationChildDetails, 
+			childReferenceDetails
+		);
+
+		if (!appChildDetailLanguagelList.isEmpty()) {
+			insert appChildDetailLanguagelList;
 		}
 	}
 
@@ -396,6 +411,7 @@ public without sharing class ApplicationTriggerHelper {
 					childDetail.Small_Device_Size__c = refChildDetail.Small_Device_Size__c;
 					childDetail.Field_Label__c = refChildDetail.Field_Label__c;
 					childDetail.Picklist_Values__c = refChildDetail.Picklist_Values__c;
+					childDetail.Radio_Group_Values__c = refChildDetail.Radio_Group_Values__c;
 					childDetail.Required__c = refChildDetail.Required__c;
 					childDetail.Sort_Order__c = refChildDetail.Sort_Order__c;
 					childDetail.Component_Name__c = refChildDetail.Component_Name__c;
@@ -557,6 +573,9 @@ public without sharing class ApplicationTriggerHelper {
 				referenceAppDetailLanguageMap.put(radl.Reference_Application_Detail__c, new List<Reference_Application_Detail_Language__c>{radl});
 			}
 		}
+
+		system.debug('referenceAppDetailLanguageMap');
+		system.debug(referenceAppDetailLanguageMap);
 
 		if (referenceAppDetailLanguageMap.isEmpty()) {
 			return new List<Application_Detail_Language__c>();

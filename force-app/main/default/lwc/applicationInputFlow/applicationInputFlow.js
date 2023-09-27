@@ -6,6 +6,7 @@ export default class ApplicationInputFlow extends LightningElement {
 	@api sectionId;
 	@api readOnly;
     @api language = ''
+    @api languages = []
 	@track _detail = {}
 
     flowStatus = ''
@@ -54,8 +55,9 @@ export default class ApplicationInputFlow extends LightningElement {
 	get label() {
 		return this.language === 'English' ? 
 		this.detail?.Field_Label__c :
-		(this.detail?.Application_Detail_Languages__r
-			.find(item => item.Language__c === this.language))?.Translated_Text__c
+		this.languages
+		.filter(lang => lang.Application_Detail__c === this.id)
+		.find(item => item.Language__c === this.language)?.Translated_Text__c
 	}
 	get required() {
 		return this.detail?.Required__c;

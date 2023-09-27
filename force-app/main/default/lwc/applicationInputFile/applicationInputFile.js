@@ -10,6 +10,7 @@ export default class ApplicationInputFile extends LightningElement {
 	@api sectionId;
 	@api readOnly;
      @api language = ''
+     @api languages = []
 	@track _detail = {};
 
      files = [] 
@@ -51,12 +52,12 @@ export default class ApplicationInputFile extends LightningElement {
 	get id() {
 		return this.detail?.Id;
 	}
-	get label() {
-          // return 'label file'
+     get label() {
 		return this.language === 'English' ? 
 		this.detail?.Field_Label__c :
-		(this.detail?.Application_Detail_Languages__r
-			?.find(item => item.Language__c === this.language))?.Translated_Text__c || this.detail?.Field_Label__c
+		this.languages
+		.filter(lang => lang.Application_Detail__c === this.id)
+		.find(item => item.Language__c === this.language)?.Translated_Text__c || this.detail?.Field_Label__c
 	}
 	get required() {
 		return this.detail?.Required__c;
