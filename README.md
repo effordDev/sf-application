@@ -146,6 +146,31 @@ get customJson() {
 }
 ```
 
+## Application Response Flattener
+```Flatten Application Responses``` is an invokable Apex method that can be used in a Record-Triggered Flow to write responses from Application Detail records into specific fields on a target object.
+
+- A Record-Triggered Flow will control when the automation runs to write the responses.
+- Target fields are defined on the **Reference Application Detail** records.
+- Field data-types are handled by the Apex and are based on the Reference Application Detail record type.
+   - The data type of your target field should match, otherwise errors may occur.
+
+### Configuration
+
+#### Target Field Definition
+
+For any application responses that you wish to write to a field, you must first populate the ```Target_Field_API_Name__c``` on the **Reference Application Detail** record.
+> The ```Target_Field_API_Name__c``` should be the API name of the field you wish to write the resonse to on the target object.
+> *(The target object will be specified in a Record-Triggered Flow)*
+
+#### Record-Triggered Flow
+
+To allow for configurability of the criteria that trigger the responses to be flattened, a Record-Triggered flow should be created on the *Application* object, and fire based on your desired criteria (such as **Status** changing to *Submitted*)
+
+1. Create a Record-Triggered Flow on **Application** 
+2. Invoke the ```Flatten Application Responses``` Apex method, passing in:
+    - ```Application Id``` which is the record Id of the Application that triggered the flow
+    - ```Target Object Record Id``` which is the Id of the specific record you want to write the responses to (where the Target Object Field API Names will be populated with their respective responses.
+
 Coded while petting [﻿tokyo🐱‍👤](https://www.tokyotech.us)
 
 <!--- Eraser file: https://app.eraser.io/workspace/Bv2FEHxAoXE57wdPDlh7 --->
