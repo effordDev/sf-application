@@ -4,10 +4,11 @@ export default class ApplicationDetailType extends LightningElement {
 	@api sectionId;
 	@api readOnly;
 	@api language = ''
+	@api languages = []
 	@api detail = {};
 
 	@api isValid() {
-		console.log(this.refs)
+		// console.log(this.refs)
 		return this.refs.input?.completed;
 	}
 

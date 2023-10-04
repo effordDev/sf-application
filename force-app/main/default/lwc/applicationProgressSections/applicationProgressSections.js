@@ -1,7 +1,8 @@
 import { api, LightningElement } from 'lwc';
 import LightningConfirm from 'lightning/confirm';
 import getApplicationDetails from "@salesforce/apex/ApplicationHelper.getApplicationDetails";
-import getApplicationSectionLanguages from "@salesforce/apex/ApplicationHelper.getApplicationSectionLanguages";
+import getApplicationDetailLanguages from "@salesforce/apex/ApplicationHelper.getApplicationDetailLanguages";
+// import getApplicationSectionLanguages from "@salesforce/apex/ApplicationHelper.getApplicationSectionLanguages";
 import saveApplicationDetails from "@salesforce/apex/ApplicationHelper.saveApplicationDetails";
 import updateSobs from "@salesforce/apex/ApplicationHelper.updateSobs";
 
@@ -19,10 +20,13 @@ export default class ApplicationProgressSections extends LightningElement {
     sobsToUpdate = [];
 	detailsToUpdate = [];
 
+    detailLanguages = []
+
     isLoading = false
 
     connectedCallback() {
         this.fetchApplicationDetails()
+        this.fetchApplicationDetailLanguages()
     }
 
     get editable() {
@@ -59,6 +63,7 @@ export default class ApplicationProgressSections extends LightningElement {
             this.activeSectionId = sectionId
             
             await this.fetchApplicationDetails()
+            await this.fetchApplicationDetailLanguages()
         } catch (error) {
             console.error(error)
         } finally {
@@ -81,6 +86,21 @@ export default class ApplicationProgressSections extends LightningElement {
             console.error(error)
         } finally {
             this.isLoading = false
+        }
+    }
+
+    async fetchApplicationDetailLanguages() {
+        try {
+
+            this.detailLanguages = []
+
+            this.detailLanguages = await getApplicationDetailLanguages({
+                applicationSectionId: this.activeSectionId
+            })
+            console.log('this.detailLanguages')
+            console.log(JSON.parse(JSON.stringify(this.detailLanguages)))
+        } catch (error) {
+            console.error(error)
         }
     }
 

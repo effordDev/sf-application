@@ -118,54 +118,68 @@ public with sharing class ApplicationHelper {
 				,
 				(
 					SELECT
-					Id,
-					Name,
-					RecordTypeId,
-					RecordType.DeveloperName,
-					Reference_Application_Detail__c,
-					Application_Section__c,
-					Default_Value__c,
-					Display_Text__c,
-					Display_Rich_Text__c,
-					InputOrDisplayClass__c,
-					Field_Label__c,
-					Required__c,
-					Picklist_Values__c,
-					Radio_Group_Values__c,
-					Checkbox_Group_Values__c,
-					Large_Device_Size__c,
-					Medium_Device_Size__c,
-					Small_Device_Size__c,
-					Input_Checkbox__c,
-					Input_Currency__c,
-					Input_Date__c,
-					Input_Datetime__c,
-					Input_Number__c,
-					Input_Text__c,
-					Input_Text_Long__c,
-					File_Rename__c,
-					Accepted_File_Types__c,
-					Custom_Component_JSON__c,
-					Component_Name__c,
-					Message_When_Pattern_Mismatch__c,
-					Pattern__c,
-					Minimum__c,
-					Maximum__c,
-					Step__c,
-					Flow_API_Name__c,
-					Alignment__c,
-					Child_sObject_API_Name__c,
-					Child_sObject_Field_Set_API_Name__c,
-					Child_To_Parent_Relationship_Api_Name__c,
-					Child_sObject_Table_Field_Set_API_Name__c,
-					Parent_Dependent_Answer__c,
-					Allow_Delete__c
-				FROM Application_Details__r
+						Id,
+						Name,
+						RecordTypeId,
+						RecordType.DeveloperName,
+						Reference_Application_Detail__c,
+						Application_Section__c,
+						Default_Value__c,
+						Display_Text__c,
+						Display_Rich_Text__c,
+						InputOrDisplayClass__c,
+						Field_Label__c,
+						Required__c,
+						Picklist_Values__c,
+						Radio_Group_Values__c,
+						Checkbox_Group_Values__c,
+						Large_Device_Size__c,
+						Medium_Device_Size__c,
+						Small_Device_Size__c,
+						Input_Checkbox__c,
+						Input_Currency__c,
+						Input_Date__c,
+						Input_Datetime__c,
+						Input_Number__c,
+						Input_Text__c,
+						Input_Text_Long__c,
+						File_Rename__c,
+						Accepted_File_Types__c,
+						Custom_Component_JSON__c,
+						Component_Name__c,
+						Message_When_Pattern_Mismatch__c,
+						Pattern__c,
+						Minimum__c,
+						Maximum__c,
+						Step__c,
+						Flow_API_Name__c,
+						Alignment__c,
+						Child_sObject_API_Name__c,
+						Child_sObject_Field_Set_API_Name__c,
+						Child_To_Parent_Relationship_Api_Name__c,
+						Child_sObject_Table_Field_Set_API_Name__c,
+						Parent_Dependent_Answer__c,
+						Allow_Delete__c
+					FROM Application_Details__r
 				)
 			FROM Application_Detail__c
 			WHERE Application_Section__c = :applicationSectionId
 			AND Parent_Application_Detail__c = null
 			ORDER BY Sort_Order__c ASC
+		];
+	}
+
+	@AuraEnabled
+	public static List<Application_Detail_Language__c> getApplicationDetailLanguages(
+		Id applicationSectionId
+	) {
+		return [
+			SELECT Id,
+				Language__c,
+				Translated_Text__c,
+				Application_Detail__c
+			FROM Application_Detail_Language__c
+			WHERE Application_Detail__r.Application_Section__c =: applicationSectionId
 		];
 	}
 

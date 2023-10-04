@@ -5,6 +5,7 @@ export default class ApplicationDisplayText extends LightningElement {
 	@api sectionId;
 	@api detail;
 	@api language = ''
+	@api languages = []
 
 	connectedCallback() {
 		console.log(JSON.parse(JSON.stringify(this.detail)))
@@ -18,11 +19,11 @@ export default class ApplicationDisplayText extends LightningElement {
 		return true;
 	}
 	get displayText() {
-		// return 'test'
 		return this.language === 'English' ? 
-		this.detail?.Display_Text__c : 
-		(this.detail?.Application_Detail_Languages__r
-			?.find(item => item.Language__c === this.language))?.Translated_Text__c || this.detail?.Display_Text__c
+		this.detail?.Field_Label__c :
+		this.languages
+		.filter(lang => lang.Application_Detail__c === this.id)
+		.find(item => item.Language__c === this.language)?.Translated_Text__c || this.detail?.Display_Text__c
 	}
 	// get displayText() {
 	// 	return this.detail?.Display_Text__c;

@@ -129,6 +129,22 @@ public with sharing class ApplicationHelperTest {
         );
     }
 
+    @isTest 
+    private static void getApplicationDetailLanguagesTest() {
+        Reference_Application__c refApp = [SELECT Id FROM Reference_Application__c LIMIT 1];
+
+        Application__c app = new Application__c();
+        app.Reference_Application__c = refApp.Id;
+        insert app;
+
+        ApplicationHelper.getApplicationDetailLanguages([
+            SELECT Id 
+            FROM Application_Section__c 
+            WHERE Application__c =: app.Id 
+            LIMIT 1].Id
+        );
+    }
+
     @isTest
     private static void getApplicationDetailsTest() {
 
@@ -217,6 +233,11 @@ public with sharing class ApplicationHelperTest {
         ApplicationHelper.saveApplicationDetails(
             app.Id,    
             appSection.Id,    
+            appDetails
+        );
+
+        appDetails[0].Input_Text__c = 'meow 🐈‍⬛';
+        ApplicationHelper.updateSobs(
             appDetails
         );
     }
