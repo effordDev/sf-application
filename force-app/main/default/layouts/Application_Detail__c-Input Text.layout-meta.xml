@@ -55,6 +55,10 @@
                 <behavior>Edit</behavior>
                 <field>Parent_Dependent_Answer__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Target_Field_API_Name__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
