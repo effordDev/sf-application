@@ -1,11 +1,9 @@
 <template>
-    
-    <template for:each={items} for:item="item">
-        <c-application-progress-indicator-item
-            key={item.Id}
-            item={item}
-            active-section-id={activeSectionId}
-        ></c-application-progress-indicator-item>
-    </template>
-     
+	<template for:each={items} for:item="item">
+		<c-application-progress-indicator-item
+			key={item.Id}
+			item={item}
+			active-section-id={activeSectionId}
+		></c-application-progress-indicator-item>
+	</template>
 </template>

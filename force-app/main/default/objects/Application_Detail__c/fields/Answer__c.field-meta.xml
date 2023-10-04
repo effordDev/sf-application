@@ -5,7 +5,7 @@
     <formula>IF( RecordType.DeveloperName == &apos;Input_Checkbox&apos;, IF(Input_Checkbox__c, &quot;TRUE&quot;, &quot;FALSE&quot;), 
 IF( RecordType.DeveloperName == &apos;Input_Currency&apos;, TEXT( Input_Currency__c ), 
 IF( RecordType.DeveloperName == &apos;Input_Date&apos;, TEXT( Input_Date__c ),
-IF( RecordType.DeveloperName == &apos;Input_Datetime&apos;, TEXT( Input_Datetime__c ), 
+IF( RecordType.DeveloperName == &apos;Input_Date_Time&apos;, TEXT( Input_Datetime__c ), 
 IF( RecordType.DeveloperName == &apos;Input_Number&apos;, TEXT( Input_Number__c ),
 IF( RecordType.DeveloperName == &apos;Input_Text&apos;, Input_Text__c,
 IF( RecordType.DeveloperName == &apos;Input_Picklist&apos;, Input_Text__c,

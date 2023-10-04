@@ -1,14 +1,12 @@
 <template>
-
 	<template lwc:if={isLoading}>
-		<lightning-spinner 
-			alternative-text="Loading" 
-			size="large" 
+		<lightning-spinner
+			alternative-text="Loading"
+			size="large"
 		></lightning-spinner>
 	</template>
 
 	<div class="wrapper">
-
 		<!-- <div class="slds-text-heading_large slds-text-align_center">{applicationDisplayName}</div>
 
 		<br />
@@ -16,7 +14,6 @@
 		<div class="slds-text-body_regular slds-text-align_center">{displayDescription}</div> -->
 
 		<lightning-layout multiple-rows horizontal-align="spread">
-            
 			<lightning-layout-item
 				size="12"
 				small-device-size="3"
@@ -31,20 +28,17 @@
 						active-section-id={activeSectionId}
 					></c-application-progress-indicator>
 				</div>
-
 			</lightning-layout-item>
-			
+
 			<lightning-layout-item
-                size="12"
+				size="12"
 				small-device-size="9"
 				medium-device-size="9"
 				large-device-size="9"
 				padding="around-small"
-            >
-
+			>
 				<div class="slds-box headerWrapper">
 					<lightning-layout multiple-rows horizontal-align="space">
-
 						<lightning-layout-item
 							size="12"
 							small-device-size="12"
@@ -58,9 +52,9 @@
 								options={languages}
 								value="English"
 								disabled={disableLanguagePicklist}
-							></lightning-combobox> 
+							></lightning-combobox>
 						</lightning-layout-item>
-				
+
 						<lightning-layout-item
 							size={size}
 							small-device-size={smallDeviceSize}
@@ -69,10 +63,12 @@
 							padding="around-small"
 							class="slds-text-align_center"
 						>
-							<label class="slds-form-element__label"> {displayApplicationNumberText} </label>
+							<label class="slds-form-element__label">
+								{displayApplicationNumberText}
+							</label>
 							<div class="slds-text-body_regular">{name}</div>
 						</lightning-layout-item>
-			
+
 						<lightning-layout-item
 							size={size}
 							small-device-size={smallDeviceSize}
@@ -81,10 +77,12 @@
 							padding="around-small"
 							class="slds-text-align_center"
 						>
-							<label class="slds-form-element__label"> {displayApplicationStatusText} </label>
+							<label class="slds-form-element__label">
+								{displayApplicationStatusText}
+							</label>
 							<div class="slds-text-body_regular">{status}</div>
 						</lightning-layout-item>
-			
+
 						<lightning-layout-item
 							size={size}
 							small-device-size={smallDeviceSize}
@@ -93,7 +91,9 @@
 							padding="around-small"
 							class="slds-text-align_center"
 						>
-							<label class="slds-form-element__label"> {displayApplicationCreatedDateText} </label>
+							<label class="slds-form-element__label">
+								{displayApplicationCreatedDateText}
+							</label>
 							<div class="slds-text-body_regular">
 								<lightning-formatted-date-time
 									value={createdDate}
@@ -104,7 +104,7 @@
 				</div>
 
 				<br />
-				
+
 				<div class="questionsWrapper slds-box">
 					<template lwc:if={activeSectionId}>
 						<c-application-progress-sections
@@ -121,10 +121,7 @@
 						></c-application-progress-sections>
 					</template>
 				</div>
-				
 			</lightning-layout-item>
-			
 		</lightning-layout>
-
 	</div>
 </template>

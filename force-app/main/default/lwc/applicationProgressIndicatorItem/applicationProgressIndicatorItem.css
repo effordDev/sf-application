@@ -2,8 +2,8 @@
     display: table-row;
 } */
 .wrapper {
-    padding-bottom: 5px;
+	padding-bottom: 5px;
 }
 .content {
-    cursor: pointer;
+	cursor: pointer;
 }

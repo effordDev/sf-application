@@ -1,9 +1,8 @@
 <template>
-
-    <lightning-radio-group
+	<lightning-radio-group
 		name={label}
 		label={label}
-        type="radio"
+		type="radio"
 		required={required}
 		options={options}
 		value={val}
@@ -11,15 +10,11 @@
 		disabled={readOnly}
 	></lightning-radio-group>
 
-	
 	<template lwc:if={showChildRecords}>
-		
 		<br />
 
 		<lightning-layout multiple-rows>
-
 			<template for:each={dependentChildRecords} for:item="child">
-
 				<lightning-layout-item
 					key={child.Id}
 					size="12"
@@ -27,7 +22,6 @@
 					medium-device-size={child.Medium_Device_Size__c}
 					large-device-size={child.Large_Device_Size__c}
 				>
-	
 					<c-application-detail-type
 						key={child.Id}
 						record-id={recordId}
@@ -38,13 +32,8 @@
 						languages={languages}
 						class={child.InputOrDisplayClass__c}
 					></c-application-detail-type>
-					
 				</lightning-layout-item>
-	
 			</template>
-			
 		</lightning-layout>
-
 	</template>
-
 </template>

@@ -2,17 +2,16 @@
     border: 1px solid rgb(0, 42, 255);
 } */
 .headerWrapper {
-    padding: 5px;
+	padding: 5px;
 }
 .progressClass {
-    /* border: 1px solid red */
-    padding: 5px;
-
+	/* border: 1px solid red */
+	padding: 5px;
 }
 .questionsWrapper {
-    /* border: 1px solid rgb(0, 42, 255); */
-    padding: 5px;
-    height: fit-content;
-    max-height: 100vh;
-    overflow-y: scroll;
+	/* border: 1px solid rgb(0, 42, 255); */
+	padding: 5px;
+	height: fit-content;
+	max-height: 100vh;
+	overflow-y: scroll;
 }

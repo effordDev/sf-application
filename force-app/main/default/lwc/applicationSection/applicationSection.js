@@ -7,18 +7,18 @@ import saveApplicationDetails from "@salesforce/apex/ApplicationHelper.saveAppli
 export default class ApplicationSection extends LightningElement {
 	@api recordId;
 	@api section = {};
-	@api language = ''
+	@api language = "";
 	@api readOnly = false;
 
-	@api cancelBtnLabel= ''
-	@api saveBtnLabel= ''
+	@api cancelBtnLabel = "";
+	@api saveBtnLabel = "";
 
 	details = [];
 	detailsToUpdate = [];
 
 	connectedCallback() {
 		this.fetchApplicationDetails();
-		this.fetchApplicationSectionLanguages()
+		this.fetchApplicationSectionLanguages();
 	}
 
 	async fetchApplicationDetails() {
@@ -27,16 +27,22 @@ export default class ApplicationSection extends LightningElement {
 		});
 	}
 	async fetchApplicationSectionLanguages() {
-		this.languages = await getApplicationSectionLanguages({ sectionId: this.id })
+		this.languages = await getApplicationSectionLanguages({
+			sectionId: this.id
+		});
 	}
 	get id() {
 		return this.section.Id;
 	}
 	get displaySectionLabel() {
-		if (this.language === 'English') {
-			return this.section?.Display_Section_Label__c
+		if (this.language === "English") {
+			return this.section?.Display_Section_Label__c;
 		}
-		return this.languages.find(l => l.Language__c === this.language)?.Translated_Display_Section_Name__c || this.section?.Display_Section_Label__c;
+		return (
+			this.languages.find((l) => l.Language__c === this.language)
+				?.Translated_Display_Section_Name__c ||
+			this.section?.Display_Section_Label__c
+		);
 	}
 	get isCompleted() {
 		return this.section?.Completed__c;
@@ -73,7 +79,7 @@ export default class ApplicationSection extends LightningElement {
 				saveBtnLabel: this.saveBtnLabel,
 
 				ondetailchange: (event) => this.handleDetailChange(event),
-				onsave: (event) => this.handleSave(event),
+				onsave: (event) => this.handleSave(event)
 			});
 
 			if (result == "save") {
@@ -95,7 +101,6 @@ export default class ApplicationSection extends LightningElement {
 
 	async handleSave() {
 		try {
-
 			this.dispatchEvent(new CustomEvent("loading"));
 
 			await saveApplicationDetails({
@@ -108,7 +113,6 @@ export default class ApplicationSection extends LightningElement {
 			await this.fetchApplicationDetails();
 
 			this.dispatchEvent(new CustomEvent("refresh"));
-
 		} catch (error) {
 			console.error(error);
 		} finally {

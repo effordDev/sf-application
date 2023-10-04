@@ -1,12 +1,10 @@
 <template>
-
-    <template lwc:if={flowApiName}>
-        <lightning-flow
-            flow-api-name={flowApiName}
-            flow-input-variables={flowInputVars}
-            flow-finish-behavior="NONE"
-            onstatuschange={handleStatusChange}
-        ></lightning-flow>
-    </template>
-
+	<template lwc:if={flowApiName}>
+		<lightning-flow
+			flow-api-name={flowApiName}
+			flow-input-variables={flowInputVars}
+			flow-finish-behavior="NONE"
+			onstatuschange={handleStatusChange}
+		></lightning-flow>
+	</template>
 </template>

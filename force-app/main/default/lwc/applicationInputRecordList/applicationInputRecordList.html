@@ -1,104 +1,78 @@
 <!-- sldsValidatorIgnore -->
 <template>
-    <div class="slds-box" style="padding-bottom: 40px;">
+	<div class="slds-box" style="padding-bottom: 40px">
+		{label}
 
-        {label}
+		<br />
 
-        <br />
+		<template lwc:if={isLoading}> Loading... </template>
+		<template lwc:else>
+			<template lwc:if={editable}>
+				<template lwc:if={active}>
+					<lightning-record-edit-form
+						object-api-name={childsObjectApi}
+						onsubmit={handleSubmit}
+						onsuccess={handleSuccess}
+						onerror={handleError}
+						onload={handleFormLoad}
+					>
+						<template lwc:if={formLoaded}>
+							<lightning-messages> </lightning-messages>
 
-        <template lwc:if={isLoading}>
-            Loading...
-        </template> 
-        <template lwc:else>
+							<template for:each={fieldSet} for:item="field">
+								<lightning-input-field
+									key={field.name}
+									field-name={field.name}
+									required={field.req}
+								></lightning-input-field>
+							</template>
 
-            <template lwc:if={editable}>
+							<div class="slds-var-m-top_medium">
+								<lightning-button variant="brand" type="submit" label="Save">
+								</lightning-button>
 
-                <template lwc:if={active}>
+								&nbsp;
 
-                    <lightning-record-edit-form
-                        object-api-name={childsObjectApi}
-                        onsubmit={handleSubmit}
-                        onsuccess={handleSuccess}
-                        onerror={handleError}
-                        onload={handleFormLoad}
-                    >
+								<lightning-button
+									label="Cancel"
+									onclick={hideInputs}
+								></lightning-button>
+							</div>
+						</template>
 
-                        <template lwc:if={formLoaded}>
+						<template lwc:else> Loading... </template>
+					</lightning-record-edit-form>
+				</template>
 
-                            <lightning-messages> </lightning-messages>
-    
-                            <template for:each={fieldSet} for:item="field">
-    
-                                <lightning-input-field 
-                                    key={field.name}
-                                    field-name={field.name}
-                                    required={field.req}
-                                ></lightning-input-field>
-                                
-                            </template>
-                    
-                            <div class="slds-var-m-top_medium">
-    
-                                <lightning-button 
-                                    variant="brand" 
-                                    type="submit" 
-                                    label="Save">
-                                </lightning-button>
-                            
-                                &nbsp;
-    
-                                <lightning-button   
-                                    label="Cancel"
-                                    onclick={hideInputs}
-                                ></lightning-button>
-    
-                            </div>
+				<template lwc:if={hideAddBtn}>
+					<lightning-button
+						label="Add"
+						variant="brand"
+						onclick={showInputs}
+					></lightning-button>
+				</template>
+			</template>
 
-                        </template>
+			<div style="height: 250px">
+				<br />
 
-                        <template lwc:else>
-                            Loading...
-                        </template>
+				<template lwc:if={required}>
+					<font style="color: red">*</font> Add at least one record
+					<br />
+				</template>
 
-                    </lightning-record-edit-form>
+				<lightning-datatable
+					key-field="id"
+					data={data}
+					columns={columns}
+					hide-checkbox-column
+					class="slds-max-medium-table_stacked-horizontal"
+					onrowaction={handleRowAction}
+				></lightning-datatable>
+			</div>
 
-                </template>
-
-                <template lwc:if={hideAddBtn}>
-
-                    <lightning-button
-                        label="Add"
-                        variant="brand"
-                        onclick={showInputs}
-                    ></lightning-button>
-
-                </template>
-
-            </template>
-
-            <div style="height: 250px;">
-
-                <br>
-
-                <template lwc:if={required}>
-                    <font style="color: red;">*</font> Add at least one record
-                    <br /> 
-                </template>
-
-                <lightning-datatable
-                    key-field="id"
-                    data={data}
-                    columns={columns}
-                    hide-checkbox-column
-                    class="slds-max-medium-table_stacked-horizontal"
-                    onrowaction={handleRowAction}
-                ></lightning-datatable>
-
-            </div>
-            
-            <!-- <br />
+			<!-- <br />
             <br /> -->
-        </template>
-    </div>
-
+		</template>
+	</div>
 </template>

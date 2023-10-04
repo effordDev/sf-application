@@ -4,8 +4,8 @@ export default class ApplicationInputTextAreaLong extends LightningElement {
 	@api recordId;
 	@api sectionId;
 	@api readOnly;
-	@api language = ''
-	@api languages = []
+	@api language = "";
+	@api languages = [];
 	@track _detail = {};
 
 	@api get detail() {
@@ -34,20 +34,21 @@ export default class ApplicationInputTextAreaLong extends LightningElement {
 		return this.detail?.Id;
 	}
 	get label() {
-		return this.language === 'English' ? 
-		this.detail?.Field_Label__c :
-		this.languages
-		.filter(lang => lang.Application_Detail__c === this.id)
-		.find(item => item.Language__c === this.language)?.Translated_Text__c
+		return this.language === "English"
+			? this.detail?.Field_Label__c
+			: this.languages
+					.filter((lang) => lang.Application_Detail__c === this.id)
+					.find((item) => item.Language__c === this.language)
+					?.Translated_Text__c;
 	}
 	get required() {
 		return this.detail?.Required__c;
 	}
 	get val() {
-		return this.detail?.Input_Text_Long__c || this.defaultValue
+		return this.detail?.Input_Text_Long__c || this.defaultValue;
 	}
 	get defaultValue() {
-		return this.detail?.Default_Value__c || ''
+		return this.detail?.Default_Value__c || "";
 	}
 	handleChange(event) {
 		const value = event.detail.value;
