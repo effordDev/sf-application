@@ -13,12 +13,12 @@ export default class ApplicationDisplayRichText extends LightningElement {
 		return this.detail?.Display_Rich_Text__c;
 	}
 	get alignment() {
-		return this.detail?.Alignment__c
+		return this.detail?.Alignment__c;
 	}
 	get displayClass() {
-		if (['Right', 'Left'].includes(this.alignment)) {
-			return `slds-float_${this.alignment.toLowerCase()}` 
-		} 
-		return 'slds-align_absolute-center'
+		if (["Right", "Left"].includes(this.alignment)) {
+			return `slds-float_${this.alignment.toLowerCase()}`;
+		}
+		return "slds-align_absolute-center";
 	}
 }

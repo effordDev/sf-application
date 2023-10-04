@@ -1,20 +1,20 @@
 .selector {
-     cursor: pointer;
+	cursor: pointer;
 }
 .files {
-     margin-left: 10px;
-     color:rgb(0, 126, 230);
-     text-decoration: underline;
-     overflow-wrap: break-word
+	margin-left: 10px;
+	color: rgb(0, 126, 230);
+	text-decoration: underline;
+	overflow-wrap: break-word;
 }
-  
+
 .info {
-     /* margin-top: 5px; */
-     margin-bottom: 5px;
-     margin-left: 10px;
-     color:rgb(177, 177, 177);
+	/* margin-top: 5px; */
+	margin-bottom: 5px;
+	margin-left: 10px;
+	color: rgb(177, 177, 177);
 }
 
 .not-complete {
-     border-color: red;
+	border-color: red;
 }

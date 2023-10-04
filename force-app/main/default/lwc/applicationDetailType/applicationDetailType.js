@@ -3,8 +3,8 @@ export default class ApplicationDetailType extends LightningElement {
 	@api recordId;
 	@api sectionId;
 	@api readOnly;
-	@api language = ''
-	@api languages = []
+	@api language = "";
+	@api languages = [];
 	@api detail = {};
 
 	@api isValid() {
@@ -13,10 +13,10 @@ export default class ApplicationDetailType extends LightningElement {
 	}
 
 	errorCallback(error, stack) {
-		console.log('error');
+		console.log("error");
 		console.log(error?.message);
 		console.log(stack);
-    }
+	}
 
 	get recordTypeName() {
 		return this.detail?.RecordType?.DeveloperName;
@@ -71,12 +71,12 @@ export default class ApplicationDetailType extends LightningElement {
 		return this.recordTypeName === "Input_Record_List";
 	}
 	get isInputFlow() {
-		return this.recordTypeName === 'Input_Flow'
+		return this.recordTypeName === "Input_Flow";
 	}
 	get isCustomComponent() {
 		return this.recordTypeName === "Custom_Component";
 	}
 	get customCmpName() {
-		return this.detail?.Component_Name__c
+		return this.detail?.Component_Name__c;
 	}
 }

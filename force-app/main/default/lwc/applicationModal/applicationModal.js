@@ -5,14 +5,14 @@ import { getDataConnectorSourceObjectDataPreviewWithFields } from "lightning/ana
 export default class ApplicationModal extends LightningModal {
 	@api recordId;
 	@api label;
-	@api language = ''
+	@api language = "";
 	@api sectionId;
 	@api readOnly;
 	@api details = [];
 
-	@api cancelBtnLabel = '';
-	@api saveBtnLabel = '';
-	
+	@api cancelBtnLabel = "";
+	@api saveBtnLabel = "";
+
 	get editable() {
 		return !this.readOnly;
 	}
@@ -34,7 +34,7 @@ export default class ApplicationModal extends LightningModal {
 			allValidArray.push(curr.isValid());
 		});
 
-		console.log(allValidArray)
+		console.log(allValidArray);
 
 		const isAllValid = allValidArray.every((item) => !!item);
 

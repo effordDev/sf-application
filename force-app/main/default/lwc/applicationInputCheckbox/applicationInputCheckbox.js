@@ -4,8 +4,8 @@ export default class ApplicationInputCheckbox extends LightningElement {
 	@api recordId;
 	@api sectionId;
 	@api readOnly;
-	@api language = ''
-	@api languages = []
+	@api language = "";
+	@api languages = [];
 	@track _detail = {};
 
 	@api get detail() {
@@ -35,11 +35,12 @@ export default class ApplicationInputCheckbox extends LightningElement {
 		return this.detail?.Id;
 	}
 	get label() {
-		return this.language === 'English' ? 
-		this.detail?.Field_Label__c :
-		this.languages
-		.filter(lang => lang.Application_Detail__c === this.id)
-		.find(item => item.Language__c === this.language)?.Translated_Text__c
+		return this.language === "English"
+			? this.detail?.Field_Label__c
+			: this.languages
+					.filter((lang) => lang.Application_Detail__c === this.id)
+					.find((item) => item.Language__c === this.language)
+					?.Translated_Text__c;
 	}
 	get required() {
 		return this.detail?.Required__c;

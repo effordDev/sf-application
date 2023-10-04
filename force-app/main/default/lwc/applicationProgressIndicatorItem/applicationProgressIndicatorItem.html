@@ -1,22 +1,17 @@
 <template>
+	<div class="wrapper">
+		<span>
+			<lightning-icon
+				icon-name={icon}
+				alternative-text={title}
+				title={title}
+				data-id={id}
+				size="xx-small"
+			></lightning-icon>
+		</span>
 
-    <div class="wrapper">
-        
-        <span>
-            <lightning-icon 
-                icon-name={icon}
-                alternative-text={title}
-                title={title}
-                data-id={id}
-                size="xx-small"
-            ></lightning-icon> 
-        </span>
+		&nbsp;
 
-        &nbsp;
-
-        <span data-id={id} onclick={handleClick} class={labelClass}>
-            {label} 
-        </span>
-    </div>
-
+		<span data-id={id} onclick={handleClick} class={labelClass}> {label} </span>
+	</div>
 </template>

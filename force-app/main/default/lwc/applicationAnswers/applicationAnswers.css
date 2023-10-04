@@ -1,20 +1,20 @@
 .sectionHeader {
-    color:blue;
-    cursor: pointer;
+	color: blue;
+	cursor: pointer;
 }
 
 .sectionHeader:hover {
-    color:rgb(72, 72, 255);
-    text-decoration: underline;
+	color: rgb(72, 72, 255);
+	text-decoration: underline;
 }
 
 table {
-    width: fit-content;
+	width: fit-content;
 }
 tr {
-    outline: 1px solid black;
+	outline: 1px solid black;
 }
 
 td {
-    padding: 5px;
+	padding: 5px;
 }

@@ -3,8 +3,8 @@ import { api, track, LightningElement } from "lwc";
 export default class ApplicationInputText extends LightningElement {
 	@api recordId;
 	@api sectionId;
-	@api language = ''
-	@api languages = []
+	@api language = "";
+	@api languages = [];
 	@api readOnly;
 	@track _detail = {};
 
@@ -35,20 +35,21 @@ export default class ApplicationInputText extends LightningElement {
 		return this.detail?.Id;
 	}
 	get label() {
-		return this.language === 'English' ? 
-		this.detail?.Field_Label__c :
-		this.languages
-		.filter(lang => lang.Application_Detail__c === this.id)
-		.find(item => item.Language__c === this.language)?.Translated_Text__c || this.detail?.Field_Label__c
+		return this.language === "English"
+			? this.detail?.Field_Label__c
+			: this.languages
+					.filter((lang) => lang.Application_Detail__c === this.id)
+					.find((item) => item.Language__c === this.language)
+					?.Translated_Text__c || this.detail?.Field_Label__c;
 	}
 	get required() {
 		return this.detail?.Required__c;
 	}
 	get val() {
-		return this.detail?.Input_Text__c || this.defaultValue
+		return this.detail?.Input_Text__c || this.defaultValue;
 	}
 	get defaultValue() {
-		return this.detail?.Default_Value__c || ''
+		return this.detail?.Default_Value__c || "";
 	}
 	get pattern() {
 		return this.detail?.Pattern__c;

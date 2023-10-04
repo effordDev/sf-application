@@ -1,40 +1,31 @@
 <template>
-    <div class="slds-box">
+	<div class="slds-box">
+		<div class="slds-text-heading_medium">{displayName}</div>
 
-        <div class="slds-text-heading_medium">
-            {displayName} 
-        </div>
+		<hr />
 
-        <hr />
-
-        <lightning-layout multiple-rows>
-
-            <template for:each={details} for:item="detail">
-                <lightning-layout-item
-                    key={detail.Id}
-                    size="12"
-                    small-device-size={detail.Small_Device_Size__c}
-                    medium-device-size={detail.Medium_Device_Size__c}
-                    large-device-size={detail.Large_Device_Size__c}
-                    padding="around-small"
-                >
-        
-                    <c-application-detail-type
-                        key={detail.Id}
-                        record-id={recordId}
-                        section-id={id}
-                        detail={detail}
-                        contact={contact}
-                        read-only
-                        language="English"
-                        class={detail.InputOrDisplayClass__c}
-                    ></c-application-detail-type>
-
-                </lightning-layout-item>
-
-            </template>
-
-        </lightning-layout>
-
-    </div>
+		<lightning-layout multiple-rows>
+			<template for:each={details} for:item="detail">
+				<lightning-layout-item
+					key={detail.Id}
+					size="12"
+					small-device-size={detail.Small_Device_Size__c}
+					medium-device-size={detail.Medium_Device_Size__c}
+					large-device-size={detail.Large_Device_Size__c}
+					padding="around-small"
+				>
+					<c-application-detail-type
+						key={detail.Id}
+						record-id={recordId}
+						section-id={id}
+						detail={detail}
+						contact={contact}
+						read-only
+						language="English"
+						class={detail.InputOrDisplayClass__c}
+					></c-application-detail-type>
+				</lightning-layout-item>
+			</template>
+		</lightning-layout>
+	</div>
 </template>

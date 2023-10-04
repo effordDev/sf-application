@@ -1,10 +1,9 @@
 <template>
-
 	<template lwc:if={isLoading}>
-		<lightning-spinner 
-			alternative-text="Loading" 
-			size="large" 
-			variant="inverse" 
+		<lightning-spinner
+			alternative-text="Loading"
+			size="large"
+			variant="inverse"
 			class="backgroundInverse"
 		></lightning-spinner>
 	</template>
@@ -13,7 +12,7 @@
 		onchange={handleLanguageChange}
 		options={languages}
 		value="English"
-	></lightning-combobox> 
+	></lightning-combobox>
 
 	<div class="wrapper">
 		<div class="slds-text-heading_large">{applicationDisplayName}</div>
@@ -26,7 +25,9 @@
 				large-device-size={largeDeviceSize}
 				padding="around-small"
 			>
-				<label class="slds-form-element__label"> {displayApplicationNumberText} </label>
+				<label class="slds-form-element__label">
+					{displayApplicationNumberText}
+				</label>
 				<div class="slds-text-body_regular">{name}</div>
 			</lightning-layout-item>
 
@@ -37,7 +38,9 @@
 				large-device-size={largeDeviceSize}
 				padding="around-small"
 			>
-				<label class="slds-form-element__label"> {displayApplicationStatusText} </label>
+				<label class="slds-form-element__label">
+					{displayApplicationStatusText}
+				</label>
 				<div class="slds-text-body_regular">{status}</div>
 			</lightning-layout-item>
 
@@ -48,7 +51,9 @@
 				large-device-size={largeDeviceSize}
 				padding="around-small"
 			>
-				<label class="slds-form-element__label"> {displayApplicationCreatedDateText} </label>
+				<label class="slds-form-element__label">
+					{displayApplicationCreatedDateText}
+				</label>
 				<div class="slds-text-body_regular">
 					<lightning-formatted-date-time
 						value={createdDate}
