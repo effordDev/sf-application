@@ -161,6 +161,7 @@ public with sharing class ApplicationHelper {
 						Parent_Dependent_Answer__c,
 						Allow_Delete__c
 					FROM Application_Details__r
+					ORDER BY Sort_Order__c ASC
 				)
 			FROM Application_Detail__c
 			WHERE Application_Section__c = :applicationSectionId
