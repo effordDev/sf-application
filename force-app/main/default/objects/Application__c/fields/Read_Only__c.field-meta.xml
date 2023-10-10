@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Read_Only__c</fullName>
     <externalId>false</externalId>
-    <formula>FALSE</formula>
+    <formula>TEXT(Status__c) = &apos;Submitted&apos;</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Read Only</label>
     <trackHistory>false</trackHistory>
