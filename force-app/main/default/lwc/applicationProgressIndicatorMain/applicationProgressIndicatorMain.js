@@ -39,6 +39,9 @@ export default class ApplicationProgressIndicatorMain extends LightningElement {
 			}))
 		];
 	}
+	get showLanguages() {
+		return this.languages.length > 1
+	}
 	get disableLanguagePicklist() {
 		return this.languages.length === 1;
 	}

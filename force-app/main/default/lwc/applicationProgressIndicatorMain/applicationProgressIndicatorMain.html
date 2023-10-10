@@ -39,21 +39,24 @@
 			>
 				<div class="slds-box headerWrapper">
 					<lightning-layout multiple-rows horizontal-align="space">
-						<lightning-layout-item
-							size="12"
-							small-device-size="12"
-							medium-device-size="12"
-							large-device-size="12"
-							padding="around-small"
-							class="slds-text-align_center"
-						>
-							<lightning-combobox
-								onchange={handleLanguageChange}
-								options={languages}
-								value="English"
-								disabled={disableLanguagePicklist}
-							></lightning-combobox>
-						</lightning-layout-item>
+						
+						<template lwc:if={showLanguages}>
+							<lightning-layout-item
+								size="12"
+								small-device-size="12"
+								medium-device-size="12"
+								large-device-size="12"
+								padding="around-small"
+								class="slds-text-align_center"
+							>
+								<lightning-combobox
+									onchange={handleLanguageChange}
+									options={languages}
+									value="English"
+									disabled={disableLanguagePicklist}
+								></lightning-combobox>
+							</lightning-layout-item>
+						</template>
 
 						<lightning-layout-item
 							size={size}
