@@ -29,6 +29,8 @@ export default class ApplicationAnswers extends LightningElement {
 	handleSectionHeaderClick(event) {
 		const id = event.target.dataset.id;
 
+		console.log(id)
+
 		const element = this.template.querySelector(`div[class="${id}"]`);
 
 		element.scrollIntoView({

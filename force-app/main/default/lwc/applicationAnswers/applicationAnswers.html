@@ -13,7 +13,7 @@
                 large-device-size="3" 
                 padding="around-small"
             >
-                <table>
+                <!-- <table>
                     <tbody>
                         <template for:each={sections} for:item="section">
                             <tr key={section.Id}>
@@ -25,7 +25,22 @@
                             </tr>
                         </template>
                     </tbody>
-                </table>
+                </table> -->
+                <template for:each={sections} for:item="section">
+                    <div key={section.Id} class="slds-pill slds-pill_link">
+                        <a 
+                            class="slds-pill__action" 
+                            title={section.Display_Section_Label__c}
+                        >
+                            <span data-id={section.Id} 
+                            onclick={handleSectionHeaderClick} class="slds-pill__label">
+                                {section.Display_Section_Label__c}
+                            </span>
+                        </a>
+                    </div>
+                </template>
+
+
             </lightning-layout-item>
     
             <lightning-layout-item
