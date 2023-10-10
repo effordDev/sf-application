@@ -38,9 +38,6 @@ public without sharing class ApplicationDetailFlattener {
                 AND Target_Field_API_Name__c != null
         ];
 
-        // List<SObject> sobs = new List<SObject>();
-        // SObject sobs = new SObject();
-
         String targetObjectRecordId = request.targetObjectRecordId;
 
         String targetObjectAPIName  = (Id.valueOf(targetObjectRecordId)).getSObjectType()
@@ -73,10 +70,6 @@ public without sharing class ApplicationDetailFlattener {
             system.debug(sourceFieldValue);
             
             if (sourceFieldValue != null) {
-                system.debug(sourceFieldApiName);
-                system.debug(targetFieldApiName);
-                system.debug(sourceFieldValue);
-
                 sob.put(targetFieldApiName, sourceFieldValue);
             }
         }
