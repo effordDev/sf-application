@@ -27,6 +27,9 @@ export default class ApplicationInputFlow extends LightningElement {
 	get flowIsCompleted() {
 		return this.flowStatus === "FINISHED";
 	}
+	get passApplicationIdToFlow() {
+		return this.detail.Pass_Application_Id_into_Flow__c
+	}
 
 	get required() {
 		return this.detail?.Required__c;
@@ -40,15 +43,21 @@ export default class ApplicationInputFlow extends LightningElement {
 	}
 
 	get flowInputVars() {
-		return [
-			{
-				// Match with the input variable name declared in the flow.
-				name: "recordId",
-				type: "String",
-				// Initial value to send to the flow input.
-				value: this.recordId
-			}
-		];
+
+		if (this.passApplicationIdToFlow) {
+			return [
+				{
+					// Match with the input variable name declared in the flow.
+					name: "recordId",
+					type: "String",
+					// Initial value to send to the flow input.
+					value: this.recordId
+				}
+			];
+		} else {
+			return []
+		}
+		 
 	}
 
 	get label() {
