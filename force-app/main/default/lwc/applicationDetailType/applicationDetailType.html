@@ -44,6 +44,19 @@
 		></c-application-input-text>
 	</template>
 
+	<template lwc:if={isInputEmail}>
+		<c-application-input-email
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			language={language}
+			languages={languages}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		></c-application-input-email>
+	</template>
+
 	<template lwc:if={isInputNumber}>
 		<c-application-input-number
 			lwc:ref="input"
