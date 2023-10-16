@@ -434,6 +434,7 @@ public without sharing class ApplicationTriggerHelper {
 					childDetail.Child_sObject_Table_Field_Set_API_Name__c = refChildDetail.Child_sObject_Table_Field_Set_API_Name__c;
 					childDetail.Parent_Dependent_Answer__c = refChildDetail.Parent_Dependent_Answer__c;
 					childDetail.Allow_Delete__c = refChildDetail.Allow_Delete__c;
+					childDetail.Checkbox_Group_Values__c = refChildDetail.Checkbox_Group_Values__c;
 					childDetail.Pass_Application_Id_into_Flow__c = refChildDetail.Pass_Application_Id_into_Flow__c;
 
 					childDetail.RecordTypeId = Schema.SObjectType.Application_Detail__c.getRecordTypeInfosByDeveloperName()
