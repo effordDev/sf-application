@@ -367,7 +367,7 @@ public with sharing class ApplicationHelper {
 
                     String jsonPart = '{';
                     jsonPart += '"required":"' + (f.getDBRequired() || f.getRequired()) + '",';
-                    jsonPart += '"type":"' + (f.getType()) + '",';
+                    jsonPart += '"type":"' + apexTypeToLightningType.get(String.valueof(f.getType())) + '",';
                     jsonPart += '"label":"' + (f.getLabel()) + '",';
                     jsonPart += '"name":"' + f.getFieldPath() + '"';
                     jsonPart += '}';
@@ -379,6 +379,27 @@ public with sharing class ApplicationHelper {
         }
         return '['+result+']';
     }
+
+	public static Map<String, String> apexTypeToLightningType = new Map<String, String> {
+        'ID' => 'id',
+        'PHONE' => 'phone',
+        'URL' => 'url',
+        'EMAIL' => 'email',
+        'ADDRESS' => 'text',
+        'TEXTAREA' => 'text',
+        'STRING' => 'text',
+        'REFERENCE' => 'reference',
+        'MULTIPICKLIST' => 'text',
+        'PICKLIST' => 'text',
+        'BOOLEAN' => 'boolean',
+        'DATE' => 'date',
+        'DATETIME' => 'date',
+        'TIME' => 'date',
+        'DOUBLE' => 'number',
+        'INTEGER' => 'number',
+        'CURRENCY' => 'currency',
+        'PERCENT' => 'percent'
+    };
 
 	@AuraEnabled
 	public static List<sObject> getFieldSetData(Id parentId, String sObjectName, String fieldSetName, String parentRelationship){

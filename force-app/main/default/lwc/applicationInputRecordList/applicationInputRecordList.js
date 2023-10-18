@@ -20,8 +20,8 @@ export default class ApplicationInputRecordList extends LightningElement {
 	formLoaded = false;
 
 	async connectedCallback() {
-		console.log("record list");
-		console.log(JSON.parse(JSON.stringify(this.detail)));
+		// console.log("record list");
+		// console.log(JSON.parse(JSON.stringify(this.detail)));
 
 		try {
 			this.isLoading = true;
@@ -30,6 +30,8 @@ export default class ApplicationInputRecordList extends LightningElement {
 				this.childsObjectApi,
 				this.childFieldSetApi
 			);
+			console.log('fieldset');
+			console.log((JSON.stringify(this.fieldSet)))
 			this.displayTableFieldSet = await this.fetchFieldSet(
 				this.childsObjectApi,
 				this.childDisplayTableFieldSetApi || this.childFieldSetApi
@@ -90,10 +92,21 @@ export default class ApplicationInputRecordList extends LightningElement {
 	}
 	get columns() {
 		let cols = this.displayTableFieldSet.map((field) => {
-			return {
+			const col = {
 				label: field?.label,
-				fieldName: field?.name
+				fieldName: field?.name,
+				type: field?.type || 'text'
 			};
+
+			if (field?.type === 'percent') {
+				col.type = 'percentfixed'
+			}
+
+			col.cellAttributes = {
+				alignment: 'center' // Center the button within the cell
+			}
+
+			return col
 		});
 
 		if (this.allowDelete && this.editable) {
