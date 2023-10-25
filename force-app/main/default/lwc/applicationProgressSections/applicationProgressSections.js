@@ -246,4 +246,20 @@ export default class ApplicationProgressSections extends LightningElement {
 			this.isLoading = false;
 		}
 	}
+
+	toast(
+		title = "Success",
+		message = "Application updated",
+		variant = "success",
+		mode = "dismissible"
+	) {
+		this.dispatchEvent(
+			new ShowToastEvent({
+				title,
+				message,
+				variant,
+				mode
+			})
+		);
+	}
 }
