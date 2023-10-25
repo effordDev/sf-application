@@ -11,7 +11,7 @@
 .questionsWrapper {
 	/* border: 1px solid rgb(0, 42, 255); */
 	padding: 5px;
-	height: fit-content;
+	min-height: 30vh;
 	max-height: 100vh;
 	overflow-y: scroll;
 }
