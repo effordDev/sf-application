@@ -60,42 +60,54 @@ export default class ApplicationProgressIndicatorMain extends LightningElement {
 			this.application?.Display_Description__c
 		);
 	}
+
+	get defaultApplicationNumberLabel() {
+		return this.application?.Application_Number_Label__c || ''
+	}
 	get displayApplicationNumberText() {
 		return (
 			this.applicationLanguages.find((al) => al.Language__c === this.language)
-				?.Translated_Application_Number__c || "Application Number"
+				?.Translated_Application_Number__c || this.defaultApplicationNumberLabel
 		);
+	}
+
+	get defaultApplicationStatusLabel() {
+		return this.application?.Status_Label__c || ''
 	}
 	get displayApplicationStatusText() {
 		return (
 			this.applicationLanguages.find((al) => al.Language__c === this.language)
-				?.Translated_Status__c || "Status"
+				?.Translated_Status__c || this.defaultApplicationStatusLabel
 		);
+	}
+
+	get defaultApplicationCreatedLabel() {
+		return this.application?.Created_Date_Label__c || ''
 	}
 	get displayApplicationCreatedDateText() {
 		return (
 			this.applicationLanguages.find((al) => al.Language__c === this.language)
-				?.Translated_Created_Date__c || "Created Date"
+				?.Translated_Created_Date__c || this.defaultApplicationCreatedLabel
 		);
 	}
-	get displayCancelBtnLabel() {
-		return (
-			this.applicationLanguages.find((al) => al.Language__c === this.language)
-				?.Translated_Cancel_Text__c || "Cancel"
-		);
-	}
-	get displaySubmitBtnLabel() {
-		return (
-			this.applicationLanguages.find((al) => al.Language__c === this.language)
-				?.Translated_Submit_Text__c || "Submit"
-		);
-	}
-	get displaySaveBtnLabel() {
-		return (
-			this.applicationLanguages.find((al) => al.Language__c === this.language)
-				?.Translated_Save_Text__c || "Save & Close"
-		);
-	}
+	// get displayCancelBtnLabel() {
+	// 	return (
+	// 		this.applicationLanguages.find((al) => al.Language__c === this.language)
+	// 			?.Translated_Cancel_Text__c || "Cancel"
+	// 	);
+	// }
+	// get displaySubmitBtnLabel() {
+	// 	return (
+	// 		this.applicationLanguages.find((al) => al.Language__c === this.language)
+	// 			?.Translated_Submit_Text__c || "Submit"
+	// 	);
+	// }
+	// get displaySaveBtnLabel() {
+	// 	return (
+	// 		this.applicationLanguages.find((al) => al.Language__c === this.language)
+	// 			?.Translated_Save_Text__c || "Save & Close"
+	// 	);
+	// }
 	get createdDate() {
 		return this.application?.CreatedDate;
 	}

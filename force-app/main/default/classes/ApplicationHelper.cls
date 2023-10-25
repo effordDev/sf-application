@@ -11,6 +11,12 @@ public with sharing class ApplicationHelper {
 				Status__c,
 				CreatedDate,
 				Read_Only__c,
+				Submit_Label__c,
+				Save_Label__c,
+				Save_Next_Label__c,
+				Application_Number_Label__c,
+				Status_Label__c,
+				Created_Date_Label__c,
 				(
 					SELECT
 						Id,

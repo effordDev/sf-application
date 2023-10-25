@@ -261,7 +261,16 @@ public without sharing class ApplicationTriggerHelper {
 		Map<Id, Reference_Application__c> referenceApplicationMap = new Map<Id, Reference_Application__c>();
 
 		for (Reference_Application__c referenceApplication : [
-			SELECT Id, Name, Display_Description__c, Display_Name__c
+			SELECT Id, 
+				Name, 
+				Display_Description__c, 
+				Display_Name__c,
+				Submit_Label__c,
+				Save_Label__c,
+				Save_Next_Label__c,
+				Application_Number_Label__c,
+				Status_Label__c,
+				Created_Date_Label__c
 			FROM Reference_Application__c
 			WHERE Id = :referenceApplicationIds
 		]) {
@@ -616,7 +625,16 @@ public without sharing class ApplicationTriggerHelper {
 
 		Map<Id, Reference_Application__c> referenceApplicationMap = new Map<Id, Reference_Application__c>();
 		for (Reference_Application__c referenceApplication : [
-			SELECT Id, Name, Display_Description__c, Display_Name__c
+			SELECT Id, 
+				Name, 
+				Display_Description__c, 
+				Display_Name__c,
+				Submit_Label__c,
+				Save_Label__c,
+				Save_Next_Label__c,
+				Application_Number_Label__c,
+				Status_Label__c,
+				Created_Date_Label__c
 			FROM Reference_Application__c
 			WHERE Id = :referenceApplicationIds
 		]) {
@@ -633,6 +651,12 @@ public without sharing class ApplicationTriggerHelper {
 
 			application.Application_Display_Name__c = referenceApplication.Display_Name__c;
 			application.Display_Description__c = referenceApplication.Display_Description__c;
+			application.Submit_Label__c = referenceApplication.Submit_Label__c;
+			application.Save_Label__c = referenceApplication.Save_Label__c;
+			application.Save_Next_Label__c = referenceApplication.Save_Next_Label__c;
+			application.Application_Number_Label__c = referenceApplication.Application_Number_Label__c;
+			application.Status_Label__c = referenceApplication.Status_Label__c;
+			application.Created_Date_Label__c = referenceApplication.Created_Date_Label__c;
 		}
 	}
 }

@@ -8,6 +8,8 @@ import updateSobs from "@salesforce/apex/ApplicationHelper.updateSobs";
 
 export default class ApplicationProgressSections extends LightningElement {
 	@api recordId;
+	@api application = {}
+	@api applicationLanguages = []
 	@api contact = {};
 	@api readOnly = false;
 	@api sections = [];
@@ -44,10 +46,40 @@ export default class ApplicationProgressSections extends LightningElement {
 		return this.sectionIndex + 1 === this.sections.length;
 	}
 	get saveBtnLabel() {
-		return this.isLastSection ? "Save" : "Save & Next";
+		return this.isLastSection ? this.displaySaveBtnLabel : this.displaySaveNextBtnLabel;
 	}
 	get showSubmitBtn() {
 		return this.allSectionsComplete;
+	}
+
+	get defaultSubmitLabel() {
+		return this.application?.Submit_Label__c || ''
+	}
+	get displaySubmitBtnLabel() {
+		return (
+			this.applicationLanguages.find((al) => al.Language__c === this.language)
+				?.Translated_Submit_Text__c || this.defaultSubmitLabel
+		);
+	}
+
+	get defaultSaveLabel() {
+		return this.application?.Save_Label__c || ''
+	}
+	get displaySaveBtnLabel() {
+		return (
+			this.applicationLanguages.find((al) => al.Language__c === this.language)
+				?.Translated_Save_Text__c || this.defaultSaveLabel
+		);
+	}
+
+	get defaultSaveNextLabel() {
+		return this.application?.Save_Next_Label__c || ''
+	}
+	get displaySaveNextBtnLabel() {
+		return (
+			this.applicationLanguages.find((al) => al.Language__c === this.language)
+				?.Translated_Save_Text__c || this.defaultSaveNextLabel
+		);
 	}
 	// saveBtnDisable() {
 	//     return this.isLastSection
