@@ -15,9 +15,12 @@ export default class ApplicationInputRecordList extends LightningElement {
 	displayTableFieldSet = [];
 	data = [];
 
+	currentRowId = ''
+
 	active = false;
 	isLoading = false;
 	formLoaded = false;
+	editActive = false
 
 	async connectedCallback() {
 		// console.log("record list");
@@ -90,6 +93,9 @@ export default class ApplicationInputRecordList extends LightningElement {
 	get allowDelete() {
 		return this.detail?.Allow_Delete__c;
 	}
+	get allowEdit() {
+		return this.detail?.Allow_Edit__c;
+	}
 	get columns() {
 		let cols = this.displayTableFieldSet.map((field) => {
 			const col = {
@@ -108,6 +114,21 @@ export default class ApplicationInputRecordList extends LightningElement {
 
 			return col
 		});
+
+		if (this.allowEdit && this.editable) {
+			cols = [
+				...cols,
+				{
+					type: "button-icon",
+					initialWidth: 34,
+					typeAttributes: {
+						iconName: "utility:edit",
+						name: "edit",
+						iconClass: "slds-icon-text-warning"
+					}
+				}
+			];
+		}
 
 		if (this.allowDelete && this.editable) {
 			cols = [
@@ -165,6 +186,8 @@ export default class ApplicationInputRecordList extends LightningElement {
 			case "delete":
 				this.deleteRow(Id);
 				break;
+			case "edit":
+				this.editRow(Id)
 		}
 	}
 
@@ -189,6 +212,12 @@ export default class ApplicationInputRecordList extends LightningElement {
 				})
 			);
 		}
+	}
+
+	editRow(id) {
+		this.formLoaded = false
+		this.currentRowId = id
+		this.editActive = true
 	}
 
 	handleSubmit(event) {
@@ -223,6 +252,8 @@ export default class ApplicationInputRecordList extends LightningElement {
 
 		await this.fetchFieldSetData();
 
+		this.editActive = false
+
 		this.dispatchEvent(
 			new CustomEvent("detailchange", {
 				composed: true,
@@ -234,7 +265,7 @@ export default class ApplicationInputRecordList extends LightningElement {
 			})
 		);
 	}
-
+	
 	showInputs(event) {
 		this.active = true;
 	}
@@ -249,5 +280,6 @@ export default class ApplicationInputRecordList extends LightningElement {
 		}
 
 		this.active = false;
+		this.editActive = false
 	}
 }

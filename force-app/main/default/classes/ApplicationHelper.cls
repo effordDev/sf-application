@@ -114,6 +114,7 @@ public with sharing class ApplicationHelper {
 				Child_sObject_Table_Field_Set_API_Name__c,
 				Parent_Dependent_Answer__c,
 				Allow_Delete__c,
+				Allow_Edit__c,
 				Pass_Application_Id_into_Flow__c,
 				(
 					SELECT Id,
@@ -167,6 +168,7 @@ public with sharing class ApplicationHelper {
 						Child_sObject_Table_Field_Set_API_Name__c,
 						Parent_Dependent_Answer__c,
 						Allow_Delete__c,
+						Allow_Edit__c,
 						Pass_Application_Id_into_Flow__c
 					FROM Application_Details__r
 					ORDER BY Sort_Order__c ASC
