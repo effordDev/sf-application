@@ -61,6 +61,7 @@ public without sharing class ApplicationTriggerHelper {
 				Reference_Parent_Application_Detail__c,
 				Parent_Dependent_Answer__c,
 				Allow_Delete__c,
+				Allow_Edit__c,
 				Pass_Application_Id_into_Flow__c
 			FROM Reference_Application_Detail__c
 			WHERE Reference_Application_Section__c IN : referenceApplicationSections
@@ -216,6 +217,7 @@ public without sharing class ApplicationTriggerHelper {
 				Reference_Parent_Application_Detail__c,
 				Parent_Dependent_Answer__c,
 				Allow_Delete__c,
+				Allow_Edit__c,
 				Pass_Application_Id_into_Flow__c
 			FROM Reference_Application_Detail__c
 			WHERE Reference_Parent_Application_Detail__c IN : referenceApplicationDetails
@@ -375,6 +377,7 @@ public without sharing class ApplicationTriggerHelper {
 				applicationDetail.Child_sObject_Table_Field_Set_API_Name__c = referenceApplicationDetail.Child_sObject_Table_Field_Set_API_Name__c;
 				applicationDetail.Parent_Dependent_Answer__c = referenceApplicationDetail.Parent_Dependent_Answer__c;
 				applicationDetail.Allow_Delete__c = referenceApplicationDetail.Allow_Delete__c;
+				applicationDetail.Allow_Edit__c = referenceApplicationDetail.Allow_Edit__c;
 				applicationDetail.Pass_Application_Id_into_Flow__c = referenceApplicationDetail.Pass_Application_Id_into_Flow__c;
 
 				applicationDetail.RecordTypeId = Schema.SObjectType.Application_Detail__c.getRecordTypeInfosByDeveloperName()
@@ -443,6 +446,7 @@ public without sharing class ApplicationTriggerHelper {
 					childDetail.Child_sObject_Table_Field_Set_API_Name__c = refChildDetail.Child_sObject_Table_Field_Set_API_Name__c;
 					childDetail.Parent_Dependent_Answer__c = refChildDetail.Parent_Dependent_Answer__c;
 					childDetail.Allow_Delete__c = refChildDetail.Allow_Delete__c;
+					childDetail.Allow_Edit__c = refChildDetail.Allow_Edit__c;
 					childDetail.Checkbox_Group_Values__c = refChildDetail.Checkbox_Group_Values__c;
 					childDetail.Pass_Application_Id_into_Flow__c = refChildDetail.Pass_Application_Id_into_Flow__c;
 

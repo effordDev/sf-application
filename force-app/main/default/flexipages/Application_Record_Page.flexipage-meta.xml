@@ -233,8 +233,8 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>applicationMain</componentName>
-                <identifier>c_applicationMain</identifier>
+                <componentName>applicationProgressIndicatorMain</componentName>
+                <identifier>c_applicationProgressIndicatorMain</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-c607e0e0-1366-429c-9544-269e1abba861</name>

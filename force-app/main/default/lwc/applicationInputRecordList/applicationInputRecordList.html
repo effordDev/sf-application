@@ -74,5 +74,58 @@
 			<!-- <br />
             <br /> -->
 		</template>
+
+		<template lwc:if={editable}>
+			<template lwc:if={editActive}>
+				<section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_medium">
+					<div class="slds-modal__container">
+					  
+						<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+							
+							<lightning-record-edit-form
+								record-id={currentRowId}
+								object-api-name={childsObjectApi}
+								onsubmit={handleSubmit}
+								onsuccess={handleSuccess}
+								onerror={handleError}
+								onload={handleFormLoad}
+							>
+								<template lwc:if={formLoaded}>
+									<lightning-messages> </lightning-messages>
+
+									<template for:each={fieldSet} for:item="field">
+										<lightning-input-field
+											key={field.name}
+											field-name={field.name}
+											required={field.req}
+										></lightning-input-field>
+									</template>
+
+									<div class="slds-var-m-top_medium">
+										<lightning-button variant="brand" type="submit" label="Save">
+										</lightning-button>
+
+										&nbsp;
+
+										<lightning-button
+											label="Cancel"
+											onclick={hideInputs}
+										></lightning-button>
+									</div>
+								</template>
+
+								<template lwc:else> Loading... </template>
+							</lightning-record-edit-form>
+
+						</div>
+
+						<!-- <div class="slds-modal__footer">
+							
+						</div> -->
+					</div>
+				</section>
+				<div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+			</template>
+		</template>
 	</div>
 </template>
