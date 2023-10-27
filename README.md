@@ -11,6 +11,12 @@ Demo
 
 [﻿screen-recorder-tue-may-23-2023-11-14-03.webm](https://github.com/effordDev/sf-application/assets/36901822/16ea4480-2926-4933-b18b-b6aa0b3801e9)
 
+# Table of Contents
+1. [Getting Started](#gettingStarted)
+2. [Creating Inputs / Display Text](#creatingInputs/DisplayText)
+  2.1 [To Customize Inputs](#toCustomizeInputs)
+  2.2 [Custom Components](#customComponents)
+
 This module provides a way for admins to build an application/form using LWC's. This is accomplished by building a skeleton structure of your application using the custom objects:
 
 ```
@@ -41,7 +47,7 @@ Component Hierarchy:
 
 [﻿View on canvas](https://app.eraser.io/workspace/4mzdiBc2NqPL5mLv0VEY?origin=share)
 
-## Getting Started
+## Getting Started <a name="gettingStarted"></a>
 
 Navigate to the App **Reference Application Helper** To create an application, simply create a `Application__c` record and populate the lookup `Reference_Application__c` to the application you want your instance modeled after. This is will trigger a process to write the following mapping:
 
@@ -54,7 +60,7 @@ Reference_Application_Detail__c => Application_Detail__c
 Application_Detail_Language__c => Reference_Application_Detail_Language__c
 ```
 
-### Creating Inputs / Display Text
+### Creating Inputs / Display Text <a name="creatingInputs/DisplayText"></a>
 
 The record type of `Reference_Application_Detail__c` Determines the type of input.
 
@@ -76,7 +82,7 @@ The following are the currently supported input fields / display types (Record T
 - Input Text
 - Input Text Area Long
 
-#### To Customize inputs:
+#### To Customize Inputs <a name="toCustomizeInputs"></a>:
 
 `Required__c` - Determines if the input must be completed before saving the section.
 
@@ -93,7 +99,7 @@ The following are the currently supported input fields / display types (Record T
 [﻿See SLDS Grid Doc](https://www.lightningdesignsystem.com/utilities/grid/)
 [﻿Example](https://developer.salesforce.com/docs/component-library/bundle/lightning-layout-item/example/)
 
-#### Custom Components
+#### Custom Components <a name="customComponents"></a>
 
 To add a custom component to the application choose the record type `Custom_Component`.
 Populate `Component_Name__c` and if you need to pass information to the component you can do using `Custom_Component_JSON__c`.
