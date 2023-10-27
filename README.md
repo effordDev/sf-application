@@ -14,8 +14,8 @@ Demo
 # Table of Contents
 1. [Getting Started](#gettingStarted)
 2. [Creating Inputs / Display Text](#creatingInputs/DisplayText)
-  2.1 [To Customize Inputs](#toCustomizeInputs)
-  2.2 [Custom Components](#customComponents)
+    2.1 [To Customize Inputs](#toCustomizeInputs)
+    2.2 [Custom Components](#customComponents)
 
 This module provides a way for admins to build an application/form using LWC's. This is accomplished by building a skeleton structure of your application using the custom objects:
 
