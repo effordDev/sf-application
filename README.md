@@ -181,6 +181,7 @@ The following are the currently supported input fields / display types (Record T
 - Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-flow/documentation">base lightning-flow</a> 
 - `Flow_API_Name__c` - The name that will be set as the file that was uploaded
 - `Pass_Application_Id_into_Flow__c` - If checked, will pass the Application Id into the flow - recordId (text variable - available for input)
+- To require a flow, Set `Require__c` = true. Create an output variable called `isComplete` and set it to true once the flow is valid
 
 #### Input Number <a name="inputNumber"></a>
 - Saves value to `Input_Number__c`

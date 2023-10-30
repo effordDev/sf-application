@@ -8,6 +8,7 @@ export default class ApplicationInputFlow extends LightningElement {
 	@api languages = [];
 	@track _detail = {};
 
+	flowIsCompleted = false
 	flowStatus = "";
 
 	@api get detail() {
@@ -24,9 +25,9 @@ export default class ApplicationInputFlow extends LightningElement {
 	get inComplete() {
 		return !this.completed;
 	}
-	get flowIsCompleted() {
-		return this.flowStatus === "FINISHED";
-	}
+	// get flowIsCompleted() {
+	// 	return this.flowStatus === "FINISHED";
+	// }
 	get passApplicationIdToFlow() {
 		return this.detail.Pass_Application_Id_into_Flow__c
 	}
@@ -75,9 +76,16 @@ export default class ApplicationInputFlow extends LightningElement {
 	handleStatusChange(event) {
 		console.log(JSON.parse(JSON.stringify(event.detail)));
 
-		//confirm flow has been completed once
-		if (this.flowStatus !== "FINISHED") {
-			this.flowStatus = event.detail.status;
+		this.flowStatus = event.detail?.status
+
+		if (event?.detail?.outputVariables.some(x => {
+			return x?.name === 'isComplete' && x?.value == true
+		})) {
+			this.flowIsCompleted = true
 		}
+		// //confirm flow has been completed once
+		// if (this.flowStatus !== 'FINISHED') {
+		// 	this.flowStatus = event.detail.status
+		// }
 	}
 }
