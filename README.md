@@ -1,7 +1,5 @@
 # sf-application
 
-## Overview
-
 <a href="https://githubsfdeploy.herokuapp.com">
   <img alt="Deploy to Salesforce"
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
@@ -12,24 +10,31 @@ Demo
 [﻿screen-recorder-tue-may-23-2023-11-14-03.webm](https://github.com/effordDev/sf-application/assets/36901822/16ea4480-2926-4933-b18b-b6aa0b3801e9)
 
 # Table of Contents
+- [Overview](#overview)
 - [Getting Started](#gettingStarted)
 - [Creating Inputs / Display Text](#creatingInputs/DisplayText)
   - [To Customize Inputs](#toCustomizeInputs)
     - [Display Rich Text](#displayRichText)
-    - Display Text
-    - Input Checkbox Group
-    - Input Currency
-    - Input Date
-    - Input Date Time
-    - Input File
-    - Input Flow
-    - Input Number
-    - Input Picklist
-    - Input Radio Group
-    - Input Record List
-    - Input Text
-    - Input Text Area Long
+    - [Display Text](#displayText)
+    - [Input Checkbox Group](#inputCheckboxGroup)
+    - [Input Currency](#inputCurrency)
+    - [Input Date](#inputDate)
+    - [Input Date Time](#inputDateTime)
+    - [Input File](#inputFile)
+    - [Input Flow](#inputFlow)
+    - [Input Number](#inputNumber)
+    - [Input Picklist](#inputPicklist)
+    - [Input Radio Group](#inputRadioGroup)
+    - [Input Record List](#inputRecordList)
+    - [Input Text](#inputText)
+    - [Input Text Area Long](#inputTextAreaLong)
     - [Custom Components](#customComponents)
+- [Application Response Flattener](#applicationResponseFlattener)
+  - [Configuration](#configuration)
+    - [Target Field Definition](#targetFieldDefinition)
+    - [Record-Triggered Flow](#record-TriggeredFlow)
+
+## Overview <a name="overview"></a>
 
 This module provides a way for admins to build an application/form using LWC's. This is accomplished by building a skeleton structure of your application using the custom objects:
 
@@ -80,7 +85,6 @@ The record type of `Reference_Application_Detail__c` Determines the type of inpu
 
 The following are the currently supported input fields / display types (Record Types):
 
-- Custom Component
 - Display Rich Text
 - Display Text
 - Input Checkbox Group
@@ -95,6 +99,7 @@ The following are the currently supported input fields / display types (Record T
 - Input Record List
 - Input Text
 - Input Text Area Long
+- Custom Component
 
 #### To Customize Inputs <a name="toCustomizeInputs"></a>:
 
@@ -128,33 +133,83 @@ The following are the currently supported input fields / display types (Record T
 [﻿Example](https://developer.salesforce.com/docs/component-library/bundle/lightning-layout-item/example/)
 
 #### Display Rich Text <a name="displayRichText"></a>
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base lightning-formatted-rich-text</a>
 - ```Display_Rich_Text__c``` - Rich text to be displayed
 
 #### Display Text <a name="displayText"></a>
+- Displays <a href="https://www.lightningdesignsystem.com/utilities/text">slds-text-body_regular</a>
 - ```Display_Text__c``` - Text to be displayed
 
 #### Input Checkbox <a name="inputCheckbox"></a>
 - Saves value to `Input_Checkbox__c`
-- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base input</a> - Type checkbox
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base lightning-input</a> - type="checkbox"
 
 #### Input Checkbox Group <a name="inputCheckboxGroup"></a>
 - Saves value to `Input_Text_Long__c`
-- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-checkbox-group/documentation">base input - Checkbox Group</a>
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-checkbox-group/documentation">base lightning-checkbox-group</a>
 
 #### Input Currency <a name="inputCurrency"></a>
 
 - Saves value to `Input_Currency__c`
-- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base input</a> - Type currency
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base lightning-input</a> - type="currency"
 - `Maximum` - Specifies maximum value
 - `Minimum` - Specifies minimum value
 - `Step` - The value of step constrains the numbers that users can enter. If you don't specify step, the default value of 1 allows users to enter only integers. To enable decimal number entry, specify a value for step that represents the number of decimal places accepted and the increment. For example, specifying step=".01" permits numbers such as 0.99 and 123456.78. Specifying step=".20" permits numbers such as 18.60 but not 18.61 or 18.70.
 
 #### Input Date <a name="inputDate"></a>
-
 - Saves value to `Input_Date__c`
-- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base input</a> - Type date
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base lightning-input</a> - type="date"
 - `Default_Value__c` - For Date/Datetime use "TODAY" so set the default to the current date.
 
+#### Input Date Time <a name="inputDateTime"></a>
+- Saves value to `Input_Datetime__c`
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base lightning-input</a> - type="datetime"
+- `Default_Value__c` - For Date/Datetime use "TODAY" so set the default to the current date.
+
+#### Input Email <a name="inputEmail"></a>
+- Saves value to `Input_Text__c`
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base lightning-input</a> - type="email"
+- `Pattern__c` - Regex pattern to validate input
+- `Message_When_Pattern_Mismatch__c` - When using pattern, you can provide a custom validation error message using the message-when-pattern-mismatch attribute.
+
+#### Input File <a name="inputFile"></a>
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-file-upload/documentation">base lightning-file-upload</a> 
+- `File_Rename__c` - The name that will be set as the file that was uploaded
+- `Accepted_File_Types__c` - Set valid file types
+
+#### Input Flow <a name="inputFlow"></a>
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-flow/documentation">base lightning-flow</a> 
+- `Flow_API_Name__c` - The name that will be set as the file that was uploaded
+- `Pass_Application_Id_into_Flow__c` - If checked, will pass the Application Id into the flow - recordId (text variable - available for input)
+
+#### Input Number <a name="inputNumber"></a>
+- Saves value to `Input_Number__c`
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base lightning-input</a> - type="number"
+- `Maximum` - Specifies maximum value
+- `Minimum` - Specifies minimum value
+- `Step` - The value of step constrains the numbers that users can enter. If you don't specify step, the default value of 1 allows users to enter only integers. To enable decimal number entry, specify a value for step that represents the number of decimal places accepted and the increment. For example, specifying step=".01" permits numbers such as 0.99 and 123456.78. Specifying step=".20" permits numbers such as 18.60 but not 18.61 or 18.70.
+
+#### Input Picklist <a name="inputPicklist"></a>
+- Saves value to `Input_Number__c`
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base lightning-combobox</a> 
+- `Picklist_Values__c` - 	Semicolon separated list of values (EX. 'Yes; No; Maybe')
+
+#### Input Radio Group <a name="inputRadioGroup"></a>
+- Saves value to `Input_Number__c`
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base lightning-input</a> type="radio"
+- `Radio_Group_Values__c` - 	Semicolon separated list of values (EX. 'Yes; No; Maybe')
+
+#### Input Record List <a name="inputRecordList"></a>
+- Provides a way to add child records to the application
+- `Child_sObject_API_Name__c` - API name of SObject related to Application__c
+- `Child_sObject_Field_Set_API_Name__c` - Field set displayed when creating records
+- `Child_sObject_Table_Field_Set_API_Name__c` - Columns in table showing child records
+- `Child_To_Parent_Relationship_Api_Name__c` - Lookup/MD API name to `Application__c` (typically `Application__c`)
+
+#### Input Long Text Area <a name="inputLongTextArea"></a>
+- Saves value to `Input_Text_Long__c`
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-textarea/documentation">base lightning-textarea</a>
+- `Radio_Group_Values__c` - 	Semicolon separated list of values (EX. 'Yes; No; Maybe')
 
 #### Custom Components <a name="customComponents"></a>
 
@@ -209,7 +264,7 @@ get customJson() {
 }
 ```
 
-## Application Response Flattener
+## Application Response Flattener <a name="applicationResponseFlattener"></a>
 ```Flatten Application Responses``` is an invokable Apex method that can be used in a Record-Triggered Flow to write responses from Application Detail records into specific fields on a target object.
 
 - A Record-Triggered Flow will control when the automation runs to write the responses.
@@ -217,15 +272,15 @@ get customJson() {
 - Field data-types are handled by the Apex and are based on the Reference Application Detail record type.
    - The data type of your target field should match, otherwise errors may occur.
 
-### Configuration
+### Configuration <a href="configuration"></a>
 
-#### Target Field Definition
+#### Target Field Definition <a href="targetFieldDefinition"></a>
 
 For any application responses that you wish to write to a field, you must first populate the ```Target_Field_API_Name__c``` on the **Reference Application Detail** record.
 > The ```Target_Field_API_Name__c``` should be the API name of the field you wish to write the resonse to on the target object.
 > *(The target object will be specified in a Record-Triggered Flow)*
 
-#### Record-Triggered Flow
+#### Record-Triggered Flow <a href="record-TriggeredFlow"></a>
 
 To allow for configurability of the criteria that trigger the responses to be flattened, a Record-Triggered flow should be created on the *Application* object, and fire based on your desired criteria (such as **Status** changing to *Submitted*)
 
