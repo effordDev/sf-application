@@ -12,10 +12,24 @@ Demo
 [﻿screen-recorder-tue-may-23-2023-11-14-03.webm](https://github.com/effordDev/sf-application/assets/36901822/16ea4480-2926-4933-b18b-b6aa0b3801e9)
 
 # Table of Contents
-1. [Getting Started](#gettingStarted)
-2. [Creating Inputs / Display Text](#creatingInputs/DisplayText)
-    2.1 [To Customize Inputs](#toCustomizeInputs)
-    2.2 [Custom Components](#customComponents)
+- [Getting Started](#gettingStarted)
+- [Creating Inputs / Display Text](#creatingInputs/DisplayText)
+  - [To Customize Inputs](#toCustomizeInputs)
+    - [Display Rich Text](#displayRichText)
+    - Display Text
+    - Input Checkbox Group
+    - Input Currency
+    - Input Date
+    - Input Date Time
+    - Input File
+    - Input Flow
+    - Input Number
+    - Input Picklist
+    - Input Radio Group
+    - Input Record List
+    - Input Text
+    - Input Text Area Long
+    - [Custom Components](#customComponents)
 
 This module provides a way for admins to build an application/form using LWC's. This is accomplished by building a skeleton structure of your application using the custom objects:
 
@@ -84,20 +98,63 @@ The following are the currently supported input fields / display types (Record T
 
 #### To Customize Inputs <a name="toCustomizeInputs"></a>:
 
-`Required__c` - Determines if the input must be completed before saving the section.
+- `Required__c` - Determines if the input must be completed before saving the section.
 
-`Field_Label__c` - Label of the input to show on application.
+- `Field_Label__c` - Label of the input to show on application.
 
-`Sort_Order__c` - Order of which the field should display.
+- `Sort_Order__c` - Order of which the field should display.
 
-`Small_Device_Size__c` - Determines how the width of the input on a small device.
+- `Small_Device_Size__c` - Determines how the width of the input on a small device.
 
-`Medium_Device_Size__c` - Determines how the width of the input on a medium device.
+- `Medium_Device_Size__c` - Determines how the width of the input on a medium device.
 
-`Large_Device_Size__c` - Determines how the width of the input on a large device
+- `Large_Device_Size__c` - Determines how the width of the input on a large device
+
+- `Reference_Parent_Application_Detail__c` - Determines parent dependant question
+
+- `Parent_Dependent_Answer__c` - Specifies the answer to show child component (when parent is = to answer → child will show)
+
+- `Alignment__c` - Configures alignment (Left, Center, Right)
+
+- `Required__c` - Specfies if the input should require a value before save (**Only available for inputs**)
+
+- `Field_Label__c` - Label of the input 
+
+- `Sort Order` - Specifies the order of the details
+
+- `Target Field API Name` to do
 
 [﻿See SLDS Grid Doc](https://www.lightningdesignsystem.com/utilities/grid/)
 [﻿Example](https://developer.salesforce.com/docs/component-library/bundle/lightning-layout-item/example/)
+
+#### Display Rich Text <a name="displayRichText"></a>
+- ```Display_Rich_Text__c``` - Rich text to be displayed
+
+#### Display Text <a name="displayText"></a>
+- ```Display_Text__c``` - Text to be displayed
+
+#### Input Checkbox <a name="inputCheckbox"></a>
+- Saves value to `Input_Checkbox__c`
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base input</a> - Type checkbox
+
+#### Input Checkbox Group <a name="inputCheckboxGroup"></a>
+- Saves value to `Input_Text_Long__c`
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-checkbox-group/documentation">base input - Checkbox Group</a>
+
+#### Input Currency <a name="inputCurrency"></a>
+
+- Saves value to `Input_Currency__c`
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base input</a> - Type currency
+- `Maximum` - Specifies maximum value
+- `Minimum` - Specifies minimum value
+- `Step` - The value of step constrains the numbers that users can enter. If you don't specify step, the default value of 1 allows users to enter only integers. To enable decimal number entry, specify a value for step that represents the number of decimal places accepted and the increment. For example, specifying step=".01" permits numbers such as 0.99 and 123456.78. Specifying step=".20" permits numbers such as 18.60 but not 18.61 or 18.70.
+
+#### Input Date <a name="inputDate"></a>
+
+- Saves value to `Input_Date__c`
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base input</a> - Type date
+- `Default_Value__c` - For Date/Datetime use "TODAY" so set the default to the current date.
+
 
 #### Custom Components <a name="customComponents"></a>
 
