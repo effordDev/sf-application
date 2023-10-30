@@ -38,7 +38,7 @@ export default class ApplicationInputCheckboxGroup extends LightningElement {
 		return this.detail?.Required__c;
 	}
 	get val() {
-		return this.detail?.Input_Text__c?.split(";") || [];
+		return this.detail?.Input_Text_Long__c?.split(";") || [];
 	}
 	get picklistValues() {
 		return this.detail?.Checkbox_Group_Values__c || "";
@@ -64,7 +64,7 @@ export default class ApplicationInputCheckboxGroup extends LightningElement {
 	handleChange(event) {
 		const value = event.detail.value;
 
-		this.detail.Input_Text__c = value.join(";");
+		this.detail.Input_Text_Long__c = value.join(";");
 
 		console.log(JSON.parse(JSON.stringify(this.detail)));
 
@@ -74,7 +74,7 @@ export default class ApplicationInputCheckboxGroup extends LightningElement {
 				bubbles: true,
 				detail: {
 					Id: this.id,
-					Input_Text__c: this.detail.Input_Text__c
+					Input_Text_Long__c: this.detail.Input_Text_Long__c
 				}
 			})
 		);
