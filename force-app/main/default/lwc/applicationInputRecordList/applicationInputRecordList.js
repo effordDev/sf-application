@@ -158,7 +158,7 @@ export default class ApplicationInputRecordList extends LightningElement {
 				fieldSetName
 			})
 		).map((field) => {
-			field.req = !field?.required === "false";
+			field.req = field?.required === "true";
 			return field;
 		});
 	}
