@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>InputOrDisplayClass__c</fullName>
     <externalId>false</externalId>
-    <formula>if( CONTAINS(RecordType.DeveloperName, &apos;Input&apos;), &apos;customInput&apos;, &apos;customDisplay&apos; )</formula>
+    <formula>if( CONTAINS(RecordType.DeveloperName, &apos;Input&apos;) || CONTAINS(RecordType.DeveloperName, &apos;Component&apos;), &apos;customInput&apos;, &apos;customDisplay&apos; )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>InputOrDisplayClass</label>
     <required>false</required>
