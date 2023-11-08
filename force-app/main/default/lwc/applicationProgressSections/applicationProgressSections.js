@@ -34,6 +34,9 @@ export default class ApplicationProgressSections extends LightningElement {
 	get editable() {
 		return !this.readOnly;
 	}
+	get isSectionComplete() {
+		return this.sections.find(s => s.Id === this.activeSectionId)?.Completed__c || false
+	}
 	get allSectionsComplete() {
 		return this.sections.every((section) => section.Completed__c);
 	}
@@ -47,6 +50,9 @@ export default class ApplicationProgressSections extends LightningElement {
 	}
 	get saveBtnLabel() {
 		return this.isLastSection ? this.displaySaveBtnLabel : this.displaySaveNextBtnLabel;
+	}
+	get showSaveForLaterBtn() {
+		return !this.isSectionComplete
 	}
 	get showSubmitBtn() {
 		return this.allSectionsComplete;
@@ -219,15 +225,25 @@ export default class ApplicationProgressSections extends LightningElement {
 			})
 		);
 	}
-	async handleSave() {
+	async handleSave(event) {
 		this.isLoading = true;
 
-		const isAllValid = this.validateInputs();
+		
+		const btnName = event.target.name
+		console.log(event.target.name)
 
-		if (!isAllValid) {
-			this.isLoading = false;
-			return;
+		if (btnName === 'Save') {
+
+			const isAllValid = this.validateInputs();
+	
+			if (!isAllValid) {
+				this.isLoading = false;
+				return;
+			}
 		}
+
+		const sectionComplete = btnName === 'Save'
+		console.log({sectionComplete})
 
 		try {
 			if (this.sobsToUpdate.length) {
@@ -241,7 +257,8 @@ export default class ApplicationProgressSections extends LightningElement {
 			await saveApplicationDetails({
 				recordId: this.recordId,
 				sectionId: this.activeSectionId,
-				details: this.detailsToUpdate
+				details: this.detailsToUpdate,
+				sectionComplete
 			});
 
 			this.detailsToUpdate = [];
@@ -278,6 +295,10 @@ export default class ApplicationProgressSections extends LightningElement {
 			this.isLoading = false;
 		}
 	}
+
+	// async handleSaveForLater() {
+
+	// }
 
 	toast(
 		title = "Success",

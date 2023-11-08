@@ -7,7 +7,7 @@ public with sharing class ApplicationHelper {
 				Name,
 				Application_Display_Name__c,
 				Display_Description__c,
-				Reference_Application__c,
+				Reference_Application__r.On_Submit_Display_Message__c,
 				Status__c,
 				CreatedDate,
 				Read_Only__c,
@@ -207,85 +207,20 @@ public with sharing class ApplicationHelper {
 	public static void saveApplicationDetails(
 		Id recordId,
 		Id sectionId,
-		List<Application_Detail__c> details
+		List<Application_Detail__c> details,
+		Boolean sectionComplete
 	) {
 		update details;
 
 		/* 
 			removing checking if all required questions are answered as 
-			front handles 
+			front end handles 
 		*/
-
-		// List<AggregateResult> arRequiredQuestionsList = [
-		// 	SELECT Application_Section__c, COUNT(Id) RequiredQuestions
-		// 	FROM Application_Detail__c
-		// 	WHERE Application_Section__c = :sectionId 
-		// 	AND Required__c = TRUE
-		// 	AND Parent_Application_Detail__c = null
-		// 	GROUP BY Application_Section__c
-		// ];
-
-		// List<Application_Detail__c> detailsToCheck = [
-		// 	SELECT Id, Required__c, Required_Question_Answered__c, Input_Text_Long__c 
-		// 	FROM Application_Detail__c
-		// 	WHERE Application_Section__c =: sectionId
-		// 	AND Required__c = true
-		// ];
-
-		// Set<Id> detailIds = new Set<Id>();
-		// for (Application_Detail__c d : detailsToCheck) {
-		// 	if (d.Input_Text_Long__c != null || d.Required_Question_Answered__c) {
-		// 		detailIds.add(d.Id);
-		// 	}
-		// }
-
-		// List<AggregateResult> arRequiredQuestionsAnsweredList = [
-		// 	SELECT Application_Section__c, COUNT(Id) RequiredQuestionsAnswered
-		// 	FROM Application_Detail__c
-		// 	WHERE Application_Section__c = :sectionId
-		// 		AND Required__c = true
-		// 		// AND Required_Question_Answered__c = true
-		// 		AND Id IN : detailIds
-		// 	GROUP BY Application_Section__c
-		// ];
-
-		// system.debug('arRequiredQuestionsList');
-		// system.debug(arRequiredQuestionsList);
-		// system.debug('arRequiredQuestionsAnsweredList');
-		// system.debug(arRequiredQuestionsAnsweredList);
-
-		// if (arRequiredQuestionsList.isEmpty()) {
 			
-			Application_Section__c section = new Application_Section__c();
-				section.Id = sectionId;
-				section.Completed__c = true;
-			update section;
-
-		// 	Application__c app = new Application__c(
-		// 		Id = recordId,
-		// 		Status__c = 'In Progress'
-		// 	);
-
-		// 	update app;
-
-		// 	return;
-		// }
-
-		// if (!arRequiredQuestionsList.isEmpty() && !arRequiredQuestionsAnsweredList.isEmpty()) {
-
-		// 	AggregateResult arRequiredQuestions = arRequiredQuestionsList[0];
-		// 	AggregateResult arRequiredQuestionsAnswered = arRequiredQuestionsAnsweredList[0];
-	
-		// 	if (
-		// 		Integer.valueOf(arRequiredQuestions.get('RequiredQuestions')) <=
-		// 		Integer.valueOf(arRequiredQuestionsAnswered.get('RequiredQuestionsAnswered'))
-		// 	) {
-		// 		Application_Section__c section = new Application_Section__c();
-		// 			section.Id = sectionId;
-		// 			section.Completed__c = true;
-		// 		update section;
-		// 	} 
-		// }
+		Application_Section__c section = new Application_Section__c();
+			section.Id = sectionId;
+			section.Completed__c = sectionComplete;
+		update section;
 
 
 		Application__c app = new Application__c(

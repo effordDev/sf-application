@@ -638,6 +638,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Reference_Application__c.On_Submit_Display_Message__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Reference_Application__c.Save_Label__c</field>
         <readable>true</readable>
     </fieldPermissions>

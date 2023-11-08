@@ -46,12 +46,27 @@
 
 	<template lwc:if={editable}>
 		<div class="slds-docked-form-footer">
+
 			<lightning-button
 				label={saveBtnLabel}
+				name="Save"
 				onclick={handleSave}
 				variant="brand"
 				class="footer-button"
 			></lightning-button>
+
+			<template lwc:if={showSaveForLaterBtn}>
+
+				&nbsp;
+
+				<lightning-button
+					label="Save For Later"
+					name="SaveForLater"
+					onclick={handleSave}
+					variant="brand-outline"
+					class="footer-button"
+				></lightning-button>
+			</template>
 
 			<template lwc:if={showSubmitBtn}>
 				&nbsp;

@@ -103,6 +103,21 @@
 								></lightning-formatted-date-time>
 							</div>
 						</lightning-layout-item>
+
+						<template lwc:if={readOnly}>
+							<lightning-layout-item
+								size="12"
+								small-device-size="12"
+								medium-device-size="12"
+								large-device-size="12"
+								padding="around-small"
+								class="slds-text-align_center"
+							>
+								<lightning-formatted-rich-text
+									value={onSubmitDisplayMessage}
+								></lightning-formatted-rich-text>
+							</lightning-layout-item>
+						</template>
 					</lightning-layout>
 				</div>
 
