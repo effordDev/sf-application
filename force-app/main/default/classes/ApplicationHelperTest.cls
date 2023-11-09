@@ -197,7 +197,8 @@ public with sharing class ApplicationHelperTest {
         ApplicationHelper.saveApplicationDetails(
             app.Id,    
             appSection.Id,    
-            appDetails
+            appDetails,
+            true
         );
     }
 
@@ -233,7 +234,8 @@ public with sharing class ApplicationHelperTest {
         ApplicationHelper.saveApplicationDetails(
             app.Id,    
             appSection.Id,    
-            appDetails
+            appDetails,
+            true
         );
 
         appDetails[0].Input_Text__c = 'meow 🐈‍⬛';

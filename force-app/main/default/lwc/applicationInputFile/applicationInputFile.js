@@ -11,9 +11,11 @@ export default class ApplicationInputFile extends LightningElement {
 	@api readOnly;
 	@api language = "";
 	@api languages = [];
+	@api isSectionComplete = false
 	@track _detail = {};
 
 	files = [];
+	disableDeleteBtn = false
 
 	@api get detail() {
 		return this._detail;
@@ -71,6 +73,9 @@ export default class ApplicationInputFile extends LightningElement {
 	get formattedAcceptedFormats() {
 		return this.acceptedFormats.join(", ");
 	}
+	get allowDelete() {
+		return !this.readOnly && !this.isSectionComplete
+	}
 
 	connectedCallback() {
 		this.fetchFiles();
@@ -127,21 +132,29 @@ export default class ApplicationInputFile extends LightningElement {
 	}
 
 	async handleDelete(event) {
-		const id = event.target.dataset.id;
+		try {
+			this.disableDeleteBtn = true
 
-		await deleteFile({ contentDocumentId: id });
-		await this.fetchFiles();
-
-		this.dispatchEvent(
-			new CustomEvent("detailchange", {
-				composed: true,
-				bubbles: true,
-				detail: {
-					Id: this.id,
-					Input_Files_Uploaded__c: this.files.length
-				}
-			})
-		);
+			const id = event.target.dataset.id;
+	
+			await deleteFile({ contentDocumentId: id });
+			await this.fetchFiles();
+	
+			this.dispatchEvent(
+				new CustomEvent("detailchange", {
+					composed: true,
+					bubbles: true,
+					detail: {
+						Id: this.id,
+						Input_Files_Uploaded__c: this.files.length
+					}
+				})
+			);
+		} catch (error) {
+			console.error(error)
+		} finally {
+			this.disableDeleteBtn = false
+		}
 	}
 
 	toast(

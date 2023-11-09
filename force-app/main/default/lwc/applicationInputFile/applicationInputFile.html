@@ -8,7 +8,9 @@
 
 		<br />
 
-		Accepted Formats: {formattedAcceptedFormats}
+		<div class="slds-text-color_weak accepted-types">
+			Accepted Formats: {formattedAcceptedFormats}
+		</div>
 
 		<lightning-file-upload
 			name={label}
@@ -22,9 +24,7 @@
 		<table>
 			<template for:each={files} for:item="file">
 				<tr key={file.Id}>
-					<!-- <td class="selector">
-                              <lightning-icon size="x-small" data-id={file.ContentDocumentId} icon-name="action:delete" onclick={handleDelete}></lightning-icon>
-                         </td> -->
+
 					<td style="width: 30px">
 						<lightning-icon size="small" icon-name={file.icon}></lightning-icon>
 					</td>
@@ -42,6 +42,19 @@
 							></lightning-formatted-date-time>
 						</div>
 					</td>
+
+					<template lwc:if={allowDelete}>
+						<td class="selector">
+							<lightning-button-icon 
+								size="small" 
+								data-id={file.ContentDocumentId} 
+								icon-name="utility:delete" 
+								icon-class="slds-icon-text-error"
+								onclick={handleDelete}
+								disabled={disableDeleteBtn}
+							></lightning-button-icon>
+						</td>
+					</template>
 				</tr>
 			</template>
 		</table>
