@@ -1,4 +1,5 @@
 import { api, LightningElement } from "lwc";
+import { ShowToastEvent } from "lightning/platformShowToastEvent";
 import LightningConfirm from "lightning/confirm";
 import getApplicationDetails from "@salesforce/apex/ApplicationHelper.getApplicationDetails";
 import getApplicationDetailLanguages from "@salesforce/apex/ApplicationHelper.getApplicationDetailLanguages";
