@@ -16,6 +16,7 @@ public without sharing class ApplicationDetailFlattener {
             'Input_Picklist' => 'Input_Text__c',
             'Input_Radio_Group' => 'Input_Text__c',
             'Input_Text' => 'Input_Text__c',
+            'Input_Email' => 'Input_Text__c',
             'Input_Text_Area_Long' => 'Input_Text_Long__c'
         };
 
