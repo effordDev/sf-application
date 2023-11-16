@@ -15,6 +15,8 @@ export default class ApplicationInputFile extends LightningElement {
 	@track _detail = {};
 
 	files = [];
+	srcFileURL = ''
+	active = false
 	disableDeleteBtn = false
 
 	@api get detail() {
@@ -92,8 +94,8 @@ export default class ApplicationInputFile extends LightningElement {
 			return f;
 		});
 
-		// console.log('files')
-		// console.log(JSON.parse(JSON.stringify(this.files)))
+		console.log('files')
+		console.log(JSON.parse(JSON.stringify(this.files)))
 	}
 
 	async handleUploadFinished(event) {
@@ -155,6 +157,49 @@ export default class ApplicationInputFile extends LightningElement {
 		} finally {
 			this.disableDeleteBtn = false
 		}
+	}
+
+	handleView(event) {
+
+		const contentVersionId = event.target.dataset.id
+
+		console.log(contentVersionId)
+		if (!contentVersionId) {
+			return
+		}
+
+		const file = this.files.find(file => file.Id === contentVersionId)
+
+		const currentUrl = window.location.href
+		const base = currentUrl.slice(0, currentUrl.indexOf('/s/'))
+
+		const rendition = this.getRendition(file.FileType)
+
+		const url = `${base}/sfc/servlet.shepherd/version/renditionDownload?rendition=${rendition}&versionId=${contentVersionId}`
+		console.log(url)
+		// window.open(url, '_blank')
+		
+		this.srcFileURL = url
+		this.active = true
+	}
+
+	handleHideFile() {
+		this.srcFileURL = ''
+		this.active = false
+	}
+
+	getRendition(fileType) {
+		switch(fileType) {
+			case "PDF":
+				return 'SVGZ'
+			case "PNG":
+				return 'ORIGINAL_Png'
+			case "JPG":
+				return 'ORIGINAL_Jpg'
+			default:
+				return 'THUMB720BY480'
+		}
+
 	}
 
 	toast(

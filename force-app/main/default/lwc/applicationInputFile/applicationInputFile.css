@@ -22,3 +22,7 @@
 .not-complete {
 	border-color: red;
 }
+
+iframe {
+    height: 80vh;
+}
