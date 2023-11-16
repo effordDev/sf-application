@@ -3,6 +3,7 @@ public with sharing class ApplicationDetailFlattenerTest {
  
     @TestSetup
     static void makeData() {
+
         Reference_Application__c refApp = new Reference_Application__c();
         refApp.Name = 'test';
         refApp.Display_Description__c = 'testDisplayDescription';
@@ -25,6 +26,22 @@ public with sharing class ApplicationDetailFlattenerTest {
             .getRecordTypeId();
         refAppDetail.Sort_Order__c = 1;
         insert refAppDetail;
+
+        Reference_Application_Detail__c refAppDetailAddress = new Reference_Application_Detail__c();  
+        refAppDetailAddress.Field_Label__c = 'Address';
+        // refAppDetail.Target_Field_API_Name__c = 'Input_Text__c';
+        refAppDetailAddress.Street_Target_Field_API_Name__c = 'Input_Street__c';
+        refAppDetailAddress.City_Target_Field_API_Name__c = 'Input_City__c';
+        refAppDetailAddress.Province_Target_Field_API_Name__c = 'Input_State_Province__c';
+        refAppDetailAddress.Postal_Code_Target_Field_API_Name__c = 'Input_Postal_Code__c';
+        refAppDetailAddress.Country_Target_Field_API_Name__c = 'Input_Country__c';
+
+        refAppDetailAddress.Reference_Application_Section__c = refAppSection.Id;
+        refAppDetailAddress.RecordTypeId = Schema.SObjectType.Reference_Application_Detail__c.getRecordTypeInfosByDeveloperName()
+            .get('Input_Address')
+            .getRecordTypeId();
+            refAppDetailAddress.Sort_Order__c = 2;
+        insert refAppDetailAddress;
     }
 
     @isTest
@@ -36,18 +53,30 @@ public with sharing class ApplicationDetailFlattenerTest {
         app.Reference_Application__c = refApp.Id;
         insert app;
 
-        Application_Detail__c detail = [SELECT Id FROM Application_Detail__c LIMIT 1];
+        List<Application_Detail__c> details = [SELECT Id, RecordType.DeveloperName FROM Application_Detail__c];
 
-        detail.Input_Text__c = 'ayy yoo';
-        update detail;
+        for (Application_Detail__c detail : details) {
+            if (detail.RecordType.DeveloperName == 'Input_Text') {
+                detail.Input_Text__c = 'ayy yoo';
+            }
+            if (detail.RecordType.DeveloperName == 'Input_Address') {
+                detail.Input_Street__c = 'test';
+                detail.Input_City__c = 'test';
+                detail.Input_State_Province__c = 'test';
+                detail.Input_Postal_Code__c = 'test';
+                detail.Input_Country__c = 'test';            
+            }
+        }
+        
+        update details;
 
         ApplicationDetailFlattener.Request req = new ApplicationDetailFlattener.Request();
             req.applicationId = app.Id;
-            req.targetObjectRecordId = detail.Id;
+            req.targetObjectRecordId = details[0].Id;
         
         ApplicationDetailFlattener.SetFields(new List<ApplicationDetailFlattener.Request>{ req });
 
-        System.assertEquals(detail.Input_Text__c, [SELECT Id, Input_Text__c FROM Application_Detail__c LIMIT 1].Input_Text__c);
+        System.assertEquals(details[0].Input_Text__c, 'ayy yoo');
     }
 
 }

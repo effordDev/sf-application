@@ -1,0 +1,52 @@
+<template>
+
+    <lightning-input-address
+        address-label={label}
+        street-label={streetLabel}
+        city-label={cityLabel}
+        country-label={countryLabel}
+        province-label={provinceLabel}
+        postal-code-label={postalCodeLabel}
+        street={streetVal}
+        city={cityVal}
+        country={countryVal}
+        province={provinceVal}
+        postal-code={postalCodeVal}
+        required={required}
+        show-address-lookup
+        onchange={handleChange}
+        disabled={readOnly}
+    ></lightning-input-address>
+
+    <lightning-button
+        label="Show Map"
+        icon-name="standard:location"
+        icon-position="left"
+        disabled={invalidAddress}
+        onclick={handleShowMap}
+    ></lightning-button>
+    
+    <template lwc:if={showMap}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_medium">
+            <div class="slds-modal__container">
+           
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning-map
+                        map-markers={mapMarkers}
+                        list-view="hidden"
+                        zoom-level="9"
+                    ></lightning-map>  
+                </div>
+
+                <div class="slds-modal__footer">
+                    <lightning-button
+                        label="Close"
+                        onclick={handleHideMap}
+                    ></lightning-button>
+                </div>
+            </div>
+          </section>
+          <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+    
+</template>

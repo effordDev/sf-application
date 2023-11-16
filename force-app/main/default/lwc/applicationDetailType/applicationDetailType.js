@@ -41,6 +41,9 @@ export default class ApplicationDetailType extends LightningElement {
 	get isInputText() {
 		return this.recordTypeName === "Input_Text";
 	}
+	get isInputAddress() {
+		return this.recordTypeName === "Input_Address";
+	}
 	get isInputEmail() {
 		return this.recordTypeName === "Input_Email";
 	}
