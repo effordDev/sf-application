@@ -16,6 +16,7 @@ Demo
   - [To Customize Inputs](#toCustomizeInputs)
     - [Display Rich Text](#displayRichText)
     - [Display Text](#displayText)
+    - [Input Address](#inputAddress)
     - [Input Checkbox Group](#inputCheckboxGroup)
     - [Input Currency](#inputCurrency)
     - [Input Date](#inputDate)
@@ -139,6 +140,16 @@ The following are the currently supported input fields / display types (Record T
 #### Display Text <a name="displayText"></a>
 - Displays <a href="https://www.lightningdesignsystem.com/utilities/text">slds-text-body_regular</a>
 - ```Display_Text__c``` - Text to be displayed
+
+#### Input Address <a name="inputAddress"></a>
+- Saves value to 
+  - `Input_Street__c`
+  - `Input_City__c`
+  - `Input_State_Province__c`
+  - `Input_Postal_Code__c`
+  - `Input_Country__c`
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input-address/documentation">base lightning-input-address</a>
+- Optionally display <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-map/documentation">base lightning-map</a>
 
 #### Input Checkbox <a name="inputCheckbox"></a>
 - Saves value to `Input_Checkbox__c`
@@ -279,7 +290,13 @@ get customJson() {
 
 For any application responses that you wish to write to a field, you must first populate the ```Target_Field_API_Name__c``` on the **Reference Application Detail** record.
 > The ```Target_Field_API_Name__c``` should be the API name of the field you wish to write the resonse to on the target object.
-> *(The target object will be specified in a Record-Triggered Flow)*
+> *(The target object will be specified in a Record-Triggered Flow)* 
+For ```Input_Address``` types use: 
+- `Street_Target_Field_API_Name__c`
+- `City_Target_Field_API_Name__c`
+- `Province_Target_Field_API_Name__c`
+- `Postal_Code_Target_Field_API_Name__c`
+- `Country_Target_Field_API_Name__c`
 
 #### Record-Triggered Flow <a href="record-TriggeredFlow"></a>
 
