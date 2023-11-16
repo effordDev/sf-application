@@ -62,7 +62,12 @@ public without sharing class ApplicationTriggerHelper {
 				Parent_Dependent_Answer__c,
 				Allow_Delete__c,
 				Allow_Edit__c,
-				Pass_Application_Id_into_Flow__c
+				Pass_Application_Id_into_Flow__c,
+				Street_Label__c,
+				Province_Label__c,
+				Postal_Code_Label__c,
+				Country_Label__c,
+				City_Label__c
 			FROM Reference_Application_Detail__c
 			WHERE Reference_Application_Section__c IN : referenceApplicationSections
 			AND Reference_Parent_Application_Detail__c = null
@@ -218,7 +223,12 @@ public without sharing class ApplicationTriggerHelper {
 				Parent_Dependent_Answer__c,
 				Allow_Delete__c,
 				Allow_Edit__c,
-				Pass_Application_Id_into_Flow__c
+				Pass_Application_Id_into_Flow__c,
+				Street_Label__c,
+				Province_Label__c,
+				Postal_Code_Label__c,
+				Country_Label__c,
+				City_Label__c
 			FROM Reference_Application_Detail__c
 			WHERE Reference_Parent_Application_Detail__c IN : referenceApplicationDetails
 		]) {
@@ -379,7 +389,11 @@ public without sharing class ApplicationTriggerHelper {
 				applicationDetail.Allow_Delete__c = referenceApplicationDetail.Allow_Delete__c;
 				applicationDetail.Allow_Edit__c = referenceApplicationDetail.Allow_Edit__c;
 				applicationDetail.Pass_Application_Id_into_Flow__c = referenceApplicationDetail.Pass_Application_Id_into_Flow__c;
-
+				applicationDetail.Street_Label__c = referenceApplicationDetail.Street_Label__c;
+				applicationDetail.Province_Label__c = referenceApplicationDetail.Province_Label__c;
+				applicationDetail.Postal_Code_Label__c = referenceApplicationDetail.Postal_Code_Label__c;
+				applicationDetail.Country_Label__c = referenceApplicationDetail.Country_Label__c;
+				applicationDetail.City_Label__c = referenceApplicationDetail.City_Label__c;
 				applicationDetail.RecordTypeId = Schema.SObjectType.Application_Detail__c.getRecordTypeInfosByDeveloperName()
 					.get(referenceApplicationDetail.RecordType.DeveloperName)
 					.getRecordTypeId();
@@ -449,6 +463,11 @@ public without sharing class ApplicationTriggerHelper {
 					childDetail.Allow_Edit__c = refChildDetail.Allow_Edit__c;
 					childDetail.Checkbox_Group_Values__c = refChildDetail.Checkbox_Group_Values__c;
 					childDetail.Pass_Application_Id_into_Flow__c = refChildDetail.Pass_Application_Id_into_Flow__c;
+					childDetail.Street_Label__c = refChildDetail.Street_Label__c;
+					childDetail.Province_Label__c = refChildDetail.Province_Label__c;
+					childDetail.Postal_Code_Label__c = refChildDetail.Postal_Code_Label__c;
+					childDetail.Country_Label__c = refChildDetail.Country_Label__c;
+					childDetail.City_Label__c = refChildDetail.City_Label__c;
 
 					childDetail.RecordTypeId = Schema.SObjectType.Application_Detail__c.getRecordTypeInfosByDeveloperName()
 						.get(refChildDetail.RecordType.DeveloperName)

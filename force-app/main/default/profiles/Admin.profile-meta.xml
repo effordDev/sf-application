@@ -93,7 +93,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Application_Detail__c.City_Label__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application_Detail__c.City_Target_Field_API_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Application_Detail__c.Component_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Detail__c.Country_Label__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application_Detail__c.Country_Target_Field_API_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -143,6 +163,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Application_Detail__c.Input_City__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Detail__c.Input_Country__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Application_Detail__c.Input_Currency__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -168,7 +198,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Application_Detail__c.Input_Postal_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Application_Detail__c.Input_Record_List__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Detail__c.Input_State_Province__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Detail__c.Input_Street__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -233,6 +278,26 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Application_Detail__c.Postal_Code_Label__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application_Detail__c.Postal_Code_Target_Field_API_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Detail__c.Province_Label__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application_Detail__c.Province_Target_Field_API_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Application_Detail__c.Radio_Group_Values__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -259,6 +324,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Application_Detail__c.Step__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Application_Detail__c.Street_Label__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Application_Detail__c.Street_Target_Field_API_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -448,7 +523,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Reference_Application_Detail__c.City_Label__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.City_Target_Field_API_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Reference_Application_Detail__c.Component_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Country_Label__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Country_Target_Field_API_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -533,6 +628,26 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Reference_Application_Detail__c.Postal_Code_Label__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Postal_Code_Target_Field_Api_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Province_Label__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Province_Target_Field_API_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Reference_Application_Detail__c.Radio_Group_Values__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -554,6 +669,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Reference_Application_Detail__c.Step__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Street_Label__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Reference_Application_Detail__c.Street_Target_Field_API_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -680,6 +805,10 @@
         <recordType>Application_Detail__c.Display_Text</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Application_Detail__c-Input Address</layout>
+        <recordType>Application_Detail__c.Input_Address</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Application_Detail__c-Input Checkbox</layout>
         <recordType>Application_Detail__c.Input_Checkbox</recordType>
     </layoutAssignments>
@@ -764,6 +893,10 @@
     <layoutAssignments>
         <layout>Reference_Application_Detail__c-Display Text</layout>
         <recordType>Reference_Application_Detail__c.Display_Text</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Reference_Application_Detail__c-Input Address</layout>
+        <recordType>Reference_Application_Detail__c.Input_Address</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Reference_Application_Detail__c-Input Checkbox</layout>
@@ -958,6 +1091,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Application_Detail__c.Input_Address</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Application_Detail__c.Input_Checkbox</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -1039,6 +1177,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Reference_Application_Detail__c.Display_Text</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Reference_Application_Detail__c.Input_Address</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

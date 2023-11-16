@@ -197,5 +197,18 @@
 		></c-application-input-flow>
 	</template>
 
+	<template lwc:if={isInputAddress}>
+		<c-application-input-address
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			language={language}
+			languages={languages}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		></c-application-input-address>
+	</template>
+
 	<template lwc:if={isCustomComponent}> </template>
 </template>

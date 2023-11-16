@@ -116,6 +116,16 @@ public with sharing class ApplicationHelper {
 				Allow_Delete__c,
 				Allow_Edit__c,
 				Pass_Application_Id_into_Flow__c,
+				Street_Label__c,
+				Province_Label__c,
+				Postal_Code_Label__c,
+				Country_Label__c,
+				City_Label__c,
+				Input_Street__c,
+				Input_City__c,
+				Input_State_Province__c,
+				Input_Postal_Code__c,
+				Input_Country__c,
 				(
 					SELECT Id,
 						Language__c,
@@ -169,7 +179,17 @@ public with sharing class ApplicationHelper {
 						Parent_Dependent_Answer__c,
 						Allow_Delete__c,
 						Allow_Edit__c,
-						Pass_Application_Id_into_Flow__c
+						Pass_Application_Id_into_Flow__c,
+						Street_Label__c,
+						Province_Label__c,
+						Postal_Code_Label__c,
+						Country_Label__c,
+						City_Label__c,
+						Input_Street__c,
+						Input_City__c,
+						Input_State_Province__c,
+						Input_Postal_Code__c,
+						Input_Country__c
 					FROM Application_Details__r
 					ORDER BY Sort_Order__c ASC
 				)
