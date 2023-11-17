@@ -7,6 +7,7 @@ export default class ApplicationDetailType extends LightningElement {
 	@api languages = [];
 	@api detail = {};
 	@api isSectionComplete = false;
+	@api isCommunity = false
 
 	@api isValid() {
 		// console.log(this.refs)

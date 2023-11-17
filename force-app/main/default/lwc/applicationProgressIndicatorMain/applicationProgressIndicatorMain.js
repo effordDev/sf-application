@@ -5,6 +5,8 @@ import getApplication from "@salesforce/apex/ApplicationHelper.getApplication";
 import getApplicationLanguages from "@salesforce/apex/ApplicationHelper.getApplicationLanguages";
 import saveApplication from "@salesforce/apex/ApplicationHelper.saveApplication";
 
+import { utility } from "./utilities";
+
 export default class ApplicationProgressIndicatorMain extends LightningElement {
 	@api recordId;
 
@@ -22,6 +24,7 @@ export default class ApplicationProgressIndicatorMain extends LightningElement {
 	largeDeviceSize = 4;
 
 	isLoading = false;
+	isCommunity = utility.community.is()
 
 	async connectedCallback() {
 		await this.fetchApplication();
@@ -90,24 +93,6 @@ export default class ApplicationProgressIndicatorMain extends LightningElement {
 				?.Translated_Created_Date__c || this.defaultApplicationCreatedLabel
 		);
 	}
-	// get displayCancelBtnLabel() {
-	// 	return (
-	// 		this.applicationLanguages.find((al) => al.Language__c === this.language)
-	// 			?.Translated_Cancel_Text__c || "Cancel"
-	// 	);
-	// }
-	// get displaySubmitBtnLabel() {
-	// 	return (
-	// 		this.applicationLanguages.find((al) => al.Language__c === this.language)
-	// 			?.Translated_Submit_Text__c || "Submit"
-	// 	);
-	// }
-	// get displaySaveBtnLabel() {
-	// 	return (
-	// 		this.applicationLanguages.find((al) => al.Language__c === this.language)
-	// 			?.Translated_Save_Text__c || "Save & Close"
-	// 	);
-	// }
 	get createdDate() {
 		return this.application?.CreatedDate;
 	}

@@ -16,6 +16,7 @@ export default class ApplicationProgressSections extends LightningElement {
 	@api sections = [];
 	@api activeSectionId = "";
 	@api language = "";
+	@api isCommunity = false
 	// @api saveBtnLabel = 'Save & Next'
 	// @api cancelBtnLabel = 'Previous'
 

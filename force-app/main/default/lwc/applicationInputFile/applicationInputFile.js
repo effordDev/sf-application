@@ -13,6 +13,7 @@ export default class ApplicationInputFile extends LightningElement {
 	@api languages = [];
 	@api isSectionComplete = false
 	@track _detail = {};
+	@api isCommunity = false
 
 	files = [];
 	srcFileURL = ''
@@ -31,15 +32,6 @@ export default class ApplicationInputFile extends LightningElement {
 	 * if not required => return true
 	 */
 	@api get completed() {
-		// console.log('completed running')
-		// const el = this.template.querySelector('.box')
-
-		// if (el && !!this.files.length) {
-		//      console.log('not-completed')
-		//      el.classList.add('not-completed')
-		// } else {
-		//      el.classList.remove('not-completed')
-		// }
 
 		if (!this.required) {
 			return true;
@@ -170,17 +162,31 @@ export default class ApplicationInputFile extends LightningElement {
 
 		const file = this.files.find(file => file.Id === contentVersionId)
 
-		const currentUrl = window.location.href
-		const base = currentUrl.slice(0, currentUrl.indexOf('/s/'))
-
-		const rendition = this.getRendition(file.FileType)
-
-		const url = `${base}/sfc/servlet.shepherd/version/renditionDownload?rendition=${rendition}&versionId=${contentVersionId}`
-		console.log(url)
-		// window.open(url, '_blank')
-		
-		this.srcFileURL = url
-		this.active = true
+		if (!this.isCommunity) {
+			this[NavigationMixin.Navigate]({
+				type: 'standard__namedPage',
+				attributes: {
+					pageName: 'filePreview'
+				},
+				state : {
+					selectedRecordId: file?.ContentDocumentId
+				}
+			}, false )
+				
+			return
+		} else {
+			
+			const currentUrl = window.location.href
+			const base = currentUrl.slice(0, currentUrl.indexOf('/s/'))
+	
+			const rendition = this.getRendition(file.FileType)
+	
+			const url = `${base}/sfc/servlet.shepherd/version/renditionDownload?rendition=${rendition}&versionId=${contentVersionId}`
+			console.log(url)
+			
+			this.srcFileURL = url
+			this.active = true
+		}
 	}
 
 	handleHideFile() {

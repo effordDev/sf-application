@@ -1,5 +1,5 @@
 <template>
-	<template lwc:if={isLoading}>
+		<template lwc:if={isLoading}>
 		<lightning-spinner
 			alternative-text="Loading"
 			size="large"
@@ -134,6 +134,7 @@
 							sections={sections}
 							language={language}
 							active-section-id={activeSectionId}
+							is-community={isCommunity}
 							onsectionselect={handleSectionSelect}
 							onsubmit={handleSubmit}
 							onrefresh={handleRefresh}
