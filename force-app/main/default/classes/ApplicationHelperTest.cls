@@ -2,7 +2,7 @@
 public with sharing class ApplicationHelperTest {
     
     @TestSetup
-    static void makeData(){
+    public static void makeData(){
         
         Reference_Application__c refApp = new Reference_Application__c();
         refApp.Name = 'test';
