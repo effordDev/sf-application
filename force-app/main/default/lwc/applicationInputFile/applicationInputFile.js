@@ -1,11 +1,12 @@
 import { api, track, LightningElement } from "lwc";
+import { NavigationMixin } from 'lightning/navigation';
 import getFiles from "@salesforce/apex/ApplicationHelper.getFiles";
 import renameFiles from "@salesforce/apex/ApplicationHelper.renameFiles";
 import deleteFile from "@salesforce/apex/ApplicationHelper.deleteFile";
 
 import { fileTypesMap } from "./utils";
 
-export default class ApplicationInputFile extends LightningElement {
+export default class ApplicationInputFile extends NavigationMixin(LightningElement) {
 	@api recordId;
 	@api sectionId;
 	@api readOnly;
