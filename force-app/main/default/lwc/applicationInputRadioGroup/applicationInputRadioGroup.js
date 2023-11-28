@@ -107,7 +107,7 @@ export default class ApplicationInputRadioGroup extends LightningElement {
 		return (
 			this.childRecords.filter(
 				(child) =>
-					child?.Parent_Dependent_Answer__c === this.detail.Input_Text__c
+					child?.Parent_Dependent_Answer__c.split(';').includes(this.detail.Input_Text__c)
 			) || []
 		);
 	}
