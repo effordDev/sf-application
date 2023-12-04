@@ -23,6 +23,7 @@ Demo
     - [Input Date Time](#inputDateTime)
     - [Input File](#inputFile)
     - [Input Flow](#inputFlow)
+    - [Input Lookup](#inputLookup)
     - [Input Number](#inputNumber)
     - [Input Picklist](#inputPicklist)
     - [Input Radio Group](#inputRadioGroup)
@@ -193,6 +194,15 @@ The following are the currently supported input fields / display types (Record T
 - `Flow_API_Name__c` - The name that will be set as the file that was uploaded
 - `Pass_Application_Id_into_Flow__c` - If checked, will pass the Application Id into the flow - recordId (text variable - available for input)
 - To require a flow, Set `Require__c` = true. Create an output variable called `isComplete` and set it to true once the flow is valid
+
+#### Input Lookup <a name="inputLookup"></a>
+- Saves value to `Input_Text__c`
+- Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base lightning-input</a> - type="search"
+- `Object_Label__c` - Specifies the label of the object to search
+- `Object_API_Name__c` - Specifies the object to search
+- `Province_Target_Field_API_Name__c` - Specifies the field to search Ex. 'Name' `WHERE Name LIKE =: inputString`
+- `Other_Field_API_Name__c` - Specifies another field to show when searching
+- `SLDS_Icon_Name__c` - Specifies the <a target='_blank' href='https://www.lightningdesignsystem.com/icons/'>slds icon to display</a> 
 
 #### Input Number <a name="inputNumber"></a>
 - Saves value to `Input_Number__c`
