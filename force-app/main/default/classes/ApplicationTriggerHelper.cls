@@ -67,7 +67,12 @@ public without sharing class ApplicationTriggerHelper {
 				Province_Label__c,
 				Postal_Code_Label__c,
 				Country_Label__c,
-				City_Label__c
+				City_Label__c,
+				Object_Label__c,
+				Object_API_Name__c,
+				Primary_Search_Field_API_Name__c,
+				Other_Field_API_Name__c,
+				SLDS_Icon_Name__c
 			FROM Reference_Application_Detail__c
 			WHERE Reference_Application_Section__c IN : referenceApplicationSections
 			AND Reference_Parent_Application_Detail__c = null
@@ -228,7 +233,12 @@ public without sharing class ApplicationTriggerHelper {
 				Province_Label__c,
 				Postal_Code_Label__c,
 				Country_Label__c,
-				City_Label__c
+				City_Label__c,
+				Object_Label__c,
+				Object_API_Name__c,
+				Primary_Search_Field_API_Name__c,
+				Other_Field_API_Name__c,
+				SLDS_Icon_Name__c
 			FROM Reference_Application_Detail__c
 			WHERE Reference_Parent_Application_Detail__c IN : referenceApplicationDetails
 		]) {
@@ -394,6 +404,11 @@ public without sharing class ApplicationTriggerHelper {
 				applicationDetail.Postal_Code_Label__c = referenceApplicationDetail.Postal_Code_Label__c;
 				applicationDetail.Country_Label__c = referenceApplicationDetail.Country_Label__c;
 				applicationDetail.City_Label__c = referenceApplicationDetail.City_Label__c;
+				applicationDetail.Object_Label__c = referenceApplicationDetail.Object_Label__c;
+				applicationDetail.Object_API_Name__c = referenceApplicationDetail.Object_API_Name__c;
+				applicationDetail.Primary_Search_Field_API_Name__c = referenceApplicationDetail.Primary_Search_Field_API_Name__c;
+				applicationDetail.Other_Field_API_Name__c = referenceApplicationDetail.Other_Field_API_Name__c;
+				applicationDetail.SLDS_Icon_Name__c = referenceApplicationDetail.SLDS_Icon_Name__c;
 				applicationDetail.RecordTypeId = Schema.SObjectType.Application_Detail__c.getRecordTypeInfosByDeveloperName()
 					.get(referenceApplicationDetail.RecordType.DeveloperName)
 					.getRecordTypeId();
@@ -468,7 +483,11 @@ public without sharing class ApplicationTriggerHelper {
 					childDetail.Postal_Code_Label__c = refChildDetail.Postal_Code_Label__c;
 					childDetail.Country_Label__c = refChildDetail.Country_Label__c;
 					childDetail.City_Label__c = refChildDetail.City_Label__c;
-
+					childDetail.Object_Label__c = refChildDetail.Object_Label__c;
+					childDetail.Object_API_Name__c = refChildDetail.Object_API_Name__c;
+					childDetail.Primary_Search_Field_API_Name__c = refChildDetail.Primary_Search_Field_API_Name__c;
+					childDetail.Other_Field_API_Name__c = refChildDetail.Other_Field_API_Name__c;
+					childDetail.SLDS_Icon_Name__c = refChildDetail.SLDS_Icon_Name__c;
 					childDetail.RecordTypeId = Schema.SObjectType.Application_Detail__c.getRecordTypeInfosByDeveloperName()
 						.get(refChildDetail.RecordType.DeveloperName)
 						.getRecordTypeId();

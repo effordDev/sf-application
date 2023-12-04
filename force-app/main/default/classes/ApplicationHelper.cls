@@ -126,6 +126,11 @@ public with sharing class ApplicationHelper {
 				Input_State_Province__c,
 				Input_Postal_Code__c,
 				Input_Country__c,
+				Object_Label__c,
+				Object_API_Name__c,
+				Primary_Search_Field_API_Name__c,
+				Other_Field_API_Name__c,
+				SLDS_Icon_Name__c,
 				(
 					SELECT Id,
 						Language__c,
@@ -189,7 +194,12 @@ public with sharing class ApplicationHelper {
 						Input_City__c,
 						Input_State_Province__c,
 						Input_Postal_Code__c,
-						Input_Country__c
+						Input_Country__c,
+						Object_Label__c,
+						Object_API_Name__c,
+						Primary_Search_Field_API_Name__c,
+						Other_Field_API_Name__c,
+						SLDS_Icon_Name__c
 					FROM Application_Details__r
 					ORDER BY Sort_Order__c ASC
 				)
@@ -394,5 +404,89 @@ public with sharing class ApplicationHelper {
 
         data = Database.query(queryString);
         return data;
+    }
+
+	@AuraEnabled
+    public static List<ResultWrapper> fetchRecords(SearchWrapper inputWrapper) {
+        try {
+
+			system.debug(inputWrapper);
+            if(inputWrapper != null){
+                String fieldsToQuery = 'SELECT Id, ';
+                
+				if(string.isNotBlank(inputWrapper.fieldApiName)){
+                    fieldsToQuery = fieldsToQuery + inputWrapper.fieldApiName;
+                }
+
+				system.debug(fieldsToQuery);
+
+                if(string.isNotBlank(inputWrapper.otherFieldApiName)){
+                    fieldsToQuery = fieldsToQuery + ', ' + inputWrapper.otherFieldApiName;
+                }
+
+				system.debug(fieldsToQuery);
+
+                String query = fieldsToQuery + ' FROM '+ inputWrapper.objectApiName;
+
+				system.debug(fieldsToQuery);
+
+                String filterCriteria = inputWrapper.fieldApiName + ' LIKE ' + '\'' + String.escapeSingleQuotes(inputWrapper.searchString.trim()) + '%\' LIMIT 10';
+                if(String.isNotBlank(inputWrapper.selectedRecordId)) {
+                    query += ' WHERE Id = \''+ inputWrapper.selectedRecordId + '\'';
+                }else if(String.isNotBlank(inputWrapper.parentFieldApiName) && String.isNotBlank(inputWrapper.parentRecordId)){
+                    query += ' WHERE '+ inputWrapper.parentFieldApiName+ ' = \''+ inputWrapper.parentRecordId + '\'';
+                    query += ' AND ' + filterCriteria;
+                } 
+                else {
+                    query += ' WHERE '+ filterCriteria;
+                }
+                List<ResultWrapper> returnWrapperList = new List<ResultWrapper>();
+                for(SObject s : Database.query(query)) {
+                    ResultWrapper wrap = new ResultWrapper();
+                    wrap.mainField = (String)s.get(inputWrapper.fieldApiName);
+                    wrap.subField = (String)s.get(inputWrapper.otherFieldApiName);
+                    wrap.id = (String)s.get('id');
+                    returnWrapperList.add(wrap);
+                }
+                return returnWrapperList;
+            }
+            return null;
+        } catch (Exception err) {
+            throw new AuraHandledException(err.getMessage());
+        }
+    }
+
+    public class ResultWrapper{
+        @AuraEnabled public String mainField{get;set;}
+        @AuraEnabled public String subField{get;set;}
+        @AuraEnabled public String id{get;set;}
+    }
+
+    public class SearchWrapper {
+        @AuraEnabled public String objectApiName{get;set;}
+        @AuraEnabled public String fieldApiName{get;set;}
+        @AuraEnabled public String otherFieldApiName{get;set;}
+        @AuraEnabled public String searchString{get;set;}
+        @AuraEnabled public String selectedRecordId{get;set;}
+        @AuraEnabled public String parentRecordId{get;set;}
+        @AuraEnabled public String parentFieldApiName{get;set;}
+
+		public SearchWrapper(
+			String p_objectApiName,
+			String p_fieldApiName,
+			String p_otherFieldApiName,
+			String p_searchString,
+			String p_selectedRecordId,
+			String p_parentRecordId,
+			String p_parentFieldApiName
+		) {
+			this.objectApiName = p_objectApiName;
+			this.fieldApiName = p_fieldApiName;
+			this.otherFieldApiName = p_otherFieldApiName;
+			this.searchString = p_searchString;
+			this.selectedRecordId = p_selectedRecordId;
+			this.parentRecordId = p_parentRecordId;
+			this.parentFieldApiName = p_parentFieldApiName;
+		}
     }
 }
