@@ -79,6 +79,29 @@ public with sharing class ApplicationHelperTest {
     private static void getFieldSetTest(){
         ApplicationHelper.getFieldSet('Reference_Application_Detail__c', 'App_Details');
     }
+
+    @isTest
+    private static void getFieldSetDataTest() {
+
+        Reference_Application__c refApp = [SELECT Id FROM Reference_Application__c LIMIT 1];
+
+        Application__c app = new Application__c();
+            app.Reference_Application__c = refApp.Id;
+        insert app;
+
+        Application_Section__c section = [
+            SELECT Id
+            FROM Application_Section__c
+            LIMIT 1
+        ];
+
+        ApplicationHelper.getFieldSetData(
+            section.Id,
+            'Reference_Application_Detail__c',
+            'App_Details',
+            'Reference_Application_Section__c'
+        );
+    }
     
     @isTest
     private static void setApplicationDefaultsTest() {
@@ -285,5 +308,25 @@ public with sharing class ApplicationHelperTest {
 
         ApplicationHelper.renameFiles(cvids, 'test');
         ApplicationHelper.deleteFile(files[0].ContentDocumentId);
+    }
+
+    @isTest
+    private static void fetchRecordsTest() {
+
+        insert new Account(
+            Name = 'Tokyo'
+        );
+
+        ApplicationHelper.SearchWrapper input = new ApplicationHelper.SearchWrapper(
+            'Account',
+            'Name',
+            'Type',
+            'Tokyo',
+            '',
+            '',
+            ''
+        );
+
+        ApplicationHelper.fetchRecords(input);
     }
 }

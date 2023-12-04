@@ -211,5 +211,18 @@
 		></c-application-input-address>
 	</template>
 
+	<template lwc:if={isInputLookup}>
+		<c-application-input-lookup
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			language={language}
+			languages={languages}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		></c-application-input-lookup>
+	</template>
+
 	<template lwc:if={isCustomComponent}> </template>
 </template>
