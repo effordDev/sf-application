@@ -17,6 +17,7 @@ public without sharing class ApplicationDetailFlattener {
             'Input_Radio_Group' => 'Input_Text__c',
             'Input_Text' => 'Input_Text__c',
             'Input_Email' => 'Input_Text__c',
+            'Input_Lookup' => 'Input_Text__c',
             'Input_Text_Area_Long' => 'Input_Text_Long__c',
             'Input_Address' => 'Input_Address'
         };
