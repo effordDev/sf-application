@@ -20,13 +20,8 @@ export default class ApplicationInputLookup extends LightningElement {
     delayBlurTimeout
 
     connectedCallback() {
-
-        console.log('JSON.parse(JSON.stringify(this.detail))')
-        console.log(JSON.stringify(this.detail))
-        console.log(JSON.parse(JSON.stringify(this.detail)))
         if (this.val) {
             this.fetchSobjectRecords(true);
-            console.log(JSON.stringify(this.methodInput))
         }
     }
 
@@ -124,8 +119,6 @@ export default class ApplicationInputLookup extends LightningElement {
             } else {
                 this.recordsList = [];
             }
-
-            console.log(result)
         } catch (error) {
             console.error(error);
         }
