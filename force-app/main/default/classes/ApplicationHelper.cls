@@ -471,6 +471,8 @@ public with sharing class ApplicationHelper {
         @AuraEnabled public String parentRecordId{get;set;}
         @AuraEnabled public String parentFieldApiName{get;set;}
 
+		public SearchWrapper(){}
+		
 		public SearchWrapper(
 			String p_objectApiName,
 			String p_fieldApiName,
