@@ -9,10 +9,7 @@
 		disabled={readOnly}
 	></lightning-combobox>
 
-	<br />
-
 	<template lwc:if={showChildRecords}>
-		<br />
 
 		<lightning-layout multiple-rows>
 			<template for:each={dependentChildRecords} for:item="child">
@@ -22,18 +19,19 @@
 					small-device-size={child.Small_Device_Size__c}
 					medium-device-size={child.Medium_Device_Size__c}
 					large-device-size={child.Large_Device_Size__c}
-					padding="around-small"
 				>
-					<c-application-detail-type
-						key={child.Id}
-						record-id={recordId}
-						section-id={sectionId}
-						read-only={readOnly}
-						detail={child}
-						language={language}
-						languages={languages}
-						class={child.InputOrDisplayClass__c}
-					></c-application-detail-type>
+					<div style="padding-top: .75rem;">
+						<c-application-detail-type
+							key={child.Id}
+							record-id={recordId}
+							section-id={sectionId}
+							read-only={readOnly}
+							detail={child}
+							language={language}
+							languages={languages}
+							class={child.InputOrDisplayClass__c}
+						></c-application-detail-type>
+					</div>
 				</lightning-layout-item>
 			</template>
 		</lightning-layout>
