@@ -25,9 +25,7 @@ export default class ApplicationDetailType extends LightningElement {
 	}
 
 	get inputDisplayClass() {
-		return this.recordTypeName.includes("Input")
-			? "customInput"
-			: "customDisplay";
+		return this.detail?.InputOrDisplayClass__c || ''
 	}
 
 	get isDisplayText() {
