@@ -11,7 +11,7 @@ Demo
 
 # Table of Contents
 - [Overview](#overview)
-- [Getting Started](#gettingStarted)
+- [Getting Started](#gettingstarted)
 - [Creating Inputs / Display Text](#creatingInputs/DisplayText)
   - [To Customize Inputs](#toCustomizeInputs)
     - [Display Rich Text](#displayRichText)
@@ -68,7 +68,7 @@ Component Hierarchy:
 
 [﻿View on canvas](https://app.eraser.io/workspace/4mzdiBc2NqPL5mLv0VEY?origin=share)
 
-## Getting Started <a name="gettingStarted"></a>
+## Getting Started <a name="gettingstarted"></a>
 
 Navigate to the App **Reference Application Helper** To create an application, simply create a `Application__c` record and populate the lookup `Reference_Application__c` to the application you want your instance modeled after. This is will trigger a process to write the following mapping:
 
