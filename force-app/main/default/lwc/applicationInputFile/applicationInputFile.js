@@ -63,7 +63,7 @@ export default class ApplicationInputFile extends NavigationMixin(LightningEleme
 		return this.detail?.File_Rename__c;
 	}
 	get acceptedFormats() {
-		return this.detail?.Accepted_File_Types__c.split(";");
+		return this.detail?.Accepted_File_Types__c?.split(";") || []
 	}
 	get formattedAcceptedFormats() {
 		return this.acceptedFormats.join(", ");
