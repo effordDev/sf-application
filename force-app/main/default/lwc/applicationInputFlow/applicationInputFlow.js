@@ -78,7 +78,7 @@ export default class ApplicationInputFlow extends LightningElement {
 
 		this.flowStatus = event.detail?.status
 
-		if (event?.detail?.outputVariables.some(x => {
+		if (event?.detail?.outputVariables?.some(x => {
 			return x?.name === 'isComplete' && x?.value == true
 		})) {
 			this.flowIsCompleted = true
