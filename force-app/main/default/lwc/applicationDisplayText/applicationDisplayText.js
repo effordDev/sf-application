@@ -20,7 +20,7 @@ export default class ApplicationDisplayText extends LightningElement {
 	}
 	get displayText() {
 		return this.language === "English"
-			? this.detail?.Field_Label__c
+			? this.detail?.Display_Text__c
 			: this.languages
 					.filter((lang) => lang.Application_Detail__c === this.id)
 					.find((item) => item.Language__c === this.language)
