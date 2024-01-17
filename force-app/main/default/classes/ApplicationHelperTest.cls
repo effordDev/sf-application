@@ -1,3 +1,10 @@
+/**
+ * @class
+ * @public
+ * @classdesc Test Data factory / tests for Application Module
+ * @author Reid Efford &lt;https://github.com/effordDev>
+*/
+
 @isTest
 public with sharing class ApplicationHelperTest {
     

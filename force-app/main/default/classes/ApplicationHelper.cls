@@ -1,3 +1,10 @@
+/**
+ * @class
+ * @public
+ * @classdesc Handles queries/logic for Application Module
+ * @author Reid Efford &lt;https://github.com/effordDev>
+*/
+
 public with sharing class ApplicationHelper {
 	@AuraEnabled
 	public static Application__c getApplication(Id recordId) {
