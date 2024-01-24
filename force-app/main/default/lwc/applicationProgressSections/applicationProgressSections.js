@@ -11,6 +11,7 @@ export default class ApplicationProgressSections extends LightningElement {
 	@api recordId;
 	@api application = {}
 	@api applicationLanguages = []
+	@api account = {};
 	@api contact = {};
 	@api readOnly = false;
 	@api sections = [];

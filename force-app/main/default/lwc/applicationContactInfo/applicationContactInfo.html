@@ -1,0 +1,126 @@
+<template>
+	<!-- application-contact-info <br />
+    first name: {firstName}  <br />  
+    last name: {lastName}  <br />   -->
+
+	<lightning-layout multiple-rows>
+		<template lwc:if={showTitle}>
+			<lightning-layout-item
+				size="12"
+				small-device-size="12"
+				medium-device-size="12"
+				large-device-size="12"
+				padding="around-small"
+			>
+				<lightning-input
+					name="Title"
+					label="Title"
+					type="text"
+					value={title}
+					onchange={handleChange}
+					disabled={readOnly}
+					required
+				></lightning-input>
+			</lightning-layout-item>
+		</template>
+
+		<template lwc:if={showFirstName}>
+			<lightning-layout-item
+				size="12"
+				small-device-size="6"
+				medium-device-size="6"
+				large-device-size="6"
+				padding="around-small"
+			>
+				<lightning-input
+					name="FirstName"
+					label="First Name"
+					type="text"
+					value={firstName}
+					onchange={handleChange}
+					disabled={readOnly}
+					required
+				></lightning-input>
+			</lightning-layout-item>
+		</template>
+
+		<template lwc:if={showLastName}>
+			<lightning-layout-item
+				size="12"
+				small-device-size="6"
+				medium-device-size="6"
+				large-device-size="6"
+				padding="around-small"
+			>
+				<lightning-input
+					name="LastName"
+					label="Last Name"
+					type="text"
+					value={lastName}
+					disabled={readOnly}
+					required
+				></lightning-input>
+			</lightning-layout-item>
+		</template>
+
+		<template lwc:if={showEmail}>
+			<lightning-layout-item
+				size="12"
+				small-device-size="6"
+				medium-device-size="6"
+				large-device-size="6"
+				padding="around-small"
+			>
+				<lightning-input
+					name="Email"
+					label="Email"
+					type="Email"
+					value={email}
+					onchange={handleChange}
+					disabled={readOnly}
+					required
+				></lightning-input>
+			</lightning-layout-item>
+		</template>
+
+		<template lwc:if={showBirthDate}>
+			<lightning-layout-item
+				size="12"
+				small-device-size="6"
+				medium-device-size="6"
+				large-device-size="6"
+				padding="around-small"
+			>
+				<lightning-input
+					name="BirthDate"
+					label="Date of Birth"
+					type="date"
+					value={dob}
+					disabled={readOnly}
+					required
+				></lightning-input>
+			</lightning-layout-item>
+		</template>
+
+		<template lwc:if={showMobilePhone}>
+			<lightning-layout-item
+				size="12"
+				small-device-size="6"
+				medium-device-size="6"
+				large-device-size="6"
+				padding="around-small"
+			>
+				<lightning-input
+					name="MobilePhone"
+					label="Mobile Phone"
+					type="tel"
+					value={mobilePhone}
+					onchange={handleChange}
+					pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+					disabled={readOnly}
+					required
+				></lightning-input>
+			</lightning-layout-item>
+		</template>
+	</lightning-layout>
+</template>

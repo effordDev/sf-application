@@ -108,8 +108,11 @@ export default class ApplicationProgressIndicatorMain extends LightningElement {
 	get sections() {
 		return this.application?.Application_Sections__r || [];
 	}
+	get account() {
+		return this.application?.Account__r || {};
+	}
 	get contact() {
-		return this.application?.Applicant_Contact__r || {};
+		return this.application?.Contact__r || {};
 	}
 	get onSubmitDisplayMessage() {
 		return this.application?.Reference_Application__r?.On_Submit_Display_Message__c || ''
