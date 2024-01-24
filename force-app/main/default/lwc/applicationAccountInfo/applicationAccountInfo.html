@@ -1,0 +1,90 @@
+<template>
+	<lightning-layout multiple-rows>
+		<template lwc:if={showName}>
+			<lightning-layout-item
+				size="12"
+				small-device-size="12"
+				medium-device-size="12"
+				large-device-size="12"
+				padding="around-small"
+			>
+				<lightning-input
+					name="Name"
+					label="Company Name"
+					type="text"
+					value={name}
+					onchange={handleChange}
+					disabled={readOnly}
+					required
+				></lightning-input>
+			</lightning-layout-item>
+		</template>
+
+		<template lwc:if={showWebsite}>
+			<lightning-layout-item
+				size="12"
+				small-device-size="12"
+				medium-device-size="6"
+				large-device-size="6"
+				padding="around-small"
+			>
+				<lightning-input
+					name="Website"
+					label="Website"
+					type="text"
+					value={website}
+					onchange={handleChange}
+					disabled={readOnly}
+					required
+				></lightning-input>
+			</lightning-layout-item>
+		</template>
+
+		<template lwc:if={showEin}>
+			<lightning-layout-item
+				size="12"
+				small-device-size="12"
+				medium-device-size="6"
+				large-device-size="6"
+				padding="around-small"
+			>
+				<lightning-input
+					name="EIN__c"
+					label="EIN"
+					type="text"
+					value={ein}
+					onchange={handleChange}
+					max="11"
+					disabled={readOnly}
+					required
+				></lightning-input>
+			</lightning-layout-item>
+		</template>
+
+		<template lwc:if={showBillingAddress}>
+			<lightning-layout-item
+				size="12"
+				small-device-size="12"
+				medium-device-size="12"
+				large-device-size="12"
+				padding="around-small"
+			>
+				<lightning-input-address
+					address-label="Address"
+					street-label="Street"
+					city-label="City"
+					country-label="Country"
+					province-label="State"
+					postal-code-label="Zip Code"
+					onchange={handleAddressChange}
+					street={billingStreet}
+					city={billingCity}
+					country={billingCountry}
+					province={billingState}
+					postal-code={billingPostalCode}
+					required
+				></lightning-input-address>
+			</lightning-layout-item>
+		</template>
+	</lightning-layout>
+</template>
