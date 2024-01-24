@@ -1,0 +1,63 @@
+{
+    "records" :[{
+        "attributes" : {"type" : "Reference_Application__c", "referenceId" : "refApp1"},
+        "Name": "The Example Application",
+        "Display_Name__c": "The Example Application",
+        "On_Submit_Display_Message__c": "Congrats - you've submitted your application",
+        "Display_Description__c": "An example Application",
+        "Reference_Application_Languages__r" : {
+            "records" : [{
+                "attributes" : {"type" : "Reference_Application_Language__c", "referenceId" : "refAppLang1"},
+                "Language__c": "French",
+                "Translated_Application_Number__c" : "Numéro d'application",
+                "Translated_Cancel_Text__c" : "Annuler",
+                "Translated_Created_Date__c" : "Date de création",
+                "Translated_Display_Description__c" : "Un exemple d'application",
+                "Translated_Display_Name__c" : "L'exemple d'application",
+                "Translated_Save_Text__c" : "Sauvegarder",
+                "Translated_Status__c" : "Statut",
+                "Translated_Submit_Text__c" : "Soumettre"
+            }]
+        },
+        "Reference_Application_Sections__r": {
+            "records": [
+                {
+                "attributes" : {"type" : "Reference_Application_Section__c", "referenceId" : "refAppSec1"},
+                "Name": "section 1 test",
+                "Display_Section_Name__c": "section 1 test",
+                "Sort_Order__c": 1,
+                "Reference_Application_Section_Languages__r": {
+                    "records": [{
+                        "attributes" : {"type" : "Reference_Application_Section_Language__c", "referenceId" : "refAppSecLang1"},
+                        "Language__c": "French",
+                        "Translated_Display_Section_Name__c": "Épreuve de la section 1"
+                    }]
+                },
+                "Reference_Application_Details__r": {
+                    "records": [
+                        {
+                            "attributes" : {"type" : "Reference_Application_Detail__c", "referenceId" : "refAppDet1"},
+                            "Sort_Order__c": 1,
+                            "Field_Label__c": "test picklist",
+                            "Picklist_Values__c": "Yes;No",
+                            "Reference_Application_Detail_Languages__r": {
+                                "records": [{
+                                    "attributes" : {"type" : "Reference_Application_Detail_Languages__c", "referenceId" : "refAppDetLang1"},
+                                    "Translated_Text__c": "liste de sélection de test",
+                                    "Language__c": "French"
+                                }]
+                            }
+                        }
+                    ]
+                }
+            }, 
+            {
+                "attributes" : {"type" : "Reference_Application_Section__c", "referenceId" : "refAppSec2"},
+                "Name": "section 2 test",
+                "Display_Section_Name__c": "section 2 test",
+                "Sort_Order__c": 2
+            }
+        ]
+        }
+    }]
+}
