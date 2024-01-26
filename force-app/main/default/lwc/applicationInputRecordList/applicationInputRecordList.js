@@ -218,6 +218,7 @@ export default class ApplicationInputRecordList extends LightningElement {
 		this.formLoaded = false
 		this.currentRowId = id
 		this.editActive = true
+		this.active = false
 	}
 
 	handleSubmit(event) {
