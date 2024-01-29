@@ -1170,7 +1170,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Application_Detail__c.Input_Checkbox_Group</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -1265,7 +1265,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Reference_Application_Detail__c.Input_Checkbox_Group</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
