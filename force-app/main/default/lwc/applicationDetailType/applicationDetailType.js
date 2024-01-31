@@ -2,6 +2,8 @@ import { api, LightningElement } from "lwc";
 export default class ApplicationDetailType extends LightningElement {
 	@api recordId;
 	@api sectionId;
+	@api account = {};
+	@api contact = {};
 	@api readOnly;
 	@api language = "";
 	@api languages = [];
@@ -16,6 +18,7 @@ export default class ApplicationDetailType extends LightningElement {
 
 	errorCallback(error, stack) {
 		console.log("error");
+		console.log(error);
 		console.log(error?.message);
 		console.log(stack);
 	}
