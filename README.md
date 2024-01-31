@@ -70,6 +70,29 @@ Component Hierarchy:
 
 ## Getting Started <a name="gettingstarted"></a>
 
+If you'd like an example application, not a problem, we have you covered.
+
+1. First clone the repository 
+```bash
+git clone https://github.com/effordDev/sf-application
+```
+2. cd into sf-application 
+```bash
+cd sf-application
+```
+3. Authenticate into salesforce org you want to deploy (<a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_web_flow.htm" target="_blank">click for help</a>)
+```bash
+sf org login web --alias my-hub-org --instance-url https://exciting.sandbox.my.salesforce.com
+```
+
+4. Once authenticated, you run the following command to deploy an example Reference Application. The data tree structure can be found `documentation/example-application.json`
+```bash
+sf data import tree -f documentation/example-application.json   
+```
+The output should ressemble: 
+
+<img src="documentation/OutputDataTreeDeployment.png" alt="OutputDataTreeDeployment" width="700"/>
+
 Navigate to the App **Reference Application Helper** To create an application, simply create a `Application__c` record and populate the lookup `Reference_Application__c` to the application you want your instance modeled after. This is will trigger a process to write the following mapping:
 
 ```
