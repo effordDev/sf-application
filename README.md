@@ -240,22 +240,41 @@ Populate `Component_Name__c` and if you need to pass information to the componen
 
 In the LWC `applicationDetailType.lwc` set up a getter to display your component.
 
-Ex. - This adds a component called `serviceProviders.lwc`
+This adds two components called `applicationContactInfo.lwc` and `applicationAccountInfo.lwc`
 
 ![image](https://github.com/effordDev/sf-application/assets/36901822/83a6ece7-f425-45c5-bb74-d4a8f55722dc)
 
 applicationDetailType.html
 
 ```html
-<template lwc:if="{isCustomComponent}">
-	<template lwc:if="{isServiceProvider}">
-		<c-service-providers
-			lwc:ref="input"
-			record-id="{recordId}"
-			detail="{detail}"
-			read-only="{readOnly}"
-		></c-service-providers>
-	</template>
+<template lwc:if={isCustomComponent}>
+  <template lwc:if={isApplicationContactInfo}>
+    <c-application-contact-info
+      lwc:ref="input"
+      record-id={recordId}
+      section-id={sectionId}
+      detail={detail}
+      contact={contact}
+      language={language}
+      languages={languages}
+      read-only={readOnly}
+      class={inputDisplayClass}
+    ></c-application-contact-info>
+  </template>
+
+  <template lwc:if={isApplicationAccountInfo}>
+    <c-application-account-info
+      lwc:ref="input"
+      record-id={recordId}
+      section-id={sectionId}
+      detail={detail}
+      account={account}
+      language={language}
+      languages={languages}
+      read-only={readOnly}
+      class={inputDisplayClass}
+    ></c-application-account-info>
+  </template>
 </template>
 ```
 
@@ -263,19 +282,22 @@ applicationDetailType.js
 
 ```js
 get isCustomComponent() {
-  return this.recordTypeName === "Custom_Component";
+  return this.recordTypeName === "Custom_Component"
 }
 get customCmpName() {
   return this.detail?.Component_Name__c
 }
-get isServiceProvider() {
-  return this.customCmpName === 'serviceProviders'
+get isApplicationContactInfo() {
+  return this.customCmpName === "c-application-contact-info"
+}
+get isApplicationAccountInfo() {
+  return this.customCmpName === "c-application-account-info"
 }
 ```
 
 ##### Example of getting JSON.
 
-serviceProviders.js
+applicationAccountInfo.js
 
 ```js
 get customJson() {
@@ -283,6 +305,15 @@ get customJson() {
     return JSON.parse(this.detail.Custom_Component_JSON__c)
     }
   return {}
+}
+
+const isJSON = (string) => {
+  try {
+    JSON.parse(string);
+    return true;
+  } catch (error) {
+    return false;
+  }
 }
 ```
 
