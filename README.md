@@ -240,11 +240,15 @@ Populate `Component_Name__c` and if you need to pass information to the componen
 
 In the LWC `applicationDetailType.lwc` set up a getter to display your component.
 
-This adds two components called `applicationContactInfo.lwc` and `applicationAccountInfo.lwc`
+This repo comes with two custom components that are ready to be used. Follow the architecture below to add other custom components.
+- c-application-contact-info
+- c-application-account-info
 
-![image](https://github.com/effordDev/sf-application/assets/36901822/83a6ece7-f425-45c5-bb74-d4a8f55722dc)
+This adds a components called `applicationAccountInfo.lwc`
 
-applicationDetailType.html
+<img src="documentation/image.png" alt="drawing" width="500"/>
+
+`applicationDetailType.html`
 
 ```html
 <template lwc:if={isCustomComponent}>
@@ -297,7 +301,7 @@ get isApplicationAccountInfo() {
 
 ##### Example of getting JSON.
 
-applicationAccountInfo.js
+`applicationAccountInfo.js`
 
 ```js
 get customJson() {
