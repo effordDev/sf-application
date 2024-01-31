@@ -70,6 +70,29 @@ Component Hierarchy:
 
 ## Getting Started <a name="gettingstarted"></a>
 
+If you'd like an example application, not a problem, we have you covered.
+
+1. First clone the repository 
+```bash
+git clone https://github.com/effordDev/sf-application
+```
+2. cd into sf-application 
+```bash
+cd sf-application
+```
+3. Authenticate into salesforce org you want to deploy (<a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_web_flow.htm" target="_blank">click for help</a>)
+```bash
+sf org login web --alias my-hub-org --instance-url https://exciting.sandbox.my.salesforce.com
+```
+
+4. Once authenticated, you run the following command to deploy an example Reference Application. The data tree structure can be found `documentation/example-application.json`
+```bash
+sf data import tree -f documentation/example-application.json   
+```
+The output should ressemble: 
+
+<img src="documentation/OutputDataTreeDeployment.png" alt="OutputDataTreeDeployment" width="700"/>
+
 Navigate to the App **Reference Application Helper** To create an application, simply create a `Application__c` record and populate the lookup `Reference_Application__c` to the application you want your instance modeled after. This is will trigger a process to write the following mapping:
 
 ```
@@ -240,22 +263,45 @@ Populate `Component_Name__c` and if you need to pass information to the componen
 
 In the LWC `applicationDetailType.lwc` set up a getter to display your component.
 
-Ex. - This adds a component called `serviceProviders.lwc`
+This repo comes with two custom components that are ready to be used. Follow the architecture below to add other custom components.
+- c-application-contact-info
+- c-application-account-info
 
-![image](https://github.com/effordDev/sf-application/assets/36901822/83a6ece7-f425-45c5-bb74-d4a8f55722dc)
+This adds a components called `applicationAccountInfo.lwc`
 
-applicationDetailType.html
+<img src="documentation/image.png" alt="drawing" width="500"/>
+
+`applicationDetailType.html`
 
 ```html
-<template lwc:if="{isCustomComponent}">
-	<template lwc:if="{isServiceProvider}">
-		<c-service-providers
-			lwc:ref="input"
-			record-id="{recordId}"
-			detail="{detail}"
-			read-only="{readOnly}"
-		></c-service-providers>
-	</template>
+<template lwc:if={isCustomComponent}>
+  <template lwc:if={isApplicationContactInfo}>
+    <c-application-contact-info
+      lwc:ref="input"
+      record-id={recordId}
+      section-id={sectionId}
+      detail={detail}
+      contact={contact}
+      language={language}
+      languages={languages}
+      read-only={readOnly}
+      class={inputDisplayClass}
+    ></c-application-contact-info>
+  </template>
+
+  <template lwc:if={isApplicationAccountInfo}>
+    <c-application-account-info
+      lwc:ref="input"
+      record-id={recordId}
+      section-id={sectionId}
+      detail={detail}
+      account={account}
+      language={language}
+      languages={languages}
+      read-only={readOnly}
+      class={inputDisplayClass}
+    ></c-application-account-info>
+  </template>
 </template>
 ```
 
@@ -263,19 +309,22 @@ applicationDetailType.js
 
 ```js
 get isCustomComponent() {
-  return this.recordTypeName === "Custom_Component";
+  return this.recordTypeName === "Custom_Component"
 }
 get customCmpName() {
   return this.detail?.Component_Name__c
 }
-get isServiceProvider() {
-  return this.customCmpName === 'serviceProviders'
+get isApplicationContactInfo() {
+  return this.customCmpName === "c-application-contact-info"
+}
+get isApplicationAccountInfo() {
+  return this.customCmpName === "c-application-account-info"
 }
 ```
 
 ##### Example of getting JSON.
 
-serviceProviders.js
+`applicationAccountInfo.js`
 
 ```js
 get customJson() {
@@ -283,6 +332,15 @@ get customJson() {
     return JSON.parse(this.detail.Custom_Component_JSON__c)
     }
   return {}
+}
+
+const isJSON = (string) => {
+  try {
+    JSON.parse(string);
+    return true;
+  } catch (error) {
+    return false;
+  }
 }
 ```
 

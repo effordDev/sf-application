@@ -224,5 +224,33 @@
 		></c-application-input-lookup>
 	</template>
 
-	<template lwc:if={isCustomComponent}> </template>
+	<template lwc:if={isCustomComponent}>
+		<template lwc:if={isApplicationContactInfo}>
+		  <c-application-contact-info
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			contact={contact}
+			language={language}
+			languages={languages}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		  ></c-application-contact-info>
+		</template>
+	  
+		<template lwc:if={isApplicationAccountInfo}>
+		  <c-application-account-info
+			lwc:ref="input"
+			record-id={recordId}
+			section-id={sectionId}
+			detail={detail}
+			account={account}
+			language={language}
+			languages={languages}
+			read-only={readOnly}
+			class={inputDisplayClass}
+		  ></c-application-account-info>
+		</template>
+	  </template>
 </template>
