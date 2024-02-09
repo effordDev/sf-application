@@ -1,0 +1,35 @@
+<template>
+
+    <lightning-card 
+        title={title} 
+        icon-name="utility:edit">
+
+        <div slot="actions">
+            <lightning-button 
+                variant="neutral" 
+                label="Clear" 
+                title="clear" 
+                onclick={clear} >
+            </lightning-button>
+        </div>
+
+        <div style="padding: 10px;">
+            <c-signature-pad
+                width={width}
+                height={height}
+                pen-color="rgb(0,0,0)"
+                background-color="rgb(255,255,255)"
+            ></c-signature-pad>
+        </div>
+
+        <div slot="footer">
+            
+            <lightning-button 
+                variant="brand" 
+                label="Save" 
+                title="Save" 
+                onclick={save} >
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

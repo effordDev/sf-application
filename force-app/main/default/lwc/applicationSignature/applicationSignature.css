@@ -1,0 +1,8 @@
+.signature-container {
+    border: 1px solid black;
+    border-radius: 0.25rem;
+    padding: 10px;
+}
+.error {
+    border-color: red;
+}

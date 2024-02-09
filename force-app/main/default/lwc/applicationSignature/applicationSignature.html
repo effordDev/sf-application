@@ -1,0 +1,68 @@
+<template>
+    <div class={containerClass}>
+        <lightning-card 
+            title={title} 
+            icon-name="utility:edit"
+        >
+
+            <template lwc:if={editable}>
+                <div slot="actions">
+                    <lightning-button 
+                        variant="neutral" 
+                        label="Update" 
+                        title="update" 
+                        onclick={updateSignature} >
+                    </lightning-button>
+                </div>
+            </template>
+            <template lwc:if={showPad}>
+    
+                <div slot="actions">
+                    <lightning-button 
+                        variant="neutral" 
+                        label="Clear" 
+                        title="clear" 
+                        onclick={clear} >
+                    </lightning-button>
+    
+                    <template lwc:if={showCancel}>
+                        &nbsp;
+                        <lightning-button 
+                            variant="brand" 
+                            label="Cancel" 
+                            title="cancel" 
+                            onclick={handleCancel} >
+                        </lightning-button>
+                    </template>
+                </div>
+        
+        
+                <div style="padding: 10px;">
+                    <c-signature-pad
+                        width={width}
+                        height={height}
+                        pen-color="rgb(0,0,0)"
+                        background-color="rgb(255,255,255)"
+                    ></c-signature-pad>
+                </div>
+        
+                <div slot="footer">
+                    
+                    <lightning-button 
+                        variant="brand" 
+                        label="Save" 
+                        title="Save" 
+                        onclick={save} >
+                    </lightning-button>
+                </div>
+            </template>
+            <template lwc:else>
+                <template lwc:if={hasPreview}>
+                    <img 
+                        src={preview}
+                    />
+                </template>
+            </template>
+        </lightning-card>
+    </div>
+</template>
