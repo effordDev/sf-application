@@ -94,4 +94,10 @@ export default class ApplicationDetailType extends LightningElement {
 	get isApplicationSignature() {
 		return this.customCmpName === "c-application-signature"
 	}
+	get isApplicationContactInfo() {
+		return this.customCmpName === "c-application-contact-info";
+	}
+	get isApplicationAccountInfo() {
+		return this.customCmpName === "c-application-account-info";
+	}
 }
