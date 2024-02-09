@@ -2,8 +2,6 @@ import { api, LightningElement } from "lwc";
 export default class ApplicationDetailType extends LightningElement {
 	@api recordId;
 	@api sectionId;
-	@api account = {};
-	@api contact = {};
 	@api readOnly;
 	@api language = "";
 	@api languages = [];
@@ -16,19 +14,21 @@ export default class ApplicationDetailType extends LightningElement {
 		return this.refs.input?.completed;
 	}
 
-	errorCallback(error, stack) {
-		console.log("error");
-		console.log(error);
-		console.log(error?.message);
-		console.log(stack);
-	}
+	// errorCallback(error, stack) {
+	// 	console.log("error");
+	// 	console.log(JSON.parse(JSON.stringify(error)))
+	// 	console.log(error?.message);
+	// 	console.log(stack);
+	// }
 
 	get recordTypeName() {
 		return this.detail?.RecordType?.DeveloperName;
 	}
 
 	get inputDisplayClass() {
-		return this.detail?.InputOrDisplayClass__c || ''
+		return this.recordTypeName.includes("Input")
+			? "customInput"
+			: "customDisplay";
 	}
 
 	get isDisplayText() {
@@ -90,5 +90,14 @@ export default class ApplicationDetailType extends LightningElement {
 	}
 	get customCmpName() {
 		return this.detail?.Component_Name__c;
+	}
+	get isApplicationSignature() {
+		return this.customCmpName === "c-application-signature"
+	}
+	get isApplicationContactInfo() {
+		return this.customCmpName === "c-application-contact-info";
+	}
+	get isApplicationAccountInfo() {
+		return this.customCmpName === "c-application-account-info";
 	}
 }
