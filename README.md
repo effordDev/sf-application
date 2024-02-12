@@ -6,8 +6,7 @@
 </a>
 
 Demo
-
-[﻿screen-recorder-tue-may-23-2023-11-14-03.webm](https://github.com/effordDev/sf-application/assets/36901822/16ea4480-2926-4933-b18b-b6aa0b3801e9)
+:todo
 
 # Table of Contents
 - [Overview](#overview)
