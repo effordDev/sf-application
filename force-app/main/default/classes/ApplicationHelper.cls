@@ -413,7 +413,7 @@ public with sharing class ApplicationHelper {
         }
         queryString += ' FROM ' + sObjectName;
 		queryString += ' WHERE ' + parentRelationship + ' = ' + '\''+ parentId +'\'';
-		queryString +=' LIMIT 10o';
+		queryString +=' LIMIT 100';
          
 		system.debug('queryString');
 		system.debug(queryString);
