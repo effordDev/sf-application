@@ -87,8 +87,8 @@ export default class ApplicationInputFile extends NavigationMixin(LightningEleme
 			return f;
 		});
 
-		console.log('files')
-		console.log(JSON.parse(JSON.stringify(this.files)))
+		// console.log('files')
+		// console.log(JSON.parse(JSON.stringify(this.files)))
 	}
 
 	async handleUploadFinished(event) {
@@ -156,7 +156,7 @@ export default class ApplicationInputFile extends NavigationMixin(LightningEleme
 
 		const contentVersionId = event.target.dataset.id
 
-		console.log(contentVersionId)
+		// console.log(contentVersionId)
 		if (!contentVersionId) {
 			return
 		}
@@ -183,7 +183,7 @@ export default class ApplicationInputFile extends NavigationMixin(LightningEleme
 			const rendition = this.getRendition(file.FileType)
 	
 			const url = `${base}/sfc/servlet.shepherd/version/renditionDownload?rendition=${rendition}&versionId=${contentVersionId}`
-			console.log(url)
+			// console.log(url)
 			
 			this.srcFileURL = url
 			this.active = true
