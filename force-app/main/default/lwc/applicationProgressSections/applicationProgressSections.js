@@ -123,7 +123,7 @@ export default class ApplicationProgressSections extends LightningElement {
 			this.details = await getApplicationDetails({
 				applicationSectionId: this.activeSectionId
 			});
-			console.log(JSON.parse(JSON.stringify(this.details)));
+			// console.log(JSON.parse(JSON.stringify(this.details)));
 		} catch (error) {
 			console.error(error);
 		} finally {
@@ -138,8 +138,8 @@ export default class ApplicationProgressSections extends LightningElement {
 			this.detailLanguages = await getApplicationDetailLanguages({
 				applicationSectionId: this.activeSectionId
 			});
-			console.log("this.detailLanguages");
-			console.log(JSON.parse(JSON.stringify(this.detailLanguages)));
+			// console.log("this.detailLanguages");
+			// console.log(JSON.parse(JSON.stringify(this.detailLanguages)));
 		} catch (error) {
 			console.error(error);
 		}
@@ -176,7 +176,7 @@ export default class ApplicationProgressSections extends LightningElement {
 			];
 		}
 
-		console.log(JSON.parse(JSON.stringify(this.sobsToUpdate)));
+		// console.log(JSON.parse(JSON.stringify(this.sobsToUpdate)));
 	}
 
 	validateInputs() {
@@ -233,7 +233,7 @@ export default class ApplicationProgressSections extends LightningElement {
 
 		
 		const btnName = event.target.name
-		console.log(event.target.name)
+		// console.log(event.target.name)
 
 		if (btnName === 'Save') {
 
@@ -246,7 +246,7 @@ export default class ApplicationProgressSections extends LightningElement {
 		}
 
 		const sectionComplete = btnName === 'Save'
-		console.log({sectionComplete})
+		// console.log({sectionComplete})
 
 		try {
 			if (this.sobsToUpdate.length) {
