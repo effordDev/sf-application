@@ -222,7 +222,7 @@ The following are the currently supported input fields / display types (Record T
 - Displays <a href="https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation">base lightning-input</a> - type="search"
 - `Object_Label__c` - Specifies the label of the object to search
 - `Object_API_Name__c` - Specifies the object to search
-- `Province_Target_Field_API_Name__c` - Specifies the field to search Ex. 'Name' `WHERE Name LIKE =: inputString`
+- `Primary_Search_Field_API_Name__c` - Specifies the field to search Ex. 'Name' `WHERE Name LIKE =: inputString`
 - `Other_Field_API_Name__c` - Specifies another field to show when searching
 - `SLDS_Icon_Name__c` - Specifies the <a target='_blank' href='https://www.lightningdesignsystem.com/icons/'>slds icon to display</a> 
 
