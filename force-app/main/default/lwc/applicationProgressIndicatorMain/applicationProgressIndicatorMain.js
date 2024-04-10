@@ -182,7 +182,7 @@ export default class ApplicationProgressIndicatorMain extends LightningElement {
 			this.isLoading = true;
 
 			this.application = await getApplication({ recordId: this.recordId });
-			console.log(JSON.parse(JSON.stringify(this.application)));
+			// console.log(JSON.parse(JSON.stringify(this.application)));
 		} catch (error) {
 			console.error(error);
 		} finally {
