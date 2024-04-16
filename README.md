@@ -265,12 +265,17 @@ In the LWC `applicationDetailType.lwc` set up a getter to display your component
 This repo comes with two custom components that are ready to be used. Follow the architecture below to add other custom components.
 - c-application-contact-info
 - c-application-account-info
+- 
+
+Make sure in your custom component, make sure you have a public property called `complete` that returns a truthy or falsy value based on if the component is considered complete.
+
+*An example can be found in applicationAccountInfo.lwc*
 
 This adds a components called `applicationAccountInfo.lwc`
 
 <img src="documentation/image.png" alt="drawing" width="500"/>
 
-`applicationDetailType.html`
+You will need to add your component with the appropriate getters in `applicationDetailType.html`
 
 ```html
 <template lwc:if={isCustomComponent}>
