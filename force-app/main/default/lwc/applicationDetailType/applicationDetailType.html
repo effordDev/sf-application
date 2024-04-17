@@ -1,265 +1,271 @@
 <template>
-	<template lwc:if={isDisplayText}>
-		<c-application-display-text
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			language={language}
-			class={inputDisplayClass}
-		></c-application-display-text>
-	</template>
 
-	<template lwc:if={isDisplayRichText}>
-		<c-application-display-rich-text
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			class={inputDisplayClass}
-		></c-application-display-rich-text>
-	</template>
+	<div class={detailClass}>
 
-	<template lwc:if={isInputTextAreaLong}>
-		<c-application-input-text-area-long
-			lwc:ref="input"
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			language={language}
-			languages={languages}
-			read-only={readOnly}
-			class={inputDisplayClass}
-		></c-application-input-text-area-long>
-	</template>
+		<template lwc:if={isDisplayText}>
+			<c-application-display-text
+				record-id={recordId}
+				section-id={sectionId}
+				detail={detail}
+				language={language}
+				class={inputDisplayClass}
+			></c-application-display-text>
+		</template>
 
-	<template lwc:if={isInputText}>
-		<c-application-input-text
-			lwc:ref="input"
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			language={language}
-			languages={languages}
-			read-only={readOnly}
-			class={inputDisplayClass}
-		></c-application-input-text>
-	</template>
+		<template lwc:if={isDisplayRichText}>
+			<c-application-display-rich-text
+				record-id={recordId}
+				section-id={sectionId}
+				detail={detail}
+				class={inputDisplayClass}
+			></c-application-display-rich-text>
+		</template>
 
-	<template lwc:if={isInputEmail}>
-		<c-application-input-email
-			lwc:ref="input"
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			language={language}
-			languages={languages}
-			read-only={readOnly}
-			class={inputDisplayClass}
-		></c-application-input-email>
-	</template>
-
-	<template lwc:if={isInputNumber}>
-		<c-application-input-number
-			lwc:ref="input"
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			language={language}
-			languages={languages}
-			read-only={readOnly}
-			class={inputDisplayClass}
-		></c-application-input-number>
-	</template>
-
-	<template lwc:if={isInputCurrency}>
-		<c-application-input-currency
-			lwc:ref="input"
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			language={language}
-			languages={languages}
-			read-only={readOnly}
-			class={inputDisplayClass}
-		></c-application-input-currency>
-	</template>
-
-	<template lwc:if={isInputCheckbox}>
-		<c-application-input-checkbox
-			lwc:ref="input"
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			language={language}
-			languages={languages}
-			read-only={readOnly}
-			class={inputDisplayClass}
-		></c-application-input-checkbox>
-	</template>
-
-	<template lwc:if={isInputPicklist}>
-		<c-application-input-picklist
-			lwc:ref="input"
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			language={language}
-			languages={languages}
-			read-only={readOnly}
-			class={inputDisplayClass}
-		></c-application-input-picklist>
-	</template>
-
-	<template lwc:if={isInputRadioGroup}>
-		<c-application-input-radio-group
-			lwc:ref="input"
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			language={language}
-			languages={languages}
-			read-only={readOnly}
-			class={inputDisplayClass}
-		></c-application-input-radio-group>
-	</template>
-
-	<template lwc:if={isInputCheckboxGroup}>
-		<c-application-input-checkbox-group
-			lwc:ref="input"
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			language={language}
-			languages={languages}
-			read-only={readOnly}
-			class={inputDisplayClass}
-		></c-application-input-checkbox-group>
-	</template>
-
-	<template lwc:if={isInputDate}>
-		<c-application-input-date
-			record-id={recordId}
-			lwc:ref="input"
-			section-id={sectionId}
-			detail={detail}
-			language={language}
-			languages={languages}
-			read-only={readOnly}
-			class={inputDisplayClass}
-		></c-application-input-date>
-	</template>
-
-	<template lwc:if={isInputDateTime}>
-		<c-application-input-datetime
-			lwc:ref="input"
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			language={language}
-			languages={languages}
-			read-only={readOnly}
-			class={inputDisplayClass}
-		></c-application-input-datetime>
-	</template>
-
-	<template lwc:if={isInputFile}>
-		<c-application-input-file
-			lwc:ref="input"
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			language={language}
-			languages={languages}
-			read-only={readOnly}
-			class={inputDisplayClass}
-			is-section-complete={isSectionComplete}
-			is-community={isCommunity}
-		></c-application-input-file>
-	</template>
-
-	<template lwc:if={isInputRecordList}>
-		<c-application-input-record-list
-			lwc:ref="input"
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			read-only={readOnly}
-			class={inputDisplayClass}
-		></c-application-input-record-list>
-	</template>
-
-	<template lwc:if={isInputFlow}>
-		<c-application-input-flow
-			lwc:ref="input"
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			read-only={readOnly}
-			class={inputDisplayClass}
-		></c-application-input-flow>
-	</template>
-
-	<template lwc:if={isInputAddress}>
-		<c-application-input-address
-			lwc:ref="input"
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			language={language}
-			languages={languages}
-			read-only={readOnly}
-			class={inputDisplayClass}
-		></c-application-input-address>
-	</template>
-
-	<template lwc:if={isInputLookup}>
-		<c-application-input-lookup
-			lwc:ref="input"
-			record-id={recordId}
-			section-id={sectionId}
-			detail={detail}
-			language={language}
-			languages={languages}
-			read-only={readOnly}
-			class={inputDisplayClass}
-		></c-application-input-lookup>
-	</template>
-
-	<template lwc:if={isCustomComponent}>
-		<template lwc:if={isApplicationContactInfo}>
-			<c-application-contact-info
+		<template lwc:if={isInputTextAreaLong}>
+			<c-application-input-text-area-long
 				lwc:ref="input"
 				record-id={recordId}
 				section-id={sectionId}
 				detail={detail}
-				contact={contact}
 				language={language}
 				languages={languages}
 				read-only={readOnly}
 				class={inputDisplayClass}
-			></c-application-contact-info>
+			></c-application-input-text-area-long>
 		</template>
-		
-		<template lwc:if={isApplicationAccountInfo}>
-			<c-application-account-info
+
+		<template lwc:if={isInputText}>
+			<c-application-input-text
 				lwc:ref="input"
 				record-id={recordId}
 				section-id={sectionId}
 				detail={detail}
-				account={account}
 				language={language}
 				languages={languages}
 				read-only={readOnly}
 				class={inputDisplayClass}
-			></c-application-account-info>
+			></c-application-input-text>
 		</template>
-		
-		<template lwc:if={isApplicationSignature}>
-			<c-application-signature
+
+		<template lwc:if={isInputEmail}>
+			<c-application-input-email
 				lwc:ref="input"
 				record-id={recordId}
-				class={inputDisplayClass}
+				section-id={sectionId}
+				detail={detail}
+				language={language}
+				languages={languages}
 				read-only={readOnly}
-			></c-application-signature>
+				class={inputDisplayClass}
+			></c-application-input-email>
 		</template>
-	</template>
+
+		<template lwc:if={isInputNumber}>
+			<c-application-input-number
+				lwc:ref="input"
+				record-id={recordId}
+				section-id={sectionId}
+				detail={detail}
+				language={language}
+				languages={languages}
+				read-only={readOnly}
+				class={inputDisplayClass}
+			></c-application-input-number>
+		</template>
+
+		<template lwc:if={isInputCurrency}>
+			<c-application-input-currency
+				lwc:ref="input"
+				record-id={recordId}
+				section-id={sectionId}
+				detail={detail}
+				language={language}
+				languages={languages}
+				read-only={readOnly}
+				class={inputDisplayClass}
+			></c-application-input-currency>
+		</template>
+
+		<template lwc:if={isInputCheckbox}>
+			<c-application-input-checkbox
+				lwc:ref="input"
+				record-id={recordId}
+				section-id={sectionId}
+				detail={detail}
+				language={language}
+				languages={languages}
+				read-only={readOnly}
+				class={inputDisplayClass}
+			></c-application-input-checkbox>
+		</template>
+
+		<template lwc:if={isInputPicklist}>
+			<c-application-input-picklist
+				lwc:ref="input"
+				record-id={recordId}
+				section-id={sectionId}
+				detail={detail}
+				language={language}
+				languages={languages}
+				read-only={readOnly}
+				class={inputDisplayClass}
+			></c-application-input-picklist>
+		</template>
+
+		<template lwc:if={isInputRadioGroup}>
+			<c-application-input-radio-group
+				lwc:ref="input"
+				record-id={recordId}
+				section-id={sectionId}
+				detail={detail}
+				language={language}
+				languages={languages}
+				read-only={readOnly}
+				class={inputDisplayClass}
+			></c-application-input-radio-group>
+		</template>
+
+		<template lwc:if={isInputCheckboxGroup}>
+			<c-application-input-checkbox-group
+				lwc:ref="input"
+				record-id={recordId}
+				section-id={sectionId}
+				detail={detail}
+				language={language}
+				languages={languages}
+				read-only={readOnly}
+				class={inputDisplayClass}
+			></c-application-input-checkbox-group>
+		</template>
+
+		<template lwc:if={isInputDate}>
+			<c-application-input-date
+				record-id={recordId}
+				lwc:ref="input"
+				section-id={sectionId}
+				detail={detail}
+				language={language}
+				languages={languages}
+				read-only={readOnly}
+				class={inputDisplayClass}
+			></c-application-input-date>
+		</template>
+
+		<template lwc:if={isInputDateTime}>
+			<c-application-input-datetime
+				lwc:ref="input"
+				record-id={recordId}
+				section-id={sectionId}
+				detail={detail}
+				language={language}
+				languages={languages}
+				read-only={readOnly}
+				class={inputDisplayClass}
+			></c-application-input-datetime>
+		</template>
+
+		<template lwc:if={isInputFile}>
+			<c-application-input-file
+				lwc:ref="input"
+				record-id={recordId}
+				section-id={sectionId}
+				detail={detail}
+				language={language}
+				languages={languages}
+				read-only={readOnly}
+				class={inputDisplayClass}
+				is-section-complete={isSectionComplete}
+				is-community={isCommunity}
+			></c-application-input-file>
+		</template>
+
+		<template lwc:if={isInputRecordList}>
+			<c-application-input-record-list
+				lwc:ref="input"
+				record-id={recordId}
+				section-id={sectionId}
+				detail={detail}
+				read-only={readOnly}
+				class={inputDisplayClass}
+			></c-application-input-record-list>
+		</template>
+
+		<template lwc:if={isInputFlow}>
+			<c-application-input-flow
+				lwc:ref="input"
+				record-id={recordId}
+				section-id={sectionId}
+				detail={detail}
+				read-only={readOnly}
+				class={inputDisplayClass}
+			></c-application-input-flow>
+		</template>
+
+		<template lwc:if={isInputAddress}>
+			<c-application-input-address
+				lwc:ref="input"
+				record-id={recordId}
+				section-id={sectionId}
+				detail={detail}
+				language={language}
+				languages={languages}
+				read-only={readOnly}
+				class={inputDisplayClass}
+			></c-application-input-address>
+		</template>
+
+		<template lwc:if={isInputLookup}>
+			<c-application-input-lookup
+				lwc:ref="input"
+				record-id={recordId}
+				section-id={sectionId}
+				detail={detail}
+				language={language}
+				languages={languages}
+				read-only={readOnly}
+				class={inputDisplayClass}
+			></c-application-input-lookup>
+		</template>
+
+		<template lwc:if={isCustomComponent}>
+			<template lwc:if={isApplicationContactInfo}>
+				<c-application-contact-info
+					lwc:ref="input"
+					record-id={recordId}
+					section-id={sectionId}
+					detail={detail}
+					contact={contact}
+					language={language}
+					languages={languages}
+					read-only={readOnly}
+					class={inputDisplayClass}
+				></c-application-contact-info>
+			</template>
+			
+			<template lwc:if={isApplicationAccountInfo}>
+				<c-application-account-info
+					lwc:ref="input"
+					record-id={recordId}
+					section-id={sectionId}
+					detail={detail}
+					account={account}
+					language={language}
+					languages={languages}
+					read-only={readOnly}
+					class={inputDisplayClass}
+				></c-application-account-info>
+			</template>
+			
+			<template lwc:if={isApplicationSignature}>
+				<c-application-signature
+					lwc:ref="input"
+					record-id={recordId}
+					class={inputDisplayClass}
+					read-only={readOnly}
+				></c-application-signature>
+			</template>
+		</template>
+
+	</div>
+	
 </template>

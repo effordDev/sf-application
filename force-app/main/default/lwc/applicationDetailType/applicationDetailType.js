@@ -32,6 +32,9 @@ export default class ApplicationDetailType extends LightningElement {
 			? "customInput"
 			: "customDisplay";
 	}
+	get detailClass() {
+		return !!this.detail?.Parent_Application_Detail__c ? 'slds-p-around_small' : ''
+	}
 
 	get isDisplayText() {
 		return this.recordTypeName === "Display_Text";

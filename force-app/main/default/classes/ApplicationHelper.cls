@@ -215,7 +215,8 @@ public with sharing class ApplicationHelper {
 						Object_API_Name__c,
 						Primary_Search_Field_API_Name__c,
 						Other_Field_API_Name__c,
-						SLDS_Icon_Name__c
+						SLDS_Icon_Name__c,
+						Parent_Application_Detail__c
 					FROM Application_Details__r
 					ORDER BY Sort_Order__c ASC
 				)
