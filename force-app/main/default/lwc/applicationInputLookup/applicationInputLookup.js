@@ -104,9 +104,9 @@ export default class ApplicationInputLookup extends LightningElement {
     async fetchSobjectRecords(initLoad) {
         try {
 
-            if (this.readOnly) {
-                return
-            }
+            // if (this.readOnly) {
+            //     return
+            // }
 
             const result = await fetchRecords({
                 inputWrapper: this.methodInput
@@ -114,7 +114,7 @@ export default class ApplicationInputLookup extends LightningElement {
 
             if (initLoad && result) {
                 this.selectedRecordName = result[0].mainField;
-            } else if (result) {
+            } else if (result && !this.readOnly) {
                 this.recordsList = JSON.parse(JSON.stringify(result));
             } else {
                 this.recordsList = [];
