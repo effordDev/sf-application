@@ -3,6 +3,7 @@ import { api, track, LightningElement } from "lwc";
 export default class ApplicationInputRadioGroup extends LightningElement {
 	@api recordId;
 	@api sectionId;
+	@api isSectionComplete = false;
 	@api readOnly;
 	@api language = "";
 	@api languages = [];
