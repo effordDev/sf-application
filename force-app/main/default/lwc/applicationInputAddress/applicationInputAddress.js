@@ -113,7 +113,7 @@ export default class ApplicationInputAddress extends LightningElement {
         this.detail.Input_Postal_Code__c = postalCode
         this.detail.Input_Country__c = country
 
-        console.log(JSON.parse(JSON.stringify(this.mapMarkers)))
+        // console.log(JSON.parse(JSON.stringify(this.mapMarkers)))
 
 		this.dispatchEvent(
 			new CustomEvent("detailchange", {

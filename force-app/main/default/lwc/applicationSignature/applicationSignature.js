@@ -81,8 +81,8 @@ export default class ApplicationSignature extends LightningElement {
     
             this.cv = result
     
-            console.log('result')
-            console.log(JSON.parse(JSON.stringify(result)))
+            // console.log('result')
+            // console.log(JSON.parse(JSON.stringify(result)))
         } catch (error) {
             console.error(error)
         }

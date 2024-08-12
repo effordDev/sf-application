@@ -23,6 +23,6 @@ export default class ApplicationAnswersSections extends LightningElement {
 			applicationSectionId: this.id
 		});
 
-		console.log(JSON.parse(JSON.stringify(this.details)));
+		// console.log(JSON.parse(JSON.stringify(this.details)));
 	}
 }

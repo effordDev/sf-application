@@ -33,7 +33,7 @@ export default class ApplicationProgressIndicatorItem extends LightningElement {
 
 	handleClick(event) {
 		const id = event.target.dataset.id;
-		console.log(id);
+		// console.log(id);
 		this.dispatchEvent(
 			new CustomEvent("sectionselect", {
 				bubbles: true,

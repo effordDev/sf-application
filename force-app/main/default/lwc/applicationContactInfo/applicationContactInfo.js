@@ -72,10 +72,10 @@ export default class ApplicationContactInfo extends LightningElement {
 		const value = event.detail.value;
 		const field = event.target.name;
 
-		console.log({
-			field,
-			value
-		});
+		// console.log({
+		// 	field,
+		// 	value
+		// });
 
 		this.dispatchEvent(
 			new CustomEvent("sobchange", {
