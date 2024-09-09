@@ -50,7 +50,7 @@ export default class ApplicationInputNumber extends LightningElement {
 		return this.detail?.Required__c;
 	}
 	get val() {
-		return this.detail?.Input_Number__c || this.defaultValue;
+		return !isNaN(this.detail?.Input_Number__c) ? this.detail?.Input_Number__c : this.defaultValue;
 	}
 	get defaultValue() {
 		return this.detail?.Default_Value__c || "";
