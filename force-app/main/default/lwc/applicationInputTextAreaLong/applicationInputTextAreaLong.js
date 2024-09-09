@@ -47,6 +47,9 @@ export default class ApplicationInputTextAreaLong extends LightningElement {
 	get val() {
 		return this.detail?.Input_Text_Long__c || this.defaultValue;
 	}
+	get max() {
+		return this.detail?.Maximum__c || 10000;
+	}
 	get defaultValue() {
 		return this.detail?.Default_Value__c || "";
 	}

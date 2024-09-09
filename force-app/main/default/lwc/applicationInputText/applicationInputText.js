@@ -48,6 +48,9 @@ export default class ApplicationInputText extends LightningElement {
 	get val() {
 		return this.detail?.Input_Text__c || this.defaultValue;
 	}
+	get max() {
+		return this.detail?.Maximum__c || 255;
+	}
 	get defaultValue() {
 		return this.detail?.Default_Value__c || "";
 	}
