@@ -228,6 +228,23 @@ public with sharing class ApplicationHelper {
 	}
 
 	@AuraEnabled
+	public static SObject getRelatedApplicationRecord(Id recordId, String field) {
+
+		String objectAPIName = recordId.getSObjectType().getDescribe().getName();
+
+		String query = field == 'Id ' ? 'SELECT ' : 'SELECT Id, '; 
+		
+		query = query + field 
+		+ ' FROM ' + objectAPIName
+		+ ' WHERE Id =: recordId '
+		+ ' LIMIT 1'; 
+
+		system.debug(query);
+
+		return Database.query(query);
+	}
+
+	@AuraEnabled
 	public static List<Application_Detail_Language__c> getApplicationDetailLanguages(
 		Id applicationSectionId
 	) {
