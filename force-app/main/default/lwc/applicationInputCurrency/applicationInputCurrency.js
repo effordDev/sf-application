@@ -46,7 +46,7 @@ export default class ApplicationInputCurrency extends LightningElement {
 		return this.detail?.Required__c;
 	}
 	get val() {
-		!isNaN(this.detail?.Input_Currency__c) ? this.detail?.Input_Currency__c : this.defaultValue;
+		return !isNaN(this.detail?.Input_Currency__c) ? this.detail?.Input_Currency__c : this.defaultValue;
 	}
 	get defaultValue() {
 		return this.detail?.Default_Value__c || "";
