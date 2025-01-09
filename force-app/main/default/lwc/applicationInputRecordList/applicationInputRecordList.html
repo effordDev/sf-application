@@ -92,7 +92,7 @@
 								onerror={handleError}
 								onload={handleFormLoad}
 							>
-								<template lwc:if={formLoaded}>
+								<!-- <template lwc:if={formLoaded}> -->
 									<lightning-messages> </lightning-messages>
 
 									<template for:each={fieldSet} for:item="field">
@@ -114,9 +114,9 @@
 											onclick={hideInputs}
 										></lightning-button>
 									</div>
-								</template>
+								<!-- </template> -->
 
-								<template lwc:else> Loading... </template>
+								<!-- <template lwc:else> Loading... </template> -->
 							</lightning-record-edit-form>
 
 						</div>
