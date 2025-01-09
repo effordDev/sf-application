@@ -16,7 +16,9 @@
 						onerror={handleError}
 						onload={handleFormLoad}
 					>
-						<template lwc:if={formLoaded}>
+						<!-- spring 25 breaks -->
+						<!-- <template lwc:if={formLoaded}> -->
+
 							<lightning-messages> </lightning-messages>
 
 							<template for:each={fieldSet} for:item="field">
@@ -40,7 +42,7 @@
 							</div>
 						</template>
 
-						<template lwc:else> Loading... </template>
+						<!-- <template lwc:else> Loading... </template> -->
 					</lightning-record-edit-form>
 				</template>
 
