@@ -3,7 +3,7 @@ import { NavigationMixin } from 'lightning/navigation';
 import getFiles from "@salesforce/apex/ApplicationHelper.getFiles";
 import renameFiles from "@salesforce/apex/ApplicationHelper.renameFiles";
 import deleteFile from "@salesforce/apex/ApplicationHelper.deleteFile";
-
+import updateSobs from "@salesforce/apex/ApplicationHelper.updateSobs";
 import { fileTypesMap } from "./utils";
 
 export default class ApplicationInputFile extends NavigationMixin(LightningElement) {
@@ -99,31 +99,40 @@ export default class ApplicationInputFile extends NavigationMixin(LightningEleme
 			})
 		);
 
-		const contentVersionIds = event.detail.files.map((f) => f.contentVersionId);
+		try {
+			const contentVersionIds = event.detail.files.map((f) => f.contentVersionId);
 
-		if (this.fileRename && contentVersionIds.length) {
-			await renameFiles({ contentVersionIds, name: this.fileRename });
+			if (this.fileRename && contentVersionIds.length) {
+				await renameFiles({ contentVersionIds, name: this.fileRename });
+			}
+	
+			await this.fetchFiles();
+	
+			if (this.id) {
+	
+				await updateSobs({ sobs: [{ Id: this.id, Input_Files_Uploaded__c: this.files.length }] })
+						
+				// this.dispatchEvent(
+				// 	new CustomEvent("detailchange", {
+				// 		composed: true,
+				// 		bubbles: true,
+				// 		detail: {
+				// 			Id: this.id,
+				// 			Input_Files_Uploaded__c: this.files.length
+				// 		}
+				// 	})
+				// );
+			}
+		} catch (error) {
+			console.error(error)
+		} finally {
+			this.dispatchEvent(
+				new CustomEvent("loading", {
+					bubbles: true,
+					composed: true
+				})
+			);
 		}
-
-		await this.fetchFiles();
-
-		this.dispatchEvent(
-			new CustomEvent("detailchange", {
-				composed: true,
-				bubbles: true,
-				detail: {
-					Id: this.id,
-					Input_Files_Uploaded__c: this.files.length
-				}
-			})
-		);
-
-		this.dispatchEvent(
-			new CustomEvent("loading", {
-				bubbles: true,
-				composed: true
-			})
-		);
 	}
 
 	async handleDelete(event) {
@@ -135,16 +144,19 @@ export default class ApplicationInputFile extends NavigationMixin(LightningEleme
 			await deleteFile({ contentDocumentId: id });
 			await this.fetchFiles();
 	
-			this.dispatchEvent(
-				new CustomEvent("detailchange", {
-					composed: true,
-					bubbles: true,
-					detail: {
-						Id: this.id,
-						Input_Files_Uploaded__c: this.files.length
-					}
-				})
-			);
+			if (this.id) {
+				await updateSobs({ sobs: [{ Id: this.id, Input_Files_Uploaded__c: this.files.length }] })
+				// this.dispatchEvent(
+				// 	new CustomEvent("detailchange", {
+				// 		composed: true,
+				// 		bubbles: true,
+				// 		detail: {
+				// 			Id: this.id,
+				// 			Input_Files_Uploaded__c: this.files.length
+				// 		}
+				// 	})
+				// );
+			}
 		} catch (error) {
 			console.error(error)
 		} finally {
