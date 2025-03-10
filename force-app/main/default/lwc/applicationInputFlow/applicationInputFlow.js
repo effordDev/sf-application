@@ -74,7 +74,7 @@ export default class ApplicationInputFlow extends LightningElement {
 	}
 
 	handleStatusChange(event) {
-		console.log(JSON.parse(JSON.stringify(event.detail)));
+		//console.log(JSON.parse(JSON.stringify(event.detail)));
 
 		this.flowStatus = event.detail?.status
 
