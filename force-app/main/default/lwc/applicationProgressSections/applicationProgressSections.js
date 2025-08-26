@@ -15,11 +15,10 @@ export default class ApplicationProgressSections extends LightningElement {
 	@api contact = {};
 	@api readOnly = false;
 	@api sections = [];
-	@api activeSectionId = "";
+
 	@api language = "";
 	@api isCommunity = false
-	// @api saveBtnLabel = 'Save & Next'
-	// @api cancelBtnLabel = 'Previous'
+
 
 	details = [];
 	sobsToUpdate = [];
@@ -32,6 +31,21 @@ export default class ApplicationProgressSections extends LightningElement {
 	connectedCallback() {
 		this.fetchApplicationDetails();
 		this.fetchApplicationDetailLanguages();
+	}
+
+	_activeSectionId = ''
+	@api get activeSectionId() {
+		return this._activeSectionId;
+	}
+
+	set activeSectionId(value) {
+
+		if (this._activeSectionId !== value) {
+			this.detailsToUpdate = []
+			this.sobsToUpdate = []
+		}
+
+		this._activeSectionId = value;
 	}
 
 	get editable() {
